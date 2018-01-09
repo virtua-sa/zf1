@@ -18,6 +18,7 @@ services:
 
 before_script:
   - phpenv config-rm xdebug.ini || return 0
+  - phpenv config-rm mcrypt.ini || return 0
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source
 
