@@ -196,7 +196,7 @@ class Zend_Gdata_AppTest extends PHPUnit_Framework_TestCase
         $headers = $this->adapter->popRequest()->headers;
         $found = false;
         foreach ($headers as $header) {
-            if ($header == 'GData-Version: 2')
+            if ($header == 'GData-Version: 2.1')
                 $found = true;
         }
         $this->assertTrue($found, 'Version header not found or incorrect');
