@@ -13,7 +13,7 @@
 
 Welcome to the Zend Framework 1.12 Release! 
 
-Master: [![Build Status](https://api.travis-ci.org/diablomedia/zf1.png?branch=master)](https://travis-ci.org/diablomedia/zf1)
+Master: [![Build Status](https://travis-ci.org/diablomedia/zf1.svg?branch=version-test-fix)](https://travis-ci.org/diablomedia/zf1)
 
 RELEASE INFORMATION
 ===================
