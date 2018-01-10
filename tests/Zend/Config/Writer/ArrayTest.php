@@ -44,7 +44,13 @@ class Zend_Config_Writer_ArrayTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->_tempName = tempnam(dirname(__FILE__) . '/temp', 'tmp');
+        $tempDir = dirname(__FILE__) . '/temp';
+
+        if (!file_exists($tempDir)) {
+            mkdir($tempDir);
+        }
+
+        $this->_tempName = tempnam($tempDir, 'tmp');
     }
 
     public function tearDown()

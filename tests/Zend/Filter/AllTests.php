@@ -24,6 +24,12 @@ if (!defined('PHPUnit_MAIN_METHOD')) {
     define('PHPUnit_MAIN_METHOD', 'Zend_Filter_AllTests::main');
 }
 
+// mcrypt is deprecated in PHP 7.1 (but still installed by default on Travis)
+// hiding deprecated errors so tests pass.
+if (substr(PHP_VERSION, 0, 3) === '7.1') {
+    error_reporting(E_ALL & ~E_DEPRECATED);
+}
+
 require_once 'Zend/Filter/AlnumTest.php';
 require_once 'Zend/Filter/AlphaTest.php';
 require_once 'Zend/Filter/BaseNameTest.php';

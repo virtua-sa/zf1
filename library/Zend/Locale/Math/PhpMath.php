@@ -106,7 +106,7 @@ class Zend_Locale_Math_PhpMath extends Zend_Locale_Math
             $scale = Zend_Locale_Math_PhpMath::$defaultScale;
         }
 
-        $op1 = self::normalize($op1);
+        $op1 = (float) self::normalize($op1);
         $op2 = self::normalize($op2);
 
         // BCMath extension doesn't use decimal part of the power
