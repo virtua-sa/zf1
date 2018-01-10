@@ -64,8 +64,14 @@ while(list(, $file)=each($files)) {
         continue;
     }
 
+    $errorReporting = 'E_ALL\&E_STRICT';
+
+    if ($_SERVER['TRAVIS_PHP_VERSION'] == '7.1' && $file == 'Zend/Filter/AllTests.php') {
+        $errorReporting = 'E_ALL\&E_STRICT\&~E_DEPRECATED';
+    }
+
     echo "Executing {$file}" . PHP_EOL;
-    system($PHPUNIT . ' --stderr -d memory_limit=-1 -d display_errors=1 ' . escapeshellarg($file), $c_result);
+    system($PHPUNIT . ' --stderr -d memory_limit=-1 -d error_reporting=' . $errorReporting . ' -d display_errors=1 ' . escapeshellarg($file), $c_result);
     echo PHP_EOL;
     echo "Finished executing {$file}" . PHP_EOL;
 
