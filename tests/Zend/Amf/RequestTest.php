@@ -425,7 +425,7 @@ class Zend_Amf_RequestTest extends PHPUnit_Framework_TestCase
         $myRequest = file_get_contents(dirname(__FILE__) .'/Request/mock/mixedArrayAmf0Request.bin');
         // send the mock object request to be deserialized
         $this->_request->initialize($myRequest);
-        // Make sure that no headers where recieved
+        // Make sure that no headers were recieved
         $this->assertEquals(0 , sizeof($this->_request->getAmfHeaders()));
         // Make sure that the message body was set after deserialization
         $this->assertEquals(1, sizeof($this->_request->getAmfBodies()));
@@ -433,7 +433,14 @@ class Zend_Amf_RequestTest extends PHPUnit_Framework_TestCase
         $this->assertTrue($bodies[0] instanceof Zend_Amf_Value_MessageBody);
         $data = $bodies[0]->getData();
         // Make sure that the string was deserialized properly and check its value
-        $this->assertTrue(array_key_exists(1, $data[0]));
+        // In PHP versions less than 7, get_object_vars doesn't return numerical
+        // keys. In PHP 7.2+ array_key_exists on this particular object returns false
+        // https://3v4l.org/ui8Fm
+        if (version_compare(PHP_VERSION, '7.0.0', '>=')) {
+            $this->assertTrue(array_key_exists(1, get_object_vars($data[0])));
+        } else {
+            $this->assertTrue(array_key_exists(1, $data[0]));
+        }
         $this->assertEquals('two', $data[0]->two);
     }
 
@@ -666,4 +673,3 @@ class Zend_Amf_RequestTest extends PHPUnit_Framework_TestCase
 if (PHPUnit_MAIN_METHOD == 'Zend_Amf_RequestTest::main') {
     Zend_Amf_RequestTest::main();
 }
-

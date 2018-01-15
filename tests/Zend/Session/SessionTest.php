@@ -71,7 +71,7 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
     /**
      * Set up tests environment
      */
-    function setUp()
+    public function setUp()
     {
         // _unitTestEnabled is utilised by other tests to handle session data processing
         // Zend_Session tests should pass with _unitTestEnabled turned off
@@ -85,7 +85,8 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-        ini_set('session.save_path', $this->_savePath);
+        session_abort();
+        session_save_path($this->_savePath);
 
         $this->assertSame(
             E_ALL | E_STRICT,
@@ -104,6 +105,9 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
                 return;
             }
         }
+
+        Zend_Session::$_unitTestEnabled = true;
+        Zend_Session::destroy();
     }
 
     /**
@@ -1091,6 +1095,8 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
             @mkdir($sessionStore . DIRECTORY_SEPARATOR . $subdir);
         }
 
+        session_start();
+
         // Set session ID to invalid value
         session_id('xxx');
 
@@ -1107,7 +1113,7 @@ class Zend_SessionTest extends PHPUnit_Framework_TestCase
 
         // We don't need the session any more, clean it up
         //but we don't to want to destroy it completely, while other tests can start
-        Zend_Session::$_unitTestEnabled = true; 
+        Zend_Session::$_unitTestEnabled = true;
         Zend_Session::destroy();
         foreach ( $sessionCharSet as $subdir ) {
             @rmdir($sessionStore . DIRECTORY_SEPARATOR . $subdir);
