@@ -7,8 +7,13 @@ php:
   - 7
   - 7.1
   - 7.2
+  - nightly
 
-env: TMPDIR=/tmp
+env: TMPDIR=/tmp USE_XDEBUG=false
+
+branches:
+  only:
+    master
 
 install:
  - phpenv rehash
@@ -16,8 +21,13 @@ install:
 services:
   - memcached
 
+stages:
+  - test
+  - test with coverage
+
 before_script:
-  - phpenv config-rm xdebug.ini || return 0
+  - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
+  - phpenv config-add tests/travis.ini
   - travis_retry composer self-update
   - travis_retry composer install --no-interaction --prefer-source
 
@@ -30,8 +40,21 @@ before_script:
   - cp ./tests/TestConfiguration.travis.php ./tests/TestConfiguration.php
 
 script:
- - cd tests/
- - php runalltests.php
+  - cd tests/
+  - php runalltests.php
 
-matrix:
+jobs:
+  fast_finish: true
   allow_failures:
+    - php: nightly
+  include:
+    - stage: test with coverage
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=true
+      script:
+        - cd tests/
+        - php runalltests.php --coverage
+      after_success:
+        - cd ..
+        - ./bin/phpcov merge ./build/coverage --clover=./build/coverage/clover.xml
+        - bash <(curl -s https://codecov.io/bash) -f ./build/coverage/clover.xml
