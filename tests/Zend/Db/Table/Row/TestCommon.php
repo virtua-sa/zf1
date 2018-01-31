@@ -174,7 +174,7 @@ abstract class Zend_Db_Table_Row_TestCommon extends Zend_Db_Table_TestSetup
 
         $a = $row1->toArray();
 
-        $this->assertTrue(is_array($a));
+        $this->assertInternalType('array', $a);
 
         // fix for #ZF-1898
         $arrayObject = new ArrayObject($row1->toArray(),ArrayObject::ARRAY_AS_PROPS);
@@ -252,7 +252,7 @@ abstract class Zend_Db_Table_Row_TestCommon extends Zend_Db_Table_TestSetup
     {
         $table = $this->_table['bugs'];
         $row   = $table->find(1)->current();
-        $this->setExpectedException('Zend_Db_Table_Row_Exception');
+        $this->expectException('Zend_Db_Table_Row_Exception');
         unset($row->bug_id);
     }
 
