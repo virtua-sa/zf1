@@ -30,12 +30,12 @@ require_once 'Zend/Session/Abstract.php';
 /**
  * @see Zend_Session_Namespace
  */
-require_once 'Zend/Session/Namespace.php';
+//require_once 'Zend/Session/Namespace.php';
 
 /**
  * @see Zend_Session_SaveHandler_Interface
  */
-require_once 'Zend/Session/SaveHandler/Interface.php';
+// require_once 'Zend/Session/SaveHandler/Interface.php';
 
 
 /**
@@ -436,7 +436,7 @@ class Zend_Session extends Zend_Session_Abstract
             if (self::$_regenerateIdState === -1) {
                 self::regenerateId();
             }
-            
+
             return; // already started
         }
 
@@ -608,7 +608,7 @@ class Zend_Session extends Zend_Session_Abstract
                         unset($_SESSION['__ZF'][$namespace]['ENVGH']);
                     }
                 }
-                
+
                 if (isset($namespace) && empty($_SESSION['__ZF'][$namespace])) {
                     unset($_SESSION['__ZF'][$namespace]);
                 }
@@ -809,13 +809,13 @@ class Zend_Session extends Zend_Session_Abstract
     {
         foreach ($_SESSION['__ZF']['VALID'] as $validator_name => $valid_data) {
             if (!class_exists($validator_name)) {
-                require_once 'Zend/Loader.php';
+                // require_once 'Zend/Loader.php';
                 Zend_Loader::loadClass($validator_name);
             }
             $validator = new $validator_name;
             if ($validator->validate() === false) {
                 /** @see Zend_Session_Validator_Exception */
-                require_once 'Zend/Session/Validator/Exception.php';
+                // require_once 'Zend/Session/Validator/Exception.php';
                 throw new Zend_Session_Validator_Exception("This session is not valid according to {$validator_name}.");
             }
         }
@@ -872,7 +872,7 @@ class Zend_Session extends Zend_Session_Abstract
     {
         if (parent::$_readable === false) {
             /** @see Zend_Session_Exception */
-            require_once 'Zend/Session/Exception.php';
+            // require_once 'Zend/Session/Exception.php';
             throw new Zend_Session_Exception(parent::_THROW_NOT_READABLE_MSG);
         }
 

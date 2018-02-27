@@ -71,4 +71,3 @@ class Zend_Session_Exception extends Zend_Exception
         self::$sessionStartError .= PHP_EOL . $errfile . '(Line:' . $errline . '): Error #' . $errno . ' ' . $errstr;
     }
 }
-
