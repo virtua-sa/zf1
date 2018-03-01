@@ -179,7 +179,7 @@ class Zend_Gdata_Photos_AlbumEntry extends Zend_Gdata_Entry
     /**
      * media:group element
      *
-     * @var Zend_Gdata_Media_MediaGroup
+     * @var Zend_Gdata_Media_Extension_MediaGroup
      */
     protected $_mediaGroup = null;
 

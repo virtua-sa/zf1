@@ -519,7 +519,7 @@ class Zend_Console_Getopt
     public function toXml()
     {
         $this->parse();
-        $doc = new DomDocument('1.0', 'utf-8');
+        $doc = new DOMDocument('1.0', 'utf-8');
         $optionsNode = $doc->createElement('options');
         $doc->appendChild($optionsNode);
         foreach ($this->_options as $flag => $value) {

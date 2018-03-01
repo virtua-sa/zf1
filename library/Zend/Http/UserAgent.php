@@ -799,7 +799,7 @@ class Zend_Http_UserAgent implements Serializable
      * Run the identification sequence to match the right browser type according to the
      * user agent
      *
-     * @return Zend_Http_UserAgent_Result
+     * @return string
      */
     protected function _matchUserAgent()
     {

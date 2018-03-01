@@ -91,7 +91,7 @@ abstract class Zend_Db_Table_Abstract
     /**
      * Optional Zend_Db_Table_Definition object
      *
-     * @var unknown_type
+     * @var Zend_Db_Table_Definition|null
      */
     protected $_definition = null;
 
@@ -332,7 +332,7 @@ abstract class Zend_Db_Table_Abstract
      * setDefinition()
      *
      * @param Zend_Db_Table_Definition $definition
-     * @return Zend_Db_Table_Abstract
+     * @return $this
      */
     public function setDefinition(Zend_Db_Table_Definition $definition)
     {
@@ -523,7 +523,7 @@ abstract class Zend_Db_Table_Abstract
     /**
      * returns the default source flag that determines where defaultSources come from
      *
-     * @return unknown
+     * @return string
      */
     public function getDefaultSource()
     {
@@ -719,7 +719,7 @@ abstract class Zend_Db_Table_Abstract
      *   Use this for natural keys, for example.
      *
      * @param mixed $sequence
-     * @return Zend_Db_Table_Adapter_Abstract Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     protected function _setSequence($sequence)
     {

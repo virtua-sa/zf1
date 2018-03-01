@@ -179,7 +179,7 @@ class Zend_Http_Client_Adapter_Curl implements Zend_Http_Client_Adapter_Interfac
      *
      * @param  string|int $option
      * @param  mixed $value
-     * @return Zend_Http_Adapter_Curl
+     * @return $this
      */
     public function setCurlOption($option, $value)
     {

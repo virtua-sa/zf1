@@ -54,7 +54,7 @@ class Zend_Barcode_Object_Code25interleaved extends Zend_Barcode_Object_Code25
     /**
      * Activate/deactivate drawing of bearer bars
      * @param boolean $value
-     * @return Zend_Barcode_Object_Int25
+     * @return $this
      */
     public function setWithBearerBars($value)
     {

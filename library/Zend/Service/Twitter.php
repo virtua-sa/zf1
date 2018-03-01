@@ -218,7 +218,7 @@ class Zend_Service_Twitter
      * Proxy service methods
      *
      * @param  string $type
-     * @return Twitter
+     * @return $this
      * @throws Exception\DomainException If method not in method types list
      */
     public function __get($type)

@@ -37,7 +37,7 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Object value
      *
-     * @var numeric
+     * @var int|string|float
      */
     public $value;
 
@@ -45,7 +45,7 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Object constructor
      *
-     * @param numeric $val
+     * @param int|float|string $val
      * @throws Zend_Pdf_Exception
      */
     public function __construct($val)
@@ -73,7 +73,7 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Return object as string
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)

@@ -20,7 +20,7 @@
 class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, ArrayAccess
 {
     /**
-     * @var array Array of Zend_Cloud_Infrastructure_Instance
+     * @var Zend_Cloud_Infrastructure_Instance[] Array of Zend_Cloud_Infrastructure_Instance
      */
     protected $instances = array();
 
@@ -37,7 +37,7 @@ class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, Arr
     /**
      * Constructor
      *
-     * @param  Adapter $adapter
+     * @param  Zend_Cloud_Infrastructure_Adapter $adapter
      * @param  array $instances
      * @return void
      */
@@ -73,7 +73,7 @@ class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, Arr
      * Add an instance
      *
      * @param  Instance
-     * @return InstanceList
+     * @return $this
      */
     protected function addInstance(Zend_Cloud_Infrastructure_Instance $instance)
     {
@@ -98,7 +98,7 @@ class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, Arr
      *
      * Implement Iterator::current()
      *
-     * @return Instance
+     * @return Zend_Cloud_Infrastructure_Instance
      */
     public function current()
     {
@@ -176,7 +176,7 @@ class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, Arr
      * Implement ArrayAccess::offsetGet()
      *
      * @param  int $offset
-     * @return Instance
+     * @return Zend_Cloud_Infrastructure_Instance
      * @throws Zend_Cloud_Infrastructure_Exception
      */
     public function offsetGet($offset)

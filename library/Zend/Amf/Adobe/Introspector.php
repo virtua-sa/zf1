@@ -116,7 +116,7 @@ class Zend_Amf_Adobe_Introspector
      * Authentication handler
      *
      * @param  Zend_Acl $acl
-     * @return unknown_type
+     * @return bool
      */
     public function initAcl(Zend_Acl $acl)
     {

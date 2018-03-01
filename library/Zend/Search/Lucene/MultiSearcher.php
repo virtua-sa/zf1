@@ -25,7 +25,7 @@
 
 /**
  * Import Zend_Search_Lucene_Interface_MultiSearcher for BC (see ZF-12067)
- * @see Zend_Search_Lucene_Interface_MultiSearcher 
+ * @see Zend_Search_Lucene_Interface_MultiSearcher
  */
 // require_once 'Zend/Search/Lucene/Interface/MultiSearcher.php';
 
@@ -792,14 +792,14 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
      *
      * null means "default documents distributing algorithm"
      *
-     * @var callback
+     * @var callable
      */
     protected $_documentDistributorCallBack = null;
 
     /**
      * Set callback for choosing target index.
      *
-     * @param callback $callback
+     * @param callable $callback
      * @throws Zend_Search_Lucene_Exception
      */
     public function setDocumentDistributorCallback($callback)
@@ -815,7 +815,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
     /**
      * Get callback for choosing target index.
      *
-     * @return callback
+     * @return callable
      */
     public function getDocumentDistributorCallback()
     {

@@ -86,7 +86,7 @@ class Zend_Service_Delicious
     /**
      * Zend_Service_Rest instance
      *
-     * @var Zend_Service_Rest
+     * @var Zend_Rest_Client
      */
     protected $_rest;
 
@@ -508,7 +508,7 @@ class Zend_Service_Delicious
         switch ($type) {
             case 'xml':
                 $dom = new DOMDocument() ;
-    
+
                 if (!$dom = @Zend_Xml_Security::scan($responseBody, $dom)) {
                     /**
                      * @see Zend_Service_Delicious_Exception

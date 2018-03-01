@@ -73,7 +73,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
     protected $_actionableMethods = array();
 
     /**
-     * @var unknown_type
+     * @var array
      */
     protected $_actions = array();
 
@@ -122,7 +122,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
     /**
      * getName() of the provider
      *
-     * @return unknown
+     * @return string
      */
     public function getName()
     {

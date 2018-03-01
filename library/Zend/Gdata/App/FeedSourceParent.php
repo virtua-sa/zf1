@@ -193,7 +193,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Generator
+     * @return Zend_Gdata_App_Extension_Generator
      */
     public function getGenerator()
     {
@@ -211,7 +211,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Icon
+     * @return Zend_Gdata_App_Extension_Icon
      */
     public function getIcon()
     {
@@ -229,7 +229,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_logo
+     * @return Zend_Gdata_App_Extension_logo
      */
     public function getlogo()
     {
@@ -247,7 +247,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Subtitle
+     * @return Zend_Gdata_App_Extension_Subtitle
      */
     public function getSubtitle()
     {

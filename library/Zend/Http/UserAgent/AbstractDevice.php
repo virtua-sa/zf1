@@ -934,7 +934,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     }
 
     /**
-     * @return the $_images
+     * @return array the $_images
      */
     public function getImages()
     {

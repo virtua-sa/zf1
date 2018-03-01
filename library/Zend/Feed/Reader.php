@@ -165,7 +165,7 @@ class Zend_Feed_Reader
     /**
      * Gets the HTTP client object. If none is set, a new Zend_Http_Client will be used.
      *
-     * @return Zend_Http_Client_Abstract
+     * @return Zend_Http_Client
      */
     public static function getHttpClient()
     {
@@ -341,8 +341,8 @@ class Zend_Feed_Reader
     {
         $dom = new DOMDocument;
         try {
-            $dom = Zend_Xml_Security::scan($string, $dom);        
-        } catch (Zend_Xml_Exception $e) {    
+            $dom = Zend_Xml_Security::scan($string, $dom);
+        } catch (Zend_Xml_Exception $e) {
             // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception(
                 $e->getMessage()

@@ -87,7 +87,7 @@ class Zend_Service_Amazon_Item
     public $CustomerReviews = array();
 
     /**
-     * @var Zend_Service_Amazon_SimilarProducts[]
+     * @var Zend_Service_Amazon_SimilarProduct[]
      */
     public $SimilarProducts = array();
 
@@ -102,12 +102,11 @@ class Zend_Service_Amazon_Item
     public $Tracks = array();
 
     /**
-     * @var Zend_Service_Amazon_ListmaniaLists[]
+     * @var Zend_Service_Amazon_ListmaniaList[]
      */
     public $ListmaniaLists = array();
 
     protected $_dom;
-
 
     /**
      * Parse the given <Item> element

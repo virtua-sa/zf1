@@ -47,6 +47,52 @@
  * @subpackage FileParser
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property mixed $ascent
+ * @property mixed $averageCharWidth
+ * @property mixed $baselineAtZero
+ * @property mixed $capitalHeight
+ * @property mixed $cmap
+ * @property mixed $descent
+ * @property mixed $fontWeight
+ * @property mixed $fontWidth
+ * @property mixed $glyphWidths
+ * @property mixed $isAdobeLatinSubset
+ * @property mixed $isBold
+ * @property mixed $isEmbeddable
+ * @property mixed $isItalic
+ * @property mixed $isMonospaced
+ * @property mixed $isOrnamentalFont
+ * @property mixed $isSansSerifFont
+ * @property mixed $isScriptFont
+ * @property mixed $isSerifFont
+ * @property mixed $isSubsettable
+ * @property mixed $isSymbolicFont
+ * @property mixed $italicAngle
+ * @property mixed $lineGap
+ * @property mixed $metricDataFormat
+ * @property mixed $names
+ * @property mixed $numberHMetrics
+ * @property mixed $numGlyphs
+ * @property mixed $strikePosition
+ * @property mixed $strikeThickness
+ * @property mixed $subscriptXOffset
+ * @property mixed $subscriptXSize
+ * @property mixed $subscriptYOffset
+ * @property mixed $subscriptYSize
+ * @property mixed $superscriptXOffset
+ * @property mixed $superscriptXSize
+ * @property mixed $superscriptYOffset
+ * @property mixed $superscriptYSize
+ * @property mixed $underlinePosition
+ * @property mixed $underlineThickness
+ * @property mixed $unitsPerEm
+ * @property mixed $useIntegerScaling
+ * @property mixed $vendorID
+ * @property mixed $xHeight
+ * @property mixed $xMax
+ * @property mixed $xMin
+ * @property mixed $yMax
+ * @property mixed $yMin
  */
 abstract class Zend_Pdf_FileParser_Font_OpenType extends Zend_Pdf_FileParser_Font
 {

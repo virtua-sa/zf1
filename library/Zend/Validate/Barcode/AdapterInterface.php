@@ -62,7 +62,7 @@ interface Zend_Validate_Barcode_AdapterInterface
      * Sets the checksum validation
      *
      * @param  boolean $check
-     * @return Zend_Validate_Barcode_Adapter Provides a fluent interface
+     * @return Zend_Validate_Barcode_AdapterInterface Provides a fluent interface
      */
     public function setCheck($check);
 }

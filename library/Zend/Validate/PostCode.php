@@ -58,7 +58,7 @@ class Zend_Validate_PostCode extends Zend_Validate_Abstract
     /**
      * Manual postal code format
      *
-     * @var unknown_type
+     * @var string
      */
     protected $_format;
 

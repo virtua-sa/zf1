@@ -838,7 +838,7 @@ class Zend_Gdata_App
         $feed->setMajorProtocolVersion($majorProtocolVersion);
         $feed->setMinorProtocolVersion($minorProtocolVersion);
         $feed->transferFromXML($string);
-        $feed->setHttpClient(self::getstaticHttpClient());
+        $feed->setHttpClient(self::getStaticHttpClient());
         return $feed;
     }
 
@@ -937,7 +937,7 @@ class Zend_Gdata_App
      * DELETE entry with client object
      *
      * @param mixed $data The Zend_Gdata_App_Entry or URL to delete
-     * @return void
+     * @return Zend_Http_Response
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      * @throws Zend_Gdata_App_InvalidArgumentException
@@ -983,7 +983,7 @@ class Zend_Gdata_App
         $response = $this->post($data, $uri, null, null, $extraHeaders);
 
         $returnEntry = new $className($response->getBody());
-        $returnEntry->setHttpClient(self::getstaticHttpClient());
+        $returnEntry->setHttpClient(self::getStaticHttpClient());
 
         $etag = $response->getHeader('ETag');
         if ($etag !== null) {
@@ -1023,7 +1023,7 @@ class Zend_Gdata_App
 
         $response = $this->put($data, $uri, null, null, $extraHeaders);
         $returnEntry = new $className($response->getBody());
-        $returnEntry->setHttpClient(self::getstaticHttpClient());
+        $returnEntry->setHttpClient(self::getStaticHttpClient());
 
         $etag = $response->getHeader('ETag');
         if ($etag !== null) {

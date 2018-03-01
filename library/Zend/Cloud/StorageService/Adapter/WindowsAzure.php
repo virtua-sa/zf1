@@ -434,7 +434,7 @@ class Zend_Cloud_StorageService_Adapter_WindowsAzure
 
     /**
      * Get the concrete adapter.
-     * @return Zend_Service_Azure_Storage_Blob
+     * @return Zend_Service_WindowsAzure_Storage_Blob
      */
     public function getClient()
     {

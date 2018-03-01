@@ -76,7 +76,7 @@ class Zend_Cloud_Infrastructure_Instance
     /**
      * Constructor
      *
-     * @param  Adapter $adapter
+     * @param  Zend_Cloud_Infrastructure_Adapter $adapter
      * @param  array $data
      * @return void
      */
@@ -119,7 +119,7 @@ class Zend_Cloud_Infrastructure_Instance
      * Get Attribute with a specific key
      *
      * @param array $data
-     * @return misc|false
+     * @return mixed|false
      */
     public function getAttribute($key)
     {

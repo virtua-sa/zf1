@@ -59,7 +59,7 @@ class Zend_Tool_Project_Profile_Resource extends Zend_Tool_Project_Profile_Resou
     /**#@-*/
 
     /**
-     * @var Zend_Tool_Project_Context|string
+     * @var Zend_Tool_Project_Context_Interface|string
      */
     protected $_context = null;
 

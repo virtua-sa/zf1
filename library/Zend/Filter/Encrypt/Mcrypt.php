@@ -109,7 +109,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      * Sets new encryption options
      *
      * @param  string|array $options Encryption options
-     * @return Zend_Filter_File_Encryption
+     * @return $this
      */
     public function setEncryption($options)
     {

@@ -49,6 +49,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version $Id$
+ * @method string getName() \ReflectionFunction::getName
  */
 abstract class Zend_Server_Reflection_Function_Abstract
 {

@@ -69,7 +69,7 @@ abstract class Zend_Queue_Adapter_AdapterAbstract
     /**
      * Contains the Zend_Queue that this object
      *
-     * @var Zend_Queue_Adapter_Abstract
+     * @var Zend_Queue
      */
     protected $_queue = null;
 

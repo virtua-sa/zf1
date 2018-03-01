@@ -68,7 +68,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
     /**
      * Barcode adapter
      *
-     * @var Zend_Validate_Barcode_BarcodeAdapter
+     * @var Zend_Validate_Barcode_AdapterInterface
      */
     protected $_adapter;
 
@@ -76,7 +76,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
      * Generates the standard validator object
      *
      * @param  string|Zend_Config|
-     *         Zend_Validate_Barcode_BarcodeAdapter $adapter Barcode adapter to use
+     *         Zend_Validate_Barcode_AdapterInterface $adapter Barcode adapter to use
      * @throws Zend_Validate_Exception
      */
     public function __construct($adapter)
@@ -113,7 +113,7 @@ class Zend_Validate_Barcode extends Zend_Validate_Abstract
     /**
      * Returns the set adapter
      *
-     * @return Zend_Validate_Barcode_BarcodeAdapter
+     * @return Zend_Validate_Barcode_AdapterInterface
      */
     public function getAdapter()
     {

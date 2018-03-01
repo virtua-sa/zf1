@@ -69,7 +69,7 @@ class Zend_Tool_Framework_Provider_Repository
      * setRegistry()
      *
      * @param Zend_Tool_Framework_Registry_Interface $registry
-     * @return unknown
+     * @return $this
      */
     public function setRegistry(Zend_Tool_Framework_Registry_Interface $registry)
     {
@@ -80,8 +80,8 @@ class Zend_Tool_Framework_Provider_Repository
     /**
      * Set the ProcessOnAdd flag
      *
-     * @param unknown_type $processOnAdd
-     * @return unknown
+     * @param bool $processOnAdd
+     * @return $this
      */
     public function setProcessOnAdd($processOnAdd = true)
     {

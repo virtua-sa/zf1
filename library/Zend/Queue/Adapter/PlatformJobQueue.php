@@ -37,7 +37,7 @@
 class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbstract
 {
     /**
-     * @var ZendApi_JobQueue
+     * @var ZendApi_Queue
      */
     protected $_zendQueue;
 
@@ -168,7 +168,7 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
     /**
      * Send a message to the queue
      *
-     * @param  array | ZendAPI_job $message Message to send to the active queue
+     * @param  array | ZendApi_Job $message Message to send to the active queue
      * @param  Zend_Queue $queue     Not supported
      * @return Zend_Queue_Message
      * @throws Zend_Queue_Exception
@@ -187,7 +187,7 @@ class Zend_Queue_Adapter_PlatformJobQueue extends Zend_Queue_Adapter_AdapterAbst
             Zend_Loader::loadClass($classname);
         }
 
-        if ($message instanceof ZendAPI_Job) {
+        if ($message instanceof ZendApi_Job) {
             $message = array('data' => $message);
         }
 

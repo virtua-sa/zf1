@@ -242,7 +242,7 @@ class Zend_Service_Audioscrobbler
 
     /**
      * Utility function to get this user's 50 most played tracks
-     * @return SimpleXML object containing resut set
+     * @return SimpleXMLElement object containing resut set
     */
     public function userGetTopTracks()
     {

@@ -299,7 +299,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      *
      * @param  string $path
      * @param  array $options
-     * @return void
+     * @return string
      */
     protected function _getFullPath($path, $options)
     {

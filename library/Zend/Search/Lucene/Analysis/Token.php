@@ -123,12 +123,12 @@ class Zend_Search_Lucene_Analysis_Token
     {
         return $this->_termText;
     }
-    
+
     /**
      * Sets the Token's term text.
-     * 
+     *
      * @param string $text
-     * @return this
+     * @return $this
      */
     public function setTermText($text)
     {

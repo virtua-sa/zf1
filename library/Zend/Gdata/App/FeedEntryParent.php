@@ -102,6 +102,10 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     protected $_contributor = array();
     protected $_id = null;
     protected $_link = array();
+
+    /**
+     * @var Zend_Gdata_App_Extension_Rights
+     */
     protected $_rights = null;
     protected $_title = null;
     protected $_updated = null;
@@ -165,7 +169,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      *
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             getService() instead.
-     * @return Zend_Http_Client_Abstract
+     * @return Zend_Http_Client
      */
     public function getHttpClient()
     {
@@ -483,7 +487,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Rights
+     * @return Zend_Gdata_App_Extension_Rights
      */
     public function getRights()
     {

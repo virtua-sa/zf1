@@ -78,6 +78,26 @@
  * @subpackage Gapps
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method Zend_Gdata_Gapps_Extension_EmailList newEmailList()
+ * @method Zend_Gdata_Gapps_EmailListEntry newEmailListEntry()
+ * @method Zend_Gdata_Gapps_EmailListQuery newEmailListQuery()
+ * @method Zend_Gdata_Gapps_EmailListRecipientEntry newEmailListRecipientEntry()
+ * @method Zend_Gdata_Gapps_EmailListRecipientQuery newEmailListRecipientQuery()
+ * @method Zend_Gdata_Gapps_GroupEntry newGroupEntry()
+ * @method Zend_Gdata_Gapps_GroupQuery newGroupQuery(string $groupId=null)
+ * @method Zend_Gdata_Gapps_Extension_Login newLogin(string $username=null)
+ * @method Zend_Gdata_Gapps_MemberEntry newMemberEntry()
+ * @method Zend_Gdata_Gapps_MemberQuery newMemberQuery(string $groupId=null)
+ * @method Zend_Gdata_Gapps_Extension_Name newName()
+ * @method Zend_Gdata_Gapps_Extension_Nickname newNickname(string $name=null)
+ * @method Zend_Gdata_Gapps_NicknameEntry newNicknameEntry()
+ * @method Zend_Gdata_Gapps_NicknameQuery newNicknameQuery()
+ * @method Zend_Gdata_Gapps_OwnerEntry newOwnerEntry()
+ * @method Zend_Gdata_Gapps_Extension_Property newProperty()
+ * @method Zend_Gdata_Gapps_Extension_Quota newQuota()
+ * @method Zend_Gdata_Gapps_UserEntry newUserEntry()
+ * @method Zend_Gdata_Gapps_UserQuery newUserQuery(string $username=null)
+ * @method Zend_Gdata_Extension_Who newWho()
  */
 class Zend_Gdata_Gapps extends Zend_Gdata
 {
@@ -149,7 +169,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * XML document is contained within the original exception's HTTP
      * response. If conversion fails, throw the original error.
      *
-     * @param Zend_Gdata_Exception $e The exception to convert.
+     * @param Zend_Gdata_App_Exception $e The exception to convert.
      * @throws Zend_Gdata_Gapps_ServiceException
      * @throws mixed
      */
@@ -282,7 +302,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      *
      * @param mixed $data The Zend_Gdata_App_Entry or URL to delete
      * @param integer $remainingRedirects (optional)
-     * @return void
+     * @return Zend_Http_Response
      * @throws Zend_Gdata_App_HttpException
      * @throws Zend_Gdata_App_InvalidArgumentException
      * @throws Zend_Gdata_Gapps_ServiceException

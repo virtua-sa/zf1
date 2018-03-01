@@ -1,2 +1,35 @@
 parameters:
-	bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    bootstrap: %rootDir%/../../../phpstan-bootstrap.php
+    excludes_analyse:
+        - 'library/Zend/EventManager/ResponseCollection.php'
+        - 'library/Zend/Stdlib/SplPriorityQueue.php'
+        - 'library/Zend/Tool/Framework/Provider/DocblockManifestable.php'
+    ignoreErrors:
+        # Level 0 errors that require code changes (or missing extensions/third party libs)
+        - '#.+::__construct\(\) does not call parent constructor from .+\.#'
+        - '#Access to an undefined property .+\.#'
+        - '#Access to constant .+ on an unknown class Memcached\.#'
+        - '#Array has [\d]+ duplicate keys with value .+\.#'
+        - '#Call to .+ on an unknown class Mobi_Mtld_DA_Api\.#'
+        - '#Call to an undefined method .+\.#'
+        - '#Call to an undefined static method .+\.#'
+        - '#Class .+ constructor invoked with [\d]+ parameters?, .+ required\.#'
+        - '#Class .+ does not have a constructor and must be instantiated without any parameters\.#'
+        - '#Class .+ not found\.#'
+        - '#Constructor of class .+ has an unused parameter .+.#'
+        - '#Function .+ invoked with [\d] parameters?, .+ required\.#'
+        - '#Function .+ not found\.#'
+        - '#Instantiated class .+ not found\.#'
+        - '#Method .+ invoked with [\d]+ parameters?, .+ required\.#'
+        - '#Parameter .+ has invalid typehint type TeraWurfl\.#'
+        - '#Parameter .+ has invalid typehint type Zend_Pdf_Element_LayoutBox\.#'
+        - '#Parameter .+ has invalid typehint type ZendApi_Job\.#'
+        - '#Property .+ has unknown class Memcache as its type\.#'
+        - '#Property .+ has unknown class ZendApi_Job as its type\.#'
+        - '#Property .+ has unknown class ZendApi_Queue as its type\.#'
+        - '#Result of method .+ \(void\) is used\.#'
+        - '#Result of static method .+ \(void\) is used\.#'
+        - '#Return typehint of method .+ has invalid type ZendApi_Job\.#'
+        - '#Static method .+ invoked with [\d]+ parameters?, .+ required\.#'
+        - '#Undefined variable: .+#'
+        - '#Using \$this in static method .+\.#'

@@ -103,7 +103,7 @@ class Zend_Service_Yahoo_VideoResult extends Zend_Service_Yahoo_Result
     /**
      * The thubmnail video for the article, if it exists
      *
-     * @var Zend_Service_Yahoo_Video
+     * @var Zend_Service_Yahoo_Image
      */
     public $Thumbnail;
 

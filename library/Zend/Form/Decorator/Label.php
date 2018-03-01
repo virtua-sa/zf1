@@ -43,6 +43,14 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @method getOptPrefix()
+ * @method getOptSuffix()
+ * @method getReqPrefix()
+ * @method getReqSuffix()
+ * @method setOptPrefix()
+ * @method setOptSuffix()
+ * @method setReqPrefix()
+ * @method setReqSuffix()
  */
 class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
 {
@@ -164,7 +172,7 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
     /**
      * Get the class to apply to the HTML tag, if any, with which to surround label
      *
-     * @return void
+     * @return string
      */
     public function getTagClass()
     {

@@ -42,7 +42,7 @@ class Zend_Tool_Framework_Action_Base implements Zend_Tool_Framework_Action_Inte
     /**
      * constructor -
      *
-     * @param unknown_type $options
+     * @param mixed $options
      */
     public function __construct($options = null)
     {

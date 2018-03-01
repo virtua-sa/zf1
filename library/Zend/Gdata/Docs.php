@@ -55,6 +55,7 @@
  * @subpackage Docs
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method Zend_Gdata_App_MediaFileSource newMediaFileSource(string $filename)
  */
 class Zend_Gdata_Docs extends Zend_Gdata
 {

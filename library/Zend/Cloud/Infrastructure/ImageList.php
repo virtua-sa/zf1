@@ -21,7 +21,7 @@
 class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayAccess
 {
     /**
-     * @var array Array of Zend_Cloud_Infrastructure_Image
+     * @var Zend_Cloud_Infrastructure_Image[] Array of Zend_Cloud_Infrastructure_Image
      */
     protected $images = array();
 
@@ -32,7 +32,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
 
     /**
      * The Image adapter (if exists)
-     * 
+     *
      * @var object
      */
     protected $adapter;
@@ -72,7 +72,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      * Add an image
      *
      * @param  Image
-     * @return ImageList
+     * @return $this
      */
     protected function addImage(Zend_Cloud_Infrastructure_Image $image)
     {
@@ -97,7 +97,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      *
      * Implement Iterator::current()
      *
-     * @return Image
+     * @return Zend_Cloud_Infrastructure_Image
      */
     public function current()
     {
@@ -176,7 +176,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      *
      * @param   int     $offset
      * @throws  Zend_Cloud_Infrastructure_Exception
-     * @return  Image
+     * @return  Zend_Cloud_Infrastructure_Image
      */
     public function offsetGet($offset)
     {

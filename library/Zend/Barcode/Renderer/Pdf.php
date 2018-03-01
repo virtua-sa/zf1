@@ -65,7 +65,7 @@ class Zend_Barcode_Renderer_Pdf extends Zend_Barcode_Renderer_RendererAbstract
      *
      * @param Zend_Pdf $pdf
      * @param int      $page
-     * @return Zend_Barcode_Renderer
+     * @return $this
      * @throws Zend_Barcode_Renderer_Exception
      */
     public function setResource($pdf, $page = 0)

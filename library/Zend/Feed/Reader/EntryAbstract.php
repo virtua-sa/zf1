@@ -44,7 +44,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
     /**
      * Entry instance
      *
-     * @var Zend_Feed_Entry_Interface
+     * @var DOMElement
      */
     protected $_entry = null;
 
@@ -166,7 +166,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
      * Set the XPath query
      *
      * @param  DOMXPath $xpath
-     * @return Zend_Feed_Reader_Entry_EntryAbstract
+     * @return $this
      */
     public function setXpath(DOMXPath $xpath)
     {

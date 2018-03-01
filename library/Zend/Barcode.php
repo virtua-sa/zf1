@@ -106,7 +106,7 @@ class Zend_Barcode
      *
      * @param mixed $barcode        String name of barcode class, or Zend_Config object.
      * @param mixed $barcodeConfig  OPTIONAL; an array or Zend_Config object with barcode parameters.
-     * @return Zend_Barcode_Object
+     * @return Zend_Barcode_Object_ObjectAbstract
      */
     public static function makeBarcode($barcode, $barcodeConfig = array())
     {
@@ -205,7 +205,7 @@ class Zend_Barcode
      *
      * @param mixed $renderer           String name of renderer class, or Zend_Config object.
      * @param mixed $rendererConfig     OPTIONAL; an array or Zend_Config object with renderer parameters.
-     * @return Zend_Barcode_Renderer
+     * @return Zend_Barcode_Renderer_RendererAbstract
      */
     public static function makeRenderer($renderer = 'image', $rendererConfig = array())
     {
@@ -307,8 +307,8 @@ class Zend_Barcode
     /**
      * Proxy to renderer render() method
      *
-     * @param string | Zend_Barcode_Object | array | Zend_Config $barcode
-     * @param string | Zend_Barcode_Renderer $renderer
+     * @param string | Zend_Barcode_Object_ObjectAbstract | array | Zend_Config $barcode
+     * @param string | Zend_Barcode_Renderer_RendererAbstract $renderer
      * @param array | Zend_Config $barcodeConfig
      * @param array | Zend_Config $rendererConfig
      */
@@ -324,8 +324,8 @@ class Zend_Barcode
     /**
      * Proxy to renderer draw() method
      *
-     * @param string | Zend_Barcode_Object | array | Zend_Config $barcode
-     * @param string | Zend_Barcode_Renderer $renderer
+     * @param string | Zend_Barcode_Object_ObjectAbstract | array | Zend_Config $barcode
+     * @param string | Zend_Barcode_Renderer_RendererAbstract $renderer
      * @param array | Zend_Config $barcodeConfig
      * @param array | Zend_Config $rendererConfig
      * @return mixed

@@ -103,7 +103,7 @@ class Zend_Soap_Wsdl
         if (!$this->_dom = Zend_Xml_Security::scan($wsdl, $this->_dom)) {
             // require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception('Unable to create DomDocument');
-        } 
+        }
         $this->_wsdl = $this->_dom->documentElement;
 
         $this->setComplexTypeStrategy($strategy);
@@ -113,7 +113,7 @@ class Zend_Soap_Wsdl
      * Set a new uri for this WSDL
      *
      * @param  string|Zend_Uri_Http $uri
-     * @return Zend_Server_Wsdl
+     * @return $this
      */
     public function setUri($uri)
     {

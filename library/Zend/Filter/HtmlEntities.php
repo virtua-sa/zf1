@@ -47,9 +47,9 @@ class Zend_Filter_HtmlEntities implements Zend_Filter_Interface
     protected $_encoding;
 
     /**
-     * Corresponds to the forth htmlentities() argument
+     * Corresponds to the fourth htmlentities() argument
      *
-     * @var unknown_type
+     * @var bool
      */
     protected $_doubleQuote;
 

@@ -36,6 +36,7 @@
  * @package    Zend_Feed
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method mixed id()
  */
 class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
 {
@@ -155,11 +156,11 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
             if (Zend_Feed::getHttpMethodOverride()) {
                 $client->setHeaders(array('X-HTTP-Method-Override: PUT',
                     'Content-Type: ' . self::CONTENT_TYPE));
-                $client->setRawData($this->saveXML());
+                $client->setRawData($this->saveXml());
                 $response = $client->request('POST');
             } else {
                 $client->setHeaders('Content-Type', self::CONTENT_TYPE);
-                $client->setRawData($this->saveXML());
+                $client->setRawData($this->saveXml());
                 $response = $client->request('PUT');
             }
             if ($response->getStatus() !== 200) {
@@ -180,7 +181,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
             $client = Zend_Feed::getHttpClient();
             $client->setUri($postUri);
             $client->setHeaders('Content-Type', self::CONTENT_TYPE);
-            $client->setRawData($this->saveXML());
+            $client->setRawData($this->saveXml());
             $response = $client->request('POST');
 
             if ($response->getStatus() !== 201) {

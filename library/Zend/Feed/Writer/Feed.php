@@ -208,7 +208,7 @@ implements Iterator, Countable
     /**
      * Return the current entry
      *
-     * @return Zend_Feed_Reader_Entry_Interface
+     * @return Zend_Feed_Writer_Entry
      */
     public function current()
     {
@@ -218,7 +218,7 @@ implements Iterator, Countable
     /**
      * Return the current feed key
      *
-     * @return unknown
+     * @return int
      */
     public function key()
     {

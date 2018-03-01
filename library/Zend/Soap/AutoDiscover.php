@@ -73,7 +73,7 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
     /**
      * Url where the WSDL file will be available at.
      *
-     * @var WSDL Uri
+     * @var Zend_Uri Uri
      */
     protected $_uri;
 
@@ -570,7 +570,7 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
     /**
      * Load Functions
      *
-     * @param unknown_type $definition
+     * @param array $definition
      * @throws Zend_Soap_AutoDiscover_Exception
      */
     public function loadFunctions($definition)

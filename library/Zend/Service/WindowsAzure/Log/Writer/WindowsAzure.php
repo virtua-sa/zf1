@@ -36,14 +36,14 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
     extends Zend_Log_Writer_Abstract
 {
     /**
-     * @var Zend_Service_Log_Formatter_Interface
+     * @var Zend_Log_Formatter_Interface
      */
     protected $_formatter;
 
     /**
      * Connection to a windows Azure
      *
-     * @var Zend_Service_Service_WindowsAzure_Storage_Table
+     * @var Zend_Service_WindowsAzure_Storage_Table
      */
     protected $_tableStorageConnection = null;
 
@@ -138,7 +138,7 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
      * Create a new instance of Zend_Service_Log_Writer_WindowsAzure
      *
      * @param  array $config
-     * @return Zend_Service_Log_Writer_WindowsAzure
+     * @return Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
      * @throws Zend_Service_Log_Exception
      */
     static public function factory($config)

@@ -334,7 +334,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
 
     /**
      * Get Azure implementation
-     * @return Zend_Service_Azure_Storage_Queue
+     * @return Zend_Service_WindowsAzure_Storage_Queue
      */
     public function getClient()
     {

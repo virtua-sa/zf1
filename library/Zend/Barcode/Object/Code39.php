@@ -115,7 +115,7 @@ class Zend_Barcode_Object_Code39 extends Zend_Barcode_Object_ObjectAbstract
     /**
      * Set text to encode
      * @param string $value
-     * @return Zend_Barcode_Object
+     * @return $this
      */
     public function setText($value)
     {

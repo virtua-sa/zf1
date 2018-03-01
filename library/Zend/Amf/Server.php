@@ -142,7 +142,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
     /**
      * Set authentication adapter
      *
-     * If the authentication adapter implements a "getAcl()" method, populate 
+     * If the authentication adapter implements a "getAcl()" method, populate
      * the ACL of this instance with it (if none exists already).
      *
      * @param  Zend_Amf_Auth_Abstract $auth
@@ -235,7 +235,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
      *
      * @param string|object $object Object or class being accessed
      * @param string $function Function or method being accessed
-     * @return unknown_type
+     * @return bool
      */
     protected function _checkAcl($object, $function)
     {
@@ -506,7 +506,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
         // Authenticate, if we have credential headers
         $error   = false;
         $headers = $request->getAmfHeaders();
-        if (isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER]) 
+        if (isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER])
             && isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER]->userid)
             && isset($headers[Zend_Amf_Constants::CREDENTIALS_HEADER]->password)
         ) {
@@ -530,14 +530,14 @@ class Zend_Amf_Server implements Zend_Server_Interface
             } catch (Exception $e) {
                 // Error during authentication; report it
                 $error = $this->_errorMessage(
-                    $objectEncoding, 
-                    '', 
+                    $objectEncoding,
+                    '',
                     $e->getMessage(),
                     $e->getTraceAsString(),
                     $e->getCode(),
                     $e->getLine()
                 );
-                $responseType = Zend_AMF_Constants::STATUS_METHOD;
+                $responseType = Zend_Amf_Constants::STATUS_METHOD;
             }
         }
 
@@ -599,11 +599,11 @@ class Zend_Amf_Server implements Zend_Server_Interface
                         }
                         break;
                 }
-                $responseType = Zend_AMF_Constants::RESULT_METHOD;
+                $responseType = Zend_Amf_Constants::RESULT_METHOD;
             } catch (Exception $e) {
                 $return = $this->_errorMessage($objectEncoding, $message,
                     $e->getMessage(), $e->getTraceAsString(),$e->getCode(),  $e->getLine());
-                $responseType = Zend_AMF_Constants::STATUS_METHOD;
+                $responseType = Zend_Amf_Constants::STATUS_METHOD;
             }
 
             $responseURI = $body->getResponseURI() . $responseType;
@@ -709,8 +709,8 @@ class Zend_Amf_Server implements Zend_Server_Interface
     /**
      * Public access method to private Zend_Amf_Server_Response reference
      *
-     * @param  string|Zend_Amf_Server_Response $response
-     * @return Zend_Amf_Server
+     * @param  string|Zend_Amf_Response $response
+     * @return $this
      */
     public function setResponse($response)
     {
@@ -731,7 +731,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
     /**
      * get a reference to the Zend_Amf_response instance
      *
-     * @return Zend_Amf_Server_Response
+     * @return Zend_Amf_Response
      */
     public function getResponse()
     {
@@ -970,9 +970,9 @@ class Zend_Amf_Server implements Zend_Server_Interface
      *
      * Takes the provided parameters from the request, and attempts to cast them
      * to objects, if the prototype defines any as explicit object types
-     * 
-     * @param  Reflection $reflectionMethod 
-     * @param  array $params 
+     *
+     * @param  Reflection $reflectionMethod
+     * @param  array $params
      * @return array
      */
     protected function _castParameters($reflectionMethod, array $params)

@@ -258,7 +258,7 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
 
     /**
      * Get the concrete client.
-     * @return strings
+     * @return string
      */
     public function getClient()
     {

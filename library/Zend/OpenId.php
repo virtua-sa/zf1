@@ -127,11 +127,11 @@ class Zend_OpenId
         }
 
         $url .= $port;
-        if (isset($_SERVER['HTTP_X_ORIGINAL_URL'])) { 
+        if (isset($_SERVER['HTTP_X_ORIGINAL_URL'])) {
             // IIS with Microsoft Rewrite Module
             $url .= $_SERVER['HTTP_X_ORIGINAL_URL'];
         } elseif (isset($_SERVER['HTTP_X_REWRITE_URL'])) {
-            // IIS with ISAPI_Rewrite 
+            // IIS with ISAPI_Rewrite
             $url .= $_SERVER['HTTP_X_REWRITE_URL'];
         } elseif (isset($_SERVER['REQUEST_URI'])) {
             $query = strpos($_SERVER['REQUEST_URI'], '?');
@@ -414,7 +414,7 @@ class Zend_OpenId
         }
 
         // 7.2.4
-        return self::normalizeURL($id);
+        return self::normalizeUrl($id);
     }
 
     /**

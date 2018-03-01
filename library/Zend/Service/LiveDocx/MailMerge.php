@@ -355,7 +355,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * @param string $format
      *
      * @throws Zend_Service_LiveDocx_Exception
-     * @return binary
+     * @return string
      * @since  LiveDocx 1.0
      */
     public function retrieveDocument($format)
@@ -618,7 +618,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Download template file from LiveDocx service
      *
      * @param  string $filename
-     * @return binary
+     * @return string
      * @throws Zend_Service_LiveDocx_Exception
      * @since  LiveDocx 1.0
      */

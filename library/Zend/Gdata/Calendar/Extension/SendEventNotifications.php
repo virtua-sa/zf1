@@ -111,7 +111,7 @@ class Zend_Gdata_Calendar_Extension_SendEventNotifications extends Zend_Gdata_Ex
      * Set the value for this element's Value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_SendEventNotifications The element being modified.
+     * @return $this The element being modified.
      */
     public function setValue($value)
     {

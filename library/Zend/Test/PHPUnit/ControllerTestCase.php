@@ -43,6 +43,9 @@
  * @subpackage PHPUnit
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property Zend_Controller_Front $frontController
+ * @property Zend_Controller_Request_Abstract $request
+ * @property Zend_Controller_Response_Abstract $response
  */
 abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\TestCase
 {

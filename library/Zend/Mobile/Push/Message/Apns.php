@@ -233,7 +233,7 @@ class Zend_Mobile_Push_Message_Apns extends Zend_Mobile_Push_Message_Abstract
     /**
      * Clear Custom Data
      *
-     * @return throw new Zend_Mobile_Push_Message_Apns
+     * @return $this
      */
     public function clearCustomData()
     {

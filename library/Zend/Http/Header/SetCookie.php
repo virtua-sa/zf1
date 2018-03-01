@@ -121,7 +121,7 @@ class Zend_Http_Header_SetCookie
      * @throws Zend_Http_Header_Exception_InvalidArgumentException
      * @param  $headerLine
      * @param  bool $bypassHeaderFieldName
-     * @return array|SetCookie
+     * @return Zend_Http_Header_SetCookie[]|Zend_Http_Header_SetCookie
      */
     public static function fromString($headerLine, $bypassHeaderFieldName = false)
     {
@@ -184,7 +184,7 @@ class Zend_Http_Header_SetCookie
      * @param bool $httponly
      * @param string $maxAge
      * @param int $version
-     * @return SetCookie
+     * @return void
      */
     public function __construct($name = null, $value = null, $expires = null, $path = null, $domain = null, $secure = false, $httponly = false, $maxAge = null, $version = null)
     {
@@ -291,7 +291,7 @@ class Zend_Http_Header_SetCookie
 
     /**
      * @param string $name
-     * @return SetCookie
+     * @return $this
      */
     public function setName($name)
     {
@@ -377,7 +377,7 @@ class Zend_Http_Header_SetCookie
 
     /**
      * @param int $expires
-     * @return SetCookie
+     * @return $this
      */
     public function setExpires($expires)
     {
@@ -538,7 +538,7 @@ class Zend_Http_Header_SetCookie
     public function toStringMultipleHeaders(array $headers)
     {
         $headerLine = $this->toString();
-        /* @var $header SetCookie */
+        /* @var $header Zend_Http_Header_SetCookie */
         foreach ($headers as $header) {
             if (!$header instanceof Zend_Http_Header_SetCookie) {
                 throw new Zend_Http_Header_Exception_RuntimeException(

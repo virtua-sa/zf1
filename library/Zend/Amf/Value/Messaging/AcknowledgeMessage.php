@@ -40,7 +40,7 @@ class Zend_Amf_Value_Messaging_AcknowledgeMessage extends Zend_Amf_Value_Messagi
     /**
      * Create a new Acknowledge Message
      *
-     * @param unknown_type $message
+     * @param object $message
      */
     public function __construct($message)
     {

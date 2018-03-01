@@ -333,7 +333,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     }
 
     /**
-     * @param Zend_Gdata_Transparency $value
+     * @param Zend_Gdata_Extension_Transparency $value
      * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setTransparency($value)
@@ -348,7 +348,7 @@ class Zend_Gdata_Kind_EventEntry extends Zend_Gdata_Entry
     }
 
     /**
-     * @param Zend_Gdata_Visibility $value
+     * @param Zend_Gdata_Extension_Visibility $value
      * @return Zend_Gdata_Kind_EventEntry Provides a fluent interface
      */
     public function setVisibility($value)

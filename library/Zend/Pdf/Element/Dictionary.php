@@ -141,7 +141,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Return object as string
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)

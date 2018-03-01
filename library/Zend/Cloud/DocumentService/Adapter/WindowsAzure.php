@@ -534,7 +534,8 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      * Validate a composite key
      *
      * @param  array $key
-     * @return throws Zend_Cloud_DocumentService_Exception
+     * @throws Zend_Cloud_DocumentService_Exception
+     * @return void
      */
     protected function _validateCompositeKey(array $key)
     {

@@ -264,7 +264,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Set Target Reference
      *
-     * @param reference $target
+     * @param string $target
      * @return Zend_Filter_Inflector
      */
     public function setTargetReference(&$target)
@@ -374,7 +374,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      *
      * @param string $spec
      * @param array|string|Zend_Filter_Interface $ruleSet
-     * @return Zend_Filter_Inflector
+     * @return $this
      */
     public function setFilterRule($spec, $ruleSet)
     {
@@ -388,7 +388,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      *
      * @param mixed $spec
      * @param mixed $ruleSet
-     * @return void
+     * @return $this
      */
     public function addFilterRule($spec, $ruleSet)
     {

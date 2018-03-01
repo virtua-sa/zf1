@@ -59,7 +59,7 @@ abstract class Zend_Pdf_Element
      *
      * $factory parameter defines operation context.
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     abstract public function toString($factory = null);
