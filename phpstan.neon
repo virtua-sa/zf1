@@ -33,3 +33,9 @@ parameters:
         - '#Static method .+ invoked with [\d]+ parameters?, .+ required\.#'
         - '#Undefined variable: .+#'
         - '#Using \$this in static method .+\.#'
+        # Level 1 errors that require code changes
+        - '#Variable \$.+ might not be defined\.#'
+        - '#Variable \$.+ in isset\(\) always exists and is not nullable\.#'
+        - '#Variable \$.+ in isset\(\) is never defined\.#'
+        - '#Constant [A-Z0-9_]+ not found\.#'
+        - '#Constant this not found\.#'
