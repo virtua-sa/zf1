@@ -90,7 +90,6 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     /**
      * Set a single author
      *
-     * @param  int $index
      * @return string|null
      */
     public function addAuthor($name, $email = null, $uri = null)
@@ -169,7 +168,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     /**
      * Set the feed creation date
      *
-     * @param null|integer|Zend_Date
+     * @param null|integer|Zend_Date $date
      */
     public function setDateCreated($date = null)
     {
@@ -190,7 +189,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     /**
      * Set the feed modification date
      *
-     * @param null|integer|Zend_Date
+     * @param null|integer|Zend_Date $date
      */
     public function setDateModified($date = null)
     {
@@ -211,7 +210,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     /**
      * Set the feed last-build date. Ignored for Atom 1.0.
      *
-     * @param null|integer|Zend_Date
+     * @param null|integer|Zend_Date $date
      */
     public function setLastBuildDate($date = null)
     {
@@ -502,7 +501,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     /**
      * Add a feed category
      *
-     * @param string $category
+     * @param array $category
      */
     public function addCategory(array $category)
     {

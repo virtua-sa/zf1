@@ -38,7 +38,7 @@ class Zend_Service_StrikeIron_Base
 {
     /**
      * Configuration options
-     * @param array
+     * @var array
      */
     protected $_options = array('username' => null,
                                 'password' => null,
@@ -49,7 +49,7 @@ class Zend_Service_StrikeIron_Base
 
     /**
      * Output headers returned by the last call to SOAPClient->__soapCall()
-     * @param array
+     * @var array
      */
     protected $_outputHeaders = array();
 
@@ -175,7 +175,7 @@ class Zend_Service_StrikeIron_Base
      *
      * @see    __call()
      * @param  string  $method  Method name called from PHP
-     * @param  mixed   $param   Parameters passed from PHP
+     * @param  mixed   $params  Parameters passed from PHP
      * @return array            [$method, $params] for SOAPClient->__soapCall()
      */
     protected function _transformCall($method, $params)

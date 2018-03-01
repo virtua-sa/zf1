@@ -184,7 +184,7 @@ abstract class Zend_XmlRpc_Value
      * By default the value type is autodetected according to it's PHP type
      *
      * @param mixed $value
-     * @param Zend_XmlRpc_Value::constant $type
+     * @param string $type
      *
      * @return Zend_XmlRpc_Value
      * @static
@@ -480,8 +480,8 @@ abstract class Zend_XmlRpc_Value
      * Extract XML/RPC type and value from SimpleXMLElement object
      *
      * @param SimpleXMLElement $xml
-     * @param string &$type Type bind variable
-     * @param string &$value Value bind variable
+     * @param string $type Type bind variable
+     * @param string $value Value bind variable
      * @return void
      */
     protected static function _extractTypeAndValue(SimpleXMLElement $xml, &$type, &$value)

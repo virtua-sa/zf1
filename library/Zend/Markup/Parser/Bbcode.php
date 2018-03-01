@@ -202,8 +202,6 @@ class Zend_Markup_Parser_Bbcode implements Zend_Markup_Parser_ParserInterface
     /**
      * Tokenize
      *
-     * @param string $input
-     *
      * @return void
      */
     protected function _tokenize()
@@ -325,8 +323,6 @@ class Zend_Markup_Parser_Bbcode implements Zend_Markup_Parser_ParserInterface
 
     /**
      * Parse the token array into a tree
-     *
-     * @param array $tokens
      *
      * @return void
      */

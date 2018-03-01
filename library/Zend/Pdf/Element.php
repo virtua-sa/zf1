@@ -74,7 +74,7 @@ abstract class Zend_Pdf_Element
      * (Needs PHP 5.3.x to attach object _with_ additional data to storage)
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      */

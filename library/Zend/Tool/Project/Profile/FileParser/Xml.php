@@ -94,8 +94,8 @@ class Zend_Tool_Project_Profile_FileParser_Xml implements Zend_Tool_Project_Prof
      * Create a structure in the object $profile from the structure specficied
      * in the xml string provided
      *
-     * @param string xml data
-     * @param Zend_Tool_Project_Profile The profile to use as the top node
+     * @param string $data xml data
+     * @param Zend_Tool_Project_Profile $profile The profile to use as the top node
      * @return Zend_Tool_Project_Profile
      */
     public function unserialize($data, Zend_Tool_Project_Profile $profile)
@@ -137,9 +137,9 @@ class Zend_Tool_Project_Profile_FileParser_Xml implements Zend_Tool_Project_Prof
      * when *serializing* an xml structure into a string
      *
      * @param array $resources
-     * @param SimpleXmlElement $xmlNode
+     * @param SimpleXMLElement $xmlNode
      */
-    protected function _serializeRecurser($resources, SimpleXmlElement $xmlNode)
+    protected function _serializeRecurser($resources, SimpleXMLElement $xmlNode)
     {
         // @todo find a better way to handle concurrency.. if no clone, _position in node gets messed up
         //if ($resources instanceof Zend_Tool_Project_Profile_Resource) {

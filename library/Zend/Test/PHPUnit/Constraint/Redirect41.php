@@ -61,7 +61,7 @@ class Zend_Test_PHPUnit_Constraint_Redirect41 extends PHPUnit\Framework\Constrai
      * @var string
      */
     protected $_match             = null;
-    
+
     /**
      * What is actual redirect
      */
@@ -97,7 +97,7 @@ class Zend_Test_PHPUnit_Constraint_Redirect41 extends PHPUnit\Framework\Constrai
      * Evaluate an object to see if it fits the constraints
      *
      * @param  string $other String to examine
-     * @param  null|string Assertion type
+     * @param  null|string $assertType Assertion type
      * @return bool
      * NOTE:
      * Drastic changes up to PHPUnit 3.5.15 this was:
@@ -166,7 +166,7 @@ class Zend_Test_PHPUnit_Constraint_Redirect41 extends PHPUnit\Framework\Constrai
      * @see    PHPUnit\Framework\Constraint\Constraint for implementation details
      * @param  mixed $other
      * @param  string $description Additional message to display
-     * @param  bool $not
+     * @param  \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used
      * @return void
      * @throws PHPUnit\Framework\ExpectationFailedException
      * NOTE:

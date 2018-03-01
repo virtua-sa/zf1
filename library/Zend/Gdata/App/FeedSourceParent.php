@@ -229,7 +229,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_App_Extension_logo
+     * @return Zend_Gdata_App_Extension_Logo
      */
     public function getlogo()
     {
@@ -237,7 +237,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_logo $value
+     * @param Zend_Gdata_App_Extension_Logo $value
      * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setlogo($value)

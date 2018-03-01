@@ -119,7 +119,7 @@ class Zend_Barcode_Renderer_Svg extends Zend_Barcode_Renderer_RendererAbstract
     /**
      * Set an image resource to draw the barcode inside
      *
-     * @param $svg
+     * @param DOMDocument $svg
      * @return $this
      * @throws Zend_Barcode_Renderer_Exception
      */

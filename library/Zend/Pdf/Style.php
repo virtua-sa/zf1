@@ -68,7 +68,7 @@ class Zend_Pdf_Style
     /**
      * Line dashing phase
      *
-     * @var float
+     * @var Zend_Pdf_Element_Numeric
      */
     private $_lineDashingPhase;
 

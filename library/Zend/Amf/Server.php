@@ -109,7 +109,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
 
     /**
      * Namespace allows all AMF calls to not clobber other PHP session variables
-     * @var Zend_Session_NameSpace default session namespace zend_amf
+     * @var Zend_Session_Namespace default session namespace zend_amf
      */
     protected $_sesionNamespace = 'zend_amf';
 
@@ -210,7 +210,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
     }
 
     /**
-     * @param namespace of all incoming sessions defaults to Zend_Amf
+     * @param string $namespace namespace of all incoming sessions defaults to Zend_Amf
      * @return Zend_Amf_Server
      */
     public function setSession($namespace = 'Zend_Amf')
@@ -295,7 +295,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
      * the result
      *
      * @param  string $method Is the method to execute
-     * @param  mixed $param values for the method
+     * @param  mixed $params values for the method
      * @return mixed $response the result of executing the method
      * @throws Zend_Amf_Server_Exception
      */
@@ -753,7 +753,7 @@ class Zend_Amf_Server implements Zend_Server_Interface
      *
      * @param  string|object $class
      * @param  string $namespace Optional
-     * @param  mixed $arg Optional arguments to pass to a method
+     * @param  mixed $argv Optional arguments to pass to a method
      * @return Zend_Amf_Server
      * @throws Zend_Amf_Server_Exception on invalid input
      */

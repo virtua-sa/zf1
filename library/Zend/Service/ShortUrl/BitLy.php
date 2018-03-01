@@ -72,7 +72,7 @@ class Zend_Service_ShortUrl_BitLy extends Zend_Service_ShortUrl_AbstractShortene
     /**
      * set OAuth credentials
      *
-     * @param $accessToken
+     * @param string $accessToken
      * @return Zend_Service_ShortUrl_BitLy
      */
     public function setOAuthAccessToken($accessToken)
@@ -85,8 +85,8 @@ class Zend_Service_ShortUrl_BitLy extends Zend_Service_ShortUrl_AbstractShortene
     /**
      * set login credentials
      *
-     * @param $login
-     * @param $apiKey
+     * @param string $login
+     * @param string $apiKey
      * @return Zend_Service_ShortUrl_BitLy
      */
     public function setApiLogin($login, $apiKey)

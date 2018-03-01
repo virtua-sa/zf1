@@ -217,7 +217,7 @@ abstract class Zend_Pdf_Resource_Font_Simple extends Zend_Pdf_Resource_Font
      *
      * See also {@link widthForGlyph()}.
      *
-     * @param array &$glyphNumbers Array of glyph numbers.
+     * @param array $glyphNumbers Array of glyph numbers.
      * @return array Array of glyph widths (integers).
      */
     public function widthsForGlyphs($glyphNumbers)

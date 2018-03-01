@@ -162,7 +162,7 @@ class Zend_Crypt_Math_BigInteger_Gmp implements Zend_Crypt_Math_BigInteger_Inter
     /**
      * Calculate square root
      *
-     * @param $operand
+     * @param string|object|resource $operand
      * @return string
      */
     public function sqrt($operand)

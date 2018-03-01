@@ -487,7 +487,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
      *
      * @see Zend_Mail_Part::hasHeader
      *
-     * @param  string
+     * @param  string $name
      * @return boolean
      */
     public function __isset($name)

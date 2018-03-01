@@ -237,7 +237,7 @@ abstract class Zend_Feed_Abstract extends Zend_Feed_Element implements Iterator,
     /**
      * Generate the header of the feed when working in write mode
      *
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return DOMElement root node
      */
     abstract protected function _mapFeedHeaders($array);

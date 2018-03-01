@@ -49,7 +49,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Constructor
      *
-     * @param string|array $callback Callback in a call_user_func format
+     * @param array|Zend_Config $options
      * @param mixed        $options  (Optional) Default options for this filter
      */
     public function __construct($options)

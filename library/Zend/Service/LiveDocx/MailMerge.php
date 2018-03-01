@@ -1060,7 +1060,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
     /**
      * Convert LiveDocx service return value from list methods to consistent PHP array
      *
-     * @param  array $list
+     * @param  object $list
      * @return array
      * @since  LiveDocx 1.0
      */

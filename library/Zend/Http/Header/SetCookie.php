@@ -119,7 +119,7 @@ class Zend_Http_Header_SetCookie
      *
      * @static
      * @throws Zend_Http_Header_Exception_InvalidArgumentException
-     * @param  $headerLine
+     * @param  string $headerLine
      * @param  bool $bypassHeaderFieldName
      * @return Zend_Http_Header_SetCookie[]|Zend_Http_Header_SetCookie
      */

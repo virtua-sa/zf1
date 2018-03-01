@@ -254,7 +254,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * @param string $uri (optional) POST URI
      * @param integer $remainingRedirects (optional)
      * @param string $contentType Content-type of the data
-     * @param array $extraHaders Extra headers to add tot he request
+     * @param array $extraHeaders Extra headers to add tot he request
      * @return Zend_Http_Response
      * @throws Zend_Gdata_App_HttpException
      * @throws Zend_Gdata_App_InvalidArgumentException
@@ -279,7 +279,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * @param string $uri (optional) PUT URI
      * @param integer $remainingRedirects (optional)
      * @param string $contentType Content-type of the data
-     * @param array $extraHaders Extra headers to add tot he request
+     * @param array $extraHeaders Extra headers to add tot he request
      * @return Zend_Http_Response
      * @throws Zend_Gdata_App_HttpException
      * @throws Zend_Gdata_App_InvalidArgumentException
@@ -1558,7 +1558,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
     /**
      * Retrieve all email lists associated with a recipient.
      *
-     * @param string $username The recipient whose associated email lists
+     * @param string $recipient The recipient whose associated email lists
      *          should be returned.
      * @return Zend_Gdata_Gapps_EmailListFeed The list of email lists found as
      *          Zend_Gdata_EmailListEntry objects.
@@ -1576,7 +1576,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * Retrieve a page of email lists in alphabetical order, starting with the
      * provided email list.
      *
-     * @param string $startEmailListName (optional) The first list to
+     * @param string $startNickname (optional) The first list to
      *              retrieve. If null or not defined, the page will begin
      *              with the first email list in the domain.
      * @return Zend_Gdata_Gapps_EmailListFeed Collection of Zend_Gdata_EmailListEntry
@@ -1647,7 +1647,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * Retrieve a page of email list recipients in alphabetical order,
      * starting with the provided email list recipient.
      *
-     * @param string $emaiList The email list which should be searched.
+     * @param string $emailList The email list which should be searched.
      * @param string $startRecipient (optinal) The address of the first
      *              recipient, or null to start with the first recipient in
      *              the list.
@@ -1672,7 +1672,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      * signifigant amount of time to complete. On larger domains this may
      * may cause execution to timeout without proper precautions in place.
      *
-     * @param string $emaiList The email list which should be searched.
+     * @param string $emailList The email list which should be searched.
      * @return Zend_Gdata_Gapps_EmailListRecipientFeed The list of email lists
      *              found as Zend_Gdata_Gapps_EmailListRecipientEntry objects.
      * @throws Zend_Gdata_App_Exception

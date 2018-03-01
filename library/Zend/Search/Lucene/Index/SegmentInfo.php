@@ -1475,7 +1475,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      * Deletes a document from the index segment.
      * $id is an internal document id
      *
-     * @param integer
+     * @param integer $id
      */
     public function delete($id)
     {
@@ -1498,7 +1498,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Checks, that document is deleted
      *
-     * @param integer
+     * @param integer $id
      * @return boolean
      */
     public function isDeleted($id)
@@ -1762,8 +1762,6 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      *
      * Returns start document id for the next segment
      *
-     * @param integer $startId
-     * @param integer $mode
      * @throws Zend_Search_Lucene_Exception
      * @return integer
      */

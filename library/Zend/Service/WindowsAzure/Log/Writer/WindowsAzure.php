@@ -71,10 +71,10 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
     protected $_messageBuffer = array();
 
     /**
-     * @param Zend_Service_Service_WindowsAzure_Storage_Table|Zend_Service_WindowsAzure_Storage_Table $tableStorageConnection
-     * @param string                                                                                  $tableName
-     * @param bool                                                                                    $createTable create the Windows Azure table for logging if it does not exist
-     * @param bool                                                                                    $bufferMessages
+     * @param Zend_Service_WindowsAzure_Storage_Table $tableStorageConnection
+     * @param string                                  $tableName
+     * @param bool                                    $createTable create the Windows Azure table for logging if it does not exist
+     * @param bool                                    $bufferMessages
      * @throws Zend_Service_Log_Exception
      */
     public function __construct(

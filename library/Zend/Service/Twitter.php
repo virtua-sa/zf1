@@ -613,7 +613,7 @@ class Zend_Service_Twitter
      * - max_id: return results with an ID less than (older than) or equal to the specified ID
      * - include_entities: when set to false, entities member will be omitted
      *
-     * @param  array $params
+     * @param  array $options
      * @throws Zend_Http_Client_Exception if HTTP request fails or times out
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
@@ -839,7 +839,7 @@ class Zend_Service_Twitter
      * - include_entities: when set to false, entities member will be omitted
      * - exclude_replies: when set to true, will strip replies appearing in the timeline
      *
-     * @param  array $params
+     * @param  array $options
      * @throws Zend_Http_Client_Exception if HTTP request fails or times out
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
@@ -1181,7 +1181,7 @@ class Zend_Service_Twitter
     /**
      * Protected function to validate that the integer is valid or return a 0
      *
-     * @param  $int
+     * @param  int|string $int
      * @throws Zend_Http_Client_Exception if HTTP request fails or times out
      * @return integer
      */

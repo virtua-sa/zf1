@@ -167,7 +167,7 @@ class Zend_Db_Adapter_Oracle extends Zend_Db_Adapter_Abstract
     /**
      * Activate/deactivate return of LOB as string
      *
-     * @param string $lob_as_string
+     * @param string $lobAsString
      * @return Zend_Db_Adapter_Oracle
      */
     public function setLobAsString($lobAsString)

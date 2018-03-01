@@ -132,11 +132,11 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
     /**
      * Evaluate an object to see if it fits the constraints
      *
-     * @param  string       Response content to be matched against (haystack)
-     * @param  null|string  Assertion type
-     * @param  string       (optional) String to match (needle), may be required depending on assertion type
+     * @param  string       $content Response content to be matched against (haystack)
+     * @param  null|string  $assertType Assertion type
+     * @param  string       $match (optional) String to match (needle), may be required depending on assertion type
      * @return bool
-     * 
+     *
      * NOTE:
      * Drastic changes up to PHPUnit 3.5.15 this was:
      *     public function evaluate($other, $assertType = null)
@@ -144,7 +144,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      *     public function evaluate($other, $description = '', $returnResult = FALSE)
      * We use the new interface for PHP-strict checking, but emulate the old one
      */
-    public function evaluate($content, $assertType = '', $match = FALSE)
+    public function evaluate($content, $assertType = '', $match = false)
     {
         if (strstr($assertType, 'Not')) {
             $this->setNegate(true);
@@ -210,9 +210,9 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      * Report Failure
      *
      * @see    PHPUnit\Framework\Constraint\Constraint for implementation details
-     * @param  mixed    CSS selector path
-     * @param  string   Failure description
-     * @param  object   Cannot be used, null
+     * @param  mixed    $other CSS selector path
+     * @param  string   $description Failure description
+     * @param  \SebastianBergmann\Comparator\ComparisonFailure   $cannot_be_used Cannot be used, null
      * @return void
      * @throws PHPUnit\Framework\ExpectationFailedException
      * NOTE:

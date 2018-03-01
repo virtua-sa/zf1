@@ -302,8 +302,7 @@ class Zend_Pdf_Outline_Loaded extends Zend_Pdf_Outline
      *
      * @internal
      * @param Zend_Pdf_Element $dictionary (It's actually Dictionary or Dictionary Object or Reference to a Dictionary Object)
-     * @param Zend_Pdf_Action  $parentAction
-     * @param SplObjectStorage $processedOutlines  List of already processed Outline dictionaries,
+     * @param SplObjectStorage $processedDictionaries  List of already processed Outline dictionaries,
      *                                             used to avoid cyclic references
      * @return Zend_Pdf_Action
      * @throws Zend_Pdf_Exception

@@ -51,7 +51,7 @@ class Zend_Filter_NormalizedToLocalized implements Zend_Filter_Interface
     /**
      * Class constructor
      *
-     * @param string|Zend_Locale $locale (Optional) Locale to set
+     * @param array|Zend_Config $options (Optional) Locale to set
      */
     public function __construct($options = null)
     {

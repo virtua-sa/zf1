@@ -47,7 +47,7 @@ class Zend_Gdata_DublinCore_Extension_Date extends Zend_Gdata_Extension
      * Point or period of time associated with an event in the lifecycle of the
      * resource
      *
-     * @param DOMElement $element (optional) DOMElement from which this
+     * @param DOMElement $value (optional) DOMElement from which this
      *          object should be constructed.
      */
     public function __construct($value = null)

@@ -56,12 +56,11 @@ class Zend_Queue_Stomp_Client_Connection
     /**
      * open() opens a socket to the Stomp server
      *
-     * @param  array $options ('scheme', 'host', 'port')
      * @param  string $scheme
      * @param  string $host
      * @param  int $port
      * @param  array $options Accepts "timeout_sec" and "timeout_usec" keys
-     * @return true;
+     * @return true
      * @throws Zend_Queue_Exception
      */
     public function open($scheme, $host, $port, array $options = array())
@@ -147,7 +146,7 @@ class Zend_Queue_Stomp_Client_Connection
      *
      * example: $response = $client->write($frame)->read();
      *
-     * @param Zend_Queue_Stom_FrameInterface $frame
+     * @param Zend_Queue_Stomp_FrameInterface $frame
      * @return $this
      */
     public function write(Zend_Queue_Stomp_FrameInterface $frame)

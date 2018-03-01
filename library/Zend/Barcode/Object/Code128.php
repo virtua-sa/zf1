@@ -260,7 +260,7 @@ class Zend_Barcode_Object_Code128 extends Zend_Barcode_Object_ObjectAbstract
     /**
      * Convert string to barcode string
      *
-     * @param $string
+     * @param string $string
      * @return array
      */
     protected function _convertToBarcodeChars($string)

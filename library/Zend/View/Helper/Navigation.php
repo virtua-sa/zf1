@@ -33,10 +33,10 @@
  * @subpackage Helper
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @method Zend_View_Helper_Navigation_Breadcrumbs breadcrumbs
- * @method Zend_View_Helper_Navigation_Links links
- * @method Zend_View_Helper_Navigation_Menu menu
- * @method Zend_View_Helper_Navigation_Sitemap sitemap
+ * @method Zend_View_Helper_Navigation_Breadcrumbs breadcrumbs()
+ * @method Zend_View_Helper_Navigation_Links links()
+ * @method Zend_View_Helper_Navigation_Menu menu()
+ * @method Zend_View_Helper_Navigation_Sitemap sitemap()
  */
 class Zend_View_Helper_Navigation
     extends Zend_View_Helper_Navigation_HelperAbstract
@@ -164,11 +164,11 @@ class Zend_View_Helper_Navigation
             // Add navigation helper path at the beginning
             $paths = $this->view->getHelperPaths();
             $this->view->setHelperPath(null);
-            
+
             $this->view->addHelperPath(
                     str_replace('_', '/', self::NS),
                     self::NS);
-            
+
             foreach ($paths as $ns => $path) {
                 $this->view->addHelperPath($path, $ns);
             }

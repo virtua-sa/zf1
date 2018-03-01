@@ -144,7 +144,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * Start capture action
      *
      * @param  mixed $captureType
-     * @param  string $typeOrAttrs
+     * @param string $type
+     * @param  string $attrs
      * @return void
      */
     public function captureStart($captureType = Zend_View_Helper_Placeholder_Container_Abstract::APPEND, $type = 'text/javascript', $attrs = array())
@@ -294,7 +295,6 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * Is the script provided valid?
      *
      * @param  mixed $value
-     * @param  string $method
      * @return bool
      */
     protected function _isValid($value)
@@ -407,9 +407,6 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
     /**
      * Create script HTML
      *
-     * @param  string $type
-     * @param  array $attributes
-     * @param  string $content
      * @param  string|int $indent
      * @return string
      */

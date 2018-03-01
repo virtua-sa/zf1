@@ -84,7 +84,7 @@ class Zend_Pdf_Element_Array extends Zend_Pdf_Element
     /**
      * Setter
      *
-     * @param mixed $offset
+     * @param mixed $property
      * @param mixed $value
      * @throws Zend_Pdf_Exception
      */
@@ -132,7 +132,7 @@ class Zend_Pdf_Element_Array extends Zend_Pdf_Element
      * Detach PDF object from the factory (if applicable), clone it and attach to new factory.
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed  List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed  List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      */

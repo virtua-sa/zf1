@@ -186,7 +186,7 @@ class Zend_OpenId_Consumer
      * failure.
      *
      * @param array $params HTTP query data from OpenID server
-     * @param string &$identity this argument is set to end-user's claimed
+     * @param string $identity this argument is set to end-user's claimed
      *  identifier or OpenID provider local identifier.
      * @param mixed $extensions extension object or array of extensions objects
      * @return bool
@@ -458,10 +458,10 @@ class Zend_OpenId_Consumer
      * external storage
      *
      * @param string $url OpenID server url
-     * @param string &$handle association handle
-     * @param string &$macFunc HMAC function (sha1 or sha256)
-     * @param string &$secret shared secret
-     * @param integer &$expires expiration UNIX time
+     * @param string $handle association handle
+     * @param string $macFunc HMAC function (sha1 or sha256)
+     * @param string $secret shared secret
+     * @param integer $expires expiration UNIX time
      * @return bool
      */
     protected function _getAssociation($url, &$handle, &$macFunc, &$secret, &$expires)
@@ -493,7 +493,7 @@ class Zend_OpenId_Consumer
      * @param string $url OpenID server url
      * @param string $method HTTP request method 'GET' or 'POST'
      * @param array $params additional qwery parameters to be passed with
-     * @param int &$staus HTTP status code
+     * @param int $status HTTP status code
      *  request
      * @return mixed
      */
@@ -732,9 +732,9 @@ class Zend_OpenId_Consumer
      * and OpenID protocol version. Returns true on succees and false on
      * failure.
      *
-     * @param string &$id OpenID identity URL
-     * @param string &$server OpenID server URL
-     * @param float &$version OpenID protocol version
+     * @param string $id OpenID identity URL
+     * @param string $server OpenID server URL
+     * @param float $version OpenID protocol version
      * @return bool
      * @todo OpenID 2.0 (7.3) XRI and Yadis discovery
      */

@@ -46,9 +46,7 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
      * 'target'    => Target filename or directory, the new name of the sourcefile
      * 'overwrite' => Shall existing files be overwritten ?
      *
-     * @param  string|array $options Target file or directory to be renamed
-     * @param  string $target Source filename or directory (deprecated)
-     * @param  bool $overwrite Should existing files be overwritten (deprecated)
+     * @param  string|array|Zend_Config $options Target file or directory to be renamed
      * @return void
      */
     public function __construct($options)
@@ -142,11 +140,11 @@ class Zend_Filter_File_Rename implements Zend_Filter_Interface
     public function getNewName($value, $source = false)
     {
         $file = $this->_getFileName($value);
-        
+
         if (!is_array($file) || !array_key_exists('source', $file) || !array_key_exists('target', $file)) {
             return $value;
         }
-        
+
         if ($file['source'] == $file['target']) {
             return $value;
         }

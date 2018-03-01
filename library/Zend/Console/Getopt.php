@@ -758,7 +758,7 @@ class Zend_Console_Getopt
      * A long option is preceded by a double '--' character.
      * Long options may not be clustered.
      *
-     * @param  mixed &$argv
+     * @param  mixed $argv
      * @return void
      */
     protected function _parseLongOption(&$argv)
@@ -778,7 +778,7 @@ class Zend_Console_Getopt
      * Short options are those preceded by a single '-' character.
      * Short options may be clustered.
      *
-     * @param  mixed &$argv
+     * @param  mixed $argv
      * @return void
      */
     protected function _parseShortOptionCluster(&$argv)

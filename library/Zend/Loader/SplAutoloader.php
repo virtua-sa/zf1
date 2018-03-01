@@ -54,7 +54,7 @@ interface Zend_Loader_SplAutoloader
     /**
      * Autoload a class
      *
-     * @param   $class
+     * @param   string $class
      * @return  mixed
      *          False [if unable to load $class]
      *          get_class($class) [if $class is successfully loaded]

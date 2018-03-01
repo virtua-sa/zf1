@@ -49,7 +49,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
     /**
      * Set the nest separator
      *
-     * @param  string $filename
+     * @param  string $separator
      * @return Zend_Config_Writer_Ini
      */
     public function setNestSeparator($separator)
@@ -167,7 +167,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
      * on the top of config.
      *
      * @see    http://framework.zend.com/issues/browse/ZF-6289
-     * @param  Zend_Config
+     * @param  Zend_Config $config
      * @return Zend_Config
      */
     protected function _sortRootElements(Zend_Config $config)

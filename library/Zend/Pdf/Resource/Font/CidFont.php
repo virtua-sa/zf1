@@ -82,7 +82,6 @@ abstract class Zend_Pdf_Resource_Font_CidFont extends Zend_Pdf_Resource_Font
      *
      * @param Zend_Pdf_FileParser_Font_OpenType $fontParser Font parser object
      *   containing OpenType file.
-     * @param integer $embeddingOptions Options for font embedding.
      * @throws Zend_Pdf_Exception
      */
     public function __construct(Zend_Pdf_FileParser_Font_OpenType $fontParser)
@@ -374,7 +373,7 @@ abstract class Zend_Pdf_Resource_Font_CidFont extends Zend_Pdf_Resource_Font
      *
      * See also {@link widthForChar()}.
      *
-     * @param array &$glyphNumbers Array of glyph numbers.
+     * @param array $charCodes
      * @return array Array of glyph widths (integers).
      */
     public function widthsForChars($charCodes)
@@ -409,7 +408,7 @@ abstract class Zend_Pdf_Resource_Font_CidFont extends Zend_Pdf_Resource_Font
     /**
      * Returns the widths of the glyphs.
      *
-     * @param array &$glyphNumbers Array of glyph numbers.
+     * @param array $glyphNumbers Array of glyph numbers.
      * @return array Array of glyph widths (integers).
      * @throws Zend_Pdf_Exception
      */

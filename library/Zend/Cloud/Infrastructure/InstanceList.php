@@ -72,7 +72,7 @@ class Zend_Cloud_Infrastructure_InstanceList implements Countable, Iterator, Arr
     /**
      * Add an instance
      *
-     * @param  Instance
+     * @param  Zend_Cloud_Infrastructure_Instance $instance
      * @return $this
      */
     protected function addInstance(Zend_Cloud_Infrastructure_Instance $instance)

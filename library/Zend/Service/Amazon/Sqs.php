@@ -85,7 +85,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     public function __construct($accessKey = null, $secretKey = null, $region = null)
     {
         parent::__construct($accessKey, $secretKey, $region);
-        
+
         if (null !== $region) {
             $this->_setEndpoint($region);
         }
@@ -108,7 +108,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
             throw new Zend_Service_Amazon_Sqs_Exception('Invalid SQS region specified.');
         }
     }
-    
+
     /**
      * Set SQS endpoint
      *
@@ -133,8 +133,8 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
 
     /**
      * Get the SQS endpoint
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function getEndpoint()
     {
@@ -148,14 +148,13 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      * For the actual region list please check:
      * http://docs.amazonwebservices.com/AWSSimpleQueueService/2009-02-01/APIReference/index.html?QueueServiceWsdlArticle.html
      *
-     * @param  string  $region region
      * @return array
      */
     public function getEndpoints()
     {
         return $this->_sqsEndpoints;
     }
-    
+
     /**
      * Create a new queue
      *
@@ -411,7 +410,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     /**
      * Make a request to Amazon SQS
      *
-     * @param  string           $queue  Queue Name
+     * @param  string           $queue_url  Queue Name
      * @param  string           $action SQS action
      * @param  array            $params
      * @return SimpleXMLElement
@@ -509,7 +508,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *    characters when appending strings.
      *
      * @param  string $queue_url  Queue URL
-     * @param  array  $parameters the parameters for which to get the signature.
+     * @param  array  $paramaters the parameters for which to get the signature.
      *
      * @return string the signed data.
      */

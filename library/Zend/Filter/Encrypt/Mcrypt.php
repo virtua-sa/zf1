@@ -322,7 +322,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      * Initialises the cipher with the set key
      *
      * @param  resource $cipher
-     * @throws
+     * @throws Zend_Filter_Exception
      * @return resource
      */
     protected function _initCipher($cipher)

@@ -150,7 +150,7 @@ class Zend_Barcode_Renderer_Image extends Zend_Barcode_Renderer_RendererAbstract
     /**
      * Set an image resource to draw the barcode inside
      *
-     * @param $image
+     * @param resource $image
      * @return $this
      * @throws Zend_Barcode_Renderer_Exception
      */

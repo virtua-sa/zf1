@@ -57,7 +57,7 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
     /**
      * The tags that belong to the Exif group.
      *
-     * @var string
+     * @var Zend_Gdata_Exif_Extension_Tags
      */
     protected $_tags = null;
 

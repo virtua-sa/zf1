@@ -101,7 +101,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Get handler
      *
-     * @param string $property
+     * @param string $item
      * @return Zend_Pdf_Element | null
      */
     public function __get($item)
@@ -115,7 +115,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Set handler
      *
-     * @param string $property
+     * @param string $item
      * @param  mixed $value
      */
     public function __set($item, $value)
@@ -172,7 +172,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
      * Detach PDF object from the factory (if applicable), clone it and attach to new factory.
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed  List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed  List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      * @throws Zend_Pdf_Exception

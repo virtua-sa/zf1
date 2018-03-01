@@ -262,7 +262,7 @@ abstract class Zend_Pdf_Cmap
      * Integers are always big-endian. Throws an exception if the index is out
      * of range.
      *
-     * @param string &$data
+     * @param string $data
      * @param integer $index Position in string of integer.
      * @return integer
      * @throws Zend_Pdf_Exception
@@ -289,7 +289,7 @@ abstract class Zend_Pdf_Cmap
      * Integers are always big-endian. Throws an exception if the index is out
      * of range.
      *
-     * @param string &$data
+     * @param string $data
      * @param integer $index Position in string of integer.
      * @return integer
      * @throws Zend_Pdf_Exception
@@ -316,7 +316,7 @@ abstract class Zend_Pdf_Cmap
      * for everything. To guarantee portability, be sure to use bitwise or
      * similar operators on large integers!
      *
-     * @param string &$data
+     * @param string $data
      * @param integer $index Position in string of integer.
      * @return integer
      * @throws Zend_Pdf_Exception

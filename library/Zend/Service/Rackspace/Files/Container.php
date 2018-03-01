@@ -39,7 +39,7 @@ class Zend_Service_Rackspace_Files_Container
      * Construct
      *
      * @param Zend_Service_Rackspace_Files $service
-     * @param                              $data
+     * @param array                        $data
      *
      * @throws Zend_Service_Rackspace_Files_Exception
      */

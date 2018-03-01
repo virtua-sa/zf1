@@ -296,7 +296,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Render function
      *
-     * @param  Zend_Markup_TokenList|string $tokenList
+     * @param  Zend_Markup_TokenList|string $value
      * @return string
      */
     public function render($value)
@@ -471,7 +471,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Get the markup name
      *
-     * @param Zend_Markup_Token
+     * @param Zend_Markup_Token $token
      *
      * @return string
      */
@@ -561,7 +561,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Add a default filter
      *
-     * @param string $filter
+     * @param Zend_Filter_Interface $filter
      *
      * @return void
      */

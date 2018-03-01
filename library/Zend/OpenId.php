@@ -219,7 +219,7 @@ class Zend_OpenId
      * The function gets URL argument by reference and modifies it.
      * It returns true on success and false of failure.
      *
-     * @param string &$id url to be normalized
+     * @param string $id url to be normalized
      * @return bool
      */
     static public function normalizeUrl(&$id)
@@ -380,7 +380,7 @@ class Zend_OpenId
      * 4. URL identifiers MUST then be further normalized by both following
      *    redirects when retrieving their content and finally applying the
      *    rules in Section 6 of [RFC3986] to the final destination URL.
-     * @param string &$id identifier to be normalized
+     * @param string $id identifier to be normalized
      * @return bool
      */
     static public function normalize(&$id)

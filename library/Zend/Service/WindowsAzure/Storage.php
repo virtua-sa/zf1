@@ -488,7 +488,7 @@ class Zend_Service_WindowsAzure_Storage
 	/**
 	 * Parse metadata XML
 	 *
-	 * @param SimpleXMLElement $parentElement Element containing the Metadata element.
+	 * @param SimpleXMLElement $element Element containing the Metadata element.
 	 * @return array
 	 */
 	protected function _parseMetadataElement($element = null)
@@ -554,7 +554,7 @@ class Zend_Service_WindowsAzure_Storage
     /**
      * Builds a query string from an array of elements
      *
-     * @param array     Array of elements
+     * @param array     $queryString Array of elements
      * @return string   Assembled query string
      */
     public static function createQueryStringFromArray($queryString)

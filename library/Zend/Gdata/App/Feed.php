@@ -213,7 +213,7 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Adds an entry representation to the array of entries
      * contained within this feed
      *
-     * @param Zend_Gdata_App_Entry An individual entry to add.
+     * @param Zend_Gdata_App_Entry $value An individual entry to add.
      * @return Zend_Gdata_App_Feed Provides a fluent interface
      */
     public function addEntry($value)
@@ -238,7 +238,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Required by the ArrayAccess interface
      *
      * @param int $key The index to get
-     * @param Zend_Gdata_App_Entry $value The value to set
      */
     public function offsetGet($key)
     {
@@ -251,7 +250,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Required by the ArrayAccess interface
      *
      * @param int $key The index to set
-     * @param Zend_Gdata_App_Entry $value The value to set
      */
     public function offsetUnset($key)
     {

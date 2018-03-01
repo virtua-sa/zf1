@@ -36,6 +36,8 @@ class Zend_Filter_Compress implements Zend_Filter_Interface
 {
     /**
      * Compression adapter
+     *
+     * @var string|Zend_Filter_Compress_CompressInterface
      */
     protected $_adapter = 'Gz';
 
@@ -86,7 +88,7 @@ class Zend_Filter_Compress implements Zend_Filter_Interface
     /**
      * Returns the current adapter, instantiating it if necessary
      *
-     * @return string
+     * @return Zend_Filter_Compress_CompressInterface
      */
     public function getAdapter()
     {

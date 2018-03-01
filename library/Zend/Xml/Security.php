@@ -19,7 +19,7 @@
  * @version    $Id$
  */
 
- 
+
 /**
  * @category   Zend
  * @package    Zend_Xml_SecurityScan
@@ -64,9 +64,9 @@ class Zend_Xml_Security
      * Scan XML string for potential XXE and XEE attacks
      *
      * @param   string $xml
-     * @param   DomDocument $dom
+     * @param   DOMDocument $dom
      * @throws  Zend_Xml_Exception
-     * @return  SimpleXMLElement|DomDocument|boolean
+     * @return  SimpleXMLElement|DOMDocument|boolean
      */
     public static function scan($xml, DOMDocument $dom = null)
     {
@@ -91,7 +91,7 @@ class Zend_Xml_Security
         // error disabled with @ for PHP-FPM scenario
         set_error_handler(array('Zend_Xml_Security', 'loadXmlErrorHandler'), E_WARNING);
 
-        $result = $dom->loadXml($xml, LIBXML_NONET);
+        $result = $dom->loadXML($xml, LIBXML_NONET);
         restore_error_handler();
 
         if (!$result) {
@@ -137,7 +137,7 @@ class Zend_Xml_Security
      * @param  string $file
      * @param  DOMDocument $dom
      * @throws Zend_Xml_Exception
-     * @return SimpleXMLElement|DomDocument
+     * @return SimpleXMLElement|DOMDocument
      */
     public static function scanFile($file, DOMDocument $dom = null)
     {

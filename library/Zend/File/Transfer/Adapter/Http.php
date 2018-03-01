@@ -57,7 +57,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Sets a validator for the class, erasing all previous set
      *
-     * @param  string|array $validator Validator to set
+     * @param  array $validators Validator to set
      * @param  string|array $files     Files to limit this validator to
      * @return Zend_File_Transfer_Adapter_Abstract
      */
@@ -85,7 +85,6 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Remove an individual validator
      *
-     * @param  string $name
      * @return Zend_File_Transfer_Adapter_Abstract
      */
     public function clearValidators()
@@ -222,7 +221,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Checks if the file was already sent
      *
-     * @param  string|array $file Files to check
+     * @param  string|array $files Files to check
      * @return bool
      * @throws Zend_File_Transfer_Exception Not implemented
      */
@@ -279,7 +278,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Has a file been uploaded ?
      *
-     * @param  array|string|null $file
+     * @param  array|string|null $files
      * @return bool
      */
     public function isUploaded($files = null)
@@ -429,7 +428,6 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Prepare the $_FILES array to match the internal syntax of one file per entry
      *
-     * @param  array $files
      * @return array
      */
     protected function _prepareFiles()

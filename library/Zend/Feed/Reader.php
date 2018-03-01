@@ -222,7 +222,7 @@ class Zend_Feed_Reader
     /**
      * Import a feed by providing a URL
      *
-     * @param  string $url The URL to the feed
+     * @param  string $uri The URL to the feed
      * @param  string $etag OPTIONAL Last received ETag for this resource
      * @param  string $lastModified OPTIONAL Last-Modified value for this resource
      * @return Zend_Feed_Reader_FeedInterface
@@ -739,7 +739,7 @@ class Zend_Feed_Reader
      * Utility method to apply array_unique operation to a multidimensional
      * array.
      *
-     * @param array
+     * @param array $array
      * @return array
      */
     public static function arrayUnique(array $array)

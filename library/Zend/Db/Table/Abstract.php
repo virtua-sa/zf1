@@ -353,7 +353,7 @@ abstract class Zend_Db_Table_Abstract
     /**
      * setDefinitionConfigName()
      *
-     * @param string $definition
+     * @param string $definitionConfigName
      * @return Zend_Db_Table_Abstract
      */
     public function setDefinitionConfigName($definitionConfigName)
@@ -1281,7 +1281,7 @@ abstract class Zend_Db_Table_Abstract
      * The find() method always returns a Rowset object, even if only one row
      * was found.
      *
-     * @param  mixed $key The value(s) of the primary keys.
+     * @param  mixed ...$args The value(s) of the primary keys.
      * @return Zend_Db_Table_Rowset_Abstract Row(s) matching the criteria.
      * @throws Zend_Db_Table_Exception
      */

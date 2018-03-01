@@ -211,7 +211,7 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
      * We should exclude scripts, which may be not included into comment tags, CDATA sections,
      *
      * @param DOMNode $node
-     * @param string &$text
+     * @param string $text
      */
     private function _retrieveNodeText(DOMNode $node, &$text)
     {

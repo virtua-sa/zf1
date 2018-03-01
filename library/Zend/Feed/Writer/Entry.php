@@ -77,7 +77,6 @@ class Zend_Feed_Writer_Entry
     /**
      * Set a single author
      *
-     * @param  int $index
      * @return string|null
      */
     public function addAuthor($name, $email = null, $uri = null)
@@ -540,7 +539,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Add a entry category
      *
-     * @param string $category
+     * @param array $category
      */
     public function addCategory(array $category)
     {
@@ -597,7 +596,7 @@ class Zend_Feed_Writer_Entry
      * others must also be provided or RSS rendering (where they are required)
      * will throw an Exception.
      *
-     * @param array $enclosures
+     * @param array $enclosure
      */
     public function setEnclosure(array $enclosure)
     {

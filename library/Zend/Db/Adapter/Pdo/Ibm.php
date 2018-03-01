@@ -53,7 +53,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * The IBM data server connected to
      *
-     * @var string
+     * @var Zend_Db_Adapter_Pdo_Ibm_Db2|Zend_Db_Adapter_Pdo_Ibm_Ids|null
      */
     protected $_serverType = null;
 
@@ -187,7 +187,6 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * Prepares an SQL statement.
      *
      * @param string $sql The SQL statement with placeholders.
-     * @param array $bind An array of data to bind to the placeholders.
      * @return PDOStatement
      */
     public function prepare($sql)

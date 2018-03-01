@@ -127,7 +127,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
     /**
      * Generate the header of the feed when working in write mode
      *
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return DOMElement root node
      */
     protected function _mapFeedHeaders($array)
@@ -261,7 +261,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
      * Adds the iTunes extensions to a root node
      *
      * @param  DOMElement $root
-     * @param  array $array
+     * @param  ArrayObject $array
      * @return void
      */
     private function _buildiTunes(DOMElement $root, $array)
@@ -387,7 +387,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
      * </item>
      *
      * @param  DOMElement $root the root node to use
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return void
      */
     protected function _mapFeedEntries(DOMElement $root, $array)

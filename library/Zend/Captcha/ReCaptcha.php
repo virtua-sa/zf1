@@ -52,7 +52,7 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
     /**
      * Recaptcha service object
      *
-     * @var Zend_Service_Recaptcha
+     * @var Zend_Service_ReCaptcha
      */
     protected $_service;
 
@@ -265,7 +265,7 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
         if ($element instanceof Zend_Form_Element) {
             $name = $element->getBelongsTo();
         }
-        return $this->getService()->getHTML($name);
+        return $this->getService()->getHtml($name);
     }
 
     /**
