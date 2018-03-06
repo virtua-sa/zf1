@@ -142,7 +142,7 @@ class Zend_Pdf_Style
     /**
      * Set line dashing pattern
      *
-     * @param array $pattern
+     * @param array|int $pattern
      * @param float $phase
      */
     public function setLineDashingPattern($pattern, $phase = 0)

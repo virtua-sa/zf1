@@ -254,7 +254,7 @@ class Zend_Http_Client_Adapter_Socket implements Zend_Http_Client_Adapter_Interf
      * @param Zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
-     * @param string        $body
+     * @param string|resource        $body
      * @return string Request as string
      */
     public function write($method, $uri, $http_ver = '1.1', $headers = array(), $body = '')

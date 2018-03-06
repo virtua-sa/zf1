@@ -300,7 +300,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Returns the actual progress of file up-/downloads
      *
-     * @param  string $id The upload to get the progress for
+     * @param  string|array $id The upload to get the progress for
      * @return array|null
      */
     public static function getProgress($id = null)

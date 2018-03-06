@@ -303,8 +303,8 @@ class Zend_Db_Adapter_Sqlsrv extends Zend_Db_Adapter_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|int           Quoted string
      */
     protected function _quote($value)
     {

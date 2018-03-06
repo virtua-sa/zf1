@@ -200,7 +200,7 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     * Write to the Socket Server
     *
     * @param string $payload
-    * @return int
+    * @return int|false
     */
     protected function _write($payload) {
         return @fwrite($this->_socket, $payload);

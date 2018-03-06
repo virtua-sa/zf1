@@ -312,7 +312,7 @@ class Zend_Locale_Data
      *
      * @param  string      $locale
      * @param  string      $path
-     * @param  bool|string $value
+     * @param  bool|string|array|int $value
      * @return array
      * @throws Zend_Locale_Exception
      */
@@ -962,7 +962,7 @@ class Zend_Locale_Data
      *
      * @param  string      $locale
      * @param  string      $path
-     * @param  bool|string $value
+     * @param  bool|string|array $value
      * @return string
      * @throws Zend_Locale_Exception
      */

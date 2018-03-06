@@ -587,7 +587,7 @@ class Zend_Gdata_App
      * @param string $url The URL to which this request is being performed
      * @param array $headers An associative array of HTTP headers
      *                       for this request
-     * @param string $body The body of the HTTP request
+     * @param string|Zend_Gdata_MediaMimeStream $body The body of the HTTP request
      * @param string $contentType The value for the content type
      *                                of the request body
      * @param int $remainingRedirects Number of redirects to follow if request

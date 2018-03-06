@@ -89,7 +89,7 @@ class Zend_Server_Method_Callback
     /**
      * Set callback class
      *
-     * @param  string $class
+     * @param  string|object $class
      * @return Zend_Server_Method_Callback
      */
     public function setClass($class)

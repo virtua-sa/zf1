@@ -111,8 +111,8 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
      * but the Oracle OCI driver must use the same implementation as the
      * Zend_Db_Adapter_Abstract class.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|int|float           Quoted string
      */
     protected function _quote($value)
     {

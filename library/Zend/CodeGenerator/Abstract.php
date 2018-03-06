@@ -42,7 +42,7 @@ abstract class Zend_CodeGenerator_Abstract
     /**
      * __construct()
      *
-     * @param array $options
+     * @param array|Zend_Config $options
      */
     public function __construct($options = array())
     {

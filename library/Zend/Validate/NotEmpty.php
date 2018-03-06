@@ -117,7 +117,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
     /**
      * Set the types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Validate_Exception
      * @return Zend_Validate_NotEmpty
      */
@@ -152,7 +152,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value is not an empty value.
      *
-     * @param  string $value
+     * @param  string|array|int|float|bool|object $value
      * @return boolean
      */
     public function isValid($value)

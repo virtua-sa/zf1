@@ -297,7 +297,7 @@ class Zend_Db_Adapter_Pdo_Sqlite extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
+     * @param string|int|float $value     Raw string
      * @return string           Quoted string
      */
     protected function _quote($value)

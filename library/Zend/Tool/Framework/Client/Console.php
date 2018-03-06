@@ -72,7 +72,7 @@ class Zend_Tool_Framework_Client_Console
     protected $_filterFromClientNaming = null;
 
     /**
-     * @var array
+     * @var array|string
      */
     protected $_classesToLoad = array();
 
@@ -120,8 +120,8 @@ class Zend_Tool_Framework_Client_Console
     }
 
     /**
-		 * @param array $classesToLoad
-		 */
+     * @param array|string $classesToLoad
+	 */
     public function setClassesToLoad($classesToLoad)
     {
         $this->_classesToLoad = $classesToLoad;

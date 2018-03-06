@@ -275,8 +275,8 @@ class Zend_Db_Adapter_Db2 extends Zend_Db_Adapter_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|float|int           Quoted string
      */
     protected function _quote($value)
     {

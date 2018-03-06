@@ -290,7 +290,7 @@ class Zend_Feed_Pubsubhubbub_Publisher
     /**
      * Add an optional parameter to the update notification requests
      *
-     * @param  string      $name
+     * @param  string|array      $name
      * @param  string|null $value
      * @throws Zend_Feed_Pubsubhubbub_Exception
      * @return Zend_Feed_Pubsubhubbub_Publisher

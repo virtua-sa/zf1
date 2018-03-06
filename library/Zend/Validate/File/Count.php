@@ -100,7 +100,7 @@ class Zend_Validate_File_Count extends Zend_Validate_Abstract
      * 'min': Minimum filecount
      * 'max': Maximum filecount
      *
-     * @param  integer|array|Zend_Config $options Options for the adapter
+     * @param  integer|array|Zend_Config|string $options Options for the adapter
      * @throws Zend_Validate_Exception
      */
     public function __construct($options)

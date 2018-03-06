@@ -249,7 +249,7 @@ class Zend_Service_WindowsAzure_Management_Client
 	 * @param string $path Path
 	 * @param string $queryString Query string
 	 * @param string $httpVerb HTTP verb the request will use
-	 * @param array $headers x-ms headers to add
+	 * @param array|null $headers x-ms headers to add
 	 * @param mixed $rawData Optional RAW HTTP data to be sent over the wire
 	 * @return Zend_Http_Response
 	 */
@@ -508,7 +508,7 @@ class Zend_Service_WindowsAzure_Management_Client
     /**
      * Wait for an operation to complete
      *
-     * @param string $requestId The request ID. If omitted, the last request ID will be used.
+     * @param string|null $requestId The request ID. If omitted, the last request ID will be used.
      * @param int $sleepInterval Sleep interval in milliseconds.
      * @return Zend_Service_WindowsAzure_Management_OperationStatusInstance|null
      * @throws Zend_Service_WindowsAzure_Management_Exception

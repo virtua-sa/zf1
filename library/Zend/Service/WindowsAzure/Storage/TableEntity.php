@@ -324,7 +324,7 @@ class Zend_Service_WindowsAzure_Storage_TableEntity
     /**
      * Converts a string to a DateTime object. Returns false on failure.
      *
-     * @param string $value The string value to parse
+     * @param string|DateTime $value The string value to parse
      * @return DateTime|boolean
      */
     protected function _convertToDateTime($value = '')

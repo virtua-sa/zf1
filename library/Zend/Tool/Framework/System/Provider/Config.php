@@ -138,7 +138,7 @@ class Zend_Tool_Framework_System_Provider_Config extends Zend_Tool_Framework_Pro
     /**
      *
      * @param string $key
-     * @param string $value
+     * @param string|array $value
      * @param int $level
      * @return string
      */

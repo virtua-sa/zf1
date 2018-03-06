@@ -282,8 +282,8 @@ abstract class Zend_Db_Adapter_Pdo_Abstract extends Zend_Db_Adapter_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|int|float           Quoted string
      */
     protected function _quote($value)
     {

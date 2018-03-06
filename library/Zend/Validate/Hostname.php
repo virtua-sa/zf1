@@ -1515,7 +1515,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * Sets validator options
      *
      * @see http://www.iana.org/cctld/specifications-policies-cctlds-01apr02.htm  Technical Specifications for ccTLDs
-     * @param array $options Validator options
+     * @param array|Zend_Config $options Validator options
      */
     public function __construct($options = array())
     {

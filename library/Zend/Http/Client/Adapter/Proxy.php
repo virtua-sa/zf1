@@ -75,10 +75,10 @@ class Zend_Http_Client_Adapter_Proxy extends Zend_Http_Client_Adapter_Socket
      * @var boolean
      */
     protected $negotiated = false;
-    
+
     /**
      * Stores the last CONNECT handshake request
-     * 
+     *
      * @var string
      */
     protected $connectHandshakeRequest;
@@ -120,7 +120,7 @@ class Zend_Http_Client_Adapter_Proxy extends Zend_Http_Client_Adapter_Socket
      * @param Zend_Uri_Http $uri
      * @param string        $http_ver
      * @param array         $headers
-     * @param string        $body
+     * @param string|resource        $body
      * @return string Request as string
      * @throws Zend_Http_Client_Adapter_Exception
      */
@@ -261,7 +261,7 @@ class Zend_Http_Client_Adapter_Proxy extends Zend_Http_Client_Adapter_Socket
             }
         }
         $request .= "\r\n";
-        
+
         // @see ZF-3189
         $this->connectHandshakeRequest = $request;
 

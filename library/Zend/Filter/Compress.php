@@ -49,7 +49,7 @@ class Zend_Filter_Compress implements Zend_Filter_Interface
     /**
      * Class constructor
      *
-     * @param string|array $options (Optional) Options to set
+     * @param string|array|Zend_Config|Zend_Filter_Compress_CompressInterface $options (Optional) Options to set
      */
     public function __construct($options = null)
     {

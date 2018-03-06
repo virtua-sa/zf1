@@ -79,7 +79,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
      *   'compression' => compress value with this compression adapter
      *   'package'     => pack envelope keys into encrypted string, simplifies decryption
      *
-     * @param string|array $options Options for this adapter
+     * @param string|array|Zend_Config $options Options for this adapter
      */
     public function __construct($options = array())
     {
@@ -216,7 +216,7 @@ class Zend_Filter_Encrypt_Openssl implements Zend_Filter_Encrypt_Interface
     /**
      * Sets private keys
      *
-     * @param  string $key Private key
+     * @param  string|array $key Private key
      * @param  string $passphrase
      * @return Zend_Filter_Encrypt_Openssl
      */

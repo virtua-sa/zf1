@@ -42,7 +42,7 @@ class Zend_Filter_StringToUpper implements Zend_Filter_Interface
     /**
      * Constructor
      *
-     * @param string|array $options OPTIONAL
+     * @param string|array|Zend_Config $options OPTIONAL
      */
     public function __construct($options = null)
     {

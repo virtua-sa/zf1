@@ -150,7 +150,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     /**
      * setDocblock() Set the docblock
      *
-     * @param Zend_CodeGenerator_Php_Docblock|array|string $docblock
+     * @param Zend_CodeGenerator_Php_Docblock|array|string|null $docblock
      * @return $this
      */
     public function setDocblock($docblock)

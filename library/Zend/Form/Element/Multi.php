@@ -296,8 +296,8 @@ abstract class Zend_Form_Element_Multi extends Zend_Form_Element_Xhtml
     /**
      * Translate a multi option value
      *
-     * @param  string $value
-     * @return string
+     * @param  string|array $value
+     * @return string|array
      */
     protected function _translateValue($value)
     {

@@ -337,7 +337,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 * Set container ACL
 	 *
 	 * @param string $containerName Container name
-	 * @param bool $acl Zend_Service_WindowsAzure_Storage_Blob::ACL_*
+	 * @param bool|null $acl Zend_Service_WindowsAzure_Storage_Blob::ACL_*
 	 * @param array $signedIdentifiers Signed identifiers
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
@@ -1838,7 +1838,7 @@ class Zend_Service_WindowsAzure_Storage_Blob extends Zend_Service_WindowsAzure_S
 	 * List blobs
 	 *
 	 * @param string $containerName Container name
-	 * @param string $prefix     Optional. Filters the results to return only blobs whose name begins with the specified prefix.
+	 * @param string|null $prefix     Optional. Filters the results to return only blobs whose name begins with the specified prefix.
 	 * @param string $delimiter  Optional. Delimiter, i.e. '/', for specifying folder hierarchy
 	 * @param int    $maxResults Optional. Specifies the maximum number of blobs to return per call to Azure storage. This does NOT affect list size returned by this function. (maximum: 5000)
 	 * @param string $marker     Optional string value that identifies the portion of the list to be returned with the next list operation.

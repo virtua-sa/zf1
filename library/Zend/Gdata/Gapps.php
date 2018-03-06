@@ -837,7 +837,7 @@ class Zend_Gdata_Gapps extends Zend_Gdata
      *
      * @param Zend_Gdata_Gapps_EmailListRecipientEntry $recipient The recipient
      *          entry to insert.
-     * @param string $uri (optional) The URI where the recipient should be
+     * @param string|Zend_Gdata_Gapps_EmailListEntry $uri (optional) The URI where the recipient should be
      *          uploaded to. If null, the default recipient creation URI for
      *          this domain will be used.
      * @return Zend_Gdata_Gapps_EmailListRecipientEntry The inserted

@@ -204,7 +204,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * the translation will be used.
      *
      * @param  string $messageKey
-     * @param  string $value
+     * @param  string|array|object $value
      * @return string|null
      */
     protected function _createMessage($messageKey, $value)

@@ -62,7 +62,7 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
      *
      * $hash is the hash we accept for the file $file
      *
-     * @param  string|array $options
+     * @param  string|array|Zend_Config $options
      * @throws Zend_Validate_Exception
      * @return Zend_Validate_File_Md5
      */

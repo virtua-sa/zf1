@@ -52,7 +52,7 @@ class Zend_View_Helper_PartialLoop extends Zend_View_Helper_Partial
      *                              these are the variables to populate in the
      *                              view. Otherwise, the module in which the
      *                              partial resides
-     * @param  array $model Variables to populate in the view
+     * @param  array|Traversable|object $model Variables to populate in the view
      * @return string|$this
      */
     public function partialLoop($name = null, $module = null, $model = null)

@@ -96,7 +96,7 @@ class Zend_Test_PHPUnit_Constraint_Redirect41 extends PHPUnit\Framework\Constrai
     /**
      * Evaluate an object to see if it fits the constraints
      *
-     * @param  string $other String to examine
+     * @param  string|Zend_Controller_Response_Abstract $other String to examine
      * @param  null|string $assertType Assertion type
      * @return bool
      * NOTE:

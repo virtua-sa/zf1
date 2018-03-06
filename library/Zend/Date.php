@@ -136,7 +136,7 @@ class Zend_Date extends Zend_Date_DateObject
      * For example, in your bootstrap: date_default_timezone_set('America/Los_Angeles');
      * For detailed instructions please look in the docu.
      *
-     * @param  string|integer|Zend_Date|array  $date    OPTIONAL Date value or value of date part to set
+     * @param  string|integer|Zend_Date|array|Zend_TimeSync_Protocol  $date    OPTIONAL Date value or value of date part to set
      *                                                 ,depending on $part. If null the actual time is set
      * @param  string                          $part    OPTIONAL Defines the input format of $date
      * @param  string|Zend_Locale              $locale  OPTIONAL Locale for parsing input
@@ -426,8 +426,8 @@ class Zend_Date extends Zend_Date_DateObject
      * F - day of week of month, g - modified julian, c - stand alone weekday, k - hour 0-11, K - hour 1-24
      * v - wall zone
      *
-     * @param  string              $format  OPTIONAL Rule for formatting output. If null the default date format is used
-     * @param  string              $type    OPTIONAL Type for the format string which overrides the standard setting
+     * @param  string|Zend_Locale              $format  OPTIONAL Rule for formatting output. If null the default date format is used
+     * @param  string|Zend_Locale              $type    OPTIONAL Type for the format string which overrides the standard setting
      * @param  string|Zend_Locale  $locale  OPTIONAL Locale for parsing input
      * @return string
      */
@@ -1192,7 +1192,7 @@ class Zend_Date extends Zend_Date_DateObject
     /**
      * Internal function, returns the offset of a given timezone
      *
-     * @param string $zone
+     * @param string|Zend_Date|array $zone
      * @return string
      */
     public function getTimezoneFromString($zone)
@@ -3526,7 +3526,7 @@ class Zend_Date extends Zend_Date_DateObject
      * Internal calculation, returns the requested date type
      *
      * @param  string                   $calc   Calculation to make
-     * @param  string|integer|Zend_Date $value  Datevalue to calculate with, if null the actual value is taken
+     * @param  string|integer|Zend_Date|array $value  Datevalue to calculate with, if null the actual value is taken
      * @param  string                   $type
      * @param  string                   $parameter
      * @param  string|Zend_Locale       $locale Locale for parsing input

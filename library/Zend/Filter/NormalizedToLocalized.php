@@ -91,7 +91,7 @@ class Zend_Filter_NormalizedToLocalized implements Zend_Filter_Interface
      *
      * Normalizes the given input
      *
-     * @param  string $value Value to normalized
+     * @param  string|array $value Value to normalized
      * @return string|array The normalized value
      */
     public function filter($value)

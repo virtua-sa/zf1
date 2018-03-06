@@ -137,7 +137,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
     /**
      * Delete a queue. All messages in the queue will also be deleted.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  array  $options
      * @return boolean true if successful, false otherwise
      */
@@ -181,7 +181,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
     /**
      * Get a key/value array of metadata for the given queue.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  array  $options
      * @return array
      */
@@ -202,7 +202,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
      * WARNING: This operation overwrites any metadata that is located at
      * $destinationPath. Some adapters may not support this method.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  array  $metadata
      * @param  array  $options
      * @return void
@@ -222,7 +222,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
     /**
      * Send a message to the specified queue.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  string $message
      * @param  array  $options
      * @return string Message ID
@@ -245,7 +245,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
      * Recieve at most $max messages from the specified queue and return the
      * message IDs for messages recieved.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  int    $max
      * @param  array  $options
      * @return Zend_Cloud_QueueService_Message[]
@@ -288,7 +288,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
     /**
      * Delete the specified message from the specified queue.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  Zend_Cloud_QueueService_Message $message Message ID or message
      * @param  array  $options
      * @return void
@@ -315,7 +315,7 @@ class Zend_Cloud_QueueService_Adapter_WindowsAzure
     /**
      * Peek at the messages from the specified queue without removing them.
      *
-     * @param  string $queueId
+     * @param  string|Zend_Service_WindowsAzure_Storage_QueueInstance $queueId
      * @param  int $num How many messages
      * @param  array  $options
      * @return Zend_Cloud_QueueService_Message[]

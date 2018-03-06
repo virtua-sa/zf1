@@ -382,7 +382,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Create a new photo from a PhotoEntry.
      *
      * @param Zend_Gdata_Photos_PhotoEntry $photo The photo to insert.
-     * @param string $uri The URI that the photo should be uploaded
+     * @param string|Zend_Gdata_Photos_AlbumEntry $uri The URI that the photo should be uploaded
      *          to. Alternatively, an AlbumEntry can be provided and the
      *          photo will be added to that album.
      * @return Zend_Gdata_Photos_PhotoEntry The inserted photo entry
@@ -408,7 +408,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Create a new tag from a TagEntry.
      *
      * @param Zend_Gdata_Photos_TagEntry $tag The tag entry to insert.
-     * @param string $uri The URI where the tag should be
+     * @param string|Zend_Gdata_Photos_PhotoEntry $uri The URI where the tag should be
      *          uploaded to. Alternatively, a PhotoEntry can be provided and
      *          the tag will be added to that photo.
      * @return Zend_Gdata_Photos_TagEntry The inserted tag entry as returned
@@ -435,7 +435,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      *
      * @param Zend_Gdata_Photos_CommentEntry $comment The comment entry to
      *          insert.
-     * @param string $uri The URI where the comment should be uploaded to.
+     * @param string|Zend_Gdata_Photos_PhotoEntry $uri The URI where the comment should be uploaded to.
      *          Alternatively, a PhotoEntry can be provided and
      *          the comment will be added to that photo.
      * @return Zend_Gdata_Photos_CommentEntry The inserted comment entry

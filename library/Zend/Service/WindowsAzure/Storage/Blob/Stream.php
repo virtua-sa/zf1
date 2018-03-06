@@ -53,7 +53,7 @@ class Zend_Service_WindowsAzure_Storage_Blob_Stream
     /**
      * Blob storage client
      *
-     * @var Zend_Service_WindowsAzure_Storage_Blob
+     * @var Zend_Service_WindowsAzure_Storage_Blob|null
      */
     protected $_storageClient = null;
 

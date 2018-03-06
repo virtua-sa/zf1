@@ -412,10 +412,10 @@ class Zend_Service_WindowsAzure_Storage_Table
 	/**
 	 * Retrieve entity from table, by id
 	 *
-	 * @param string $tableName    Table name
-	 * @param string $partitionKey Partition key
-	 * @param string $rowKey       Row key
-	 * @param string $entityClass  Entity class name*
+	 * @param string|null $tableName    Table name
+	 * @param string|null $partitionKey Partition key
+	 * @param string|null $rowKey       Row key
+	 * @param string|null $entityClass  Entity class name*
 	 * @return Zend_Service_WindowsAzure_Storage_TableEntity|null
 	 * @throws Zend_Service_WindowsAzure_Exception
 	 */
@@ -895,7 +895,7 @@ class Zend_Service_WindowsAzure_Storage_Table
     /**
      * Converts a string to a DateTime object. Returns false on failure.
      *
-     * @param string $value The string value to parse
+     * @param string|DateTime $value The string value to parse
      * @return DateTime|boolean
      */
     protected function _convertToDateTime($value = '')

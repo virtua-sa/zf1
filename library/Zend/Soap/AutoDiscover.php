@@ -335,7 +335,7 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
     /**
      * Add a Single or Multiple Functions to the WSDL
      *
-     * @param string $function Function Name
+     * @param string|array $function Function Name
      * @param string $namespace Function namespace - Not Used
      * @return Zend_Soap_AutoDiscover
      */

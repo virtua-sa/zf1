@@ -56,7 +56,7 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
     /**
      * Sets validator options
      *
-     * @param array $options OPTIONAL Options to set, see the manual for all available options
+     * @param array|Zend_Config $options OPTIONAL Options to set, see the manual for all available options
      */
     public function __construct($options = array())
     {

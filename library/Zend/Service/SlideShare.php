@@ -492,7 +492,7 @@ class Zend_Service_SlideShare
     /**
      * Retrieves an array of slide shows based on tag
      *
-     * @param string $tag The tag to retrieve slide shows with
+     * @param string|array $tag The tag to retrieve slide shows with
      * @param int $offset The offset of the list to start retrieving from
      * @param int $limit The maximum number of slide shows to retrieve
      * @return array An array of Zend_Service_SlideShare_SlideShow objects

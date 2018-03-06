@@ -84,7 +84,7 @@ class Zend_Server_Method_Prototype
     /**
      * Add a parameter
      *
-     * @param  string $parameter
+     * @param  string|Zend_Server_Method_Parameter $parameter
      * @return Zend_Server_Method_Prototype
      */
     public function addParameter($parameter)

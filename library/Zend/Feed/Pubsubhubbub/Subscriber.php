@@ -461,7 +461,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
     /**
      * Add an optional parameter to the (un)subscribe requests
      *
-     * @param  string      $name
+     * @param  string|array      $name
      * @param  string|null $value
      * @throws Zend_Feed_Pubsubhubbub_Exception
      * @return Zend_Feed_Pubsubhubbub_Subscriber

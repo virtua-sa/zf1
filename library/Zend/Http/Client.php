@@ -672,7 +672,7 @@ class Zend_Http_Client
      * Add a cookie to the request. If the client has no Cookie Jar, the cookies
      * will be added directly to the headers array as "Cookie" headers.
      *
-     * @param Zend_Http_Cookie|string $cookie
+     * @param Zend_Http_Cookie|string|array $cookie
      * @param string|null $value If "cookie" is a string, this is the cookie value.
      * @return Zend_Http_Client
      * @throws Zend_Http_Client_Exception
@@ -1258,7 +1258,7 @@ class Zend_Http_Client
     /**
      * Prepare the request body (for POST and PUT requests)
      *
-     * @return string
+     * @return string|resource
      * @throws Zend_Http_Client_Exception
      */
     protected function _prepareBody()
@@ -1580,7 +1580,7 @@ class Zend_Http_Client
      * Ensure a header value is valid per RFC 7230.
      *
      * @see http://tools.ietf.org/html/rfc7230#section-3.2
-     * @param string|object|array $value
+     * @param string|object|array|int|float $value
      * @param bool $recurse
      */
     protected function _validateHeaderValue($value, $recurse = true)

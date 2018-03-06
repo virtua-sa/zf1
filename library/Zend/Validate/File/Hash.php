@@ -60,7 +60,7 @@ class Zend_Validate_File_Hash extends Zend_Validate_Abstract
     /**
      * Sets validator options
      *
-     * @param  string|array $options
+     * @param  string|array|Zend_Config $options
      * @throws Zend_Validate_Exception
      */
     public function __construct($options)

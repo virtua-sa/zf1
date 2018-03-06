@@ -77,7 +77,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
     /**
      * Constructor
      *
-     * @param array $options
+     * @param array|Zend_Config $options
      * @return void
      */
     public function __construct($options = array())
@@ -308,7 +308,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      *
      * The new document replaces the existing document.
      *
-     * @param  Zend_Cloud_DocumentService_Document $document
+     * @param  Zend_Cloud_DocumentService_Document|array $document
      * @param  array                         $options
      * @return boolean
      */

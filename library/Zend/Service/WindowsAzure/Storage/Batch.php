@@ -114,7 +114,7 @@ class Zend_Service_WindowsAzure_Storage_Batch
 	 * @param string $path Path
 	 * @param string $queryString Query string
 	 * @param string $httpVerb HTTP verb the request will use
-	 * @param array $headers x-ms headers to add
+	 * @param array|null $headers x-ms headers to add
 	 * @param boolean $forTableStorage Is the request for table storage?
 	 * @param mixed $rawData Optional RAW HTTP data to be sent over the wire
 	 * @throws Zend_Service_WindowsAzure_Exception

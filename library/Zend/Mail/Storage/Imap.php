@@ -232,7 +232,7 @@ class Zend_Mail_Storage_Imap extends Zend_Mail_Storage_Abstract
      *   - ssl 'SSL' or 'TLS' for secure sockets
      *   - folder select this folder [optional, default = 'INBOX']
      *
-     * @param  array $params mail reader specific parameters
+     * @param  array|Zend_Mail_Protocol_Imap $params mail reader specific parameters
      * @throws Zend_Mail_Storage_Exception
      * @throws Zend_Mail_Protocol_Exception
      */

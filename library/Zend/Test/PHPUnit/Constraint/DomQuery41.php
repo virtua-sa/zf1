@@ -134,7 +134,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      *
      * @param  string       $content Response content to be matched against (haystack)
      * @param  null|string  $assertType Assertion type
-     * @param  string       $match (optional) String to match (needle), may be required depending on assertion type
+     * @param  string|false       $match (optional) String to match (needle), may be required depending on assertion type
      * @return bool
      *
      * NOTE:

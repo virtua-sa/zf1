@@ -102,7 +102,7 @@ class Zend_Tool_Project_Provider_Action
      * @param Zend_Tool_Project_Profile $profile
      * @param string $controllerName
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     protected static function _getControllerFileResource(Zend_Tool_Project_Profile $profile, $controllerName, $moduleName = null)
     {

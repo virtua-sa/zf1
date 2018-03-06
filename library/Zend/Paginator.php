@@ -1129,7 +1129,7 @@ class Zend_Paginator implements Countable, IteratorAggregate
     /**
      * Loads a scrolling style.
      *
-     * @param string $scrollingStyle
+     * @param string|Zend_Paginator_ScrollingStyle_Interface $scrollingStyle
      * @return Zend_Paginator_ScrollingStyle_Interface
      */
     protected function _loadScrollingStyle($scrollingStyle = null)

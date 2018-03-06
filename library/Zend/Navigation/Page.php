@@ -794,7 +794,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     /**
      * Sets page order to use in parent container
      *
-     * @param  int $order                 [optional] page order in container.
+     * @param  int|string $order                 [optional] page order in container.
      *                                    Default is null, which sets no
      *                                    specific order.
      * @return Zend_Navigation_Page       fluent interface, returns self
@@ -949,7 +949,7 @@ abstract class Zend_Navigation_Page extends Zend_Navigation_Container
     /**
      * Sets whether the page should be visible or not
      *
-     * @param  bool $visible         [optional] whether page should be
+     * @param  bool|string $visible         [optional] whether page should be
      *                               considered visible or not. Default is true.
      * @return Zend_Navigation_Page  fluent interface, returns self
      */

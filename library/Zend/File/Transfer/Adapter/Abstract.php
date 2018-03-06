@@ -324,7 +324,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     /**
      * Adds a new validator for this class
      *
-     * @param  string|array $validator           Type of validator to add
+     * @param  string|array|Zend_Validate_Interface $validator           Type of validator to add
      * @param  boolean      $breakChainOnFailure If the validation chain should stop an failure
      * @param  string|array $options             Options to set for the validator
      * @param  string|array $files               Files to limit this validator to
@@ -742,7 +742,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     /**
      * Adds a new filter for this class
      *
-     * @param  string|array $filter Type of filter to add
+     * @param  string|array|Zend_Filter_Interface $filter Type of filter to add
      * @param  string|array $options   Options to set for the filter
      * @param  string|array $files     Files to limit this filter to
      * @return $this
@@ -1106,7 +1106,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     /**
      * Set translator object for localization
      *
-     * @param  Zend_Translate|null $translator
+     * @param  Zend_Translate|null|Zend_Translate_Adapter $translator
      * @return $this
      * @throws Zend_File_Transfer_Exception
      */

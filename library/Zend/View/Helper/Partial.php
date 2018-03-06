@@ -54,7 +54,7 @@ class Zend_View_Helper_Partial extends Zend_View_Helper_Abstract
      * get_object_vars() is passed.
      *
      * @param  string $name Name of view script
-     * @param  string|array $module If $model is empty, and $module is an array,
+     * @param  string|array|object $module If $model is empty, and $module is an array,
      *                              these are the variables to populate in the
      *                              view. Otherwise, the module in which the
      *                              partial resides

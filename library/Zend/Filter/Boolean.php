@@ -132,7 +132,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     /**
      * Set the null types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Filter_Exception
      * @return Zend_Filter_Boolean
      */
@@ -232,8 +232,8 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      *
      * Returns a boolean representation of $value
      *
-     * @param  string $value
-     * @return string|bool
+     * @param  string|array|null|float|int|bool $value
+     * @return string|bool|array|float|int
      */
     public function filter($value)
     {

@@ -387,7 +387,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @param string $value Also accepts bools. If using a string, must be either "true" or "false".
+     * @param string|bool $value Also accepts bools. If using a string, must be either "true" or "false".
      * @return $this Provides a fluent interface
      */
     public function setSingleEvents($value)
@@ -435,7 +435,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @param string $value Also accepts bools. If using a string, must be either "true" or "false" or
+     * @param string|bool $value Also accepts bools. If using a string, must be either "true" or "false" or
      *                      an exception will be thrown on retrieval.
      * @return $this Provides a fluent interface
      */

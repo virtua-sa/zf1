@@ -43,7 +43,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Get the current token
      *
-     * @return Zend_Markup_Token
+     * @return Zend_Markup_Token|false
      */
     public function current()
     {
@@ -85,7 +85,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Get the key of the current token
      *
-     * @return int
+     * @return int|null
      */
     public function key()
     {
@@ -95,7 +95,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Go to the next token
      *
-     * @return Zend_Markup_Token
+     * @return Zend_Markup_Token|false
      */
     public function next()
     {

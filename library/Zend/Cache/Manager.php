@@ -197,7 +197,7 @@ class Zend_Cache_Manager
      * be lazy loaded
      *
      * @param  string $name
-     * @param  array  $options
+     * @param  array|Zend_Config  $options
      * @return Zend_Cache_Manager
      * @throws Zend_Cache_Exception
      */
@@ -247,7 +247,7 @@ class Zend_Cache_Manager
      * template
      *
      * @param  string $name
-     * @param  array $options
+     * @param  array|Zend_Config $options
      * @return Zend_Cache_Manager
      * @throws Zend_Cache_Exception for invalid options format or if option templates do not have $name
      */

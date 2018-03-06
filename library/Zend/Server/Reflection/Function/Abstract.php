@@ -106,7 +106,7 @@ abstract class Zend_Server_Reflection_Function_Abstract
     /**
      * Constructor
      *
-     * @param ReflectionFunction $r
+     * @param ReflectionFunction|ReflectionMethod $r
      */
     public function __construct(Reflector $r, $namespace = null, $argv = array())
     {

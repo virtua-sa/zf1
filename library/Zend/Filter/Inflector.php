@@ -68,7 +68,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Constructor
      *
-     * @param string|array $options Options to set
+     * @param string|array|Zend_Config $options Options to set
      */
     public function __construct($options = null)
     {
@@ -141,7 +141,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Set options
      *
-     * @param  array $options
+     * @param  array|Zend_Config $options
      * @return Zend_Filter_Inflector
      */
     public function setOptions($options) {
@@ -504,7 +504,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Resolve named filters and convert them to filter objects.
      *
-     * @param  string $rule
+     * @param  string|Zend_Filter_Interface $rule
      * @return Zend_Filter_Interface
      */
     protected function _getRule($rule)

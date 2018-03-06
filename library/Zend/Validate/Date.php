@@ -155,7 +155,7 @@ class Zend_Validate_Date extends Zend_Validate_Abstract
      * If optional $format or $locale is set the date format is checked
      * according to Zend_Date, see Zend_Date::isDate()
      *
-     * @param  string|array|Zend_Date $value
+     * @param  string|array|Zend_Date|int|float $value
      * @return boolean
      */
     public function isValid($value)

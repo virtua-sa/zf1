@@ -153,7 +153,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
     /**
      * Gets a spreadsheet entry.
      *
-     * @param string $location A DocumentQuery or a URI specifying the entry location.
+     * @param string|Zend_Gdata_Spreadsheets_DocumentQuery $location A DocumentQuery or a URI specifying the entry location.
      * @return Zend_Gdata_Spreadsheets_SpreadsheetEntry|string
      */
     public function getSpreadsheetEntry($location)
@@ -195,7 +195,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
     /**
      * Gets a worksheet entry.
      *
-     * @param string $location A DocumentQuery or a URI specifying the entry location.
+     * @param string|Zend_Gdata_Spreadsheets_DocumentQuery $location A DocumentQuery or a URI specifying the entry location.
      * @return Zend_Gdata_Spreadsheets_WorksheetEntry|string
      */
     public function GetWorksheetEntry($location)
@@ -215,7 +215,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
     /**
      * Gets a cell feed.
      *
-     * @param string $location A CellQuery, WorksheetEntry or a URI specifying the feed location.
+     * @param string|Zend_Gdata_Spreadsheets_CellQuery|Zend_Gdata_Spreadsheets_WorksheetEntry $location A CellQuery, WorksheetEntry or a URI specifying the feed location.
      * @return Zend_Gdata_Spreadsheets_CellFeed|string
      */
     public function getCellFeed($location)
@@ -233,7 +233,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
     /**
      * Gets a cell entry.
      *
-     * @param string $location A CellQuery or a URI specifying the entry location.
+     * @param string|Zend_Gdata_Spreadsheets_CellQuery $location A CellQuery or a URI specifying the entry location.
      * @return Zend_Gdata_Spreadsheets_CellEntry|string
      */
     public function getCellEntry($location)
@@ -269,7 +269,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
     /**
      * Gets a list entry.
      *
-     * @param string $location A ListQuery or a URI specifying the entry location.
+     * @param string|Zend_Gdata_Spreadsheets_ListQuery $location A ListQuery or a URI specifying the entry location.
      * @return Zend_Gdata_Spreadsheets_ListEntry|string
      */
     public function getListEntry($location)

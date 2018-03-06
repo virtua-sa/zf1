@@ -345,7 +345,7 @@ class Zend_Console_Getopt
      *
      * @param  array $argv
      * @throws Zend_Console_Getopt_Exception When not given an array as parameter
-     * @return Zend_Console_Getopt Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function addArguments($argv)
     {
@@ -365,7 +365,7 @@ class Zend_Console_Getopt
      *
      * @param  array $argv
      * @throws Zend_Console_Getopt_Exception When not given an array as parameter
-     * @return Zend_Console_Getopt Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setArguments($argv)
     {
@@ -385,7 +385,7 @@ class Zend_Console_Getopt
      * the behavior of Zend_Console_Getopt.
      *
      * @param  array $getoptConfig
-     * @return Zend_Console_Getopt Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setOptions($getoptConfig)
     {
@@ -404,7 +404,7 @@ class Zend_Console_Getopt
      *
      * @param  string $configKey
      * @param  string $configValue
-     * @return Zend_Console_Getopt Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setOption($configKey, $configValue)
     {
@@ -419,7 +419,7 @@ class Zend_Console_Getopt
      * These are appended to the rules defined when the constructor was called.
      *
      * @param  array $rules
-     * @return Zend_Console_Getopt Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function addRules($rules)
     {

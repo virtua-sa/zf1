@@ -93,7 +93,7 @@ class Zend_Filter_Null implements Zend_Filter_Interface
     /**
      * Set the null types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Filter_Exception
      * @return Zend_Filter_Null
      */
@@ -131,8 +131,8 @@ class Zend_Filter_Null implements Zend_Filter_Interface
      * Returns null representation of $value, if value is empty and matches
      * types that should be considered null.
      *
-     * @param  string $value
-     * @return string|null
+     * @param  string|array|int|bool $value
+     * @return string|array|int|bool|null
      */
     public function filter($value)
     {

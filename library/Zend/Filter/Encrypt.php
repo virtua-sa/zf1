@@ -47,7 +47,7 @@ class Zend_Filter_Encrypt implements Zend_Filter_Interface
     /**
      * Class constructor
      *
-     * @param string|array $options (Optional) Options to set, if null mcrypt is used
+     * @param string|array|Zend_Config $options (Optional) Options to set, if null mcrypt is used
      */
     public function __construct($options = null)
     {

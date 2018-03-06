@@ -68,7 +68,7 @@ class Zend_Filter_Alnum implements Zend_Filter_Interface
     /**
      * Sets default option values for this instance
      *
-     * @param  boolean $allowWhiteSpace
+     * @param  boolean|Zend_Config|array $allowWhiteSpace
      * @return void
      */
     public function __construct($allowWhiteSpace = false)

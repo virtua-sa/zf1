@@ -162,10 +162,11 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         Zend_Oauth_Token_Request $token = null,
         Zend_Oauth_Http_UserAuthorization $request = null
     ) {
-        if ($token instanceof Zend_Oauth_Http_UserAuthorization) {
-            $request = $token;
-            $token = null;
-        }
+        // This is not possible with the type-hints set
+        //if ($token instanceof Zend_Oauth_Http_UserAuthorization) {
+        //    $request = $token;
+        //    $token = null;
+        //}
         $redirectUrl = $this->getRedirectUrl($customServiceParameters, $token, $request);
         header('Location: ' . $redirectUrl);
         exit(1);

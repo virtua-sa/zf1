@@ -65,7 +65,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      * </code>
      *
      * @param Zend_Tool_Project_Profile_Resource_SearchConstraints|string|array $matchSearchConstraints
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     public function search($matchSearchConstraints, $nonMatchSearchConstraints = null)
     {
@@ -136,7 +136,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
     /**
      * createResourceAt()
      *
-     * @param array|Zend_Tool_Project_Profile_Resource_SearchConstraints $appendResourceOrSearchConstraints
+     * @param array|Zend_Tool_Project_Profile_Resource_Container $appendResourceOrSearchConstraints
      * @param string $context
      * @param array $attributes
      * @return Zend_Tool_Project_Profile_Resource

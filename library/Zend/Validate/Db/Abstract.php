@@ -96,7 +96,7 @@ abstract class Zend_Validate_Db_Abstract extends Zend_Validate_Abstract
      * 'exclude' => An optional where clause or field/value pair to exclude from the query
      * 'adapter' => An optional database adapter to use
      *
-     * @param array|Zend_Config $options Options to use for this validator
+     * @param array|Zend_Config|Zend_Db_Select $options Options to use for this validator
      * @throws Zend_Validate_Exception
      */
     public function __construct($options)

@@ -98,7 +98,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      * 'max': Maximum filesize
      * 'bytestring': Use bytestring or real size for messages
      *
-     * @param  integer|array $options Options for the adapter
+     * @param  integer|array|Zend_Config|string $options Options for the adapter
      * @throws Zend_Validate_Exception
      */
     public function __construct($options)
@@ -175,7 +175,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
     /**
      * Sets the minimum filesize
      *
-     * @param  integer $min The minimum filesize
+     * @param  integer|string $min The minimum filesize
      * @throws Zend_Validate_Exception When min is greater than max
      * @return $this Provides a fluent interface
      */
@@ -217,7 +217,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
     /**
      * Sets the maximum filesize
      *
-     * @param  integer $max The maximum filesize
+     * @param  integer|string $max The maximum filesize
      * @throws Zend_Validate_Exception When max is smaller than min
      * @return $this Provides a fluent interface
      */

@@ -81,7 +81,7 @@ class Zend_Filter_PregReplace implements Zend_Filter_Interface
      *     'match'   => matching pattern
      *     'replace' => replace with this
      *
-     * @param  string|array $options
+     * @param  string|array|Zend_Config $options
      * @return void
      */
     public function __construct($options = null)

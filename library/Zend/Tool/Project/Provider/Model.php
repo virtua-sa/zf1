@@ -80,7 +80,7 @@ class Zend_Tool_Project_Provider_Model extends Zend_Tool_Project_Provider_Abstra
      *
      * @param Zend_Tool_Project_Profile $profile
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     protected static function _getModelsDirectoryResource(Zend_Tool_Project_Profile $profile, $moduleName = null)
     {

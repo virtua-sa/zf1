@@ -324,7 +324,7 @@ class Zend_Cloud_DocumentService_Adapter_SimpleDb
      * $query, the query string will be passed directly to the service.
      *
      * @param  string $collectionName Collection name
-     * @param  string $query
+     * @param  string|Zend_Cloud_DocumentService_Adapter_SimpleDb_Query $query
      * @param  array $options
      * @return Zend_Cloud_DocumentService_DocumentSet
      */

@@ -490,7 +490,7 @@ class Zend_OpenId
      *
      * @param string $func digest algorithm
      * @param string $data data to sign
-     * @return string RAW digital signature
+     * @return string|false RAW digital signature
      * @throws Zend_OpenId_Exception
      */
     static public function digest($func, $data)
@@ -521,7 +521,7 @@ class Zend_OpenId
      * @param string $data data to sign
      * @param string $secret shared secret key used for generating the HMAC
      *  variant of the message digest
-     * @return string RAW HMAC value
+     * @return string|false RAW HMAC value
      */
     static public function hashHmac($macFunc, $data, $secret)
     {
@@ -689,7 +689,7 @@ class Zend_OpenId
      *
      * @param string $pub_key other party's public value
      * @param mixed $dh Diffie-Hellman key
-     * @return string
+     * @return string|false
      * @throws Zend_OpenId_Exception
      */
     static public function computeDhSecret($pub_key, $dh)

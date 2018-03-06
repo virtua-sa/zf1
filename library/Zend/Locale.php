@@ -1628,7 +1628,7 @@ class Zend_Locale
     /**
      * Internal function for preparing the returned question regex string
      *
-     * @param  string $input Regex to parse
+     * @param  string|array $input Regex to parse
      * @return string
      */
     private static function _prepareQuestionString($input)
@@ -1872,7 +1872,7 @@ class Zend_Locale
     /**
      * Internal function, returns a single locale on detection
      *
-     * @param  string|Zend_Locale $locale (Optional) Locale to work on
+     * @param  string|Zend_Locale|array $locale (Optional) Locale to work on
      * @param  boolean            $strict (Optional) Strict preparation
      * @throws Zend_Locale_Exception When no locale is set which is only possible when the class was wrong extended
      * @return string

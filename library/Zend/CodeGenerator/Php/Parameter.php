@@ -142,7 +142,7 @@ class Zend_CodeGenerator_Php_Parameter extends Zend_CodeGenerator_Php_Abstract
      *
      * Certain variables are difficult to expres
      *
-     * @param null|bool|string|int|float|Zend_CodeGenerator_Php_Parameter_DefaultValue $defaultValue
+     * @param null|bool|string|int|float|array|Zend_CodeGenerator_Php_Parameter_DefaultValue $defaultValue
      * @return $this
      */
     public function setDefaultValue($defaultValue)

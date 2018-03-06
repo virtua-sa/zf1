@@ -561,7 +561,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
     /**
      * Implement Zend_Server_Interface::addFunction()
      *
-     * @param string $function Function Name
+     * @param string|array $function Function Name
      * @param string $namespace Function namespace (unused)
      */
     public function addFunction($function, $namespace = '')

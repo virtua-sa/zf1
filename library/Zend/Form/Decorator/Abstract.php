@@ -46,7 +46,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     protected $_placement = 'APPEND';
 
     /**
-     * @var Zend_Form_Element|Zend_Form
+     * @var Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup
      */
     protected $_element;
 
@@ -169,7 +169,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     /**
      * Set current form element
      *
-     * @param  Zend_Form_Element|Zend_Form $element
+     * @param  Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup $element
      * @return Zend_Form_Decorator_Abstract
      * @throws Zend_Form_Decorator_Exception on invalid element type
      */
@@ -190,7 +190,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     /**
      * Retrieve current element
      *
-     * @return Zend_Form_Element|Zend_Form
+     * @return Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup
      */
     public function getElement()
     {

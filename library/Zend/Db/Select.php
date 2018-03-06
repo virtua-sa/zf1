@@ -769,7 +769,7 @@ class Zend_Db_Select
      * as described in the from() method.
      *
      * @param  null|string $type Type of join; inner, left, and null are currently supported
-     * @param  array|string|Zend_Db_Expr $name Table name
+     * @param  array|string|Zend_Db_Expr|Zend_Db_Select $name Table name
      * @param  string $cond Join on this condition
      * @param  array|string $cols The columns to select from the joined table
      * @param  string $schema The database name to specify, if any.

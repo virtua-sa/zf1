@@ -833,8 +833,8 @@ abstract class Zend_Db_Adapter_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|int           Quoted string
      */
     protected function _quote($value)
     {
@@ -990,7 +990,7 @@ abstract class Zend_Db_Adapter_Abstract
     /**
      * Quote an identifier and an optional alias.
      *
-     * @param string|array|Zend_Db_Expr $ident The identifier or expression.
+     * @param string|array|Zend_Db_Expr|Zend_Db_Select $ident The identifier or expression.
      * @param string $alias An optional alias.
      * @param boolean $auto If true, heed the AUTO_QUOTE_IDENTIFIERS config option.
      * @param string $as The string to add between the identifier/expression and the alias.

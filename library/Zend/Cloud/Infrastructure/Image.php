@@ -57,7 +57,7 @@ class Zend_Cloud_Infrastructure_Image
     /**
      * Constructor
      *
-     * @param array $data
+     * @param array|object $data
      * @param object $adapter
      */
     public function __construct($data, $adapter = null)

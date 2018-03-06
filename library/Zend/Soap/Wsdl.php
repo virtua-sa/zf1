@@ -77,7 +77,7 @@ class Zend_Soap_Wsdl
      * Constructor
      *
      * @param string  $name Name of the Web Service being Described
-     * @param string  $uri URI where the WSDL will be available
+     * @param string|Zend_Uri_Http  $uri URI where the WSDL will be available
      * @param boolean|string|Zend_Soap_Wsdl_Strategy_Interface $strategy
      */
     public function __construct($name, $uri, $strategy = true)
@@ -364,7 +364,7 @@ class Zend_Soap_Wsdl
      * Add a {@link http://www.w3.org/TR/wsdl#_soap:operation SOAP operation} to an operation element
      *
      * @param object $binding An operation XML_Tree_Node returned by {@link function addBindingOperation}
-     * @param string $soap_action SOAP Action
+     * @param string|Zend_Uri_Http $soap_action SOAP Action
      * @return boolean
      */
     public function addSoapOperation($binding, $soap_action)
@@ -386,7 +386,7 @@ class Zend_Soap_Wsdl
      * @param string $name Service Name
      * @param string $port_name Name of the port for the service
      * @param string $binding Binding for the port
-     * @param string $location SOAP Address for the service
+     * @param string|Zend_Uri_Http $location SOAP Address for the service
      * @return object The new service's XML_Tree_Node for use with {@link function addDocumentation}
      */
     public function addService($name, $port_name, $binding, $location)

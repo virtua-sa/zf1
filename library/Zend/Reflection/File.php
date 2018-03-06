@@ -86,7 +86,7 @@ class Zend_Reflection_File implements Reflector
     public function __construct($file)
     {
         $fileName = $file;
-        
+
         $fileRealpath = realpath($fileName);
         if ($fileRealpath) {
             // realpath() doesn't return false if Suhosin is included
@@ -95,7 +95,7 @@ class Zend_Reflection_File implements Reflector
                 $fileRealpath = false;
             }
         }
-        
+
         if ($fileRealpath === false) {
             $fileRealpath = self::findRealpathInIncludePath($file);
         }
@@ -114,7 +114,7 @@ class Zend_Reflection_File implements Reflector
      * Find realpath of file based on include_path
      *
      * @param  string $fileName
-     * @return string
+     * @return string|false
      */
     public static function findRealpathInIncludePath($fileName)
     {

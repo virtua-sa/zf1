@@ -47,7 +47,7 @@ class Zend_Service_Amazon_Query extends Zend_Service_Amazon
     /**
      * Search index
      *
-     * @var string
+     * @var string|null
      */
     protected $_searchIndex = null;
 

@@ -52,7 +52,7 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Optional locale
      *
-     * @var string|Zend_Locale|null
+     * @var string|Zend_Locale|null|false
      */
     protected $_locale;
 
@@ -163,7 +163,7 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Returns the locale option
      *
-     * @return string|Zend_Locale|null
+     * @return string|Zend_Locale|null|false
      */
     public function getLocale()
     {
@@ -173,7 +173,7 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Sets the locale option
      *
-     * @param  string|Zend_Locale $locale
+     * @param  string|Zend_Locale|false $locale
      * @throws Zend_Locale_Exception
      * @throws Zend_Validate_Exception
      * @return $this provides a fluent interface

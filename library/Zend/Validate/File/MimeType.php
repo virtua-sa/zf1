@@ -126,7 +126,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      *
      * Mimetype to accept
      *
-     * @param  string|array $mimetype MimeType
+     * @param  string|array|Zend_Config $mimetype MimeType
      * @throws Zend_Validate_Exception
      */
     public function __construct($mimetype)
