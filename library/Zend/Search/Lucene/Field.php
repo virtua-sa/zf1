@@ -47,7 +47,7 @@ class Zend_Search_Lucene_Field
     /**
      * Field value
      *
-     * @var boolean
+     * @var string
      */
     public $value;
 

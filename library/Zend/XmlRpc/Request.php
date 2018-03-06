@@ -79,7 +79,7 @@ class Zend_XmlRpc_Request
 
     /**
      * Fault object, if any
-     * @var Zend_XmlRpc_Fault
+     * @var Zend_XmlRpc_Fault|Zend_XmlRpc_Server_Exception|null
      */
     protected $_fault = null;
 
@@ -373,7 +373,7 @@ class Zend_XmlRpc_Request
     /**
      * Retrieve the fault response, if any
      *
-     * @return null|Zend_XmlRpc_Fault
+     * @return null|Zend_XmlRpc_Fault|Zend_XmlRpc_Server_Exception
      */
     public function getFault()
     {

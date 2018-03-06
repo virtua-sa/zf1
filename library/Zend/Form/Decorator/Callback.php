@@ -52,7 +52,7 @@ class Zend_Form_Decorator_Callback extends Zend_Form_Decorator_Abstract
 {
     /**
      * Callback
-     * @var string|array
+     * @var callable
      */
     protected $_callback;
 
@@ -79,7 +79,7 @@ class Zend_Form_Decorator_Callback extends Zend_Form_Decorator_Abstract
      * If not previously registered, checks to see if it exists in registered
      * options.
      *
-     * @return null|string|array
+     * @return callable
      */
     public function getCallback()
     {

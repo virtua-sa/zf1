@@ -140,7 +140,7 @@ class Zend_View_Helper_HeadMeta extends Zend_View_Helper_Placeholder_Container_S
      *
      * @param  string $method
      * @param  array $args
-     * @return Zend_View_Helper_HeadMeta
+     * @return $this|void|mixed
      */
     public function __call($method, $args)
     {

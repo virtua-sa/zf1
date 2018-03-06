@@ -216,7 +216,7 @@ abstract class Zend_View_Helper_Placeholder_Container_Standalone extends Zend_Vi
      *
      * @param  string $method
      * @param  array $args
-     * @return mixed
+     * @return mixed|this
      */
     public function __call($method, $args)
     {

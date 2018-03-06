@@ -81,7 +81,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
     /**
      * SOAP Server Features
      *
-     * @var int
+     * @var int|string
      */
     protected $_features;
 
@@ -506,7 +506,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
     /**
      * Return current SOAP Features options
      *
-     * @return int
+     * @return int|string
      */
     public function getSoapFeatures()
     {
@@ -700,7 +700,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
     /**
      * Get server persistence
      *
-     * @return Zend_Soap_Server
+     * @return int
      */
     public function getPersistence()
     {
@@ -855,7 +855,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
      * cross-platform compatability purposes).
      *
      * @param DOMDocument|DOMNode|SimpleXMLElement|stdClass|string $request Optional request
-     * @return void|string
+     * @return null|string
      */
     public function handle($request = null)
     {
@@ -904,7 +904,7 @@ class Zend_Soap_Server implements Zend_Server_Interface
 
         if (!$this->_returnResponse) {
             echo $this->_response;
-            return;
+            return null;
         }
 
         return $this->_response;

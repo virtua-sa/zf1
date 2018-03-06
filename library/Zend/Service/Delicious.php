@@ -441,7 +441,7 @@ class Zend_Service_Delicious
      * If URL hasen't been bookmarked null is returned.
      *
      * @param  string $url URL for which to get details
-     * @return array
+     * @return array|null
      */
     public function getUrlDetails($url)
     {

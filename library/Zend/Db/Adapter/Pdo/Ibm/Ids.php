@@ -275,7 +275,7 @@ class Zend_Db_Adapter_Pdo_Ibm_Ids
      * IDS-specific last sequence id
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function lastSequenceId($sequenceName)
     {
@@ -289,7 +289,7 @@ class Zend_Db_Adapter_Pdo_Ibm_Ids
      * IDS-specific sequence id value
      *
      *  @param string $sequenceName
-     *  @return integer
+     *  @return integer|string
      */
     public function nextSequenceId($sequenceName)
     {

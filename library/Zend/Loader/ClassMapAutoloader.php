@@ -200,12 +200,12 @@ class Zend_Loader_ClassMapAutoloader implements Zend_Loader_SplAutoloader
      *
      * @see    https://bugs.php.net/bug.php?id=52769
      * @param  string $path
-     * @return string
+     * @return string|null
      */
     public static function realPharPath($path)
     {
         if (strpos($path, 'phar:///') !== 0) {
-            return;
+            return null;
         }
 
         $parts = explode('/', str_replace(array('/','\\'), '/', substr($path, 8)));

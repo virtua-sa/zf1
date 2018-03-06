@@ -38,7 +38,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getTopLeft()
     {
@@ -48,7 +48,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getTopRight()
     {
@@ -58,7 +58,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getBottomLeft()
     {
@@ -68,7 +68,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getBottomRight()
     {
@@ -78,7 +78,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getVertical()
     {
@@ -88,7 +88,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getHorizontal()
     {
@@ -98,7 +98,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getCross()
     {
@@ -108,7 +108,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getVerticalRight()
     {
@@ -118,7 +118,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getVerticalLeft()
     {
@@ -128,7 +128,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getHorizontalDown()
     {
@@ -138,7 +138,7 @@ class Zend_Text_Table_Decorator_Unicode implements Zend_Text_Table_Decorator_Int
     /**
      * Defined by Zend_Text_Table_Decorator_Interface
      *
-     * @return string
+     * @return string|false
      */
     public function getHorizontalUp()
     {

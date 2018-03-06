@@ -149,7 +149,7 @@ class Zend_Cloud_QueueService_Adapter_ZendQueue
      *
      * @param  string $queueId
      * @param  array  $options
-     * @return array
+     * @return array|false
      */
     public function fetchQueueMetadata($queueId, $options = null)
     {
@@ -171,7 +171,7 @@ class Zend_Cloud_QueueService_Adapter_ZendQueue
      * @param  string $queueId
      * @param  array  $metadata
      * @param  array  $options
-     * @return void
+     * @return Zend_Queue
      */
     public function storeQueueMetadata($queueId, $metadata, $options = null)
     {
@@ -255,7 +255,7 @@ class Zend_Cloud_QueueService_Adapter_ZendQueue
      * @param  string $queueId
      * @param  Zend_Cloud_QueueService_Message $message Message ID or message
      * @param  array  $options
-     * @return void
+     * @return bool
      */
     public function deleteMessage($queueId, $message, $options = null)
     {

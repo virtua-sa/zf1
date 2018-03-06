@@ -142,7 +142,7 @@ abstract class Zend_Feed_Reader_Extension_FeedAbstract
      * Set the XPath query
      *
      * @param  DOMXPath $xpath
-     * @return Zend_Feed_Reader_Extension_EntryAbstract
+     * @return $this
      */
     public function setXpath(DOMXPath $xpath)
     {
@@ -154,7 +154,7 @@ abstract class Zend_Feed_Reader_Extension_FeedAbstract
     /**
      * Get the DOMXPath object
      *
-     * @return string
+     * @return DOMXPath
      */
     public function getXpath()
     {

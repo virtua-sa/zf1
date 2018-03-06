@@ -56,7 +56,7 @@ class Zend_Locale_Data
     /**
      * Internal cache for ldml values
      *
-     * @var Zend_Cache_Core
+     * @var Zend_Cache_Core|null
      */
     private static $_cache = null;
 
@@ -95,6 +95,7 @@ class Zend_Locale_Data
      * @param  string $path
      * @param  string $attribute
      * @param  string $value
+     * @param  array $temp
      * @access private
      * @return array
      */

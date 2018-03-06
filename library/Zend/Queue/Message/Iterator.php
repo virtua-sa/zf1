@@ -48,7 +48,7 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
     /**
      * Zend_Queue_Adapter_AdapterInterface parent class or instance
      *
-     * @var Zend_Queue_Adapter_AdapterInterface
+     * @var Zend_Queue_Adapter_AdapterInterface|Zend_Queue|null
      */
     protected $_queue = null;
 
@@ -161,7 +161,7 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
     /**
      * Returns the queue object, or null if this is disconnected message set
      *
-     * @return Zend_Queue|null
+     * @return Zend_Queue_Adapter_AdapterInterface|Zend_Queue|null
      */
     public function getQueue()
     {

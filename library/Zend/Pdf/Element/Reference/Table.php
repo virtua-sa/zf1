@@ -33,7 +33,7 @@ class Zend_Pdf_Element_Reference_Table
     /**
      * Parent reference table
      *
-     * @var Zend_Pdf_Element_Reference_Table
+     * @var Zend_Pdf_Element_Reference_Table|null
      */
     private $_parent;
 
@@ -124,7 +124,7 @@ class Zend_Pdf_Element_Reference_Table
      * Get object offset
      *
      * @param string $ref
-     * @return integer
+     * @return integer|null
      */
     public function getOffset($ref)
     {

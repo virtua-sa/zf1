@@ -407,8 +407,8 @@ abstract class Zend_Search_Lucene_Search_Similarity
     /**
      * Float to byte conversion
      *
-     * @param integer $f
-     * @return float
+     * @param float $f
+     * @return int
      */
     private static function _floatToByte($f)
     {

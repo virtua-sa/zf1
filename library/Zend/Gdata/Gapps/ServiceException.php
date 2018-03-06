@@ -123,7 +123,7 @@ class Zend_Gdata_Gapps_ServiceException extends Zend_Exception
     /**
      * Return the Error object associated with a specific error code.
      *
-     * @return Zend_Gdata_Gapps_Error The Error object requested, or null
+     * @return Zend_Gdata_Gapps_Error|null The Error object requested, or null
      *              if not found.
      */
     public function getError($errorCode) {

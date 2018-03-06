@@ -315,7 +315,7 @@ class Zend_XmlRpc_Server extends Zend_Server_Abstract
      * Handle an xmlrpc call
      *
      * @param Zend_XmlRpc_Request $request Optional
-     * @return Zend_XmlRpc_Response|Zend_XmlRpc_Fault
+     * @return Zend_XmlRpc_Fault|Zend_XmlRpc_Response|Zend_XmlRpc_Server_Exception|null
      */
     public function handle($request = false)
     {

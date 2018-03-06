@@ -51,7 +51,7 @@ class Zend_Barcode
      * @param  mixed $barcodeConfig   OPTIONAL; an array or Zend_Config object with barcode parameters.
      * @param  mixed $rendererConfig  OPTIONAL; an array or Zend_Config object with renderer parameters.
      * @param  boolean $automaticRenderError  OPTIONAL; set the automatic rendering of exception
-     * @return Zend_Barcode
+     * @return Zend_Barcode_Renderer_RendererAbstract
      * @throws Zend_Barcode_Exception
      */
     public static function factory(

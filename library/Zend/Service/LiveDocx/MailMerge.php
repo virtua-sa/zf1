@@ -980,7 +980,7 @@ class Zend_Service_LiveDocx_MailMerge extends Zend_Service_LiveDocx
      * Download an image file from LiveDocx service
      *
      * @param  string $filename
-     * @return void
+     * @return string
      * @throws Zend_Service_LiveDocx_Exception
      * @since  LiveDocx 2.0
      */

@@ -145,7 +145,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
      * Prepare a value for INI
      *
      * @param  mixed $value
-     * @return string
+     * @return int|float|string
      */
     protected function _prepareValue($value)
     {

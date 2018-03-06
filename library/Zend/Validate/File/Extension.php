@@ -50,7 +50,7 @@ class Zend_Validate_File_Extension extends Zend_Validate_Abstract
 
     /**
      * Internal list of extensions
-     * @var string
+     * @var string|null
      */
     protected $_extension = '';
 

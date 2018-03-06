@@ -1061,7 +1061,7 @@ abstract class Zend_Db_Adapter_Abstract
      * (e.g. Oracle, PostgreSQL, DB2).  Other RDBMS brands return null.
      *
      * @param string $sequenceName
-     * @return string
+     * @return null
      */
     public function lastSequenceId($sequenceName)
     {
@@ -1074,7 +1074,7 @@ abstract class Zend_Db_Adapter_Abstract
      * (e.g. Oracle, PostgreSQL, DB2).  Other RDBMS brands return null.
      *
      * @param string $sequenceName
-     * @return string
+     * @return null
      */
     public function nextSequenceId($sequenceName)
     {
@@ -1209,7 +1209,7 @@ abstract class Zend_Db_Adapter_Abstract
      * Prepare a statement and return a PDOStatement-like object.
      *
      * @param string|Zend_Db_Select $sql SQL query
-     * @return Zend_Db_Statement|PDOStatement
+     * @return Zend_Db_Statement_Interface
      */
     abstract public function prepare($sql);
 

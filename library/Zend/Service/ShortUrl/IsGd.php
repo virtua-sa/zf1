@@ -68,7 +68,7 @@ class Zend_Service_ShortUrl_IsGd extends Zend_Service_ShortUrl_AbstractShortener
      *
      * @param string $shortenedUrl URL to reveal target of
      * @throws Zend_Service_ShortUrl_Exception When URL is not valid or is not shortened by this service
-     * @return string
+     * @return string|null
      */
     public function unshorten($shortenedUrl)
     {

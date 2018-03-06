@@ -188,7 +188,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
      * Return an Extension object with the matching name (postfixed with _Entry)
      *
      * @param string $name
-     * @return Zend_Feed_Reader_Extension_EntryAbstract
+     * @return Zend_Feed_Reader_Extension_EntryAbstract|null
      */
     public function getExtension($name)
     {

@@ -1898,7 +1898,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * In case of a decoding failure the original string is returned
      *
      * @param  string $encoded Punycode encoded string to decode
-     * @return string
+     * @return string|false
      */
     protected function decodePunycode($encoded)
     {

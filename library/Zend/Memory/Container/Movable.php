@@ -53,7 +53,7 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
     /**
      * Value object
      *
-     * @var Zend_Memory_Value
+     * @var Zend_Memory_Value|null
      */
     private $_value;
 
@@ -129,7 +129,7 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
      * Swaps objects from the bottom of loaded objects list, if necessary.
      *
      * @param string $property
-     * @return string
+     * @return Zend_Memory_Value|null
      * @throws Zend_Memory_Exception
      */
     public function __get($property)

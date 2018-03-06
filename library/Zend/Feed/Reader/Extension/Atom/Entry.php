@@ -352,7 +352,7 @@ class Zend_Feed_Reader_Extension_Atom_Entry
      * Get a specific link
      *
      * @param  int $index
-     * @return string
+     * @return string|null
      */
     public function getLink($index = 0)
     {
@@ -596,7 +596,7 @@ class Zend_Feed_Reader_Extension_Atom_Entry
      * Get an author entry
      *
      * @param DOMElement $element
-     * @return string
+     * @return string|null
      */
     protected function _getAuthor(DOMElement $element)
     {

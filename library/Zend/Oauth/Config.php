@@ -119,7 +119,7 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
     /**
      * Every Consumer Key has a Consumer Secret unless you're in RSA-land.
      *
-     * @var string
+     * @var string|null
      */
     protected $_consumerSecret = null;
 
@@ -127,7 +127,7 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
      * If relevant, a PEM encoded RSA private key encapsulated as a
      * Zend_Crypt_Rsa Key
      *
-     * @var Zend_Crypt_Rsa_Key_Private
+     * @var Zend_Crypt_Rsa_Key_Private|null
      */
     protected $_rsaPrivateKey = null;
 
@@ -273,7 +273,7 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
      * Returns RSA private key if set; otherwise, returns any previously set
      * consumer secret.
      *
-     * @return string
+     * @return string|Zend_Crypt_Rsa_Key_Private
      */
     public function getConsumerSecret()
     {

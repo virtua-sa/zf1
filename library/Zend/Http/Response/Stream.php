@@ -36,7 +36,7 @@ class Zend_Http_Response_Stream extends Zend_Http_Response
     /**
      * Response as stream
      *
-     * @var resource
+     * @var resource|null
      */
     protected $stream;
 

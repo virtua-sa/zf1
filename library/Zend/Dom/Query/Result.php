@@ -65,7 +65,7 @@ class Zend_Dom_Query_Result implements Iterator,Countable
 
     /**
      * XPath query
-     * @var string
+     * @var string|array
      */
     protected $_xpathQuery;
 
@@ -98,7 +98,7 @@ class Zend_Dom_Query_Result implements Iterator,Countable
     /**
      * Retrieve XPath query
      *
-     * @return string
+     * @return string|array
      */
     public function getXpathQuery()
     {

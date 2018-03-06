@@ -694,12 +694,12 @@ class Zend_Console_Getopt
      * Also find option parameters, and remaining arguments after
      * all options have been parsed.
      *
-     * @return Zend_Console_Getopt|null Provides a fluent interface
+     * @return $this|null Provides a fluent interface
      */
     public function parse()
     {
         if ($this->_parsed === true) {
-            return;
+            return null;
         }
         $argv = $this->_argv;
         $this->_options = array();

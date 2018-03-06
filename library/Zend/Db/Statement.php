@@ -95,7 +95,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
     protected $_sqlParam = array();
 
     /**
-     * @var Zend_Db_Profiler_Query
+     * @var int|null
      */
     protected $_queryId = null;
 
@@ -356,7 +356,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
      * Returns a single column from the next row of a result set.
      *
      * @param int $col OPTIONAL Position of the column to fetch.
-     * @return string One value from the next row of result set, or false.
+     * @return string|false One value from the next row of result set, or false.
      */
     public function fetchColumn($col = 0)
     {

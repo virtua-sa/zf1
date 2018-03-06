@@ -306,7 +306,7 @@ class Zend_Http_UserAgent implements Serializable
      * Loads class for a user agent device
      *
      * @param  string $browserType Browser type
-     * @return string
+     * @return string|false
      * @throws Zend_Loader_PluginLoader_Exception if unable to load UA device
      */
     protected function _getUserAgentDevice($browserType)
@@ -625,7 +625,7 @@ class Zend_Http_UserAgent implements Serializable
      * data that will be introspected.
      *
      * @param  array|ArrayAccess $server
-     * @return void
+     * @return $this
      * @throws Zend_Http_UserAgent_Exception on invalid parameter
      */
     public function setServer($server)
@@ -687,7 +687,7 @@ class Zend_Http_UserAgent implements Serializable
      *
      * @param  string|int|float $key
      * @param  mixed $value
-     * @return void
+     * @return $this
      */
     public function setServerValue($key, $value)
     {

@@ -196,7 +196,7 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
      * Support for plugin loader for Captcha adapters
      *
      * @param  string $type
-     * @return Zend_Loader_PluginLoader
+     * @return Zend_Loader_PluginLoader_Interface
      * @throws Zend_Loader_Exception on invalid type.
      */
     public function getPluginLoader($type)

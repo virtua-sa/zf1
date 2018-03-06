@@ -160,7 +160,7 @@ class Zend_Serializer_Adapter_PythonPickle extends Zend_Serializer_Adapter_Adapt
      * @link   Zend_Serializer_Adapter_AdapterAbstract::setOption()
      * @param  string $name
      * @param  mixed $value
-     * @return Zend_Serializer_Adapter_PythonPickle
+     * @return $this
      */
     public function setOption($name, $value)
     {

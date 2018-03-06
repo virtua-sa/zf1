@@ -125,7 +125,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive feed object containing entries for the user's documents.
      *
      * @param mixed $location The location for the feed, as a URL or Query
-     * @return Zend_Gdata_Docs_DocumentListFeed
+     * @return Zend_Gdata_Docs_DocumentListFeed|string
      */
     public function getDocumentListFeed($location = null)
     {
@@ -143,7 +143,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive entry object representing a single document.
      *
      * @param mixed $location The location for the entry, as a URL or Query
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return Zend_Gdata_Docs_DocumentListEntry|string
      * @throws Zend_Gdata_App_InvalidArgumentException
      */
     public function getDocumentListEntry($location = null)
@@ -170,7 +170,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      *     dcmg89gw_62hfjj8m, pKq0CzjiF3YmGd0AIlHKqeg
      * @param string $docType The type of the document as used in the Google
      *     Document List URLs. Examples: document, spreadsheet, presentation
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return Zend_Gdata_Docs_DocumentListEntry|string
      */
     public function getDoc($docId, $docType)
     {
@@ -184,7 +184,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive entry object for the desired word processing document.
      *
      * @param string $id The URL id for the document. Example: dcmg89gw_62hfjj8m
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return Zend_Gdata_Docs_DocumentListEntry|string
      */
     public function getDocument($id)
     {
@@ -195,7 +195,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive entry object for the desired spreadsheet.
      *
      * @param string $id The URL id for the document. Example: pKq0CzjiF3YmGd0AIlHKqeg
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return Zend_Gdata_Docs_DocumentListEntry|string
      */
     public function getSpreadsheet($id)
     {
@@ -206,7 +206,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * Retreive entry object for the desired presentation.
      *
      * @param string $id The URL id for the document. Example: dcmg89gw_21gtrjcn
-     * @return Zend_Gdata_Docs_DocumentListEntry
+     * @return Zend_Gdata_Docs_DocumentListEntry|string
      */
     public function getPresentation($id)
     {
@@ -277,7 +277,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * @param string $folderName The folder name to create
      * @param string|null $folderResourceId The parent folder to create it in
      *        ("folder%3Amy_parent_folder")
-     * @return Zend_Gdata_Entry The folder entry created.
+     * @return Zend_Gdata_App_Entry The folder entry created.
      * @todo ZF-8732: This should return a *subclass* of Zend_Gdata_Entry, but
      *       the appropriate type doesn't exist yet.
      */

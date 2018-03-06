@@ -194,13 +194,13 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     protected $_subForms = array();
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter|null
      */
     protected $_translator;
 
     /**
      * Global default translation adapter
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter|null
      */
     protected static $_translatorDefault;
 
@@ -1675,7 +1675,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      */
     public function addSubForms(array $subForms)
     {
-        foreach ($subForms as $key => $spec) {          
+        foreach ($subForms as $key => $spec) {
             $name = (string) $key;
             if ($spec instanceof Zend_Form) {
                 $this->addSubForm($spec, $name);
@@ -2671,7 +2671,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
      * Set view object
      *
      * @param  Zend_View_Interface $view
-     * @return Zend_Form
+     * @return $this
      */
     public function setView(Zend_View_Interface $view = null)
     {
@@ -3067,7 +3067,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     /**
      * Retrieve translator object
      *
-     * @return Zend_Translate|null
+     * @return Zend_Translate_Adapter|null
      */
     public function getTranslator()
     {
@@ -3095,7 +3095,7 @@ class Zend_Form implements Iterator, Countable, Zend_Validate_Interface
     /**
      * Get global default translator object
      *
-     * @return null|Zend_Translate
+     * @return null|Zend_Translate_Adapter
      */
     public static function getDefaultTranslator()
     {

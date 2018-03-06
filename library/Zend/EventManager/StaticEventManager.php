@@ -33,13 +33,13 @@
 class Zend_EventManager_StaticEventManager extends Zend_EventManager_SharedEventManager
 {
     /**
-     * @var Zend_EventManager_StaticEventManager
+     * @var Zend_EventManager_StaticEventManager|null
      */
     protected static $instance;
 
     /**
      * Singleton
-     * 
+     *
      * @return void
      */
     protected function __construct()
@@ -57,7 +57,7 @@ class Zend_EventManager_StaticEventManager extends Zend_EventManager_SharedEvent
 
     /**
      * Retrieve instance
-     * 
+     *
      * @return Zend_EventManager_StaticEventManager
      */
     public static function getInstance()
@@ -70,7 +70,7 @@ class Zend_EventManager_StaticEventManager extends Zend_EventManager_SharedEvent
 
     /**
      * Reset the singleton instance
-     * 
+     *
      * @return void
      */
     public static function resetInstance()

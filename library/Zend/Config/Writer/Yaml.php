@@ -58,7 +58,7 @@ class Zend_Config_Writer_Yaml extends Zend_Config_Writer_FileAbstract
      * Set callback for decoding YAML
      *
      * @param  callable $yamlEncoder the decoder to set
-     * @return Zend_Config_Yaml
+     * @return $this
      */
     public function setYamlEncoder($yamlEncoder)
     {

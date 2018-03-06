@@ -86,7 +86,7 @@ class Zend_Gdata_App_Extension_Generator extends Zend_Gdata_App_Extension
 
     /**
      * @param Zend_Gdata_App_Extension_Uri $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setUri($value)
     {

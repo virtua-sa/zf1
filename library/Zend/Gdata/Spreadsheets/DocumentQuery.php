@@ -65,7 +65,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the spreadsheet key for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setSpreadsheetKey($value)
     {
@@ -85,7 +85,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the worksheet id for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setWorksheetId($value)
     {
@@ -193,7 +193,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
 
     /**
      * Gets the title attribute for this query.
-     * @return string title
+     * @return string|null title
      */
     public function getTitle()
     {
@@ -206,7 +206,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
 
     /**
      * Gets the title-exact attribute for this query.
-     * @return string title-exact
+     * @return string|null title-exact
      */
     public function getTitleExact()
     {

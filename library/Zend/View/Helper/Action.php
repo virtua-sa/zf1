@@ -113,7 +113,7 @@ class Zend_View_Helper_Action extends Zend_View_Helper_Abstract
      * @param  string $controller
      * @param  string $module Defaults to default module
      * @param  array $params
-     * @return string
+     * @return string|array|null
      */
     public function action($action, $controller, $module = null, array $params = array())
     {

@@ -35,7 +35,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Callback in a call_user_func format
      *
-     * @var string|array
+     * @var callable
      */
     protected $_callback = null;
 
@@ -80,7 +80,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Returns the set callback
      *
-     * @return string|array Set callback
+     * @return callable Set callback
      */
     public function getCallback()
     {

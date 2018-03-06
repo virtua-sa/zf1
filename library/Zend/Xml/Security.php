@@ -66,7 +66,7 @@ class Zend_Xml_Security
      * @param   string $xml
      * @param   DOMDocument $dom
      * @throws  Zend_Xml_Exception
-     * @return  SimpleXMLElement|DOMDocument|boolean
+     * @return  SimpleXMLElement|DOMDocument|false
      */
     public static function scan($xml, DOMDocument $dom = null)
     {
@@ -137,7 +137,7 @@ class Zend_Xml_Security
      * @param  string $file
      * @param  DOMDocument $dom
      * @throws Zend_Xml_Exception
-     * @return SimpleXMLElement|DOMDocument
+     * @return SimpleXMLElement|DOMDocument|false
      */
     public static function scanFile($file, DOMDocument $dom = null)
     {

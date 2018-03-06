@@ -49,7 +49,7 @@ class Zend_CodeGenerator_Php_Parameter extends Zend_CodeGenerator_Php_Abstract
     protected $_name = null;
 
     /**
-     * @var string
+     * @var null|string|int|float|Zend_CodeGenerator_Php_Parameter_DefaultValue
      */
     protected $_defaultValue = null;
 
@@ -143,7 +143,7 @@ class Zend_CodeGenerator_Php_Parameter extends Zend_CodeGenerator_Php_Abstract
      * Certain variables are difficult to expres
      *
      * @param null|bool|string|int|float|Zend_CodeGenerator_Php_Parameter_DefaultValue $defaultValue
-     * @return Zend_CodeGenerator_Php_Parameter
+     * @return $this
      */
     public function setDefaultValue($defaultValue)
     {
@@ -167,7 +167,7 @@ class Zend_CodeGenerator_Php_Parameter extends Zend_CodeGenerator_Php_Abstract
     /**
      * getDefaultValue()
      *
-     * @return string
+     * @return float|int|string|Zend_CodeGenerator_Php_Parameter_DefaultValue|null
      */
     public function getDefaultValue()
     {

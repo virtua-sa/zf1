@@ -33,7 +33,7 @@
 class Zend_Stdlib_CallbackHandler
 {
     /**
-     * @var string|array PHP callback to invoke
+     * @var callable|WeakRef PHP callback to invoke
      */
     protected $callback;
 
@@ -141,7 +141,7 @@ class Zend_Stdlib_CallbackHandler
     /**
      * Retrieve registered callback
      *
-     * @return Callable
+     * @return callable
      */
     public function getCallback()
     {

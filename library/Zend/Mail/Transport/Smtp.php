@@ -100,7 +100,7 @@ class Zend_Mail_Transport_Smtp extends Zend_Mail_Transport_Abstract
     /**
      * Instance of Zend_Mail_Protocol_Smtp
      *
-     * @var Zend_Mail_Protocol_Smtp
+     * @var Zend_Mail_Protocol_Abstract
      */
     protected $_connection;
 
@@ -166,7 +166,7 @@ class Zend_Mail_Transport_Smtp extends Zend_Mail_Transport_Abstract
     /**
      * Gets the connection protocol instance
      *
-     * @return Zend_Mail_Protocol_Smtp|null
+     * @return Zend_Mail_Protocol_Abstract|null
      */
     public function getConnection()
     {

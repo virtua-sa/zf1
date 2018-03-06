@@ -65,7 +65,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     protected $_messages = array();
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter|null
      */
     protected $_translator;
 
@@ -1234,7 +1234,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      * Internal method to detect the size of a file
      *
      * @param  array $value File infos
-     * @return string Filesize of given file
+     * @return string|null Filesize of given file
      */
     protected function _detectFileSize($value)
     {
@@ -1283,7 +1283,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      * Internal method to detect the mime type of a file
      *
      * @param  array $value File infos
-     * @return string Mimetype of given file
+     * @return string|null Mimetype of given file
      */
     protected function _detectMimeType($value)
     {
@@ -1531,7 +1531,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      * Retrieve internal identifier for a named validator
      *
      * @param  string $name
-     * @return string
+     * @return string|false
      */
     protected function _getValidatorIdentifier($name)
     {
@@ -1552,7 +1552,7 @@ abstract class Zend_File_Transfer_Adapter_Abstract
      * Retrieve internal identifier for a named filter
      *
      * @param  string $name
-     * @return string
+     * @return string|false
      */
     protected function _getFilterIdentifier($name)
     {

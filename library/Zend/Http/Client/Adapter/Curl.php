@@ -492,6 +492,7 @@ class Zend_Http_Client_Adapter_Curl implements Zend_Http_Client_Adapter_Interfac
     /**
      * Close the connection to the server
      *
+     * @return void
      */
     public function close()
     {
@@ -516,7 +517,7 @@ class Zend_Http_Client_Adapter_Curl implements Zend_Http_Client_Adapter_Interfac
      * Set output stream for the response
      *
      * @param resource $stream
-     * @return Zend_Http_Client_Adapter_Socket
+     * @return $this
      */
     public function setOutputStream($stream)
     {

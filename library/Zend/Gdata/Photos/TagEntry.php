@@ -130,7 +130,7 @@ class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:weight attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Weight The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoWeight($value)
     {

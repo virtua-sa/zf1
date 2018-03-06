@@ -100,7 +100,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      *
      * @param  Zend_Loader_PluginLoader_Interface $loader
      * @param  string $type
-     * @return Zend_Form_Element_File
+     * @return $this
      */
     public function setPluginLoader(Zend_Loader_PluginLoader_Interface $loader, $type)
     {
@@ -145,7 +145,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * @param  string $prefix
      * @param  string $path
      * @param  string $type
-     * @return Zend_Form_Element_File
+     * @return $this
      */
     public function addPrefixPath($prefix, $path, $type = null)
     {
@@ -516,7 +516,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
     /**
      * Get the upload destination
      *
-     * @return string
+     * @return string|array|null
      */
     public function getDestination()
     {
@@ -528,7 +528,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      *
      * @param  string  $value (Optional) Element or file to return
      * @param  boolean $path  (Optional) Return also the path, defaults to true
-     * @return string
+     * @return string|array
      */
     public function getFileName($value = null, $path = true)
     {
@@ -612,7 +612,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * Sets the maximum file size of the form
      *
      * @param  integer $size
-     * @return integer
+     * @return $this
      */
     public function setMaxFileSize($size)
     {
@@ -693,7 +693,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * Processes the file, returns null or the filename only
      * For the complete path, use getFileName
      *
-     * @return null|string
+     * @return null|string|array
      */
     public function getValue()
     {

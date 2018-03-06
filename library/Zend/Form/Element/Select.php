@@ -36,7 +36,7 @@ class Zend_Form_Element_Select extends Zend_Form_Element_Multi
 {
     /**
      * 'multiple' attribute
-     * @var string
+     * @var bool
      */
     public $multiple = false;
 

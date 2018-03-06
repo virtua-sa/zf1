@@ -54,7 +54,7 @@
 abstract class Zend_Server_Reflection_Function_Abstract
 {
     /**
-     * @var ReflectionFunction
+     * @var ReflectionFunction|ReflectionMethod
      */
     protected $_reflection;
 
@@ -466,7 +466,7 @@ abstract class Zend_Server_Reflection_Function_Abstract
     /**
      * Retrieve the description
      *
-     * @return void
+     * @return string
      */
     public function getDescription()
     {

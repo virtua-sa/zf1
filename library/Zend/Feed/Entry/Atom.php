@@ -71,7 +71,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
      * Usually the response would be 204 No Content, but the Atom
      * Publishing Protocol permits it to be 200 OK.
      *
-     * @return void
+     * @return true
      * @throws Zend_Feed_Exception
      */
     public function delete()

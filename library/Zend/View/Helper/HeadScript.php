@@ -82,7 +82,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
 
     /**
      * Required attributes for script tag
-     * @var string
+     * @var array
      */
     protected $_requiredAttributes = array('type');
 
@@ -117,7 +117,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * @param  string $placement Append, prepend, or set
      * @param  array $attrs Array of script attributes
      * @param  string $type Script type and/or array of script attributes
-     * @return Zend_View_Helper_HeadScript
+     * @return $this
      */
     public function headScript($mode = Zend_View_Helper_HeadScript::FILE, $spec = null, $placement = 'APPEND', array $attrs = array(), $type = 'text/javascript')
     {

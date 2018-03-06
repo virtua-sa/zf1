@@ -101,7 +101,7 @@ class Zend_Session_SaveHandler_DbTable
     /**
      * Session lifetime
      *
-     * @var int
+     * @var int|false
      */
     protected $_lifetime = false;
 
@@ -250,7 +250,7 @@ class Zend_Session_SaveHandler_DbTable
     /**
      * Retrieve session lifetime
      *
-     * @return int
+     * @return int|false
      */
     public function getLifetime()
     {
@@ -565,7 +565,7 @@ class Zend_Session_SaveHandler_DbTable
      * Retrieve session lifetime considering Zend_Session_SaveHandler_DbTable::OVERRIDE_LIFETIME
      *
      * @param Zend_Db_Table_Row_Abstract $row
-     * @return int
+     * @return int|false
      */
     protected function _getLifetime(Zend_Db_Table_Row_Abstract $row)
     {

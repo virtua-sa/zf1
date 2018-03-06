@@ -121,7 +121,7 @@ abstract class Zend_Tool_Project_Provider_Abstract
      * @param bool   $loadProfileFlag         Whether or not to throw an exception when no profile is found
      * @param string $projectDirectory        The project directory to use to search
      * @param bool   $searchParentDirectories Whether or not to search upper level direcotries
-     * @return Zend_Tool_Project_Profile
+     * @return Zend_Tool_Project_Profile|false
      */
     protected function _loadProfile($loadProfileFlag = self::NO_PROFILE_THROW_EXCEPTION, $projectDirectory = null, $searchParentDirectories = true)
     {
@@ -196,7 +196,7 @@ abstract class Zend_Tool_Project_Provider_Abstract
     /**
      * Return the currently loaded profile
      *
-     * @return Zend_Tool_Project_Profile
+     * @return Zend_Tool_Project_Profile|false
      */
     protected function _getProfile($loadProfileFlag = self::NO_PROFILE_THROW_EXCEPTION)
     {

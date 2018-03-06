@@ -124,7 +124,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
     /**
      * File system adapter.
      *
-     * @var Zend_Search_Lucene_Storage_Directory
+     * @var Zend_Search_Lucene_Storage_Directory|null
      */
     private $_directory = null;
 
@@ -138,14 +138,14 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
     /**
      * Writer for this index, not instantiated unless required.
      *
-     * @var Zend_Search_Lucene_Index_Writer
+     * @var Zend_Search_Lucene_Index_Writer|null
      */
     private $_writer = null;
 
     /**
      * Array of Zend_Search_Lucene_Index_SegmentInfo objects for current version of index.
      *
-     * @var array Zend_Search_Lucene_Index_SegmentInfo
+     * @var array|null Zend_Search_Lucene_Index_SegmentInfo
      */
     private $_segmentInfos = array();
 
@@ -181,7 +181,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
     /**
      * Current segment generation
      *
-     * @var integer
+     * @var integer|float
      */
     private $_generation;
 
@@ -239,7 +239,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
      * -1 means there are no segments files.
      *
      * @param Zend_Search_Lucene_Storage_Directory $directory
-     * @return integer
+     * @return integer|float
      * @throws Zend_Search_Lucene_Exception
      */
     public static function getActualGeneration(Zend_Search_Lucene_Storage_Directory $directory)
@@ -308,7 +308,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
      * guarantees to give the same result while index retrieving.
      * So it may be used for search result caching.
      *
-     * @return integer
+     * @return integer|float
      */
     public function getGeneration()
     {
@@ -1216,7 +1216,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
      *
      * @param Zend_Search_Lucene_Index_Term $term
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return Zend_Search_Lucene_Index_DocsFilter
+     * @return Zend_Search_Lucene_Index_DocsFilter|array
      */
     public function termDocsFilter(Zend_Search_Lucene_Index_Term $term, $docsFilter = null)
     {
@@ -1249,7 +1249,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
      *
      * @param Zend_Search_Lucene_Index_Term $term
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return integer
+     * @return array
      */
     public function termFreqs(Zend_Search_Lucene_Index_Term $term, $docsFilter = null)
     {
@@ -1325,7 +1325,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
      *
      * @param integer $id
      * @param string $fieldName
-     * @return float
+     * @return float|null
      */
     public function norm($id, $fieldName)
     {
@@ -1503,7 +1503,7 @@ class Zend_Search_Lucene implements Zend_Search_Lucene_Interface
     /**
      * Terms stream priority queue object
      *
-     * @var Zend_Search_Lucene_TermStreamsPriorityQueue
+     * @var Zend_Search_Lucene_TermStreamsPriorityQueue|null
      */
     private $_termsStream = null;
 

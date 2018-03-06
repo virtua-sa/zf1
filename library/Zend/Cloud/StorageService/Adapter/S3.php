@@ -102,7 +102,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      *
      * @param  string $path
      * @param  array $options
-     * @return string
+     * @return false|Zend_Http_Response_Stream|string
      */
     public function fetchItem($path, $options = array())
     {
@@ -129,7 +129,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      * @param string $destinationPath
      * @param string|resource $data
      * @param  array $options
-     * @return void
+     * @return bool
      */
     public function storeItem($destinationPath, $data, $options = array())
     {
@@ -150,7 +150,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      *
      * @param  string $path
      * @param  array $options
-     * @return void
+     * @return bool
      */
     public function deleteItem($path, $options = array())
     {
@@ -172,7 +172,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      * @param  string $sourcePath
      * @param  string $destinationPath
      * @param  array $options
-     * @return void
+     * @return bool
      */
     public function copyItem($sourcePath, $destinationPath, $options = array())
     {
@@ -198,7 +198,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      * @param  string $sourcePath
      * @param  string $destinationPath
      * @param  array $options
-     * @return void
+     * @return bool
      */
     public function moveItem($sourcePath, $destinationPath, $options = array())
     {
@@ -238,7 +238,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      *
      * @param  string $path Must be a directory
      * @param  array $options
-     * @return array A list of item names
+     * @return array|false A list of item names
      */
     public function listItems($path, $options = null)
     {
@@ -255,7 +255,7 @@ class Zend_Cloud_StorageService_Adapter_S3
      *
      * @param  string $path
      * @param  array $options
-     * @return array
+     * @return array|false
      */
     public function fetchMetadata($path, $options = array())
     {

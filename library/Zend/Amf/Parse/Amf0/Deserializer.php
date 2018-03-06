@@ -197,7 +197,7 @@ class Zend_Amf_Parse_Amf0_Deserializer extends Zend_Amf_Parse_Deserializer
      * @todo   As of Flash Player 9 there is not support for mixed typed arrays
      *         so we handle this as an object. With the introduction of vectors
      *         in Flash Player 10 this may need to be reconsidered.
-     * @return array
+     * @return object
      */
     public function readMixedArray()
     {
@@ -246,7 +246,7 @@ class Zend_Amf_Parse_Amf0_Deserializer extends Zend_Amf_Parse_Deserializer
      * Convert XML to SimpleXml
      * If user wants DomDocument they can use dom_import_simplexml
      *
-     * @return SimpleXMLElement Object
+     * @return SimpleXMLElement|false Object
      */
     public function readXmlString()
     {

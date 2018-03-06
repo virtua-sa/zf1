@@ -323,7 +323,7 @@ class Zend_Filter_Encrypt_Mcrypt implements Zend_Filter_Encrypt_Interface
      *
      * @param  resource $cipher
      * @throws Zend_Filter_Exception
-     * @return resource
+     * @return $this
      */
     protected function _initCipher($cipher)
     {

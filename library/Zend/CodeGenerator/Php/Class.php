@@ -80,17 +80,17 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     protected $_implementedInterfaces = array();
 
     /**
-     * @var array Array of properties
+     * @var ArrayObject|array Array of properties
      */
     protected $_properties = null;
 
     /**
-     * @var array Array of constants
+     * @var ArrayObject|array Array of constants
      */
     protected $_constants = null;
 
     /**
-     * @var array Array of methods
+     * @var ArrayObject|array Array of methods
      */
     protected $_methods = null;
 
@@ -151,7 +151,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
      * setDocblock() Set the docblock
      *
      * @param Zend_CodeGenerator_Php_Docblock|array|string $docblock
-     * @return Zend_CodeGenerator_Php_File
+     * @return $this
      */
     public function setDocblock($docblock)
     {
@@ -362,7 +362,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     /**
      * getProperties()
      *
-     * @return array
+     * @return array|ArrayObject
      */
     public function getProperties()
     {
@@ -372,7 +372,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     /**
      * getConstants()
      *
-     * @return array
+     * @return array|ArrayObject
      */
     public function getConstants()
     {
@@ -383,7 +383,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
      * getProperty()
      *
      * @param string $propertyName
-     * @return Zend_CodeGenerator_Php_Property
+     * @return Zend_CodeGenerator_Php_Property|false
      */
     public function getProperty($propertyName)
     {
@@ -399,7 +399,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
      * getConstant()
      *
      * @param string $constName
-     * @return Zend_CodeGenerator_Php_Property
+     * @return Zend_CodeGenerator_Php_Property|false
      */
     public function getConstant($constName)
     {
@@ -477,7 +477,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
     /**
      * getMethods()
      *
-     * @return array
+     * @return array|ArrayObject
      */
     public function getMethods()
     {
@@ -488,7 +488,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
      * getMethod()
      *
      * @param string $methodName
-     * @return Zend_CodeGenerator_Php_Method
+     * @return Zend_CodeGenerator_Php_Method|false
      */
     public function getMethod($methodName)
     {

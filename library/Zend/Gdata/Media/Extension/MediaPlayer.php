@@ -47,12 +47,12 @@ class Zend_Gdata_Media_Extension_MediaPlayer extends Zend_Gdata_Extension
     protected $_url = null;
 
     /**
-     * @var int
+     * @var int|string|null
      */
     protected $_width = null;
 
     /**
-     * @var int
+     * @var int|string|null
      */
     protected $_height = null;
 
@@ -140,7 +140,7 @@ class Zend_Gdata_Media_Extension_MediaPlayer extends Zend_Gdata_Extension
     }
 
     /**
-     * @return int
+     * @return int|string|null
      */
     public function getWidth()
     {
@@ -158,7 +158,7 @@ class Zend_Gdata_Media_Extension_MediaPlayer extends Zend_Gdata_Extension
     }
 
     /**
-     * @return int
+     * @return int|string|null
      */
     public function getHeight()
     {

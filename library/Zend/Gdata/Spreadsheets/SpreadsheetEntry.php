@@ -53,7 +53,7 @@ class Zend_Gdata_Spreadsheets_SpreadsheetEntry extends Zend_Gdata_Entry
     /**
      * Returns the worksheets in this spreadsheet
      *
-     * @return Zend_Gdata_Spreadsheets_WorksheetFeed The worksheets
+     * @return Zend_Gdata_Spreadsheets_WorksheetFeed|string The worksheets
      */
     public function getWorksheets()
     {

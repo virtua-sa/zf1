@@ -149,7 +149,7 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
     /**
      * Returns the allowed barcode length
      *
-     * @return string
+     * @return string|int|array
      */
     public function getLength()
     {

@@ -42,17 +42,17 @@ abstract class Zend_Gdata_App_Base
 {
 
     /**
-     * @var string The XML element name, including prefix if desired
+     * @var string|null The XML element name, including prefix if desired
      */
     protected $_rootElement = null;
 
     /**
-     * @var string The XML namespace prefix
+     * @var string|null The XML namespace prefix
      */
     protected $_rootNamespace = 'atom';
 
     /**
-     * @var string The XML namespace URI - takes precedence over lookup up the
+     * @var string|null The XML namespace URI - takes precedence over lookup up the
      * corresponding URI for $_rootNamespace
      */
     protected $_rootNamespaceURI = null;
@@ -68,7 +68,7 @@ abstract class Zend_Gdata_App_Base
     protected $_extensionAttributes = array();
 
     /**
-     * @var string XML child text node content
+     * @var string|null XML child text node content
      */
     protected $_text = null;
 

@@ -223,7 +223,7 @@ class Zend_Test_DbStatement implements Zend_Db_Statement_Interface
      * Retrieves the error code, if any, associated with the last operation on
      * the statement handle.
      *
-     * @return string error code.
+     * @return false
      * @throws Zend_Db_Statement_Exception
      */
     public function errorCode()
@@ -235,7 +235,7 @@ class Zend_Test_DbStatement implements Zend_Db_Statement_Interface
      * Retrieves an array of error information, if any, associated with the
      * last operation on the statement handle.
      *
-     * @return array
+     * @return false
      * @throws Zend_Db_Statement_Exception
      */
     public function errorInfo()
@@ -298,7 +298,7 @@ class Zend_Test_DbStatement implements Zend_Db_Statement_Interface
      * Returns a single column from the next row of a result set.
      *
      * @param int $col OPTIONAL Position of the column to fetch.
-     * @return string
+     * @return string|false
      * @throws Zend_Db_Statement_Exception
      */
     public function fetchColumn($col = 0)

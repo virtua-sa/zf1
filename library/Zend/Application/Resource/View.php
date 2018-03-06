@@ -46,7 +46,7 @@ class Zend_Application_Resource_View extends Zend_Application_Resource_ResourceA
     /**
      * Defined by Zend_Application_Resource_Resource
      *
-     * @return Zend_View
+     * @return Zend_View_Interface
      */
     public function init()
     {
@@ -60,7 +60,7 @@ class Zend_Application_Resource_View extends Zend_Application_Resource_ResourceA
     /**
      * Retrieve view object
      *
-     * @return Zend_View
+     * @return Zend_View_Interface
      */
     public function getView()
     {

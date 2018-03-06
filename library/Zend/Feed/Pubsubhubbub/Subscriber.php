@@ -136,7 +136,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
      * retrieved from an action using the Zend_Controller_Action::_getParam()
      * method.
      *
-     * @var string
+     * @var bool
      */
     protected $_usePathParameter = false;
 
@@ -839,7 +839,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
      * Order outgoing parameters
      *
      * @param  array $params
-     * @return array
+     * @return string
      */
     protected function _toByteValueOrderedString(array $params)
     {

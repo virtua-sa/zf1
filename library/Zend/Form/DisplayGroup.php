@@ -97,7 +97,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     protected $_order;
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected $_translator;
 
@@ -274,7 +274,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     /**
      * Clear all form attributes
      *
-     * @return Zend_Form
+     * @return $this
      */
     public function clearAttribs()
     {
@@ -286,7 +286,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set form object to which the display group is attached
      *
      * @param  Zend_Form $form
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function setForm(Zend_Form $form)
     {
@@ -326,7 +326,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set group name
      *
      * @param  string $name
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function setName($name)
     {
@@ -438,7 +438,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set group order
      *
      * @param  int $order
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setOrder($order)
     {
@@ -462,7 +462,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Add element to stack
      *
      * @param  Zend_Form_Element $element
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function addElement(Zend_Form_Element $element)
     {
@@ -481,7 +481,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Add multiple elements at once
      *
      * @param  array $elements
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      * @throws Zend_Form_Exception if any element is not a Zend_Form_Element
      */
     public function addElements(array $elements)
@@ -554,7 +554,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     /**
      * Remove all elements
      *
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function clearElements()
     {
@@ -569,7 +569,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set plugin loader
      *
      * @param  Zend_Loader_PluginLoader $loader
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function setPluginLoader(Zend_Loader_PluginLoader $loader)
     {
@@ -592,7 +592,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      *
      * @param  string $prefix
      * @param  string $path
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function addPrefixPath($prefix, $path)
     {
@@ -604,7 +604,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Add several prefix paths at once
      *
      * @param  array $spec
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function addPrefixPaths(array $spec)
     {
@@ -636,7 +636,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set flag to disable loading default decorators
      *
      * @param  bool $flag
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setDisableLoadDefaultDecorators($flag)
     {
@@ -657,7 +657,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
     /**
      * Load default decorators
      *
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function loadDefaultDecorators()
     {
@@ -880,7 +880,7 @@ class Zend_Form_DisplayGroup implements Iterator,Countable
      * Set view
      *
      * @param  Zend_View_Interface $view
-     * @return Zend_Form_DisplayGroup
+     * @return $this
      */
     public function setView(Zend_View_Interface $view = null)
     {

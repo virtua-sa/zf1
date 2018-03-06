@@ -53,7 +53,7 @@ class Zend_Server_Reflection_Node
      *
      * @param mixed $value
      * @param Zend_Server_Reflection_Node $parent Optional
-     * @return Zend_Server_Reflection_Node
+     * @return $this
      */
     public function __construct($value, Zend_Server_Reflection_Node $parent = null)
     {

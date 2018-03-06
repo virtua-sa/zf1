@@ -100,7 +100,7 @@ class Zend_EventManager_SharedEventManager implements Zend_EventManager_SharedEv
      * Retrieve all registered events for a given resource
      *
      * @param  string|int $id
-     * @return array
+     * @return array|false
      */
     public function getEvents($id)
     {

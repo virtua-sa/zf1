@@ -33,7 +33,7 @@ class Zend_Feed_Element implements ArrayAccess
 {
 
     /**
-     * @var DOMElement
+     * @var DOMElement|string|DOMDocument
      */
     protected $_element;
 
@@ -71,7 +71,7 @@ class Zend_Feed_Element implements ArrayAccess
      * Returns the underlying DOM object, which can then be
      * manipulated with full DOM methods.
      *
-     * @return DOMDocument
+     * @return DOMElement|string|DOMDocument
      */
     public function getDOM()
     {

@@ -424,7 +424,7 @@ class Zend_Http_Response
      *
      * @param int $code HTTP response code
      * @param boolean $http11 Use HTTP version 1.1
-     * @return string
+     * @return string|array
      */
     public static function responseCodeAsText($code = null, $http11 = true)
     {
@@ -444,7 +444,7 @@ class Zend_Http_Response
      * Extract the response code from a response string
      *
      * @param string $response_str
-     * @return int
+     * @return int|false
      */
     public static function extractCode($response_str)
     {
@@ -461,7 +461,7 @@ class Zend_Http_Response
      * Extract the HTTP message from a response
      *
      * @param string $response_str
-     * @return string
+     * @return string|false
      */
     public static function extractMessage($response_str)
     {
@@ -478,7 +478,7 @@ class Zend_Http_Response
      * Extract the HTTP version from a response
      *
      * @param string $response_str
-     * @return string
+     * @return string|false
      */
     public static function extractVersion($response_str)
     {

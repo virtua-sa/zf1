@@ -609,7 +609,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
      *
      * @param Zend_Search_Lucene_Index_Term $term
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return integer
+     * @return array
      * @throws Zend_Search_Lucene_Exception
      */
     public function termFreqs(Zend_Search_Lucene_Index_Term $term, $docsFilter = null)
@@ -726,7 +726,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
      *
      * @param integer $id
      * @param string $fieldName
-     * @return float
+     * @return float|null
      */
     public function norm($id, $fieldName)
     {
@@ -881,7 +881,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
     /**
      * Terms stream priority queue object
      *
-     * @var Zend_Search_Lucene_TermStreamsPriorityQueue
+     * @var Zend_Search_Lucene_TermStreamsPriorityQueue|null
      */
     private $_termsStream = null;
 

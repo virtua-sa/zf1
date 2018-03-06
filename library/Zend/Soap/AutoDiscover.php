@@ -66,14 +66,14 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
     protected $_functions = array();
 
     /**
-     * @var boolean
+     * @var boolean|string|Zend_Soap_Wsdl_Strategy_Interface
      */
     protected $_strategy;
 
     /**
      * Url where the WSDL file will be available at.
      *
-     * @var Zend_Uri Uri
+     * @var Zend_Uri|string Uri
      */
     protected $_uri;
 
@@ -146,7 +146,7 @@ class Zend_Soap_AutoDiscover implements Zend_Server_Interface
     /**
      * Return the current Uri that the SOAP WSDL Service will be located at.
      *
-     * @return Zend_Uri
+     * @return Zend_Uri|string
      */
     public function getUri()
     {

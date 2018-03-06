@@ -246,14 +246,14 @@ abstract class Zend_Oauth_Token
      * as raw url decoded key-value pairs in an associative array.
      *
      * @param  Zend_Http_Response $response
-     * @return array
+     * @return array|null
      */
     protected function _parseParameters(Zend_Http_Response $response)
     {
         $params = array();
         $body   = $response->getBody();
         if (empty($body)) {
-            return;
+            return null;
         }
 
         // validate body based on acceptable characters...todo

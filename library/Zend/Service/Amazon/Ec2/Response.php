@@ -46,21 +46,21 @@ class Zend_Service_Amazon_Ec2_Response {
      *
      * This contains the response body and headers.
      *
-     * @var Zend_Http_Response
+     * @var Zend_Http_Response|null
      */
     private $_httpResponse = null;
 
     /**
      * The response document object
      *
-     * @var DOMDocument
+     * @var DOMDocument|null|false
      */
     private $_document = null;
 
     /**
      * The response XPath
      *
-     * @var DOMXPath
+     * @var DOMXPath|null|false
      */
     private $_xpath = null;
 
@@ -91,7 +91,7 @@ class Zend_Service_Amazon_Ec2_Response {
     /**
      * Gets the XPath object for this response
      *
-     * @return DOMXPath the XPath object for response.
+     * @return DOMXPath|false the XPath object for response.
      */
     public function getXPath()
     {
@@ -112,7 +112,7 @@ class Zend_Service_Amazon_Ec2_Response {
     /**
      * Gets the document object for this response
      *
-     * @return DOMDocument the DOM Document for this response.
+     * @return DOMDocument|false the DOM Document for this response.
      */
     public function getDocument()
     {
@@ -121,7 +121,7 @@ class Zend_Service_Amazon_Ec2_Response {
         } catch (Zend_Http_Exception $e) {
             $body = false;
         }
-        
+
         if ($this->_document === null) {
             if ($body !== false) {
                 // turn off libxml error handling

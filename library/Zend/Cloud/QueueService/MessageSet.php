@@ -31,7 +31,7 @@ class Zend_Cloud_QueueService_MessageSet implements Countable, IteratorAggregate
     /** @var int */
     protected $_messageCount;
 
-    /** @var ArrayAccess Messages */
+    /** @var ArrayIterator Messages */
     protected $_messages;
 
     /**
@@ -59,7 +59,7 @@ class Zend_Cloud_QueueService_MessageSet implements Countable, IteratorAggregate
     /**
      * IteratorAggregate: return iterable object
      *
-     * @return Traversable
+     * @return ArrayIterator
      */
     public function getIterator()
     {

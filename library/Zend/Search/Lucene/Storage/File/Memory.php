@@ -285,7 +285,7 @@ class Zend_Search_Lucene_Storage_File_Memory extends Zend_Search_Lucene_Storage_
      * Returns a long integer from the current position in the file
      * and advances the file pointer.
      *
-     * @return integer
+     * @return integer|float
      * @throws Zend_Search_Lucene_Exception
      */
     public function readLong()

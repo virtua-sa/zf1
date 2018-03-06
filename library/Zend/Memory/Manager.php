@@ -46,7 +46,7 @@ class Zend_Memory_Manager
     /**
      * Object storage backend
      *
-     * @var Zend_Cache_Backend_Interface
+     * @var Zend_Cache_Backend_Interface|Zend_Cache_Backend
      */
     private $_backend = null;
 
@@ -115,14 +115,14 @@ class Zend_Memory_Manager
      * object.
      * So we have to trace only _first_ object modification and do nothing for others
      *
-     * @var Zend_Memory_Container_Movable
+     * @var Zend_Memory_Container_Movable|null
      */
     private $_lastModified = null;
 
     /**
      * Unique memory manager id
      *
-     * @var integer
+     * @var string
      */
     private $_managerId;
 
@@ -304,7 +304,7 @@ class Zend_Memory_Manager
      *
      * @internal
      * @param integer $id
-     * @return Zend_Memory_Container
+     * @return null
      */
     public function unlink(Zend_Memory_Container_Movable $container, $id)
     {
@@ -312,7 +312,7 @@ class Zend_Memory_Manager
             // Drop all object modifications
             $this->_lastModified = null;
             unset($this->_sizes[$id]);
-            return;
+            return null;
         }
 
         if (isset($this->_unloadCandidates[$id])) {

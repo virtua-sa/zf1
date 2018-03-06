@@ -521,7 +521,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      * The title is an extremely short textual representation of this
      * resource and is found as an atom:title element in a feed or entry
      *
-     * @return string
+     * @return string|null
      */
     public function getTitleValue()
     {
@@ -569,7 +569,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      * unsets the Etag.
      *
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setEtag($value) {
         $this->_etag = $value;

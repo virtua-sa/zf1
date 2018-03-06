@@ -62,7 +62,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
 
     /**
      * Minimum filesize
-     * @var integer
+     * @var integer|string
      */
     protected $_min;
 
@@ -71,14 +71,14 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      *
      * If null, there is no maximum filesize
      *
-     * @var integer|null
+     * @var integer|null|string
      */
     protected $_max;
 
     /**
      * Detected size
      *
-     * @var integer
+     * @var integer|string
      */
     protected $_size;
 
@@ -138,7 +138,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      * Returns the minimum filesize
      *
      * @param  boolean $byteString Use bytestring ?
-     * @return integer
+     * @return $this
      */
     public function setUseByteString($byteString = true)
     {
@@ -177,7 +177,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      *
      * @param  integer $min The minimum filesize
      * @throws Zend_Validate_Exception When min is greater than max
-     * @return Zend_Validate_File_Size Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setMin($min)
     {
@@ -219,7 +219,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      *
      * @param  integer $max The maximum filesize
      * @throws Zend_Validate_Exception When max is smaller than min
-     * @return Zend_Validate_StringLength Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setMax($max)
     {
@@ -243,7 +243,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
     /**
      * Retrieve current detected file size
      *
-     * @return int
+     * @return int|string
      */
     protected function _getSize()
     {
@@ -254,7 +254,7 @@ class Zend_Validate_File_Size extends Zend_Validate_Abstract
      * Set current size
      *
      * @param  int $size
-     * @return Zend_Validate_File_Size
+     * @return $this
      */
     protected function _setSize($size)
     {

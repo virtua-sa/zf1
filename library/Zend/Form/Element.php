@@ -177,7 +177,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
     protected $_required = false;
 
     /**
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter|null
      */
     protected $_translator;
 
@@ -891,7 +891,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Retrieve element attribute
      *
      * @param  string $name
-     * @return string
+     * @return string|null
      */
     public function getAttrib($name)
     {
@@ -1018,7 +1018,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      *
      * @param  Zend_Loader_PluginLoader_Interface $loader
      * @param  string $type 'decorator', 'filter', or 'validate'
-     * @return Zend_Form_Element
+     * @return $this
      * @throws Zend_Form_Exception on invalid type
      */
     public function setPluginLoader(Zend_Loader_PluginLoader_Interface $loader, $type)
@@ -1043,7 +1043,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * 'decorator', 'filter', or 'validate' for $type.
      *
      * @param  string $type
-     * @return Zend_Loader_PluginLoader
+     * @return Zend_Loader_PluginLoader_Interface
      * @throws Zend_Loader_Exception on invalid type.
      */
     public function getPluginLoader($type)
@@ -1086,7 +1086,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * @param  string $prefix
      * @param  string $path
      * @param  string $type
-     * @return Zend_Form_Element
+     * @return $this
      * @throws Zend_Form_Exception for invalid type
      */
     public function addPrefixPath($prefix, $path, $type = null)
@@ -1312,7 +1312,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Remove a single validator by name
      *
      * @param  string $name
-     * @return bool
+     * @return $this
      */
     public function removeValidator($name)
     {
@@ -1729,7 +1729,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Retrieve a single filter by name
      *
      * @param  string $name
-     * @return Zend_Filter_Interface
+     * @return Zend_Filter_Interface|false
      */
     public function getFilter($name)
     {
@@ -1819,7 +1819,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Set view object
      *
      * @param  Zend_View_Interface $view
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setView(Zend_View_Interface $view = null)
     {

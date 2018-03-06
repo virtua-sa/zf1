@@ -276,7 +276,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
      * open given file as current mbox file
      *
      * @param  string $filename filename of mbox file
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     protected function _openMboxFile($filename)
@@ -343,7 +343,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
     /**
      * Waste some CPU cycles doing nothing.
      *
-     * @return void
+     * @return true
      */
     public function noop()
     {
@@ -354,7 +354,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
     /**
      * stub for not supported message deletion
      *
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public function removeMessage($id)
@@ -396,7 +396,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
      * as parameter and use this method to translate it to message number right before calling removeMessage()
      *
      * @param string $id unique id
-     * @return int message number
+     * @return string message number
      * @throws Zend_Mail_Storage_Exception
      */
     public function getNumberByUniqueId($id)
@@ -424,7 +424,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
      * with this method you can cache the mbox class
      * for cache validation the mtime of the mbox file is used
      *
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public function __wakeup()

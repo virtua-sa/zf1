@@ -106,7 +106,7 @@ abstract class Zend_Captcha_Base extends Zend_Validate_Abstract implements Zend_
      *
      * @param string $key
      * @param string $value
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setOption($key, $value)
     {
@@ -131,7 +131,7 @@ abstract class Zend_Captcha_Base extends Zend_Validate_Abstract implements Zend_
      * Set object state from options array
      *
      * @param  array $options
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setOptions($options = null)
     {

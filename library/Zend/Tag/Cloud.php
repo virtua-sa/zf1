@@ -57,7 +57,7 @@ class Zend_Tag_Cloud
     /**
      * Plugin loader for decorators
      *
-     * @var Zend_Loader_PluginLoader
+     * @var Zend_Loader_PluginLoader_Interface
      */
     protected $_pluginLoader = null;
 
@@ -307,7 +307,7 @@ class Zend_Tag_Cloud
      * Set plugin loaders for use with decorators
      *
      * @param  Zend_Loader_PluginLoader_Interface $loader
-     * @return Zend_Tag_Cloud
+     * @return $this
      */
     public function setPluginLoader(Zend_Loader_PluginLoader_Interface $loader)
     {
@@ -318,7 +318,7 @@ class Zend_Tag_Cloud
     /**
      * Get the plugin loader for decorators
      *
-     * @return Zend_Loader_PluginLoader
+     * @return Zend_Loader_PluginLoader_Interface
      */
     public function getPluginLoader()
     {

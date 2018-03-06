@@ -78,7 +78,7 @@ class Zend_Filter_NormalizedToLocalized implements Zend_Filter_Interface
      * Sets options to use
      *
      * @param  array $options (Optional) Options to use
-     * @return Zend_Filter_LocalizedToNormalized
+     * @return $this
      */
     public function setOptions(array $options = null)
     {

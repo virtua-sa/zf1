@@ -404,7 +404,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
      * - mtime : timestamp of last modification time
      *
      * @param string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return array|false array of metadatas (false if the cache id is not found)
      */
     public function getMetadatas($id)
     {

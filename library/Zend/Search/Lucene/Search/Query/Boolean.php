@@ -51,14 +51,14 @@ class Zend_Search_Lucene_Search_Query_Boolean extends Zend_Search_Lucene_Search_
      *
      * If array is null then all subqueries are required
      *
-     * @var array
+     * @var array|null
      */
     private $_signs = array();
 
     /**
      * Result vector.
      *
-     * @var array
+     * @var array|null
      */
     private $_resVector = null;
 
@@ -68,7 +68,7 @@ class Zend_Search_Lucene_Search_Query_Boolean extends Zend_Search_Lucene_Search_
      * float for conjunction queries
      * array of float for non conjunction queries
      *
-     * @var mixed
+     * @var mixed|null
      */
     private $_coord = null;
 

@@ -45,7 +45,7 @@ class Zend_CodeGenerator_Php_Property extends Zend_CodeGenerator_Php_Member_Abst
     protected $_isConst = null;
 
     /**
-     * @var string
+     * @var Zend_CodeGenerator_Php_Property_DefaultValue|null
      */
     protected $_defaultValue = null;
 
@@ -112,7 +112,7 @@ class Zend_CodeGenerator_Php_Property extends Zend_CodeGenerator_Php_Member_Abst
      * setDefaultValue()
      *
      * @param Zend_CodeGenerator_Php_Property_DefaultValue|string|array $defaultValue
-     * @return Zend_CodeGenerator_Php_Property
+     * @return $this
      */
     public function setDefaultValue($defaultValue)
     {

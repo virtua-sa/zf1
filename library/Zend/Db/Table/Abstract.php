@@ -98,14 +98,14 @@ abstract class Zend_Db_Table_Abstract
     /**
      * Optional definition config name used in concrete implementation
      *
-     * @var string
+     * @var string|null
      */
     protected $_definitionConfigName = null;
 
     /**
      * Default cache for information provided by the adapter's describeTable() method.
      *
-     * @var Zend_Cache_Core
+     * @var Zend_Cache_Core|null
      */
     protected static $_defaultMetadataCache = null;
 
@@ -119,14 +119,14 @@ abstract class Zend_Db_Table_Abstract
     /**
      * The schema name (default null means current schema)
      *
-     * @var array
+     * @var array|null|string
      */
     protected $_schema = null;
 
     /**
      * The table name.
      *
-     * @var string
+     * @var string|null
      */
     protected $_name = null;
 
@@ -143,7 +143,7 @@ abstract class Zend_Db_Table_Abstract
      * You may declare a single-column primary key
      * as a string.
      *
-     * @var mixed
+     * @var mixed|null
      */
     protected $_primary = null;
 
@@ -163,7 +163,7 @@ abstract class Zend_Db_Table_Abstract
      * Define the logic for new values in the primary key.
      * May be a string, boolean true, or boolean false.
      *
-     * @var mixed
+     * @var mixed|true
      */
     protected $_sequence = true;
 
@@ -177,7 +177,7 @@ abstract class Zend_Db_Table_Abstract
     /**
      * Cache for information provided by the adapter's describeTable() method.
      *
-     * @var Zend_Cache_Core
+     * @var Zend_Cache_Core|null
      */
     protected $_metadataCache = null;
 
@@ -595,7 +595,7 @@ abstract class Zend_Db_Table_Abstract
 
     /**
      * @param  mixed $db Either an Adapter object, or a string naming a Registry key
-     * @return Zend_Db_Adapter_Abstract
+     * @return Zend_Db_Adapter_Abstract|null
      * @throws Zend_Db_Table_Exception
      */
     protected static function _setupAdapter($db)
@@ -690,7 +690,7 @@ abstract class Zend_Db_Table_Abstract
 
     /**
      * @param mixed $metadataCache Either a Cache object, or a string naming a Registry key
-     * @return Zend_Cache_Core
+     * @return Zend_Cache_Core|null
      * @throws Zend_Db_Table_Exception
      */
     protected static function _setupMetadataCache($metadataCache)

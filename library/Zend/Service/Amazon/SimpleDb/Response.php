@@ -46,21 +46,21 @@ class Zend_Service_Amazon_SimpleDb_Response
      *
      * This contains the response body and headers.
      *
-     * @var Zend_Http_Response
+     * @var Zend_Http_Response|null
      */
     private $_httpResponse = null;
 
     /**
      * The response document object
      *
-     * @var DOMDocument
+     * @var DOMDocument|null|false
      */
     private $_document = null;
 
     /**
      * The response XPath
      *
-     * @var DOMXPath
+     * @var DOMXPath|null|false
      */
     private $_xpath = null;
 
@@ -92,7 +92,7 @@ class Zend_Service_Amazon_SimpleDb_Response
     /**
      * Gets the XPath object for this response
      *
-     * @return DOMXPath the XPath object for response.
+     * @return DOMXPath|false the XPath object for response.
      */
     public function getXPath()
     {
@@ -113,7 +113,7 @@ class Zend_Service_Amazon_SimpleDb_Response
     /**
      * Gets the SimpleXML document object for this response
      *
-     * @return SimpleXMLElement
+     * @return SimpleXMLElement|false
      */
     public function getSimpleXMLDocument()
     {
@@ -139,7 +139,7 @@ class Zend_Service_Amazon_SimpleDb_Response
     /**
      * Gets the document object for this response
      *
-     * @return DOMDocument the DOM Document for this response.
+     * @return DOMDocument|false the DOM Document for this response.
      */
     public function getDocument()
     {

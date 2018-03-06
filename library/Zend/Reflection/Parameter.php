@@ -54,7 +54,7 @@ class Zend_Reflection_Parameter extends ReflectionParameter
      * Get class reflection object
      *
      * @param  string $reflectionClass Reflection class to use
-     * @return Zend_Reflection_Class
+     * @return Zend_Reflection_Class|null
      */
     public function getClass($reflectionClass = 'Zend_Reflection_Class')
     {
@@ -105,7 +105,7 @@ class Zend_Reflection_Parameter extends ReflectionParameter
     /**
      * Get parameter type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {

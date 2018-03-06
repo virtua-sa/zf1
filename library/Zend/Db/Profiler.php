@@ -99,7 +99,7 @@ class Zend_Db_Profiler
      * is less than this value in seconds will be unset from
      * the self::$_queryProfiles array.
      *
-     * @var integer
+     * @var integer|null
      */
     protected $_filterElapsedSecs = null;
 
@@ -228,7 +228,7 @@ class Zend_Db_Profiler
      * Clone a profiler query
      *
      * @param  Zend_Db_Profiler_Query $query
-     * @return integer or null
+     * @return int|null
      */
     public function queryClone(Zend_Db_Profiler_Query $query)
     {

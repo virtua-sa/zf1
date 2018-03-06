@@ -192,7 +192,7 @@ class Zend_Cache_Backend_BlackHole
      * - mtime : timestamp of last modification time
      *
      * @param  string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return false
      */
     public function getMetadatas($id)
     {

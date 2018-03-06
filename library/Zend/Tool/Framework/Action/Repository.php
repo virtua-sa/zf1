@@ -104,7 +104,7 @@ class Zend_Tool_Framework_Action_Repository
      * getAction() - get an action by a specific name
      *
      * @param string $actionName
-     * @return Zend_Tool_Framework_Action_Interface
+     * @return Zend_Tool_Framework_Action_Interface|null
      */
     public function getAction($actionName)
     {
@@ -128,7 +128,7 @@ class Zend_Tool_Framework_Action_Repository
     /**
      * getIterator() - get all actions, this supports the IteratorAggregate interface
      *
-     * @return array
+     * @return ArrayIterator
      */
     public function getIterator()
     {

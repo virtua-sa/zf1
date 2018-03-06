@@ -119,7 +119,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
 
     /**
      * Singleton instance
-     * @var Zend_Wildfire_Plugin_FirePhp
+     * @var Zend_Wildfire_Plugin_FirePhp|null
      */
     protected static $_instance = null;
 
@@ -131,7 +131,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
 
     /**
      * The channel via which to send the encoded messages.
-     * @var Zend_Wildfire_Channel_Interface
+     * @var Zend_Wildfire_Channel_Interface|null
      */
     protected $_channel = null;
 
@@ -324,7 +324,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
      *
      * @param string $title The title of the group
      * @param array $options OPTIONAL Setting 'Collapsed' to true will initialize group collapsed instead of expanded
-     * @return TRUE if the group instruction was added to the response headers or buffered.
+     * @return bool TRUE if the group instruction was added to the response headers or buffered.
      */
     public static function group($title, $options=array())
     {
@@ -334,7 +334,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
     /**
      * Ends a group in the Firebug Console
      *
-     * @return TRUE if the group instruction was added to the response headers or buffered.
+     * @return bool TRUE if the group instruction was added to the response headers or buffered.
      */
     public static function groupEnd()
     {
@@ -658,7 +658,7 @@ class Zend_Wildfire_Plugin_FirePhp implements Zend_Wildfire_Plugin_Interface
      * the object class is added.
      *
      * @param mixed $object The object/array/value to be encoded
-     * @return array The encoded object
+     * @return array|string The encoded object
      */
     protected function _encodeObject($object, $objectDepth = 1, $arrayDepth = 1)
     {

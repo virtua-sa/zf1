@@ -121,7 +121,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      * Whether or not path is a straight XPath expression
      *
      * @param  bool $flag
-     * @return Zend_Test_PHPUnit_Constraint_DomQuery
+     * @return $this
      */
     public function setUseXpath($flag = true)
     {

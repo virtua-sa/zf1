@@ -115,7 +115,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      * @param string $currentDir call with root dir, also used for recursion.
      * @param Zend_Mail_Storage_Folder|null $parentFolder used for recursion
      * @param string $parentGlobalName used for rescursion
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     protected function _buildFolderTree($currentDir, $parentFolder = null, $parentGlobalName = '')
@@ -194,7 +194,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      * folder must be selectable!
      *
      * @param Zend_Mail_Storage_Folder|string $globalName global name of folder or instance for subfolder
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public function selectFolder($globalName)
@@ -229,7 +229,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
     /**
      * get Zend_Mail_Storage_Folder instance for current folder
      *
-     * @return Zend_Mail_Storage_Folder instance of current folder
+     * @return string instance of current folder
      * @throws Zend_Mail_Storage_Exception
      */
     public function getCurrentFolder()
@@ -254,7 +254,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      *
      * with this method you can cache the mbox class
      *
-     * @return null
+     * @return void
      */
     public function __wakeup()
     {

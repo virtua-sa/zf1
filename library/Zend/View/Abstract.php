@@ -563,7 +563,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
     /**
      * Returns an array of all currently set helper paths
      *
-     * @return array
+     * @return array|false
      */
     public function getHelperPaths()
     {
@@ -696,7 +696,7 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
     /**
      * Returns an array of all currently set filter paths
      *
-     * @return array
+     * @return array|false
      */
     public function getFilterPaths()
     {

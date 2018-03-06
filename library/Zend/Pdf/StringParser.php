@@ -60,7 +60,7 @@ class Zend_Pdf_StringParser
     /**
      * Current reference context
      *
-     * @var Zend_Pdf_Element_Reference_Context
+     * @var Zend_Pdf_Element_Reference_Context|null
      */
     private $_context = null;
 
@@ -74,7 +74,7 @@ class Zend_Pdf_StringParser
     /**
      * PDF objects factory.
      *
-     * @var Zend_Pdf_ElementFactory_Interface
+     * @var Zend_Pdf_ElementFactory_Interface|null
      */
     private $_objFactory = null;
 
@@ -486,7 +486,7 @@ class Zend_Pdf_StringParser
      * Read reference PDF object
      *
      * @param string $nextLexeme
-     * @return Zend_Pdf_Element_Reference
+     * @return Zend_Pdf_Element_Reference|null
      */
     private function _readReference($nextLexeme = null)
     {
@@ -541,7 +541,7 @@ class Zend_Pdf_StringParser
      *
      * @param integer $offset
      * @param Zend_Pdf_Element_Reference_Context $context
-     * @return Zend_Pdf_Element_Object
+     * @return Zend_Pdf_Element_Object|Zend_Pdf_Element_Null
      */
     public function getObject($offset, Zend_Pdf_Element_Reference_Context $context)
     {

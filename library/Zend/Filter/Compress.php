@@ -159,7 +159,7 @@ class Zend_Filter_Compress implements Zend_Filter_Interface
      * Set adapter options
      *
      * @param  array $options
-     * @return void
+     * @return $this
      */
     public function setAdapterOptions(array $options)
     {

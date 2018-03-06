@@ -368,7 +368,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get an array with feed authors
      *
-     * @return array
+     * @return array|null
      */
     public function getAuthors()
     {
@@ -381,7 +381,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry content
      *
-     * @return string
+     * @return string|null
      */
     public function getContent()
     {
@@ -394,7 +394,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry copyright information
      *
-     * @return string
+     * @return string|null
      */
     public function getCopyright()
     {
@@ -407,7 +407,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry creation date
      *
-     * @return string
+     * @return string|null
      */
     public function getDateCreated()
     {
@@ -420,7 +420,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry modification date
      *
-     * @return string
+     * @return string|null
      */
     public function getDateModified()
     {
@@ -433,7 +433,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -446,7 +446,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry ID
      *
-     * @return string
+     * @return string|null
      */
     public function getId()
     {
@@ -473,7 +473,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get all links
      *
-     * @return array
+     * @return array|null
      */
     public function getLinks()
     {
@@ -486,7 +486,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the entry title
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -499,7 +499,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Get the number of comments/replies for current entry
      *
-     * @return integer
+     * @return integer|null
      */
     public function getCommentCount()
     {
@@ -512,7 +512,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Returns a URI pointing to the HTML page where comments can be made on this entry
      *
-     * @return string
+     * @return string|null
      */
     public function getCommentLink()
     {
@@ -526,7 +526,7 @@ class Zend_Feed_Writer_Entry
      * Returns an array of URIs pointing to a feed of all comments for this entry
      * where the array keys indicate the feed type (atom, rss or rdf).
      *
-     * @return string
+     * @return string|null
      */
     public function getCommentFeedLinks()
     {
@@ -614,7 +614,7 @@ class Zend_Feed_Writer_Entry
     /**
      * Retrieve an array of all enclosures to be added to entry.
      *
-     * @return array
+     * @return array|null
      */
     public function getEnclosure()
     {
@@ -650,7 +650,7 @@ class Zend_Feed_Writer_Entry
      * Return an Extension object with the matching name (postfixed with _Entry)
      *
      * @param string $name
-     * @return object
+     * @return object|null
      */
     public function getExtension($name)
     {
@@ -732,7 +732,7 @@ class Zend_Feed_Writer_Entry
     }
 
     /**
-     * @return Zend_Feed_Writer_Source
+     * @return Zend_Feed_Writer_Source|null
      */
     public function getSource()
     {

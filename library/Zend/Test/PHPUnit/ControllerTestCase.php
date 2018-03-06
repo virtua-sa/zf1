@@ -65,12 +65,12 @@ abstract class Zend_Test_PHPUnit_ControllerTestCase extends PHPUnit\Framework\Te
     protected $_query;
 
     /**
-     * @var Zend_Controller_Request_Abstract
+     * @var Zend_Controller_Request_HttpTestCase|null
      */
     protected $_request;
 
     /**
-     * @var Zend_Controller_Response_Abstract
+     * @var Zend_Controller_Response_HttpTestCase|null
      */
     protected $_response;
 

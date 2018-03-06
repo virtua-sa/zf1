@@ -171,7 +171,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
      *
      * @param  array $request
      * @throws Zend_Rest_Server_Exception
-     * @return string|void
+     * @return string|null
      */
     public function handle($request = false)
     {
@@ -316,7 +316,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
             }
 
             echo $response;
-            return;
+            return null;
         }
 
         return $response;

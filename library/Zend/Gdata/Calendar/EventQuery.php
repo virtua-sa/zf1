@@ -250,7 +250,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return int start-max
+     * @return int|null start-max
      */
     public function getStartMax()
     {
@@ -262,7 +262,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return int start-min
+     * @return int|null start-min
      */
     public function getStartMin()
     {
@@ -274,7 +274,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string orderby
+     * @return string|null orderby
      */
     public function getOrderBy()
     {
@@ -286,7 +286,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string sortorder
+     * @return string|null sortorder
      */
     public function getSortOrder()
     {
@@ -298,7 +298,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string sortorder
+     * @return $this sortorder
      */
     public function setSortOrder($value)
     {
@@ -311,7 +311,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string recurrence-expansion-start
+     * @return string|null recurrence-expansion-start
      */
     public function getRecurrenceExpansionStart()
     {
@@ -323,7 +323,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string recurrence-expansion-start
+     * @return $this recurrence-expansion-start
      */
     public function setRecurrenceExpansionStart($value)
     {
@@ -337,7 +337,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
 
 
     /**
-     * @return string recurrence-expansion-end
+     * @return string|null recurrence-expansion-end
      */
     public function getRecurrenceExpansionEnd()
     {
@@ -349,7 +349,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string recurrence-expansion-end
+     * @return $this recurrence-expansion-end
      */
     public function setRecurrenceExpansionEnd($value)
     {
@@ -362,7 +362,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return Zend_Gdata_Calendar_EventQuery Provides a fluent interface
+     * @return null|bool
      */
     public function getSingleEvents()
     {
@@ -388,7 +388,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
 
     /**
      * @param string $value Also accepts bools. If using a string, must be either "true" or "false".
-     * @return Zend_Gdata_Calendar_EventQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setSingleEvents($value)
     {
@@ -410,7 +410,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     }
 
     /**
-     * @return string futureevents
+     * @return null|bool futureevents
      */
     public function getFutureEvents()
     {
@@ -437,7 +437,7 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     /**
      * @param string $value Also accepts bools. If using a string, must be either "true" or "false" or
      *                      an exception will be thrown on retrieval.
-     * @return Zend_Gdata_Calendar_EventQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setFutureEvents($value)
     {

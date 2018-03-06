@@ -74,7 +74,7 @@ class Zend_Search_Lucene_Search_Query_Phrase extends Zend_Search_Lucene_Search_Q
     /**
      * Result vector.
      *
-     * @var array
+     * @var array|null
      */
     private $_resVector = null;
 

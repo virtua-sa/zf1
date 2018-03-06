@@ -91,7 +91,7 @@ class Zend_Gdata_Analytics extends Zend_Gdata
      * Retrieve account feed object
      *
      * @param string|Zend_Uri $uri
-     * @return Zend_Gdata_Analytics_AccountFeed
+     * @return Zend_Gdata_Analytics_AccountFeed|string
      */
     public function getAccountFeed($uri = self::ANALYTICS_ACCOUNT_FEED_URI)
     {
@@ -105,7 +105,7 @@ class Zend_Gdata_Analytics extends Zend_Gdata
      * Retrieve data feed object
      *
      * @param string|Zend_Uri $uri
-     * @return Zend_Gdata_Analytics_DataFeed
+     * @return Zend_Gdata_Analytics_DataFeed|string
      */
     public function getDataFeed($uri = self::ANALYTICS_FEED_URI)
     {

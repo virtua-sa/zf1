@@ -174,7 +174,7 @@ class Zend_Tool_Framework_Metadata_Dynamic
     public function __unset($name)
     {
         unset($this->_dynamicAttributes[$name]);
-        return;
+        return null;
     }
 
     /**

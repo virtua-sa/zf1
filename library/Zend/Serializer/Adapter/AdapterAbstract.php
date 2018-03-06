@@ -53,7 +53,7 @@ abstract class Zend_Serializer_Adapter_AdapterAbstract implements Zend_Serialize
      * Set serializer options
      *
      * @param  array|Zend_Config $opts Serializer options
-     * @return Zend_Serializer_Adapter_AdapterAbstract
+     * @return $this
      */
     public function setOptions($opts)
     {
@@ -74,7 +74,7 @@ abstract class Zend_Serializer_Adapter_AdapterAbstract implements Zend_Serialize
      *
      * @param  string $name Option name
      * @param  mixed $value Option value
-     * @return Zend_Serializer_Adapter_AdapterAbstract
+     * @return $this
      */
     public function setOption($name, $value)
     {

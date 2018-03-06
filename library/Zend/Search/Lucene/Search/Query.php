@@ -40,7 +40,7 @@ abstract class Zend_Search_Lucene_Search_Query
     /**
      * Query weight
      *
-     * @var Zend_Search_Lucene_Search_Weight
+     * @var Zend_Search_Lucene_Search_Weight|null
      */
     protected $_weight = null;
 

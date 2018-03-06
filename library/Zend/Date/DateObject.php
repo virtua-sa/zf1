@@ -30,6 +30,7 @@ abstract class Zend_Date_DateObject {
 
     /**
      * UNIX Timestamp
+     * @var string|int
      */
     private   $_unixTimestamp;
     protected static $_cache         = null;
@@ -38,6 +39,7 @@ abstract class Zend_Date_DateObject {
 
     /**
      * active timezone
+     * @var string
      */
     private   $_timezone    = 'UTC';
     private   $_offset      = 0;
@@ -72,7 +74,7 @@ abstract class Zend_Date_DateObject {
     /**
      * Set this object to have a new UNIX timestamp.
      *
-     * @param  string|integer  $timestamp  OPTIONAL timestamp; defaults to local time using time()
+     * @param  string|integer|null  $timestamp  OPTIONAL timestamp; defaults to local time using time()
      * @return string|integer  old timestamp
      * @throws Zend_Date_Exception
      */

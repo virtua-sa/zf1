@@ -49,7 +49,7 @@ class Zend_Mail_Transport_File extends Zend_Mail_Transport_Abstract
     /**
      * Callback function generating a file name
      *
-     * @var string|array
+     * @var callable
      */
     protected $_callback;
 

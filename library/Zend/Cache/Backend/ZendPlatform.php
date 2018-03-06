@@ -81,7 +81,7 @@ class Zend_Cache_Backend_ZendPlatform extends Zend_Cache_Backend implements Zend
      *
      * @param  string  $id                     Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
-     * @return string Cached data (or false)
+     * @return string|false Cached data (or false)
      */
     public function load($id, $doNotTestCacheValidity = false)
     {

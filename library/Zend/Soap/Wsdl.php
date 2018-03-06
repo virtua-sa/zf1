@@ -41,7 +41,7 @@
 class Zend_Soap_Wsdl
 {
     /**
-     * @var object DomDocument Instance
+     * @var DOMDocument DomDocument Instance
      */
     private $_dom;
 

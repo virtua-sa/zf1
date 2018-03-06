@@ -62,7 +62,7 @@ class Zend_Tool_Project_Context_Zf_LayoutScriptFile extends Zend_Tool_Project_Co
     /**
      * init()
      *
-     * @return Zend_Tool_Project_Context_Zf_ViewScriptFile
+     * @return $this
      */
     public function init()
     {

@@ -52,7 +52,7 @@ class Zend_View_Helper_Json extends Zend_View_Helper_Abstract
      *         this array can contains a 'keepLayout'=>true|false and/or 'encodeData'=>true|false
      *         that will not be passed to Zend_Json::encode method but will be used here
      * @param  bool $encodeData
-     * @return string|void
+     * @return string
      */
     public function json($data, $keepLayouts = false, $encodeData = true)
     {

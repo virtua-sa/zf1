@@ -74,7 +74,7 @@ abstract class Zend_Service_Rackspace_Abstract
     /**
      * HTTP error code
      *
-     * @var string
+     * @var string|int
      */
     protected $errorCode;
     /**
@@ -265,7 +265,7 @@ abstract class Zend_Service_Rackspace_Abstract
     /**
      * Get the authentication token
      *
-     * @return string
+     * @return string|false
      */
     public function getToken()
     {
@@ -288,7 +288,7 @@ abstract class Zend_Service_Rackspace_Abstract
     /**
      * Get the error code of the last HTTP call
      *
-     * @return string
+     * @return string|int
      */
     public function getErrorCode()
     {

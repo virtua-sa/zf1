@@ -61,7 +61,7 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
 
     /**
      * Capture type and/or attributes (used for hinting during capture)
-     * @var string
+     * @var string|null
      */
     protected $_captureAttrs = null;
 
@@ -132,7 +132,7 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
      *
      * @param  string $method
      * @param  array $args
-     * @return void
+     * @return mixed|$this
      * @throws Zend_View_Exception When no $content provided or invalid method
      */
     public function __call($method, $args)

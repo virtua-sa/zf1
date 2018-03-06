@@ -304,7 +304,7 @@ class Zend_Cloud_DocumentService_Adapter_SimpleDb
      * @param  string $collectionName Collection name
      * @param  mixed $documentId Document ID, adapter-dependent
      * @param  array $options
-     * @return Zend_Cloud_DocumentService_Document
+     * @return Zend_Cloud_DocumentService_Document|false
      */
     public function fetchDocument($collectionName, $documentId, $options = null)
     {
@@ -326,7 +326,7 @@ class Zend_Cloud_DocumentService_Adapter_SimpleDb
      * @param  string $collectionName Collection name
      * @param  string $query
      * @param  array $options
-     * @return array Zend_Cloud_DocumentService_DocumentSet
+     * @return Zend_Cloud_DocumentService_DocumentSet
      */
     public function query($collectionName, $query, $options = null)
     {

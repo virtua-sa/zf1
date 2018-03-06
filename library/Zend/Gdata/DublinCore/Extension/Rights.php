@@ -45,8 +45,7 @@ class Zend_Gdata_DublinCore_Extension_Rights extends Zend_Gdata_Extension
      * Constructor for Zend_Gdata_DublinCore_Extension_Rights which
      * Information about rights held in and over the resource
      *
-     * @param DOMElement $value (optional) DOMElement from which this
-     *          object should be constructed.
+     * @param string $value
      */
     public function __construct($value = null)
     {

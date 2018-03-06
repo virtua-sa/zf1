@@ -139,7 +139,7 @@ class Zend_Mime_Decode
                 ), $message
             );
 
-            return;
+            return null;
         }
 
         // find an empty line between headers and body
@@ -168,7 +168,7 @@ class Zend_Mime_Decode
 
         if ($headers === false) {
             // an error occurs during the decoding
-            return;
+            return null;
         }
 
         // normalize header names

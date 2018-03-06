@@ -94,8 +94,8 @@ class Zend_Cloud_QueueService_Adapter_Sqs
      * documentation for details.
      *
      * @param  string $name
-     * @param  array  $options
-     * @return string Queue ID (typically URL)
+     * @param  string  $options
+     * @return string|false Queue ID (typically URL)
      */
     public function createQueue($name, $options = null)
     {
@@ -235,7 +235,7 @@ class Zend_Cloud_QueueService_Adapter_Sqs
      * @param  string $queueId
      * @param  Zend_Cloud_QueueService_Message $message
      * @param  array  $options
-     * @return void
+     * @return bool
      */
     public function deleteMessage($queueId, $message, $options = null)
     {

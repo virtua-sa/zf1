@@ -124,7 +124,7 @@ class Zend_Application_Resource_Multidb extends Zend_Application_Resource_Resour
     /**
      * Retrieve the specified database connection
      *
-     * @param  null|string|Zend_Db_Adapter_Abstract $db The adapter to retrieve.
+     * @param  null|string $db The adapter to retrieve.
      *                                               Null to retrieve the default connection
      * @return Zend_Db_Adapter_Abstract
      * @throws Zend_Application_Resource_Exception if the given parameter could not be found

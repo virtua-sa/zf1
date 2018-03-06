@@ -348,7 +348,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Look for features
      *
-     * @return string
+     * @return array
      */
     protected function _defineFeatures()
     {
@@ -437,7 +437,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine maximum image height supported
      *
-     * @return int
+     * @return mixed
      */
     public function getMaxImageHeight()
     {
@@ -447,7 +447,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine maximum image width supported
      *
-     * @return int
+     * @return mixed
      */
     public function getMaxImageWidth()
     {
@@ -457,7 +457,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine physical screen height
      *
-     * @return int
+     * @return mixed
      */
     public function getPhysicalScreenHeight()
     {
@@ -467,7 +467,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine physical screen width
      *
-     * @return int
+     * @return mixed
      */
     public function getPhysicalScreenWidth()
     {
@@ -477,7 +477,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine preferred markup
      *
-     * @return string
+     * @return mixed
      */
     public function getPreferredMarkup()
     {
@@ -487,7 +487,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Determine X/HTML support level
      *
-     * @return int
+     * @return mixed
      */
     public function getXhtmlSupportLevel()
     {
@@ -497,7 +497,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device support Flash?
      *
-     * @return bool
+     * @return mixed
      */
     public function hasFlashSupport()
     {
@@ -507,7 +507,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device support PDF?
      *
-     * @return bool
+     * @return mixed
      */
     public function hasPdfSupport()
     {
@@ -517,7 +517,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device have an associated phone number?
      *
-     * @return bool
+     * @return mixed
      */
     public function hasPhoneNumber()
     {

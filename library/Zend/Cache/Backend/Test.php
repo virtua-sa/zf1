@@ -98,7 +98,7 @@ class Zend_Cache_Backend_Test extends Zend_Cache_Backend implements Zend_Cache_B
      *
      * @param  string  $id                     Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
-     * @return string Cached datas (or false)
+     * @return string|false Cached datas (or false)
      */
     public function load($id, $doNotTestCacheValidity = false)
     {
@@ -352,7 +352,7 @@ class Zend_Cache_Backend_Test extends Zend_Cache_Backend implements Zend_Cache_B
      * - mtime : timestamp of last modification time
      *
      * @param string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return false
      */
     public function getMetadatas($id)
     {

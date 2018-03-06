@@ -141,7 +141,7 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
      *
      * @param mixed $method
      * @param mixed $args
-     * @return void
+     * @return mixed|$this
      */
     public function __call($method, $args)
     {
@@ -249,7 +249,7 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
      * prepend()
      *
      * @param  array $value
-     * @return Zend_View_Helper_HeadLink
+     * @return void
      */
     public function prepend($value)
     {
@@ -267,7 +267,7 @@ class Zend_View_Helper_HeadLink extends Zend_View_Helper_Placeholder_Container_S
      * set()
      *
      * @param  array $value
-     * @return Zend_View_Helper_HeadLink
+     * @return void
      */
     public function set($value)
     {

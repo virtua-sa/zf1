@@ -142,7 +142,7 @@ class Zend_Oauth_Client extends Zend_Http_Client
     /**
      * Prepare the request body (for POST and PUT requests)
      *
-     * @return string
+     * @return string|resource
      * @throws Zend_Http_Client_Exception
      */
     protected function _prepareBody()

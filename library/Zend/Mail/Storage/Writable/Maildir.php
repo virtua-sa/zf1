@@ -46,7 +46,7 @@ class Zend_Mail_Storage_Writable_Maildir extends    Zend_Mail_Storage_Folder_Mai
 
     /**
      * use quota and size of quota if given
-     * @var bool|int
+     * @var bool|array|int
      */
     protected $_quota;
 
@@ -56,7 +56,7 @@ class Zend_Mail_Storage_Writable_Maildir extends    Zend_Mail_Storage_Folder_Mai
      * If the given dir is already a valid maildir this will not fail.
      *
      * @param string $dir directory for the new maildir (may already exist)
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public static function initMaildir($dir)
@@ -688,7 +688,7 @@ class Zend_Mail_Storage_Writable_Maildir extends    Zend_Mail_Storage_Folder_Mai
      *
      * @param  int                             $id     number of message
      * @param  string|Zend_Mail_Storage_Folder $folder name or instance of targer folder
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public function moveMessage($id, $folder) {
@@ -819,7 +819,7 @@ class Zend_Mail_Storage_Writable_Maildir extends    Zend_Mail_Storage_Folder_Mai
      * define your quota. Order of these fields does matter!
      *
      * @param bool|array $value new quota value
-     * @return null
+     * @return void
      */
     public function setQuota($value) {
         $this->_quota = $value;
@@ -830,7 +830,7 @@ class Zend_Mail_Storage_Writable_Maildir extends    Zend_Mail_Storage_Folder_Mai
      *
      * @see Zend_Mail_Storage_Writable_Maildir::setQuota()
      *
-     * @return bool|array
+     * @return bool|array|int
      */
     public function getQuota($fromStorage = false) {
         if ($fromStorage) {

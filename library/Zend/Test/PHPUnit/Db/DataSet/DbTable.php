@@ -50,7 +50,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
     protected $_columns = array();
 
     /**
-     * @var string
+     * @var string|Zend_Db_Select|null
      */
     protected $_where = null;
 
@@ -60,7 +60,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
     protected $_orderBy = null;
 
     /**
-     * @var string
+     * @var int|null
      */
     protected $_count = null;
 

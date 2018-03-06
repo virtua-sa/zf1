@@ -1146,7 +1146,7 @@ class Zend_Gdata_App
      * @param string $className (optional) The class of feed to be returned.
      *          If null, the next feed (if found) will be the same class as
      *          the feed that was given as the first argument.
-     * @return Zend_Gdata_App_Feed|null Returns a
+     * @return Zend_Gdata_App_Feed|null|string Returns a
      *          Zend_Gdata_App_Feed or null if no next set of results
      *          exists.
      */
@@ -1173,7 +1173,7 @@ class Zend_Gdata_App
      * @param string $className (optional) The class of feed to be returned.
      *          If null, the previous feed (if found) will be the same class as
      *          the feed that was given as the first argument.
-     * @return Zend_Gdata_App_Feed|null Returns a
+     * @return Zend_Gdata_App_Feed|null|string Returns a
      *          Zend_Gdata_App_Feed or null if no previous set of results
      *          exists.
      */
@@ -1236,7 +1236,7 @@ class Zend_Gdata_App
      */
     public function useObjectMapping($value)
     {
-        if ($value === True) {
+        if ($value === true) {
             $this->_useObjectMapping = true;
         } else {
             $this->_useObjectMapping = false;

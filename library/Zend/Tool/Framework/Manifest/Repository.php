@@ -66,7 +66,7 @@ class Zend_Tool_Framework_Manifest_Repository
      * addManifest() - Add a manifest for later processing
      *
      * @param Zend_Tool_Framework_Manifest_Interface $manifest
-     * @return Zend_Tool_Framework_Manifest_Repository
+     * @return $this
      */
     public function addManifest(Zend_Tool_Framework_Manifest_Interface $manifest)
     {

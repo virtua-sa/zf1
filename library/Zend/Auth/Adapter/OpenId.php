@@ -83,7 +83,7 @@ class Zend_Auth_Adapter_OpenId implements Zend_Auth_Adapter_Interface
     /**
      * The response object to perform HTTP or HTML form redirection
      *
-     * @var Zend_Controller_Response_Abstract
+     * @var Zend_Controller_Response_Abstract|null
      */
     private $_response = null;
 
@@ -191,7 +191,7 @@ class Zend_Auth_Adapter_OpenId implements Zend_Auth_Adapter_Interface
     /**
      * Sets an optional response object to perform HTTP or HTML form redirection
      *
-     * @param  string $response
+     * @param  Zend_Controller_Response_Abstract $response
      * @return Zend_Auth_Adapter_OpenId Provides a fluent interface
      */
     public function setResponse($response)

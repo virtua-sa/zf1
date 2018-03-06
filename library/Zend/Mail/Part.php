@@ -268,7 +268,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
         }
 
         if (!$this->isMultipart()) {
-            return;
+            return null;
         }
 
         // split content in parts
@@ -282,7 +282,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
         }
         $parts = Zend_Mime_Decode::splitMessageStruct($this->_content, $boundary);
         if ($parts === null) {
-            return;
+            return null;
         }
         $partClass = $this->getPartClass();
         $counter = 1;
@@ -542,7 +542,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
     /**
      * implements Iterator::next()
      *
-     * @return null
+     * @return void
      */
     public function next()
     {
@@ -552,7 +552,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
     /**
      * implements Iterator::key()
      *
-     * @return string key/number of current part
+     * @return int number of current part
      */
     public function key()
     {
@@ -572,7 +572,7 @@ class Zend_Mail_Part implements RecursiveIterator, Zend_Mail_Part_Interface, Cou
     /**
      * implements Iterator::rewind()
      *
-     * @return null
+     * @return void
      */
     public function rewind()
     {

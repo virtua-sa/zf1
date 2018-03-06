@@ -35,7 +35,7 @@ interface Zend_Tool_Framework_Manifest_Indexable extends Zend_Tool_Framework_Man
      * Should either return a single action, or an array
      * of actions
      *
-     * @return array|Zend_Tool_Framework_Action_Interface
+     * @return int|string
      */
     public function getIndex();
 

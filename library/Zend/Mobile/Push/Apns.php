@@ -184,7 +184,7 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
 
     /**
     * Read from the Socket Server
-    * 
+    *
     * @param int $length
     * @return string
     */
@@ -198,7 +198,7 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
 
     /**
     * Write to the Socket Server
-    * 
+    *
     * @param string $payload
     * @return int
     */
@@ -209,7 +209,7 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     /**
      * Connect to the Push Server
      *
-     * @param  int|string $env
+     * @param  int $env
      * @throws Zend_Mobile_Push_Exception
      * @throws Zend_Mobile_Push_Exception_ServerUnavailable
      * @return Zend_Mobile_Push_Abstract
@@ -313,7 +313,7 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
         foreach($message->getCustomData() as $k => $v) {
             $payload[$k] = $v;
         }
-        
+
         if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
             $payload = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         } else {

@@ -38,7 +38,7 @@ class Zend_Service_Ebay_Finding_Search_Item_Set extends Zend_Service_Ebay_Findin
     /**
      * Implement SeekableIterator::current()
      *
-     * @return Zend_Service_Ebay_Finding_Search_Item
+     * @return Zend_Service_Ebay_Finding_Search_Item|null
      */
     public function current()
     {

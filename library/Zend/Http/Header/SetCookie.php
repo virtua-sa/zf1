@@ -109,7 +109,7 @@ class Zend_Http_Header_SetCookie
     protected $secure = null;
 
     /**
-     * @var true
+     * @var bool
      */
     protected $httponly = null;
 
@@ -393,12 +393,13 @@ class Zend_Http_Header_SetCookie
     }
 
     /**
-     * @return int
+     * @param bool $inSeconds
+     * @return int|null|string
      */
     public function getExpires($inSeconds = false)
     {
         if ($this->expires == null) {
-            return;
+            return null;
         }
         if ($inSeconds) {
             return $this->expires;
@@ -461,6 +462,7 @@ class Zend_Http_Header_SetCookie
 
     /**
      * @param bool $httponly
+     * @return $this
      */
     public function setHttponly($httponly)
     {

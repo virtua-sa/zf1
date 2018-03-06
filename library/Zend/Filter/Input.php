@@ -146,7 +146,7 @@ class Zend_Filter_Input
 
     /**
      * Translation object
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter|null
      */
     protected $_translator;
 

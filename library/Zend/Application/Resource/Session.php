@@ -41,7 +41,7 @@ class Zend_Application_Resource_Session extends Zend_Application_Resource_Resour
     /**
      * Save handler to use
      *
-     * @var Zend_Session_SaveHandler_Interface
+     * @var array|string|Zend_Session_SaveHandler_Interface
      */
     protected $_saveHandler = null;
 

@@ -95,14 +95,14 @@ class Zend_Soap_Client
      * WSDL used to access server
      * It also defines Zend_Soap_Client working mode (WSDL vs non-WSDL)
      *
-     * @var string
+     * @var string|null
      */
     protected $_wsdl = null;
 
     /**
      * SoapClient object
      *
-     * @var SoapClient
+     * @var SoapClient|null
      */
     protected $_soapClient;
 

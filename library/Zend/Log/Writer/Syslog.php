@@ -56,7 +56,7 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
     /**
      * The default log priority - for unmapped custom priorities
      *
-     * @var string
+     * @var int
      */
     protected $_defaultPriority = LOG_NOTICE;
 
@@ -70,7 +70,7 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
     /**
      * Last facility name set by a syslog-writer instance
      *
-     * @var string
+     * @var int
      */
     protected static $_lastFacility;
 

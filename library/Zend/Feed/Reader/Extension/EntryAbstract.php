@@ -37,14 +37,14 @@ abstract class Zend_Feed_Reader_Extension_EntryAbstract
     /**
      * DOM document object
      *
-     * @var DOMDocument
+     * @var DOMDocument|null
      */
     protected $_domDocument = null;
 
     /**
      * Entry instance
      *
-     * @var Zend_Feed_Entry_Abstract
+     * @var DOMElement|null
      */
     protected $_entry = null;
 

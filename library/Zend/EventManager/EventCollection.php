@@ -80,7 +80,7 @@ interface Zend_EventManager_EventCollection
      * Detach an event listener
      *
      * @param  Zend_Stdlib_CallbackHandler|Zend_EventManager_ListenerAggregate $listener
-     * @return void
+     * @return bool
      */
     public function detach($listener);
 
@@ -95,7 +95,7 @@ interface Zend_EventManager_EventCollection
      * Retrieve a list of listeners registered to a given event
      *
      * @param  string $event
-     * @return array|object
+     * @return Zend_Stdlib_PriorityQueue
      */
     public function getListeners($event);
 

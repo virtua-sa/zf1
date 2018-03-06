@@ -59,7 +59,7 @@ class Zend_Tool_Project_Profile_Resource extends Zend_Tool_Project_Profile_Resou
     /**#@-*/
 
     /**
-     * @var Zend_Tool_Project_Context_Interface|string
+     * @var Zend_Tool_Project_Context_Interface|string|null
      */
     protected $_context = null;
 
@@ -98,7 +98,7 @@ class Zend_Tool_Project_Profile_Resource extends Zend_Tool_Project_Profile_Resou
     /**
      * getContext()
      *
-     * @return Zend_Tool_Project_Context_Interface
+     * @return Zend_Tool_Project_Context_Interface|string|null
      */
     public function getContext()
     {
@@ -207,12 +207,12 @@ class Zend_Tool_Project_Profile_Resource extends Zend_Tool_Project_Profile_Resou
     /**
      * initializeContext()
      *
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|null
      */
     public function initializeContext()
     {
         if ($this->_isContextInitialized) {
-            return;
+            return null;
         }
         if (is_string($this->_context)) {
             $this->_context = Zend_Tool_Project_Context_Repository::getInstance()->getContext($this->_context);

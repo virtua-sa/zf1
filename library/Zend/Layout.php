@@ -31,7 +31,7 @@ class Zend_Layout
 {
     /**
      * Placeholder container for layout variables
-     * @var Zend_View_Helper_Placeholder_Container
+     * @var Zend_View_Helper_Placeholder_Container_Abstract
      */
     protected $_container;
 
@@ -79,7 +79,7 @@ class Zend_Layout
 
     /**
      * Layout view script path
-     * @var string
+     * @var string|null
      */
     protected $_viewScriptPath = null;
 
@@ -94,7 +94,7 @@ class Zend_Layout
 
     /**
      * Instance registered with MVC, if any
-     * @var Zend_Layout
+     * @var Zend_Layout|null
      */
     protected static $_mvcInstance;
 

@@ -52,7 +52,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     /**
      * Endpoint for the service
      *
-     * @var Zend_Uri_Http
+     * @var Zend_Uri
      */
     protected $_endpoint;
 
@@ -92,7 +92,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     /**
      * Get current S3 endpoint
      *
-     * @return Zend_Uri_Http
+     * @return Zend_Uri
      */
     public function getEndpoint()
     {
@@ -592,6 +592,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
      * @param string $destObject    Destination object name
      * @param array  $meta          (OPTIONAL) Metadata to apply to destination object.
      *                              Set to null to retain existing metadata.
+     * @return bool
      */
     public function moveObject($sourceObject, $destObject, $meta = null)
     {

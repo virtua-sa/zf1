@@ -34,7 +34,7 @@
 class Zend_Tool_Framework_Registry implements Zend_Tool_Framework_Registry_Interface
 {
     /**
-     * @var Zend_Tool_Framework_Loader_Abstract
+     * @var Zend_Tool_Framework_Loader_Interface
      */
     protected $_loader = null;
 
@@ -180,7 +180,7 @@ class Zend_Tool_Framework_Registry implements Zend_Tool_Framework_Registry_Inter
      * setLoader()
      *
      * @param Zend_Tool_Framework_Loader_Interface $loader
-     * @return Zend_Tool_Framework_Registry
+     * @return $this
      */
     public function setLoader(Zend_Tool_Framework_Loader_Interface $loader)
     {
@@ -194,7 +194,7 @@ class Zend_Tool_Framework_Registry implements Zend_Tool_Framework_Registry_Inter
     /**
      * getLoader()
      *
-     * @return Zend_Tool_Framework_Loader_Abstract
+     * @return Zend_Tool_Framework_Loader_Interface
      */
     public function getLoader()
     {

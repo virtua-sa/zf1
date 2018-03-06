@@ -78,14 +78,14 @@ class Zend_Search_Lucene_Search_QueryParser extends Zend_Search_Lucene_FSM
      *
      * It can be processed within FSM states, but this addirional state simplifies FSM
      *
-     * @var Zend_Search_Lucene_Search_QueryToken
+     * @var Zend_Search_Lucene_Search_QueryToken|null
      */
     private $_lastToken = null;
 
     /**
      * Range query first term
      *
-     * @var string
+     * @var string|null
      */
     private $_rqFirstTerm = null;
 

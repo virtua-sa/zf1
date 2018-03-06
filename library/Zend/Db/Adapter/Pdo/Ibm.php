@@ -288,7 +288,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      *
      * @param string $tableName OPTIONAL
      * @param string $primaryKey OPTIONAL
-     * @return integer
+     * @return integer|string
      */
     public function lastInsertId($tableName = null, $primaryKey = null)
     {
@@ -312,7 +312,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * Return the most recent value from the specified sequence in the database.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function lastSequenceId($sequenceName)
     {
@@ -325,7 +325,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * and return it.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function nextSequenceId($sequenceName)
     {
@@ -336,7 +336,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * Retrieve server version in PHP style
      * Pdo_Idm doesn't support getAttribute(PDO::ATTR_SERVER_VERSION)
-     * @return string
+     * @return string|null
      */
     public function getServerVersion()
     {

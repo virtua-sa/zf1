@@ -204,7 +204,7 @@ class Zend_Pdf_Style
     /**
      * Get line width.
      *
-     * @return float
+     * @return float|int|string
      */
     public function getLineWidth()
     {
@@ -245,7 +245,7 @@ class Zend_Pdf_Style
     /**
      * Get line dashing phase
      *
-     * @return float
+     * @return float|int|string
      */
     public function getLineDashingPhase()
     {

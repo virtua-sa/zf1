@@ -32,9 +32,9 @@
 abstract class Zend_Cloud_Infrastructure_Adapter_AbstractAdapter implements Zend_Cloud_Infrastructure_Adapter
 {
     /**
-     * Store the last response from the adpter
+     * Store the last response from the adapter
      *
-     * @var array
+     * @var array|bool|ArrayAccess|object
      */
     protected $adapterResult;
 
@@ -56,7 +56,7 @@ abstract class Zend_Cloud_Infrastructure_Adapter_AbstractAdapter implements Zend
     /**
      * Get the last result of the adapter
      *
-     * @return array
+     * @return array|bool|ArrayAccess|object
      */
     public function getAdapterResult()
     {

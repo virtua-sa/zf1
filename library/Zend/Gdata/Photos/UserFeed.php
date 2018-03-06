@@ -75,21 +75,21 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
     /**
      * gphoto:user element
      *
-     * @var Zend_Gdata_Photos_Extension_User
+     * @var Zend_Gdata_Photos_Extension_User|string|null
      */
     protected $_gphotoUser = null;
 
     /**
      * gphoto:thumbnail element
      *
-     * @var Zend_Gdata_Photos_Extension_Thumbnail
+     * @var Zend_Gdata_Photos_Extension_Thumbnail|string|null
      */
     protected $_gphotoThumbnail = null;
 
     /**
      * gphoto:nickname element
      *
-     * @var Zend_Gdata_Photos_Extension_Nickname
+     * @var Zend_Gdata_Photos_Extension_Nickname|string|null
      */
     protected $_gphotoNickname = null;
 
@@ -179,7 +179,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Get the value for this element's gphoto:user attribute.
      *
      * @see setGphotoUser
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_User|string|null The requested attribute.
      */
     public function getGphotoUser()
     {
@@ -190,7 +190,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:user attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_User The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoUser($value)
     {
@@ -202,7 +202,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Get the value for this element's gphoto:nickname attribute.
      *
      * @see setGphotoNickname
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_Nickname|string|null The requested attribute.
      */
     public function getGphotoNickname()
     {
@@ -213,7 +213,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:nickname attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Nickname The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoNickname($value)
     {
@@ -225,7 +225,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Get the value for this element's gphoto:thumbnail attribute.
      *
      * @see setGphotoThumbnail
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_Thumbnail|string|null The requested attribute.
      */
     public function getGphotoThumbnail()
     {
@@ -236,7 +236,7 @@ class Zend_Gdata_Photos_UserFeed extends Zend_Gdata_Feed
      * Set the value for this element's gphoto:thumbnail attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Thumbnail The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoThumbnail($value)
     {

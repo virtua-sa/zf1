@@ -112,7 +112,7 @@ class Zend_Pdf_Page extends Zend_Pdf_Canvas_Abstract
     /**
      * Page dictionary (refers to an inderect Zend_Pdf_Element_Dictionary object).
      *
-     * @var Zend_Pdf_Element_Reference|Zend_Pdf_Element_Object
+     * @var Zend_Pdf_Element_Reference|Zend_Pdf_Element_Object|Zend_Pdf_Element_Dictionary
      */
     protected $_dictionary;
 
@@ -529,7 +529,7 @@ class Zend_Pdf_Page extends Zend_Pdf_Canvas_Abstract
      * Retrive PDF file reference to the page
      *
      * @internal
-     * @return Zend_Pdf_Element_Dictionary
+     * @return Zend_Pdf_Element_Reference|Zend_Pdf_Element_Object|Zend_Pdf_Element_Dictionary
      */
     public function getPageDictionary()
     {

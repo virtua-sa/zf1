@@ -84,14 +84,14 @@ class Zend_Feed_Reader
     /**
      * Cache instance
      *
-     * @var Zend_Cache_Core
+     * @var Zend_Cache_Core|null
      */
     protected static $_cache = null;
 
     /**
      * HTTP client object to use for retrieving feeds
      *
-     * @var Zend_Http_Client
+     * @var Zend_Http_Client|null
      */
     protected static $_httpClient = null;
 
@@ -225,7 +225,7 @@ class Zend_Feed_Reader
      * @param  string $uri The URL to the feed
      * @param  string $etag OPTIONAL Last received ETag for this resource
      * @param  string $lastModified OPTIONAL Last-Modified value for this resource
-     * @return Zend_Feed_Reader_FeedInterface
+     * @return Zend_Feed_Reader_FeedInterface|Zend_Feed_Reader_EntryInterface
      */
     public static function import($uri, $etag = null, $lastModified = null)
     {
@@ -335,7 +335,7 @@ class Zend_Feed_Reader
      * Import a feed from a string
      *
      * @param  string $string
-     * @return Zend_Feed_Reader_FeedInterface
+     * @return Zend_Feed_Reader_FeedInterface|Zend_Feed_Reader_EntryInterface
      */
     public static function importString($string)
     {
@@ -384,7 +384,7 @@ class Zend_Feed_Reader
      *
      * @param  string $filename
      * @throws Zend_Feed_Exception
-     * @return Zend_Feed_Reader_FeedInterface
+     * @return Zend_Feed_Reader_FeedInterface|Zend_Feed_Reader_EntryInterface
      */
     public static function importFile($filename)
     {

@@ -556,7 +556,7 @@ class Zend_Cache_Backend_Static
      * otherwise return the non-string (assumed octal or decimal int already)
      *
      * @param string $val The potential octal in need of conversion
-     * @return int
+     * @return int|string
      */
     protected function _octdec($val)
     {

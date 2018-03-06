@@ -260,7 +260,7 @@ class Zend_Service_Amazon_SimpleDb extends Zend_Service_Amazon_Abstract
      * @param  string $domainName
      * @param  string $itemName
      * @param  array $attributes
-     * @return void
+     * @return true
      */
     public function deleteAttributes($domainName, $itemName, array $attributes = array())
     {

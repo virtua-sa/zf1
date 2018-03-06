@@ -77,7 +77,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      *
      * Corresponding Zend_Search_Lucene_Index_TermInfo object stored in the $_termDictionaryInfos
      *
-     * @var array
+     * @var array|null
      */
     private $_termDictionary;
 
@@ -161,7 +161,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * File system adapter.
      *
-     * @var Zend_Search_Lucene_Storage_Directory_Filesystem
+     * @var Zend_Search_Lucene_Storage_Directory
      */
     private $_directory;
 
@@ -809,7 +809,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      * Scans terms dictionary and returns term info
      *
      * @param Zend_Search_Lucene_Index_Term $term
-     * @return Zend_Search_Lucene_Index_TermInfo
+     * @return Zend_Search_Lucene_Index_TermInfo|null
      */
     public function getTermInfo(Zend_Search_Lucene_Index_Term $term)
     {
@@ -1060,7 +1060,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      * @param Zend_Search_Lucene_Index_Term $term
      * @param integer $shift
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return Zend_Search_Lucene_Index_TermInfo
+     * @return array
      */
     public function termFreqs(Zend_Search_Lucene_Index_Term $term, $shift = 0, $docsFilter = null)
     {
@@ -1187,7 +1187,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      * @param Zend_Search_Lucene_Index_Term $term
      * @param integer $shift
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return Zend_Search_Lucene_Index_TermInfo
+     * @return Zend_Search_Lucene_Index_TermInfo|array
      */
     public function termPositions(Zend_Search_Lucene_Index_Term $term, $shift = 0, $docsFilter = null)
     {
@@ -1398,7 +1398,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
      *
      * @param integer $id
      * @param string $fieldName
-     * @return float
+     * @return float|null
      */
     public function norm($id, $fieldName)
     {
@@ -1631,7 +1631,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Term Dictionary File object for stream like terms reading
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_tisFile = null;
 
@@ -1645,7 +1645,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Frequencies File object for stream like terms reading
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_frqFile = null;
 
@@ -1659,7 +1659,7 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Positions File object for stream like terms reading
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_prxFile = null;
 
@@ -1674,14 +1674,14 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Actual number of terms in term stream
      *
-     * @var integer
+     * @var integer|float
      */
     private $_termCount = 0;
 
     /**
      * Overall number of terms in term stream
      *
-     * @var integer
+     * @var integer|float
      */
     private $_termNum = 0;
 
@@ -1702,14 +1702,14 @@ class Zend_Search_Lucene_Index_SegmentInfo implements Zend_Search_Lucene_Index_T
     /**
      * Last TermInfo in a terms stream
      *
-     * @var Zend_Search_Lucene_Index_TermInfo
+     * @var Zend_Search_Lucene_Index_TermInfo|null
      */
     private $_lastTermInfo = null;
 
     /**
      * Last Term in a terms stream
      *
-     * @var Zend_Search_Lucene_Index_Term
+     * @var Zend_Search_Lucene_Index_Term|null
      */
     private $_lastTerm = null;
 

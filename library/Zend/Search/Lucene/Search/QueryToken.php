@@ -103,7 +103,7 @@ class Zend_Search_Lucene_Search_QueryToken
     /**
      * Token text.
      *
-     * @var integer
+     * @var string
      */
     public $text;
 

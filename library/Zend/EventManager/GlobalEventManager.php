@@ -129,7 +129,7 @@ class Zend_EventManager_GlobalEventManager
      * Retrieve all listeners for a given event
      *
      * @param  string $event
-     * @return Zend_Stdlib_PriorityQueue|array
+     * @return Zend_Stdlib_PriorityQueue
      */
     public static function getListeners($event)
     {

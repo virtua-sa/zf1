@@ -262,7 +262,7 @@ class Zend_Test_DbAdapter extends Zend_Db_Adapter_Abstract
      *
      * @param string $tableName   OPTIONAL Name of table.
      * @param string $primaryKey  OPTIONAL Name of primary key column.
-     * @return string
+     * @return string|false
      */
     public function lastInsertId($tableName = null, $primaryKey = null)
     {

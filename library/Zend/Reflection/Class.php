@@ -184,7 +184,7 @@ class Zend_Reflection_Class extends ReflectionClass
      * Get parent reflection class of reflected class
      *
      * @param  string $reflectionClass Name of Reflection class to use
-     * @return Zend_Reflection_Class
+     * @return Zend_Reflection_Class|false
      */
     public function getParentClass($reflectionClass = 'Zend_Reflection_Class')
     {

@@ -180,14 +180,14 @@ class Zend_Http_Client
     /**
      * Request body content type (for POST requests)
      *
-     * @var string
+     * @var string|null
      */
     protected $enctype = null;
 
     /**
      * The raw post data to send. Could be set by setRawData($data, $enctype).
      *
-     * @var string
+     * @var string|resource
      */
     protected $raw_post_data = null;
 
@@ -228,21 +228,21 @@ class Zend_Http_Client
     /**
      * The client's cookie jar
      *
-     * @var Zend_Http_CookieJar
+     * @var Zend_Http_CookieJar|null
      */
     protected $cookiejar = null;
 
     /**
      * The last HTTP request sent by the client, as string
      *
-     * @var string
+     * @var string|null
      */
     protected $last_request = null;
 
     /**
      * The last HTTP response received by the client
      *
-     * @var Zend_Http_Response
+     * @var Zend_Http_Response|null
      */
     protected $last_response = null;
 
@@ -538,7 +538,7 @@ class Zend_Http_Client
      * @param string $type GET or POST
      * @param string $name
      * @param string $value
-     * @return null
+     * @return void
      */
     protected function _setParameter($type, $name, $value)
     {
@@ -917,7 +917,7 @@ class Zend_Http_Client
      * seperated from ->request() to preserve logic and readability
      *
      * @param Zend_Http_Client_Adapter_Interface|string $adapter
-     * @return null
+     * @return void
      * @throws Zend_Http_Client_Exception
      */
     public function setAdapter($adapter)

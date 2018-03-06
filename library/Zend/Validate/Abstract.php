@@ -77,13 +77,13 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
 
     /**
      * Translation object
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected $_translator;
 
     /**
      * Default translation object for all validate objects
-     * @var Zend_Translate
+     * @var Zend_Translate_Adapter
      */
     protected static $_defaultTranslator;
 
@@ -205,7 +205,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      *
      * @param  string $messageKey
      * @param  string $value
-     * @return string
+     * @return string|null
      */
     protected function _createMessage($messageKey, $value)
     {

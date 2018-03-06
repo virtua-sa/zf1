@@ -74,14 +74,14 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     /**
      * Magicfile to use
      *
-     * @var string|null
+     * @var string|null|false
      */
     protected $_magicfile;
 
     /**
      * Finfo object to use
      *
-     * @var resource
+     * @var resource|null
      */
     protected $_finfo;
 
@@ -117,7 +117,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     /**
      * Holds error information returned by finfo_open
      *
-     * @var array
+     * @var ErrorException
      */
     protected $_finfoError;
 
@@ -160,7 +160,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      * find a magic file in a common location as PHP now has a built-in internal
      * magic file.
      *
-     * @return string
+     * @return string|false|null
      */
     public function getMagicFile()
     {
@@ -305,7 +305,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      * Sets the mimetypes
      *
      * @param  string|array $mimetype The mimetypes to validate
-     * @return Zend_Validate_File_Extension Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setMimeType($mimetype)
     {
@@ -319,7 +319,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      *
      * @param  string|array $mimetype The mimetypes to add for validation
      * @throws Zend_Validate_Exception
-     * @return Zend_Validate_File_Extension Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function addMimeType($mimetype)
     {

@@ -111,7 +111,7 @@ abstract class Zend_Mail_Protocol_Abstract
 
     /**
      * String template for parsing server responses using sscanf (default: 3 digit code and response string)
-     * @var resource
+     * @var string
      * @deprecated Since 1.10.3
      */
     protected $_template = '%d%s';

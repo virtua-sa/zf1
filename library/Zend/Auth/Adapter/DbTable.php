@@ -359,7 +359,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * table and attempt to find a record matching the provided identity.
      *
      * @throws Zend_Auth_Adapter_Exception if answering the authentication query is impossible
-     * @return Zend_Auth_Result
+     * @return Zend_Auth_Result|true
      */
     public function authenticate()
     {

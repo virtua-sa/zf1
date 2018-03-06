@@ -67,7 +67,7 @@ abstract class Zend_Mobile_Push_Message_Abstract implements Zend_Mobile_Push_Mes
      *
      * @param  string $token
      * @throws Zend_Mobile_Push_Message_Exception
-     * @return Zend_Mobile_Push_Message_Abstract
+     * @return $this
      */
     public function setToken($token)
     {
@@ -80,7 +80,7 @@ abstract class Zend_Mobile_Push_Message_Abstract implements Zend_Mobile_Push_Mes
 
     /**
      * Get Message ID
-     * 
+     *
      * @return int|string|float|bool Scalar
      */
     public function getId()
@@ -92,7 +92,7 @@ abstract class Zend_Mobile_Push_Message_Abstract implements Zend_Mobile_Push_Mes
      * Set Message ID
      *
      * @param  int|string|float|bool $id Scalar
-     * @return Zend_Mobile_Push_Message_Abstract
+     * @return $this
      * @throws Exception
      */
     public function setId($id)
@@ -108,7 +108,7 @@ abstract class Zend_Mobile_Push_Message_Abstract implements Zend_Mobile_Push_Mes
      * Set Options
      *
      * @param array $options
-     * @return Zend_Mobile_Push_Message_Abstract
+     * @return $this
      * @throws Zend_Mobile_Push_Message_Exception
      */
     public function setOptions(array $options)

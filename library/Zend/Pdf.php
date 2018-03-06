@@ -142,7 +142,7 @@ class Zend_Pdf
     /**
      * Document level javascript
      *
-     * @var string
+     * @var string|array|null
      */
     protected $_javaScript = null;
 
@@ -612,7 +612,7 @@ class Zend_Pdf
             }
         }
     }
-  
+
     /**
      * Load form fields
      *
@@ -947,7 +947,7 @@ class Zend_Pdf
      * Return the document-level Metadata
      * or null Metadata stream is not presented
      *
-     * @return string
+     * @return string|null
      */
     public function getMetadata()
     {
@@ -977,7 +977,7 @@ class Zend_Pdf
      * Return the document-level JavaScript
      * or null if there is no JavaScript for this document
      *
-     * @return string
+     * @return string|array|null
      */
     public function getJavaScript()
     {
@@ -988,7 +988,7 @@ class Zend_Pdf
      * Get open Action
      * Returns Zend_Pdf_Target (Zend_Pdf_Destination or Zend_Pdf_Action object)
      *
-     * @return Zend_Pdf_Target
+     * @return Zend_Pdf_Target|null
      */
     public function getOpenAction()
     {
@@ -1078,7 +1078,7 @@ class Zend_Pdf
      * Pages collection hash:
      * <page dictionary object hash id> => Zend_Pdf_Page
      *
-     * @var SplObjectStorage
+     * @var SplObjectStorage|array
      */
     protected $_pageReferences = null;
 

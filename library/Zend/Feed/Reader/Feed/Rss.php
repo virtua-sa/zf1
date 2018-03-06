@@ -198,7 +198,7 @@ class Zend_Feed_Reader_Feed_Rss extends Zend_Feed_Reader_FeedAbstract
     /**
      * Get the feed creation date
      *
-     * @return string|null
+     * @return Zend_Date|null
      */
     public function getDateCreated()
     {
@@ -208,7 +208,7 @@ class Zend_Feed_Reader_Feed_Rss extends Zend_Feed_Reader_FeedAbstract
     /**
      * Get the feed modification date
      *
-     * @return Zend_Date
+     * @return Zend_Date|null
      */
     public function getDateModified()
     {

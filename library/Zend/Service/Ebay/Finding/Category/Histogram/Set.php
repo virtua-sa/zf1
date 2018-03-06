@@ -38,7 +38,7 @@ class Zend_Service_Ebay_Finding_Category_Histogram_Set extends Zend_Service_Ebay
     /**
      * Implement SeekableIterator::current()
      *
-     * @return Zend_Service_Ebay_Finding_Category_Histogram
+     * @return Zend_Service_Ebay_Finding_Category_Histogram|null
      */
     public function current()
     {

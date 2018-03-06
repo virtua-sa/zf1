@@ -55,7 +55,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
     /**
      * Table integrity override.
      *
-     * @var array
+     * @var bool
      */
     protected $_integrityCheck = true;
 
@@ -166,7 +166,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
                                                                       name.
      * @param  array|string|Zend_Db_Expr $cols The columns to select from this table.
      * @param  string $schema The schema name to specify, if any.
-     * @return Zend_Db_Table_Select This Zend_Db_Table_Select object.
+     * @return $this This Zend_Db_Table_Select object.
      */
     public function from($name, $cols = self::SQL_WILDCARD, $schema = null)
     {

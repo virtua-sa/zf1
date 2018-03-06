@@ -39,13 +39,13 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
 {
     /**
      * Class map cache file
-     * @var string
+     * @var string|null
      */
     protected static $_includeFileCache;
 
     /**
      * Class map cache file handler
-     * @var resource
+     * @var resource|null|false
      */
     protected static $_includeFileCacheHandler;
 
@@ -291,7 +291,7 @@ class Zend_Loader_PluginLoader implements Zend_Loader_PluginLoader_Interface
      * Whether or not a Plugin by a specific name is loaded
      *
      * @param string $name
-     * @return Zend_Loader_PluginLoader
+     * @return bool
      */
     public function isLoaded($name)
     {

@@ -75,7 +75,7 @@ class Zend_Service_Twitter
     const STATUS_MAX_CHARACTERS = 246;
 
     /**
-     * @var array
+     * @var array|Zend_Http_CookieJar
      */
     protected $cookieJar;
 
@@ -87,7 +87,7 @@ class Zend_Service_Twitter
     protected $dateFormat = 'D, d M Y H:i:s T';
 
     /**
-     * @var Zend_Http_Client
+     * @var Zend_Http_Client|null
      */
     protected $httpClient = null;
 
@@ -101,7 +101,7 @@ class Zend_Service_Twitter
     /**
      * Oauth Consumer
      *
-     * @var Zend_Oauth_Consumer
+     * @var Zend_Oauth_Consumer|null
      */
     protected $oauthConsumer = null;
 
@@ -1183,7 +1183,7 @@ class Zend_Service_Twitter
      *
      * @param  int|string $int
      * @throws Zend_Http_Client_Exception if HTTP request fails or times out
-     * @return integer
+     * @return integer|string
      */
     protected function validInteger($int)
     {

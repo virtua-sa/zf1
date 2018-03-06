@@ -247,7 +247,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      * getAttribute()
      *
      * @param string $name
-     * @return Zend_Tool_Project_Profile_Resource_Container
+     * @return mixed
      */
     public function getAttribute($name)
     {
@@ -291,7 +291,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      * setParentResource()
      *
      * @param Zend_Tool_Project_Profile_Resource_Container $parentResource
-     * @return Zend_Tool_Project_Profile_Resource_Container
+     * @return $this
      */
     public function setParentResource(Zend_Tool_Project_Profile_Resource_Container $parentResource)
     {
@@ -389,7 +389,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
     /**
      * getChildren()
      *
-     * @return array
+     * @return Zend_Tool_Project_Profile_Resource
      */
     public function getChildren()
     {

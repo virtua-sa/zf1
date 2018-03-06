@@ -400,7 +400,7 @@ abstract class Zend_Measure_Abstract
      * Compares two units
      *
      * @param  Zend_Measure_Abstract $object object of same unit type
-     * @return boolean
+     * @return int
      */
     public function compare($object)
     {

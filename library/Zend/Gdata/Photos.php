@@ -143,7 +143,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * @param string $userName The userName of interest
      * @param mixed $location (optional) The location for the feed, as a URL
      *          or Query. If not provided, a default URL will be used instead.
-     * @return Zend_Gdata_Photos_UserFeed
+     * @return Zend_Gdata_Photos_UserFeed|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -180,7 +180,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * objects.
      *
      * @param mixed $location (optional) The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_AlbumFeed
+     * @return Zend_Gdata_Photos_AlbumFeed|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -208,7 +208,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * @param mixed $location (optional) The location for the feed, as a URL
      *          or Query. If not specified, the community search feed will
      *          be returned instead.
-     * @return Zend_Gdata_Photos_PhotoFeed
+     * @return Zend_Gdata_Photos_PhotoFeed|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -233,7 +233,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Retreive a single UserEntry object.
      *
      * @param mixed $location The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_UserEntry
+     * @return Zend_Gdata_Photos_UserEntry|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -258,7 +258,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Retreive a single AlbumEntry object.
      *
      * @param mixed $location The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_AlbumEntry
+     * @return Zend_Gdata_Photos_AlbumEntry|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -283,7 +283,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Retreive a single PhotoEntry object.
      *
      * @param mixed $location The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_PhotoEntry
+     * @return Zend_Gdata_Photos_PhotoEntry|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -308,7 +308,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Retreive a single TagEntry object.
      *
      * @param mixed $location The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_TagEntry
+     * @return Zend_Gdata_Photos_TagEntry|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */
@@ -333,7 +333,7 @@ class Zend_Gdata_Photos extends Zend_Gdata
      * Retreive a single CommentEntry object.
      *
      * @param mixed $location The location for the feed, as a URL or Query.
-     * @return Zend_Gdata_Photos_CommentEntry
+     * @return Zend_Gdata_Photos_CommentEntry|string
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      */

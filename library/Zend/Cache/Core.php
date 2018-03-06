@@ -36,7 +36,7 @@ class Zend_Cache_Core
     /**
      * Backend Object
      *
-     * @var Zend_Cache_Backend_Interface $_backend
+     * @var Zend_Cache_Backend_Interface|Zend_Cache_Backend $_backend
      */
     protected $_backend = null;
 
@@ -191,7 +191,7 @@ class Zend_Cache_Core
     /**
      * Returns the backend
      *
-     * @return Zend_Cache_Backend backend object
+     * @return Zend_Cache_Backend|Zend_Cache_Backend_Interface backend object
      */
     public function getBackend()
     {

@@ -464,8 +464,8 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup Provides a fluent interface
+     * @param Zend_Gdata_Media_Extension_MediaKeywords $value
+     * @return $this Provides a fluent interface
      */
     public function setKeywords($value)
     {

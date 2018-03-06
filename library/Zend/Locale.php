@@ -1073,28 +1073,28 @@ class Zend_Locale
     /**
      * Automatic detected locale
      *
-     * @var string Locales
+     * @var array Locales
      */
     protected static $_auto;
 
     /**
      * Browser detected locale
      *
-     * @var string Locales
+     * @var array Locales
      */
     protected static $_browser;
 
     /**
      * Environment detected locale
      *
-     * @var string Locales
+     * @var array Locales
      */
     protected static $_environment;
 
     /**
      * Default locale
      *
-     * @var string Locales
+     * @var array Locales
      */
     protected static $_default = array('en' => true);
 
@@ -1404,7 +1404,7 @@ class Zend_Locale
     /**
      * Return the accepted charset of the client
      *
-     * @return string
+     * @return array
      */
     public static function getHttpCharset()
     {
@@ -1457,7 +1457,7 @@ class Zend_Locale
      * @param  string             $path   (Optional) Type of information to return
      * @param  string|Zend_Locale $locale (Optional) Locale|Language for which this informations should be returned
      * @param  string             $value  (Optional) Value for detail list
-     * @return array Array with the wished information in the given language
+     * @return array|false Array with the wished information in the given language
      */
     public static function getTranslationList($path = null, $locale = null, $value = null)
     {
@@ -1475,7 +1475,7 @@ class Zend_Locale
      * Returns an array with the name of all languages translated to the given language
      *
      * @param  string|Zend_Locale $locale (Optional) Locale for language translation
-     * @return array
+     * @return array|false
      * @deprecated
      */
     public static function getLanguageTranslationList($locale = null)
@@ -1488,7 +1488,7 @@ class Zend_Locale
      * Returns an array with the name of all scripts translated to the given language
      *
      * @param  string|Zend_Locale $locale (Optional) Locale for script translation
-     * @return array
+     * @return array|false
      * @deprecated
      */
     public static function getScriptTranslationList($locale = null)
@@ -1501,7 +1501,7 @@ class Zend_Locale
      * Returns an array with the name of all countries translated to the given language
      *
      * @param  string|Zend_Locale $locale (Optional) Locale for country translation
-     * @return array
+     * @return array|false
      * @deprecated
      */
     public static function getCountryTranslationList($locale = null)
@@ -1515,7 +1515,7 @@ class Zend_Locale
      * All territories contains other countries.
      *
      * @param  string|Zend_Locale $locale (Optional) Locale for territory translation
-     * @return array
+     * @return array|false
      * @deprecated
      */
     public static function getTerritoryTranslationList($locale = null)
@@ -1550,7 +1550,7 @@ class Zend_Locale
      *
      * @param  string $value  Name to get detailed information about
      * @param  string $locale (Optional) Locale for language translation
-     * @return array
+     * @return string|false
      * @deprecated
      */
     public static function getLanguageTranslation($value, $locale = null)
@@ -1564,7 +1564,7 @@ class Zend_Locale
      *
      * @param  string $value  Name to get detailed information about
      * @param  string $locale (Optional) locale for script translation
-     * @return array
+     * @return string|false
      * @deprecated
      */
     public static function getScriptTranslation($value, $locale = null)
@@ -1578,7 +1578,7 @@ class Zend_Locale
      *
      * @param  string             $value  Name to get detailed information about
      * @param  string|Zend_Locale $locale (Optional) Locale for country translation
-     * @return array
+     * @return string|false
      * @deprecated
      */
     public static function getCountryTranslation($value, $locale = null)
@@ -1593,7 +1593,7 @@ class Zend_Locale
      *
      * @param  string             $value  Name to get detailed information about
      * @param  string|Zend_Locale $locale (Optional) Locale for territory translation
-     * @return array
+     * @return string|false
      * @deprecated
      */
     public static function getTerritoryTranslation($value, $locale = null)
@@ -1677,8 +1677,8 @@ class Zend_Locale
      *
      * @param  string|Zend_Locale $locale     Locale to check for
      * @param  boolean            $strict     (Optional) If true, no rerouting will be done when checking
-     * @param  boolean            $compatible (DEPRECATED) Only for internal usage, brakes compatibility mode
-     * @return boolean If the locale is known dependend on the settings
+     * @param  boolean            $compatible (DEPRECATED) Only for internal usage, breaks compatibility mode
+     * @return boolean|string If the locale is known dependend on the settings
      */
     public static function isLocale($locale, $strict = false, $compatible = true)
     {

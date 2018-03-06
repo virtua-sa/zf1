@@ -57,7 +57,7 @@ class Zend_Server_Definition implements Countable, Iterator
      * Set flag indicating whether or not overwriting existing methods is allowed
      *
      * @param mixed $flag
-     * @return void
+     * @return $this
      */
     public function setOverwriteExistingMethods($flag)
     {
@@ -146,7 +146,7 @@ class Zend_Server_Definition implements Countable, Iterator
      * Get a given method definition
      *
      * @param  string $method
-     * @return null|Zend_Server_Method_Definition
+     * @return null|Zend_Server_Method_Definition|false
      */
     public function getMethod($method)
     {
@@ -238,7 +238,7 @@ class Zend_Server_Definition implements Countable, Iterator
     /**
      * Iterator: advance to next method
      *
-     * @return void
+     * @return false|Zend_Server_Method_Definition
      */
     public function next()
     {
@@ -248,7 +248,7 @@ class Zend_Server_Definition implements Countable, Iterator
     /**
      * Iterator: return to first method
      *
-     * @return void
+     * @return false|Zend_Server_Method_Definition
      */
     public function rewind()
     {

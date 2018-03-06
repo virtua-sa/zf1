@@ -38,7 +38,7 @@ class Zend_Service_Ebay_Finding_Aspect_Set extends Zend_Service_Ebay_Finding_Set
     /**
      * Implement SeekableIterator::current()
      *
-     * @return Zend_Service_Ebay_Finding_Aspect
+     * @return Zend_Service_Ebay_Finding_Aspect|null
      */
     public function current()
     {

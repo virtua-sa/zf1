@@ -48,7 +48,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      * This key is used for AuthSub authentication.  If this value is set,
      * it is assuemd that secure AuthSub is desired.
      *
-     * @var resource
+     * @var resource|null
      */
     private $_authSubPrivateKeyId = null;
 
@@ -56,7 +56,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      * Token for AuthSub authentication.
      * If this token is set, AuthSub authentication is used.
      *
-     * @var string
+     * @var string|null
      */
     private $_authSubToken = null;
 
@@ -64,7 +64,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      * Token for ClientLogin authentication.
      * If only this token is set, ClientLogin authentication is used.
      *
-     * @var string
+     * @var string|null
      */
     private $_clientLoginToken = null;
 
@@ -73,7 +73,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      * If this token is set, and the AuthSub key is not set,
      * ClientLogin authentication is used
      *
-     * @var string
+     * @var string|null
      */
     private $_clientLoginKey = null;
 
@@ -81,7 +81,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      * True if this request is being made with data supplied by
      * a stream object instead of a raw encoded string.
      *
-     * @var bool
+     * @var bool|null
      */
     protected $_streamingRequest = null;
 
@@ -140,7 +140,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
     /**
      * Gets the openssl private key id
      *
-     * @return string The private key
+     * @return resource|null The private key resource
      */
     public function getAuthSubPrivateKeyId() {
         return $this->_authSubPrivateKeyId;
@@ -149,7 +149,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
     /**
      * Gets the AuthSub token used for authentication
      *
-     * @return string The token
+     * @return string|null The token
      */
     public function getAuthSubToken() {
         return $this->_authSubToken;
@@ -169,7 +169,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
     /**
      * Gets the ClientLogin token used for authentication
      *
-     * @return string The token
+     * @return string|null The token
      */
     public function getClientLoginToken() {
         return $this->_clientLoginToken;
@@ -308,7 +308,7 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
     /**
      * Prepare the request body (for POST and PUT requests)
      *
-     * @return string
+     * @return resource|string
      * @throws Zend_Http_Client_Exception
      */
     protected function _prepareBody()

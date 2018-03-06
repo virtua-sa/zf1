@@ -40,7 +40,7 @@ abstract class Zend_Tool_Framework_Client_Abstract implements Zend_Tool_Framewor
 {
 
     /**
-     * @var Zend_Tool_Framework_Registry
+     * @var Zend_Tool_Framework_Registry_Interface|null
      */
     protected $_registry = null;
 
@@ -55,7 +55,7 @@ abstract class Zend_Tool_Framework_Client_Abstract implements Zend_Tool_Framewor
     protected $_isInitialized = false;
 
     /**
-     * @var Zend_Log
+     * @var Zend_Log|null
      */
     protected $_debugLogger = null;
 
@@ -76,7 +76,7 @@ abstract class Zend_Tool_Framework_Client_Abstract implements Zend_Tool_Framewor
         }
     }
 
-    public function setOptions(Array $options)
+    public function setOptions(array $options)
     {
         foreach ($options as $optionName => $optionValue) {
             $setMethodName = 'set' . $optionName;

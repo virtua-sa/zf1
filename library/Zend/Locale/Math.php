@@ -208,7 +208,7 @@ class Zend_Locale_Math
      *
      * @param integer $value Value to erase the exponent
      * @param integer $scale (Optional) Scale to use
-     * @return string
+     * @return string|int
      */
     public static function exponent($value, $scale = null)
     {

@@ -165,7 +165,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *
      * @param  string  $queue_name queue name
      * @param  integer $timeout    default visibility timeout
-     * @return string|boolean
+     * @return string|false
      * @throws Zend_Service_Amazon_Sqs_Exception
      */
     public function create($queue_name, $timeout = null)
@@ -379,7 +379,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *
      * @param  string $queue_url  Queue URL
      * @param  string $attribute
-     * @return string
+     * @return string|array
      * @throws Zend_Service_Amazon_Sqs_Exception
      */
     public function getAttribute($queue_url, $attribute = 'All')

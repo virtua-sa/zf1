@@ -41,7 +41,7 @@ abstract class Zend_Pdf_Destination_Explicit extends Zend_Pdf_Destination
     /**
      * Destination description array
      *
-     * @var Zend_Pdf_Element_Array
+     * @var Zend_Pdf_Element
      */
     protected $_destinationArray;
 

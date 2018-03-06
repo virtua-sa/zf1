@@ -39,7 +39,7 @@ class Zend_Pdf_Element_Array extends Zend_Pdf_Element
      *
      * Array of Zend_Pdf_Element objects
      *
-     * @var array
+     * @var ArrayObject
      */
     public $items;
 
