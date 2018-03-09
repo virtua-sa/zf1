@@ -46,7 +46,6 @@ parameters:
         - '#Call to method .+ on an unknown class Memcache\.#'
         - '#Call to method .+ on an unknown class Memcached\.#'
         - '#Call to method .+ on an unknown class TeraWurfl\.#'
-        - '#Call to method .+ on an unknown class tidy\.#'
         - '#Call to method .+ on an unknown class WeakRef\.#'
         - '#Call to method .+ on an unknown class ZendApi_Job\.#'
         - '#Call to method .+ on an unknown class ZendApi_Queue\.#'
