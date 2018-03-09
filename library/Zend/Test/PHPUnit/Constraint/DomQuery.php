@@ -20,7 +20,5 @@
  * @version    $Id$
  */
 
-include(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'DomQuery41.php');
-
 class Zend_Test_PHPUnit_Constraint_DomQuery extends Zend_Test_PHPUnit_Constraint_DomQuery41
 {}
