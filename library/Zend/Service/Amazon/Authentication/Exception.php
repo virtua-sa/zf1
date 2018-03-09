@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Exception
- */
-// require_once 'Zend/Service/Amazon/Exception.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_Amazon
  * @subpackage Authentication

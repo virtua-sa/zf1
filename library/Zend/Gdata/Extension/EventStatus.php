@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Represents the gd:eventStatus element
  *
  * @category   Zend

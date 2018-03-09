@@ -79,10 +79,6 @@ abstract class Zend_Mail_Storage_Abstract implements Countable, ArrayAccess, See
             return isset($this->_has[$var]) ? $this->_has[$var] : null;
         }
 
-        /**
-         * @see Zend_Mail_Storage_Exception
-         */
-        // require_once 'Zend/Mail/Storage/Exception.php';
         throw new Zend_Mail_Storage_Exception($var . ' not found');
     }
 
@@ -261,10 +257,6 @@ abstract class Zend_Mail_Storage_Abstract implements Countable, ArrayAccess, See
       */
      public function offsetSet($id, $value)
      {
-        /**
-         * @see Zend_Mail_Storage_Exception
-         */
-        // require_once 'Zend/Mail/Storage/Exception.php';
         throw new Zend_Mail_Storage_Exception('cannot write mail messages via array access');
      }
 

@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Service_ShortUrl_AbstractShortener
- */
-// require_once 'Zend/Service/ShortUrl/AbstractShortener.php';
-
-/**
  * Metamark.net API implementation
  *
  * @category   Zend

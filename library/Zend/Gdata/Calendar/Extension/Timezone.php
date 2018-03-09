@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Represents the gCal:timezone element used by the Calendar data API
  *
  * @category   Zend

@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-// require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for user entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -325,7 +320,6 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
         if ($this->getType() !== null) {
             $uri .= '/' . $this->getType();
         } else {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Type must be feed or entry, not null');
         }
@@ -333,7 +327,6 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
         if ($this->getProjection() !== null) {
             $uri .= '/' . $this->getProjection();
         } else {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Projection must not be null');
         }
@@ -342,7 +335,6 @@ class Zend_Gdata_Photos_UserQuery extends Zend_Gdata_Query
             $uri .= '/user/' . $this->getUser();
         } else {
             // Should never occur due to setter behavior
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'User must not be null');
         }

@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-// require_once 'Zend/Filter/Interface.php';
-
-/**
- * @see Zend_Loader
- */
-// require_once 'Zend/Locale/Format.php';
-
-/**
  * Normalizes given localized input
  *
  * @category   Zend

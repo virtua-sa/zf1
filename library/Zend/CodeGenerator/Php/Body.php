@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_CodeGenerator_Abstract
- */
-// require_once 'Zend/CodeGenerator/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_CodeGenerator
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

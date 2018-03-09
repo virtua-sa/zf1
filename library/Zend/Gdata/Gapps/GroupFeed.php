@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-// require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Gapps_GroupEntry
- */
-// require_once 'Zend/Gdata/Gapps/GroupEntry.php';
-
-/**
  * Data model for a collection of Google Apps group entries, usually
  * provided by the Google Apps servers.
  *

@@ -21,6 +21,16 @@
  */
 
 /**
+ * @see Zend_Exception
+ */
+require_once 'Zend/Exception.php';
+
+/**
+ * @see Zend_Session_Exception
+ */
+require_once 'Zend/Session/Exception.php';
+
+/**
  * @see Zend_Session_Abstract
  */
 require_once 'Zend/Session/Abstract.php';

@@ -19,11 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Response
- */
-// require_once 'Zend/XmlRpc/Response.php';
-
-/**
  * HTTP response
  *
  * @uses Zend_XmlRpc_Response

@@ -78,7 +78,6 @@ class Zend_Service_Amazon_Ec2
         }
 
         if (!class_exists($class)) {
-            // require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($class);
         }
         return new $class($key, $secret_key);

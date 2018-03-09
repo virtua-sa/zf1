@@ -21,17 +21,6 @@
 
 
 /**
- * @see Zend_Mime_Decode
- */
-// require_once 'Zend/Mime/Decode.php';
-
-/**
- * @see Zend_Mail_Part
- */
-// require_once 'Zend/Mail/Part.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Mail
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -57,10 +46,6 @@ class Zend_Mail_Part_File extends Zend_Mail_Part
     public function __construct(array $params)
     {
         if (empty($params['file'])) {
-            /**
-             * @see Zend_Mail_Exception
-             */
-            // require_once 'Zend/Mail/Exception.php';
             throw new Zend_Mail_Exception('no file given in params');
         }
 
@@ -70,10 +55,6 @@ class Zend_Mail_Part_File extends Zend_Mail_Part
             $this->_fh = $params['file'];
         }
         if (!$this->_fh) {
-            /**
-             * @see Zend_Mail_Exception
-             */
-            // require_once 'Zend/Mail/Exception.php';
             throw new Zend_Mail_Exception('could not open file');
         }
         if (isset($params['startPos'])) {
@@ -100,10 +81,6 @@ class Zend_Mail_Part_File extends Zend_Mail_Part
 
         $boundary = $this->getHeaderField('content-type', 'boundary');
         if (!$boundary) {
-            /**
-             * @see Zend_Mail_Exception
-             */
-            // require_once 'Zend/Mail/Exception.php';
             throw new Zend_Mail_Exception('no boundary found in content type to split message');
         }
 
@@ -116,10 +93,6 @@ class Zend_Mail_Part_File extends Zend_Mail_Part
                 if (feof($this->_fh)) {
                     break;
                 }
-                /**
-                 * @see Zend_Mail_Exception
-                 */
-                // require_once 'Zend/Mail/Exception.php';
                 throw new Zend_Mail_Exception('error reading file');
             }
 
@@ -185,10 +158,6 @@ class Zend_Mail_Part_File extends Zend_Mail_Part
     {
         --$num;
         if (!isset($this->_partPos[$num])) {
-            /**
-             * @see Zend_Mail_Exception
-             */
-            // require_once 'Zend/Mail/Exception.php';
             throw new Zend_Mail_Exception('part not found');
         }
 

@@ -22,17 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Abstract
- */
-// require_once 'Zend/Feed/Abstract.php';
-
-/**
- * @see Zend_Feed_Entry_Rss
- */
-// require_once 'Zend/Feed/Entry/Rss.php';
-
-
-/**
  * RSS channel class
  *
  * The Zend_Feed_Rss class is a concrete subclass of
@@ -87,10 +76,6 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
             $this->_element = $this->_element->getElementsByTagName('channel')->item(0);
         }
         if (!$this->_element) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('No root <channel> element found, cannot parse channel.');
         }
 
@@ -515,10 +500,6 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
     public function send()
     {
         if (headers_sent()) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Cannot send RSS because headers have already been sent.');
         }
 

@@ -21,12 +21,6 @@
  */
 
 /**
- * Abstract class for extension
- */
-// require_once 'Zend/View/Helper/FormElement.php';
-
-
-/**
  * Helper to render errors for a form element
  *
  * @category   Zend

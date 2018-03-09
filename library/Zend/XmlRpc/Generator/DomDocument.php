@@ -21,11 +21,6 @@
  */
 
 /**
- * @var Zend_XmlRpc_Generator_GeneratorAbstract
- */
-// require_once 'Zend/XmlRpc/Generator/GeneratorAbstract.php';
-
-/**
  * DOMDocument based implementation of a XML/RPC generator
  */
 class Zend_XmlRpc_Generator_DomDocument extends Zend_XmlRpc_Generator_GeneratorAbstract

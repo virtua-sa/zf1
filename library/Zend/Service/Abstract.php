@@ -21,12 +21,6 @@
 
 
 /**
- * Zend_Http_Client
- */
-// require_once 'Zend/Http/Client.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

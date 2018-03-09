@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Db_Statement_Interface
- */
-// require_once "Zend/Db/Statement/Interface.php";
-
-/**
  * Testing Database Statement that acts as a stack to SQL resultsets.
  *
  * @category   Zend
@@ -309,7 +304,6 @@ class Zend_Test_DbStatement implements Zend_Db_Statement_Interface
             return false;
         } else {
             if(count($row) < $col) {
-                // require_once "Zend/Db/Statement/Exception.php";
                 throw new Zend_Db_Statement_Exception(
                     "Column Position '".$col."' is out of bounds."
                 );

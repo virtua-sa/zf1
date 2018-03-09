@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Entry.php';
-
-/**
  * Concrete class for working with Atom entries.
  *
  * @category   Zend

@@ -21,21 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Ec2_Abstract
- */
-// require_once 'Zend/Service/Amazon/Ec2/Abstract.php';
-
-/**
- * @see Zend_Crypt_Hmac
- */
-// require_once 'Zend/Crypt/Hmac.php';
-
-/**
- * @see Zend_Json
- */
-// require_once 'Zend/Json.php';
-
-/**
  * An Amazon EC2 interface that allows yout to run, terminate, reboot and describe Amazon
  * Ec2 Instances.
  *

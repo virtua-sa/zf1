@@ -20,21 +20,6 @@
  */
 
 /**
- * @see Zend_Paginator_Adapter_Interface
- */
-// require_once 'Zend/Paginator/Adapter/Interface.php';
-
-/**
- * @see Zend_Db
- */
-// require_once 'Zend/Db.php';
-
-/**
- * @see Zend_Db_Select
- */
-// require_once 'Zend/Db/Select.php';
-
-/**
  * @category   Zend
  * @package    Zend_Paginator
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -131,10 +116,6 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
 
             // The select query can contain only one column, which should be the row count column
             if (false === strpos($countColumnPart, $rowCountColumn)) {
-                /**
-                 * @see Zend_Paginator_Exception
-                 */
-                // require_once 'Zend/Paginator/Exception.php';
 
                 throw new Zend_Paginator_Exception('Row count column not found');
             }
@@ -145,10 +126,6 @@ class Zend_Paginator_Adapter_DbSelect implements Zend_Paginator_Adapter_Interfac
         } else if (is_integer($rowCount)) {
             $this->_rowCount = $rowCount;
         } else {
-            /**
-             * @see Zend_Paginator_Exception
-             */
-            // require_once 'Zend/Paginator/Exception.php';
 
             throw new Zend_Paginator_Exception('Invalid row count');
         }

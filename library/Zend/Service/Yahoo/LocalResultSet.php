@@ -23,18 +23,6 @@
 
 
 /**
- * @see Zend_Service_Yahoo_ResultSet
- */
-// require_once 'Zend/Service/Yahoo/ResultSet.php';
-
-
-/**
- * @see Zend_Service_Yahoo_LocalResult
- */
-// require_once 'Zend/Service/Yahoo/LocalResult.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Yahoo

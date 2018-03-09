@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Photos
- */
-// require_once 'Zend/Gdata/Photos.php';
-
-/**
  * Represents the gphoto:checksum element used by the API.
  * This is an optional field that can be used to store a photo's
  * checksum to ease duplicate checking.

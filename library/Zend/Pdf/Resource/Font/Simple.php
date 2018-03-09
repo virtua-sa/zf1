@@ -21,13 +21,6 @@
  */
 
 
-/** Internally used classes */
-// require_once 'Zend/Pdf/Element/Name.php';
-
-
-/** Zend_Pdf_Resource_Font */
-// require_once 'Zend/Pdf/Resource/Font.php';
-
 /**
  * Adobe PDF Simple fonts implementation
  *

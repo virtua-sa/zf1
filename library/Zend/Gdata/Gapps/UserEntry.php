@@ -22,31 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Extension_FeedLink
- */
-// require_once 'Zend/Gdata/Extension/FeedLink.php';
-
-/**
- * @see Zend_Gdata_Gapps_Extension_Login
- */
-// require_once 'Zend/Gdata/Gapps/Extension/Login.php';
-
-/**
- * @see Zend_Gdata_Gapps_Extension_Name
- */
-// require_once 'Zend/Gdata/Gapps/Extension/Name.php';
-
-/**
- * @see Zend_Gdata_Gapps_Extension_Quota
- */
-// require_once 'Zend/Gdata/Gapps/Extension/Quota.php';
-
-/**
  * Data model class for a Google Apps User Entry.
  *
  * Each user entry describes a single user within a Google Apps hosted

@@ -21,14 +21,6 @@
  */
 
 /**
- * Zend_Http_Client
- */
-// require_once 'Zend/Http/Client.php';
-
-/** @see Zend_Crypt_Math */
-// require_once 'Zend/Crypt/Math.php';
-
-/**
  * Gdata Http Client object.
  *
  * Class to extend the generic Zend Http Client with the ability to perform
@@ -101,7 +93,6 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
                                              $useIncludePath = false) {
         $fp = @fopen($file, "r", $useIncludePath);
         if (!$fp) {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException('Failed to open private key file for AuthSub.');
         }
 
@@ -127,7 +118,6 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
      */
     public function setAuthSubPrivateKey($key, $passphrase = null) {
         if ($key != null && !function_exists('openssl_pkey_get_private')) {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'You cannot enable secure AuthSub if the openssl module ' .
                     'is not enabled in your PHP installation.');
@@ -221,7 +211,6 @@ class Zend_Gdata_HttpClient extends Zend_Http_Client
                 $signSuccess = openssl_sign($dataToSign, $signature, $pKeyId,
                                             OPENSSL_ALGO_SHA1);
                 if (!$signSuccess) {
-                    // require_once 'Zend/Gdata/App/Exception.php';
                     throw new Zend_Gdata_App_Exception(
                             'openssl_signing failure - returned false');
                 }

@@ -21,17 +21,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/App/Extension/Link.php';
-
-/**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Calendar/Extension/WebContent.php';
-
-
-/**
  * Specialized Link class for use with Calendar. Enables use of gCal extension elements.
  *
  * @category   Zend

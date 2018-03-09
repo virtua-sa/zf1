@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Navigation_Page_Abstract
- */
-// require_once 'Zend/Navigation/Page.php';
-
-/**
  * Represents a page that is defined by specifying a URI
  *
  * @category   Zend
@@ -53,7 +48,6 @@ class Zend_Navigation_Page_Uri extends Zend_Navigation_Page
     public function setUri($uri)
     {
         if (null !== $uri && !is_string($uri)) {
-            // require_once 'Zend/Navigation/Exception.php';
             throw new Zend_Navigation_Exception(
                     'Invalid argument: $uri must be a string or null');
         }

@@ -19,22 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Value
- */
-// require_once 'Zend/XmlRpc/Value.php';
-
-/**
- * Zend_XmlRpc_Fault
- */
-// require_once 'Zend/XmlRpc/Fault.php';
-
-/** @see Zend_Xml_Security */
-// require_once 'Zend/Xml/Security.php';
-
-/** @see Zend_Xml_Exception */
-// require_once 'Zend/Xml/Exception.php';
-
-/**
  * XmlRpc Request object
  *
  * Encapsulates an XmlRpc request, holding the method call and all parameters.

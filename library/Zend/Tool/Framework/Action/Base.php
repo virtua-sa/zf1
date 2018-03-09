@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Framework_Action_Interface
- */
-// require_once 'Zend/Tool/Framework/Action/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

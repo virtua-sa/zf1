@@ -239,10 +239,6 @@ class Zend_Feed_Element implements ArrayAccess
                 $this->_element->appendChild($node);
             }
         } elseif (count($nodes) > 1) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Cannot set the value of multiple tags simultaneously.');
         } else {
             $nodes[0]->nodeValue = $val;

@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth_Signature_SignatureAbstract */
-// require_once 'Zend/Oauth/Signature/SignatureAbstract.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth

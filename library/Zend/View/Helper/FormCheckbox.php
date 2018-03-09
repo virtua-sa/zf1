@@ -22,12 +22,6 @@
 
 
 /**
- * Abstract class for extension
- */
-// require_once 'Zend/View/Helper/FormElement.php';
-
-
-/**
  * Helper to generate a "checkbox" element
  *
  * @category   Zend

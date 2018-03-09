@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Action */
-// require_once 'Zend/Pdf/Action.php';
-
-
 /**
  * PDF 'Go to a destination in an embedded file' action
  *

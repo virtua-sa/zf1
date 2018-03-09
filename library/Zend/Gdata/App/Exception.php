@@ -23,11 +23,6 @@
 
 
 /**
- * Zend_Exception
- */
-// require_once 'Zend/Exception.php';
-
-/**
  * Gdata App exceptions
  *
  * Class to represent exceptions that occur during Gdata App operations.

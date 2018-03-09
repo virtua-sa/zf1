@@ -21,10 +21,6 @@
  */
 
 
-/** Zend_Search_Lucene_Analysis_Token */
-// require_once 'Zend/Search/Lucene/Analysis/Token.php';
-
-
 /**
  * Token filter converts (normalizes) Token ore removes it from a token stream.
  *

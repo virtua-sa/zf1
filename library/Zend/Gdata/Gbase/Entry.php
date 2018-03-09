@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Exception
- */
-// require_once 'Zend/Exception.php';
-
-/**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Entry.php';
-
-/**
  * Base class for working with Google Base entries.
  *
  * @link http://code.google.com/apis/base/

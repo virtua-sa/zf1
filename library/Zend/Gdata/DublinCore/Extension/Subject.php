@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Topic of the resource
  *
  * @category   Zend

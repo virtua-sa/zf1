@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Photos
- */
-// require_once 'Zend/Gdata/Photos.php';
-
-/**
  * Represents the gphoto:numphotos element used by the API.
  * This indicates the number of photos in an album.
  *

@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata
- */
-// require_once 'Zend/Gdata.php';
-
-/**
  * Service class for interacting with the services which use the
  * GeoRSS + GML extensions.
  * @link http://georss.org/

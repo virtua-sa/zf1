@@ -21,10 +21,6 @@
  */
 
 
-/** Zend_Search_Lucene_Search_Weight */
-// require_once 'Zend/Search/Lucene/Search/Weight.php';
-
-
 /**
  * @category   Zend
  * @package    Zend_Search_Lucene
@@ -76,7 +72,6 @@ class Zend_Search_Lucene_Search_Weight_MultiTerm extends Zend_Search_Lucene_Sear
 
         foreach ($query->getTerms() as $id => $term) {
             if ($signs === null || $signs[$id] === null || $signs[$id]) {
-                // require_once 'Zend/Search/Lucene/Search/Weight/Term.php';
                 $this->_weights[$id] = new Zend_Search_Lucene_Search_Weight_Term($term, $query, $reader);
                 $query->setWeight($id, $this->_weights[$id]);
             }

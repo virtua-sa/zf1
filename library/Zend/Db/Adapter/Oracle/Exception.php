@@ -21,11 +21,6 @@
  */
 
 /**
- * Zend_Db_Adapter_Exception
- */
-// require_once 'Zend/Db/Adapter/Exception.php';
-
-/**
  * Zend_Db_Adapter_Oracle_Exception
  *
  * @category   Zend

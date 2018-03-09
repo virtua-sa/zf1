@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-// require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Extension_Timezone
- */
-// require_once 'Zend/Gdata/Calendar/Extension/Timezone.php';
-
-/**
  * Data model for a Google Calendar feed of events
  *
  * @category   Zend

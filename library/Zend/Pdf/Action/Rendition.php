@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Action */
-// require_once 'Zend/Pdf/Action.php';
-
-
 /**
  * PDF 'Controls the playing of multimedia content' action
  * PDF 1.5+ feature

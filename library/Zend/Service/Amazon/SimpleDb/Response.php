@@ -20,14 +20,6 @@
  */
 
 /**
- * @see Zend_Http_Response
- */
-// require_once 'Zend/Http/Response.php';
-
-/** @see Zend_Xml_Security */
-// require_once 'Zend/Xml/Security.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_Amazon
  * @subpackage SimpleDb

@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -53,10 +48,6 @@ class Zend_Service_Ebay_Finding_Search_Result extends Zend_Service_Ebay_Finding_
 
         $nodes = $this->_xPath->query(".//$ns:item", $this->_dom);
         if ($nodes) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Search_Item_Set
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Search/Item/Set.php';
             $this->item = new Zend_Service_Ebay_Finding_Search_Item_Set($nodes);
         }
     }

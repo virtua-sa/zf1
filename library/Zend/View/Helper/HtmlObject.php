@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_HtmlElement
- */
-// require_once 'Zend/View/Helper/HtmlElement.php';
-
-/**
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper

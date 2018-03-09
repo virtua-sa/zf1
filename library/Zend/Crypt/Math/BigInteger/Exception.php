@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Crypt_Math_Exception
- */
-// require_once 'Zend/Crypt/Math/Exception.php';
-
-/**
  * @category   Zend
  * @package    Zend_Crypt
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

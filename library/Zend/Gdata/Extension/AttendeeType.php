@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Data model class to represent an attendee's type (gd:attendeeType)
  *
  * @category   Zend

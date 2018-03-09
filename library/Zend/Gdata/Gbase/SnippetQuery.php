@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gbase_Query
- */
-// require_once 'Zend/Gdata/Gbase/Query.php';
-
-/**
  * Assists in constructing queries for Google Base Snippets Feed
  *
  * @link http://code.google.com/apis/base/

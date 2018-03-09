@@ -20,22 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader
- */
-// require_once 'Zend/Feed/Reader.php';
-
-/**
- * @see Zend_Feed_Reader_Entry_Atom
- */
-// require_once 'Zend/Feed/Reader/Entry/Atom.php';
-
-
-/**
- * @see Zend_Feed_Reader_Entry_Rss
- */
-// require_once 'Zend/Feed/Reader/Entry/Rss.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

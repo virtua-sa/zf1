@@ -22,22 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Geo
- */
-// require_once 'Zend/Gdata/Geo.php';
-
-/**
- * @see Zend_Gdata_Geo_Extension_GmlPos
- */
-// require_once 'Zend/Gdata/Geo/Extension/GmlPos.php';
-
-
-/**
  * Represents the gml:point element used by the Gdata Geo extensions.
  *
  * @category   Zend

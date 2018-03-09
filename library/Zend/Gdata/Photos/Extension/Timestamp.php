@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Photos
- */
-// require_once 'Zend/Gdata/Photos.php';
-
-/**
  * Represents the gphoto:timestamp element used by the API.
  * The timestamp of a photo in milliseconds since January 1, 1970.
  * This date is either set externally or based on EXIF data.

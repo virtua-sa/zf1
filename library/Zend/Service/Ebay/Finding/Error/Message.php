@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -50,10 +45,6 @@ class Zend_Service_Ebay_Finding_Error_Message extends Zend_Service_Ebay_Finding_
         $ns = Zend_Service_Ebay_Finding::XMLNS_FINDING;
         $nodes = $this->_xPath->query(".//$ns:error", $this->_dom);
         if ($nodes->length > 0) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Error_Data_Set
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Error/Data/Set.php';
             $this->error = new Zend_Service_Ebay_Finding_Error_Data_Set($nodes);
         }
     }

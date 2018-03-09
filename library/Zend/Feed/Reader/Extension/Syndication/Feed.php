@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Feed_Reader_Extension_FeedAbstract
- */
-// require_once 'Zend/Feed/Reader/Extension/FeedAbstract.php';
-
-// require_once 'Zend/Date.php';
 
 /**
  * @category   Zend

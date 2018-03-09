@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Amf_Value_Messaging_AbstractMessage */
-// require_once 'Zend/Amf/Value/Messaging/AbstractMessage.php';
-
 /**
  * This type of message contains information needed to perform
  * a Remoting invocation.

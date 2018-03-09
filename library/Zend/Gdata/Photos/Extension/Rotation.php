@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Photos
- */
-// require_once 'Zend/Gdata/Photos.php';
-
-/**
  * Represents the gphoto:rotation element used by the API.
  * The rotation of a photo in degrees. Will only be shown if the
  * rotation has not already been applied to the image.

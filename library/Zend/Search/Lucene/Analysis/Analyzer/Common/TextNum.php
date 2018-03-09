@@ -21,10 +21,6 @@
  */
 
 
-/** Zend_Search_Lucene_Analysis_Analyzer_Common */
-// require_once 'Zend/Search/Lucene/Analysis/Analyzer/Common.php';
-
-
 /**
  * @category   Zend
  * @package    Zend_Search_Lucene

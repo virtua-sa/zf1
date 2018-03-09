@@ -22,31 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata
- */
-// require_once 'Zend/Gdata.php';
-
-/**
- * @see Zend_Gdata_Calendar_EventFeed
- */
-// require_once 'Zend/Gdata/Calendar/EventFeed.php';
-
-/**
- * @see Zend_Gdata_Calendar_EventEntry
- */
-// require_once 'Zend/Gdata/Calendar/EventEntry.php';
-
-/**
- * @see Zend_Gdata_Calendar_ListFeed
- */
-// require_once 'Zend/Gdata/Calendar/ListFeed.php';
-
-/**
- * @see Zend_Gdata_Calendar_ListEntry
- */
-// require_once 'Zend/Gdata/Calendar/ListEntry.php';
-
-/**
  * Service class for interacting with the Google Calendar data API
  * @link http://code.google.com/apis/gdata/calendar.html
  *
@@ -115,7 +90,6 @@ class Zend_Gdata_Calendar extends Zend_Gdata
     public function getCalendarEventEntry($location = null)
     {
         if ($location == null) {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Location must not be null');
         } else if ($location instanceof Zend_Gdata_Query) {
@@ -146,7 +120,6 @@ class Zend_Gdata_Calendar extends Zend_Gdata
     public function getCalendarListEntry($location = null)
     {
         if ($location == null) {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Location must not be null');
         } else if ($location instanceof Zend_Gdata_Query) {

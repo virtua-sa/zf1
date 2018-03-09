@@ -23,12 +23,6 @@
 
 
 /**
- * @see Zend_Service_Amazon
- */
-// require_once 'Zend/Service/Amazon.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon
@@ -73,10 +67,6 @@ class Zend_Service_Amazon_Query extends Zend_Service_Amazon
         } else if (isset($this->_search['SearchIndex']) || $this->_searchIndex !== null || $this->_searchIndex === 'asin') {
             $this->_search[$method] = $args[0];
         } else {
-            /**
-             * @see Zend_Service_Exception
-             */
-            // require_once 'Zend/Service/Exception.php';
             throw new Zend_Service_Exception('You must set a category before setting the search parameters');
         }
 

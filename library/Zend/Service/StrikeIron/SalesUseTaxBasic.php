@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Service_StrikeIron_Base */
-// require_once 'Zend/Service/StrikeIron/Base.php';
-
 /**
  * @category   Zend
  * @package    Zend_Service

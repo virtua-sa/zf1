@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Mobile_Push_Message_Mpns **/
-// require_once 'Zend/Mobile/Push/Message/Mpns.php';
-
 /**
  * Mpns Tile Message
  *

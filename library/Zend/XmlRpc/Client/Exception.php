@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_XmlRpc_Exception
- */
-// require_once 'Zend/XmlRpc/Exception.php';
-
-
-/**
  * Base class for all Zend_XmlRpc_Client_* exceptions
  *
  * @category   Zend

@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Search_Lucene_Index_TermsStream_Interface */
-// require_once 'Zend/Search/Lucene/Index/TermsStream/Interface.php';
-
-
 /**
  * @category   Zend
  * @package    Zend_Search_Lucene
@@ -73,7 +69,6 @@ class Zend_Search_Lucene_TermStreamsPriorityQueue implements Zend_Search_Lucene_
     public function resetTermsStream()
     {
         /** Zend_Search_Lucene_Index_TermsPriorityQueue */
-        // require_once 'Zend/Search/Lucene/Index/TermsPriorityQueue.php';
 
         $this->_termsStreamQueue = new Zend_Search_Lucene_Index_TermsPriorityQueue();
 

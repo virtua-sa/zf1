@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-// require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps member entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -173,7 +168,6 @@ class Zend_Gdata_Gapps_MemberQuery extends Zend_Gdata_Gapps_Query
         if ($this->_groupId !== null) {
             $uri .= '/' . $this->_groupId;
         } else {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'groupId must not be null');
         }

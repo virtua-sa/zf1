@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader_Collection_CollectionAbstract
- */
-// require_once 'Zend/Feed/Reader/Collection/CollectionAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Amf_Request */
-// require_once 'Zend/Amf/Request.php';
-
 /**
  * AMF Request object -- Request via HTTP
  *

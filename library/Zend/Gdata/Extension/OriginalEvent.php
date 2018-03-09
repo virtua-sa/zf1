@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Feed
- */
-// require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_When
- */
-// require_once 'Zend/Gdata/Extension/When.php';
-
-/**
  * Represents the gd:originalEvent element
  *
  * @category   Zend

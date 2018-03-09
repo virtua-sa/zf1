@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_Service_Exception */
-// require_once 'Zend/Service/Exception.php';
-
 /**
  * Zend_Service_ReCaptcha_Exception
  *

@@ -19,11 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Request
- */
-// require_once 'Zend/XmlRpc/Request.php';
-
-/**
  * XmlRpc Request object -- Request via STDIN
  *
  * Extends {@link Zend_XmlRpc_Request} to accept a request via STDIN. Request is

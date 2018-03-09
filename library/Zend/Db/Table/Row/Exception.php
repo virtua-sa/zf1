@@ -21,11 +21,6 @@
  */
 
 /**
- * Zend_Db_Table_Exception
- */
-// require_once 'Zend/Db/Table/Exception.php';
-
-/**
  * @category   Zend
  * @package    Zend_Db
  * @subpackage Table

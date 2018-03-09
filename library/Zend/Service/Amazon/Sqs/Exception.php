@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_Service_Amazon/Exception
- */
-// require_once 'Zend/Service/Amazon/Exception.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon_Sqs

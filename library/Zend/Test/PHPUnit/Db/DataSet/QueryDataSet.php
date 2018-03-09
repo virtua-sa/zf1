@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Test_PHPUnit_Db_DataSet_QueryTable
- */
-// require_once "Zend/Test/PHPUnit/Db/DataSet/QueryTable.php";
-
-/**
- * @see Zend_Db_Select
- */
-// require_once "Zend/Db/Select.php";
-
-/**
  * Uses several query strings or Zend_Db_Select objects to form a dataset of tables for assertion with other datasets.
  *
  * @uses       PHPUnit\DbUnit\DataSet\QueryDataSet
@@ -50,7 +40,6 @@ class Zend_Test_PHPUnit_Db_DataSet_QueryDataSet extends PHPUnit\DbUnit\DataSet\Q
     public function __construct(PHPUnit\DbUnit\Database\Connection $databaseConnection)
     {
         if( !($databaseConnection instanceof Zend_Test_PHPUnit_Db_Connection) ) {
-            // require_once "Zend/Test/PHPUnit/Db/Exception.php";
             throw new Zend_Test_PHPUnit_Db_Exception("Zend_Test_PHPUnit_Db_DataSet_QueryDataSet only works with Zend_Test_PHPUnit_Db_Connection connections-");
         }
         $this->databaseConnection = $databaseConnection;

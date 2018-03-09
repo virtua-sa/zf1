@@ -22,10 +22,6 @@
  * @license    http://phpazure.codeplex.com/license
  */
 
-/**
- * Zend_Service_Exception
- */
-// require_once 'Zend/Service/Exception.php';
 
 /**
  * @category   Zend

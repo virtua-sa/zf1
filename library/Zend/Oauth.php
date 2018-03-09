@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Http_Client */
-// require_once 'Zend/Http/Client.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth

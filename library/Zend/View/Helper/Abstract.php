@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_Interface
- */
-// require_once 'Zend/View/Helper/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper

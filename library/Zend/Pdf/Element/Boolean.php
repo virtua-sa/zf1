@@ -20,10 +20,6 @@
  */
 
 
-/** Zend_Pdf_Element */
-// require_once 'Zend/Pdf/Element.php';
-
-
 /**
  * PDF file 'boolean' element implementation
  *
@@ -51,7 +47,6 @@ class Zend_Pdf_Element_Boolean extends Zend_Pdf_Element
     public function __construct($val)
     {
         if (! is_bool($val)) {
-            // require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Argument must be boolean.');
         }
 

@@ -63,10 +63,6 @@ class Zend_Service_Delicious_SimplePost
     public function __construct(array $post)
     {
         if (!isset($post['u']) || !isset($post['d'])) {
-            /**
-             * @see Zend_Service_Delicious_Exception
-             */
-            // require_once 'Zend/Service/Delicious/Exception.php';
             throw new Zend_Service_Delicious_Exception('Title and URL not set.');
         }
 

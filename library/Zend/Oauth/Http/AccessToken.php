@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth_Http */
-// require_once 'Zend/Oauth/Http.php';
-
-/** Zend_Oauth_Token_Access */
-// require_once 'Zend/Oauth/Token/Access.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth

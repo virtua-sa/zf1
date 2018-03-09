@@ -209,7 +209,6 @@ class Zend_Search_Lucene_Search_QueryToken
                         break;
 
                     default:
-                        // require_once 'Zend/Search/Lucene/Exception.php';
                         throw new Zend_Search_Lucene_Exception('Unrecognized query syntax lexeme: \'' . $tokenText . '\'');
                 }
                 break;
@@ -218,7 +217,6 @@ class Zend_Search_Lucene_Search_QueryToken
                 $this->type = self::TT_NUMBER;
 
             default:
-                // require_once 'Zend/Search/Lucene/Exception.php';
                 throw new Zend_Search_Lucene_Exception('Unrecognized lexeme type: \'' . $tokenCategory . '\'');
         }
     }

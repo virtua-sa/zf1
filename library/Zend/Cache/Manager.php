@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Cache_Exception */
-// require_once 'Zend/Cache/Exception.php';
-
-/** @see Zend_Cache */
-// require_once 'Zend/Cache.php';
-
 /**
  * @category   Zend
  * @package    Zend_Cache
@@ -206,7 +200,6 @@ class Zend_Cache_Manager
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         } elseif (!is_array($options)) {
-            // require_once 'Zend/Cache/Exception.php';
             throw new Zend_Cache_Exception('Options passed must be in'
                 . ' an associative array or instance of Zend_Config');
         }
@@ -256,7 +249,6 @@ class Zend_Cache_Manager
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         } elseif (!is_array($options)) {
-            // require_once 'Zend/Cache/Exception.php';
             throw new Zend_Cache_Exception('Options passed must be in'
                 . ' an associative array or instance of Zend_Config');
         }

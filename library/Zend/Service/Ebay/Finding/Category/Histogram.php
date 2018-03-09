@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Category.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -67,10 +62,6 @@ class Zend_Service_Ebay_Finding_Category_Histogram extends Zend_Service_Ebay_Fin
 
         $nodes = $this->_xPath->query(".//$ns:childCategoryHistogram", $this->_dom);
         if ($nodes->length > 0) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Category_Histogram_Set
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Category/Histogram/Set.php';
             $this->childCategoryHistogram = new Zend_Service_Ebay_Finding_Category_Histogram_Set($nodes);
         }
     }

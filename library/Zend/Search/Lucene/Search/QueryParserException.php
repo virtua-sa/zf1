@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_Search_Lucene base exception
- */
-// require_once 'Zend/Search/Lucene/Exception.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Search_Lucene
  * @subpackage Search

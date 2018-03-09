@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Exception
- */
-// require_once 'Zend/Feed/Exception.php';
-
-
-/**
  * Zend_Feed_Builder exception class
  *
  * @category   Zend

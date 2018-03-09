@@ -20,15 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/**
-* @see Zend_Service_Console_Command
-*/
-// require_once 'Zend/Service/Console/Command.php';
-
-/**
-* @see Zend_Service_WindowsAzure_Management_Client
-*/
-// require_once 'Zend/Service/WindowsAzure/Management/Client.php';
 
 /**
  * Service commands

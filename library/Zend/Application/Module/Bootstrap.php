@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Application_Bootstrap_Bootstrap
- */
-// require_once 'Zend/Application/Bootstrap/Bootstrap.php';
-
-/**
  * Base bootstrap class for modules
  *
  * @uses       Zend_Loader_Autoloader_Resource

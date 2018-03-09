@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -124,10 +119,6 @@ abstract class Zend_Service_Ebay_Finding_Response_Abstract extends Zend_Service_
 
         $node = $this->_xPath->query(".//$ns:errorMessage[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Error_Message
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Error/Message.php';
             $this->errorMessage = new Zend_Service_Ebay_Finding_Error_Message($node);
         }
     }

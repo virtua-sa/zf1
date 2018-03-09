@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Ec2_Abstract
- */
-// require_once 'Zend/Service/Amazon/Ec2/Abstract.php';
-
-/**
  * An Amazon EC2 interface to create, describe, attach, detach and delete Elastic Block
  * Storage Volumes and Snaphsots.
  *

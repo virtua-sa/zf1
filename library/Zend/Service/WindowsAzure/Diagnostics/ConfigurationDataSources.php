@@ -21,31 +21,6 @@
  */
 
 /**
- * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationLogs
- */
-// require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationLogs.php';
-
-/**
- * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationDiagnosticInfrastructureLogs
- */
-// require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationDiagnosticInfrastructureLogs.php';
-
-/**
- * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationPerformanceCounters
- */
-// require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationPerformanceCounters.php';
-
-/**
- * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationWindowsEventLog
- */
-// require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationWindowsEventLog.php';
-
-/**
- * @see Zend_Service_WindowsAzure_Diagnostics_ConfigurationDirectories
- */
-// require_once 'Zend/Service/WindowsAzure/Diagnostics/ConfigurationDirectories.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Diagnostics

@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_View_Helper_Abstract.php */
-// require_once 'Zend/View/Helper/Abstract.php';
-
 /**
  * Helper for declaring default values of template variables
  *

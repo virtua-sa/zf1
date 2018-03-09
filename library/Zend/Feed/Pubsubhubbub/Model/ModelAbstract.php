@@ -20,15 +20,6 @@
  */
 
 
-/** @see Zend_Db_Table */
-// require_once 'Zend/Db/Table.php';
-
-/**
- * @see Zend_Registry
- * Seems to fix the file not being included by Zend_Db_Table...
- */
-// require_once 'Zend/Registry.php';
-
 /**
  * @category   Zend
  * @package    Zend_Feed_Pubsubhubbub

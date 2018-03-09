@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Test_PHPUnit_Db_Connection
- */
-// require_once "Zend/Test/PHPUnit/Db/Connection.php";
-
-/**
  * Delete All Operation that can be executed on set up or tear down of a database tester.
  *
  * @uses       PHPUnit\DbUnit\Operation\Operation
@@ -44,7 +39,6 @@ class Zend_Test_PHPUnit_Db_Operation_DeleteAll implements PHPUnit\DbUnit\Operati
     public function execute(PHPUnit\DbUnit\Database\Connection $connection, PHPUnit\DbUnit\DataSet\IDataSet $dataSet)
     {
         if(!($connection instanceof Zend_Test_PHPUnit_Db_Connection)) {
-            // require_once "Zend/Test/PHPUnit/Db/Exception.php";
             throw new Zend_Test_PHPUnit_Db_Exception("Not a valid Zend_Test_PHPUnit_Db_Connection instance, ".get_class($connection)." given!");
         }
 

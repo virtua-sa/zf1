@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader_Extension_FeedAbstract
- */
-// require_once 'Zend/Feed/Reader/Extension/FeedAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

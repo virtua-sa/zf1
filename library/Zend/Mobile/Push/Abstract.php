@@ -20,12 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Mobile_Push_Interface **/
-// require_once 'Zend/Mobile/Push/Interface.php';
-
-/** Zend_Mobile_Push_Exception **/
-// require_once 'Zend/Mobile/Push/Exception.php';
-
 /**
  * Push Abstract
  *

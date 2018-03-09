@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Barcode_AdapterInterface
- */
-// require_once 'Zend/Validate/Barcode/AdapterInterface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

@@ -19,10 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Search_Lucene_Interface */
-// require_once 'Zend/Search/Lucene/Interface.php';
-
-
 /**
  * Proxy class intended to be used in userland.
  *

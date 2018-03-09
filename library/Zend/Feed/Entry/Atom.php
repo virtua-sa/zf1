@@ -22,14 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Entry_Abstract
- */
-// require_once 'Zend/Feed/Entry/Abstract.php';
-
-/** @see Zend_Xml_Security */
-// require_once 'Zend/Xml/Security.php';
-
-/**
  * Concrete class for working with Atom entries.
  *
  * @category   Zend
@@ -79,10 +71,6 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
         // Look for link rel="edit" in the entry object.
         $deleteUri = $this->link('edit');
         if (!$deleteUri) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Cannot delete entry; no link rel="edit" is present.');
         }
 
@@ -107,10 +95,6 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                     continue;
                 // Error
                 default:
-                    /**
-                     * @see Zend_Feed_Exception
-                     */
-                    // require_once 'Zend/Feed/Exception.php';
                     throw new Zend_Feed_Exception("Expected response code 2xx, got $httpStatus");
             }
         } while (true);
@@ -144,10 +128,6 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
             // entry object and PUT.
             $editUri = $this->link('edit');
             if (!$editUri) {
-                /**
-                 * @see Zend_Feed_Exception
-                 */
-                // require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('Cannot edit entry; no link rel="edit" is present.');
             }
 
@@ -164,18 +144,10 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                 $response = $client->request('PUT');
             }
             if ($response->getStatus() !== 200) {
-                /**
-                 * @see Zend_Feed_Exception
-                 */
-                // require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('Expected response code 200, got ' . $response->getStatus());
             }
         } else {
             if ($postUri === null) {
-                /**
-                 * @see Zend_Feed_Exception
-                 */
-                // require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('PostURI must be specified to save new entries.');
             }
             $client = Zend_Feed::getHttpClient();
@@ -185,10 +157,6 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
             $response = $client->request('POST');
 
             if ($response->getStatus() !== 201) {
-                /**
-                 * @see Zend_Feed_Exception
-                 */
-                // require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('Expected response code 201, got '
                                               . $response->getStatus());
             }
@@ -210,19 +178,11 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                 }
             }
 
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('XML cannot be parsed: ' . $php_errormsg);
         }
 
         $newEntry = $newEntry->getElementsByTagName($this->_rootElement)->item(0);
         if (!$newEntry) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            // require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('No root <feed> element found in server response:'
                                           . "\n\n" . $client->responseBody);
         }

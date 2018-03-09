@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Spreadsheets_Extension_Custom
- */
-// require_once 'Zend/Gdata/Spreadsheets/Extension/Custom.php';
-
-/**
  * Concrete class for working with List entries.
  *
  * @category     Zend
@@ -175,7 +165,6 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
             $key = array_search($element, $this->_customByName);
             unset($this->_customByName[$key]);
         } else {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                 'Element does not exist.');
         }
@@ -198,7 +187,6 @@ class Zend_Gdata_Spreadsheets_ListEntry extends Zend_Gdata_Entry
             $key = array_search($element, $this->_custom);
             unset($this->_custom[$key]);
         } else {
-            // require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                 'Element does not exist.');
         }

@@ -21,11 +21,6 @@
  */
 
 /**
- * Zend_Tool_Project_Context_Filesystem_File
- */
-// require_once 'Zend/Tool/Project/Context/Filesystem/File.php';
-
-/**
  * This class is the front most class for utilizing Zend_Tool_Project
  *
  * A profile is a hierarchical set of resources that keep track of

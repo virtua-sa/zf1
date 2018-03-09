@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_OpenId_Provider_User
- */
-// require_once "Zend/OpenId/Provider/User.php";
-
-/**
- * @see Zend_Session_Namespace
- */
-// require_once "Zend/Session/Namespace.php";
-
-/**
  * Class to get/store information about logged in user in Web Browser using
  * PHP session
  *

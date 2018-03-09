@@ -274,10 +274,6 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      */
     public function offsetSet($offset, $value)
     {
-        /**
-         * @see Zend_Service_Delicious_Exception
-         */
-        // require_once 'Zend/Service/Delicious/Exception.php';
         throw new Zend_Service_Delicious_Exception('You are trying to set read-only property');
     }
 
@@ -291,10 +287,6 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      */
     public function offsetUnset($offset)
     {
-        /**
-         * @see Zend_Service_Delicious_Exception
-         */
-        // require_once 'Zend/Service/Delicious/Exception.php';
         throw new Zend_Service_Delicious_Exception('You are trying to unset read-only property');
     }
 }

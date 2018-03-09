@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-// require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Implements the gd:reminder element used to set/retrieve notifications
  *
  * @category   Zend

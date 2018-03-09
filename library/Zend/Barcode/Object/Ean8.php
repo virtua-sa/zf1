@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Barcode_Object_Ean13
- */
-// require_once 'Zend/Barcode/Object/Ean13.php';
-
-/**
- * @see Zend_Validate_Barcode
- */
-// require_once 'Zend/Validate/Barcode.php';
-
-/**
  * Class for generate Ean8 barcode
  *
  * @category   Zend
@@ -167,10 +157,6 @@ class Zend_Barcode_Object_Ean8 extends Zend_Barcode_Object_Ean13
         if (!$validator->isValid($value)) {
             $message = implode("\n", $validator->getMessages());
 
-            /**
-             * @see Zend_Barcode_Object_Exception
-             */
-            // require_once 'Zend/Barcode/Object/Exception.php';
             throw new Zend_Barcode_Object_Exception($message);
         }
     }

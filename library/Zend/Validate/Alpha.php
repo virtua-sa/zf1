@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-// require_once 'Zend/Validate/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -129,10 +124,6 @@ class Zend_Validate_Alpha extends Zend_Validate_Abstract
         }
 
         if (null === self::$_filter) {
-            /**
-             * @see Zend_Filter_Alpha
-             */
-            // require_once 'Zend/Filter/Alpha.php';
             self::$_filter = new Zend_Filter_Alpha();
         }
 

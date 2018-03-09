@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_View_Helper_Abstract */
-// require_once 'Zend/View/Helper/Abstract.php';
-
 /**
  * Helper for retrieving the BaseUrl
  *
@@ -81,8 +78,6 @@ class Zend_View_Helper_BaseUrl extends Zend_View_Helper_Abstract
     public function getBaseUrl()
     {
         if ($this->_baseUrl === null) {
-            /** @see Zend_Controller_Front */
-            // require_once 'Zend/Controller/Front.php';
             $baseUrl = Zend_Controller_Front::getInstance()->getBaseUrl();
 
             // Remove scriptname, eg. index.php from baseUrl

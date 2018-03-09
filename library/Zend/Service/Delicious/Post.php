@@ -23,17 +23,6 @@
 
 
 /**
- * @see Zend_Date
- */
-// require_once 'Zend/Date.php';
-
-/**
- * @see Zend_Service_Delicious_SimplePost
- */
-// require_once 'Zend/Service/Delicious/SimplePost.php';
-
-
-/**
  * Zend_Service_Delicious_Post represents a post of a user that can be edited
  *
  * @category   Zend
@@ -88,19 +77,11 @@ class Zend_Service_Delicious_Post extends Zend_Service_Delicious_SimplePost
         }
 
         if (!is_array($values) || !isset($values['url']) || !isset($values['title'])) {
-            /**
-             * @see Zend_Service_Delicious_Exception
-             */
-            // require_once 'Zend/Service/Delicious/Exception.php';
             throw new Zend_Service_Delicious_Exception("Second argument must be array with at least 2 keys ('url' and"
                                                      . " 'title')");
         }
 
         if (isset($values['date']) && ! $values['date'] instanceof Zend_Date) {
-            /**
-             * @see Zend_Service_Delicious_Exception
-             */
-            // require_once 'Zend/Service/Delicious/Exception.php';
             throw new Zend_Service_Delicious_Exception("Date has to be an instance of Zend_Date");
         }
 

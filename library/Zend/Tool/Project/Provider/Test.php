@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Provider_Abstract
- */
-// require_once 'Zend/Tool/Project/Provider/Abstract.php';
-
-/**
- * @see Zend_Tool_Project_Provider_Exception
- */
-// require_once 'Zend/Tool/Project/Provider/Exception.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

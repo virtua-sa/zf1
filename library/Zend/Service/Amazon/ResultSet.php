@@ -23,12 +23,6 @@
 
 
 /**
- * @see Zend_Service_Amazon_Item
- */
-// require_once 'Zend/Service/Amazon/Item.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Amazon

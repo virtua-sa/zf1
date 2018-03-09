@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-// require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Gapps_OwnerEntry
- */
-// require_once 'Zend/Gdata/Gapps/OwnerEntry.php';
-
-/**
  * Data model for a collection of Google Apps owner entries, usually
  * provided by the Google Apps servers.
  *

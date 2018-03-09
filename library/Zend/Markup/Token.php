@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Markup_TokenList
- */
-// require_once 'Zend/Markup/TokenList.php';
-
-/**
  * @category   Zend
  * @package    Zend_Markup
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

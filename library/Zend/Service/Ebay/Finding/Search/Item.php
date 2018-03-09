@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -319,64 +314,36 @@ class Zend_Service_Ebay_Finding_Search_Item extends Zend_Service_Ebay_Finding_Ab
 
         $node = $this->_xPath->query(".//$ns:listingInfo[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_ListingInfo
-             */
-            // require_once 'Zend/Service/Ebay/Finding/ListingInfo.php';
             $this->listingInfo = new Zend_Service_Ebay_Finding_ListingInfo($node);
         }
 
         $node = $this->_xPath->query(".//$ns:primaryCategory[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Category
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Category.php';
             $this->primaryCategory = new Zend_Service_Ebay_Finding_Category($node);
         }
 
         $node = $this->_xPath->query(".//$ns:secondaryCategory[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Category
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Category.php';
             $this->secondaryCategory = new Zend_Service_Ebay_Finding_Category($node);
         }
 
         $node = $this->_xPath->query(".//$ns:sellerInfo[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_SellerInfo
-             */
-            // require_once 'Zend/Service/Ebay/Finding/SellerInfo.php';
             $this->sellerInfo = new Zend_Service_Ebay_Finding_SellerInfo($node);
         }
 
         $node = $this->_xPath->query(".//$ns:sellingStatus[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_SellingStatus
-             */
-            // require_once 'Zend/Service/Ebay/Finding/SellingStatus.php';
             $this->sellingStatus = new Zend_Service_Ebay_Finding_SellingStatus($node);
         }
 
         $node = $this->_xPath->query("./$ns:shippingInfo", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_ShippingInfo
-             */
-            // require_once 'Zend/Service/Ebay/Finding/ShippingInfo.php';
             $this->shippingInfo = new Zend_Service_Ebay_Finding_ShippingInfo($node);
         }
 
         $node = $this->_xPath->query(".//$ns:storeInfo[1]", $this->_dom)->item(0);
         if ($node) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Storefront
-             */
-            // require_once 'Zend/Service/Ebay/Finding/Storefront.php';
             $this->storeInfo = new Zend_Service_Ebay_Finding_Storefront($node);
         }
     }

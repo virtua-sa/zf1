@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Config_Writer
- */
-// require_once 'Zend/Config/Writer/FileAbstract.php';
-
-/**
- * @see Zend_Config_Json
- */
-// require_once 'Zend/Config/Json.php';
-
-/**
  * @category   Zend
  * @package    Zend_Config
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)

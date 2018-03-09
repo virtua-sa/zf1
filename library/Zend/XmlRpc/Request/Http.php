@@ -19,11 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Request
- */
-// require_once 'Zend/XmlRpc/Request.php';
-
-/**
  * XmlRpc Request object -- Request via HTTP
  *
  * Extends {@link Zend_XmlRpc_Request} to accept a request via HTTP. Request is
@@ -63,7 +58,6 @@ class Zend_XmlRpc_Request_Http extends Zend_XmlRpc_Request
     {
         $xml = @file_get_contents('php://input');
         if (!$xml) {
-            // require_once 'Zend/XmlRpc/Fault.php';
             $this->_fault = new Zend_XmlRpc_Fault(630);
             return;
         }

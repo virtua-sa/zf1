@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Set_Abstract
- */
-// require_once 'Zend/Service/Ebay/Finding/Set/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -48,10 +43,6 @@ class Zend_Service_Ebay_Finding_Category_Histogram_Set extends Zend_Service_Ebay
             return null;
         }
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Category_Histogram
-         */
-        // require_once 'Zend/Service/Ebay/Finding/Category/Histogram.php';
         return new Zend_Service_Ebay_Finding_Category_Histogram($node);
     }
 }

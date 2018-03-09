@@ -19,18 +19,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Amf_Auth_Abstract */
-// require_once 'Zend/Amf/Auth/Abstract.php';
-
-/** @see Zend_Acl */
-// require_once 'Zend/Acl.php';
-
-/** @see Zend_Auth_Result */
-// require_once 'Zend/Auth/Result.php';
-
-/** @see Zend_Xml_Security */
-// require_once 'Zend/Xml/Security.php';
-
 /**
  * This class implements authentication against XML file with roles for Flex Builder.
  *
@@ -106,10 +94,6 @@ Roles file format:
     {
         if (empty($this->_username) ||
             empty($this->_password)) {
-            /**
-             * @see Zend_Auth_Adapter_Exception
-             */
-            // require_once 'Zend/Auth/Adapter/Exception.php';
             throw new Zend_Auth_Adapter_Exception('Username/password should be set');
         }
 

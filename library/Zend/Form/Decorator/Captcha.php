@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_Form_Decorator_Abstract */
-// require_once 'Zend/Form/Decorator/Abstract.php';
-
 /**
  * Captcha generic decorator
  *

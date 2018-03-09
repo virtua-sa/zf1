@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Markup_Token
- */
-// require_once 'Zend/Markup/Token.php';
-
-/**
  * @category   Zend
  * @package    Zend_Markup
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

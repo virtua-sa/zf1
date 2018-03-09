@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader_Feed_Atom
- */
-// require_once 'Zend/Feed/Reader/Feed/Atom.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

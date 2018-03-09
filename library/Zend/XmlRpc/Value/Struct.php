@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_XmlRpc_Value_Collection
- */
-// require_once 'Zend/XmlRpc/Value/Collection.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_XmlRpc
  * @subpackage Value

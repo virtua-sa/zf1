@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader
- */
-// require_once 'Zend/Feed/Reader.php';
-
-/**
- * @see Zend_feed_Reader_FeedInterface
- */
-// require_once 'Zend/Feed/Reader/FeedInterface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -273,7 +263,6 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
                 return call_user_func_array(array($extension, $method), $args);
             }
         }
-        // require_once 'Zend/Feed/Exception.php';
         throw new Zend_Feed_Exception('Method: ' . $method
         . 'does not exist and could not be located on a registered Extension');
     }

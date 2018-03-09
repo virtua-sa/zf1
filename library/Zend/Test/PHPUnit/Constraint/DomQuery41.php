@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Dom_Query */
-// require_once 'Zend/Dom/Query.php';
-
 /**
  * Zend_Dom_Query-based PHPUnit Constraint
  *
@@ -157,7 +154,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
         }
 
         if (!in_array($assertType, $this->_assertTypes)) {
-            // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
             throw new Zend_Test_PHPUnit_Constraint_Exception(sprintf('Invalid assertion type "%s" provided to %s constraint', $assertType, __CLASS__));
         }
 
@@ -171,7 +167,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
         switch ($assertType) {
             case self::ASSERT_CONTENT_CONTAINS:
                 if (!$match) {
-                    // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No content provided against which to match');
                 }
                 $this->_content = $match;
@@ -180,7 +175,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
                     : $this->_matchContent($result, $match);
             case self::ASSERT_CONTENT_REGEX:
                 if (!$match) {
-                    // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No pattern provided against which to match');
                 }
                 $this->_content = $match;
@@ -191,7 +185,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
             case self::ASSERT_CONTENT_COUNT_MIN:
             case self::ASSERT_CONTENT_COUNT_MAX:
                 if ($match === false) {
-                    // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No count provided against which to compare');
                 }
                 $this->_content = $match;
@@ -226,7 +219,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      */
     public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used = NULL)
     {
-        // require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
             case self::ASSERT_CONTENT_CONTAINS:
                 $failure = 'Failed asserting node denoted by %s CONTAINS content "%s"';

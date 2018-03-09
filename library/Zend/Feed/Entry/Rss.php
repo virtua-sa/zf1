@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Entry_Abstract
- */
-// require_once 'Zend/Feed/Entry/Abstract.php';
-
-
-/**
  * Concrete class for working with RSS items.
  *
  * @category   Zend

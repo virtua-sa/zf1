@@ -19,12 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_Captcha_Word */
-// require_once 'Zend/Captcha/Word.php';
-
-/** @see Zend_Text_Figlet */
-// require_once 'Zend/Text/Figlet.php';
-
 /**
  * Captcha based on figlet text rendering service
  *

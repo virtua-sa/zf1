@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-// require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Extension_Who
- */
-// require_once 'Zend/Gdata/Extension/Who.php';
-
-/**
  * Data model class for a Google Apps Email List Recipient Entry.
  *
  * Each instance of this class represents a recipient of an email list

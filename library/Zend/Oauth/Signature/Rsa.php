@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth_Signature_SignatureAbstract */
-// require_once 'Zend/Oauth/Signature/SignatureAbstract.php';
-
-/** Zend_Crypt_Rsa */
-// require_once 'Zend/Crypt/Rsa.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
