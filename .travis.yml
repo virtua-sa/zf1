@@ -26,6 +26,7 @@ services:
 
 stages:
   - test
+  - phpstan analysis
   - test with coverage
 
 before_script:
