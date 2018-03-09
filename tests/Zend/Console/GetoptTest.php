@@ -341,7 +341,7 @@ class Zend_Console_GetoptTest extends PHPUnit\Framework\TestCase
      */
     public function testGetoptAddSetNonArrayArguments()
     {
-        $opts = new Zend_Console_GetOpt('abp:', array('-foo'));
+        $opts = new Zend_Console_Getopt('abp:', array('-foo'));
         try {
             $opts->setArguments('-a');
             $this->fail('Expected to catch a Zend_Console_Getopt_Exception');
@@ -573,7 +573,7 @@ class Zend_Console_GetoptTest extends PHPUnit\Framework\TestCase
         unset($_SERVER['argv']);
 
         try {
-            $opts = new Zend_Console_GetOpt('abp:');
+            $opts = new Zend_Console_Getopt('abp:');
             $this->fail();
         } catch(Zend_Console_GetOpt_Exception $e) {
             $this->assertContains('$_SERVER["argv"]', $e->getMessage());

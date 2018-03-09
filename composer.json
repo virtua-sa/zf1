@@ -21,7 +21,9 @@
             "Zend_": "tests/"
         },
         "files": [
-            "library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder/index.php"
+            "library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder/index.php",
+            "tests/Zend/Gdata/TestUtility/MockHttpClient.php",
+            "tests/TestHelper.php"
         ]
     },
     "include-path": [

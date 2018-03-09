@@ -98,7 +98,7 @@ XML;
 <foo>test</bar>
 XML;
 
-        $result = Zend_XML_Security::scan($xml);
+        $result = Zend_Xml_Security::scan($xml);
         $this->assertFalse($result);
     }
 
@@ -109,7 +109,7 @@ XML;
 XML;
 
         $dom = new DOMDocument('1.0');
-        $result = Zend_XML_Security::scan($xml, $dom);
+        $result = Zend_Xml_Security::scan($xml, $dom);
         $this->assertFalse($result);
     }
 

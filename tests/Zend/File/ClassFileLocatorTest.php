@@ -55,7 +55,7 @@ class Zend_File_ClassFileLocatorTest extends PHPUnit\Framework\TestCase
 
         $locator = new Zend_File_ClassFileLocator(dirname(__FILE__));
         foreach ($locator as $file) {
-            $this->assertRegexp('/\.php$/', $file->getFilename());
+            $this->assertRegExp('/\.php$/', $file->getFilename());
         }
     }
 

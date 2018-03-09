@@ -196,7 +196,7 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
             $config = new Zend_Config_Yaml($this->_iniFileInvalid);
             $this->fail('An expected Zend_Config_Exception has not been raised');
         } catch (Zend_Config_Exception $expected) {
-            $this->assertRegexp('/(Error parsing|syntax error, unexpected)/', $expected->getMessage());
+            $this->assertRegExp('/(Error parsing|syntax error, unexpected)/', $expected->getMessage());
         }
 
     }
@@ -334,7 +334,7 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
         $this->assertEquals('ZEND_CONFIG_YAML_ENV', $config->env);
         $this->assertEquals('ZEND_CONFIG_YAML_ENV_PATH/test/this', $config->path);
     }
-    
+
     /**
      * @group ZF-11329
      */
@@ -351,7 +351,7 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
             $config->resources->frontController->controllerDirectory
         );
     }
-    
+
     /**
      * @group ZF-11384
      */
@@ -368,7 +368,7 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
             $config->resources->frontController->controllerDirectory
         );
     }
-    
+
     /**
      * @group ZF-11702
      */
@@ -376,13 +376,13 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
     {
         if (!defined('ZEND_CONFIG_YAML_TEST_PATH')) {
             define('ZEND_CONFIG_YAML_TEST_PATH', 'testing');
-        }        
+        }
         $config = new Zend_Config_Yaml($this->_yamlListConstantsConfig, 'production');
 
         $this->assertEquals(ZEND_CONFIG_YAML_TEST_PATH, $config->paths->{0});
         $this->assertEquals(ZEND_CONFIG_YAML_TEST_PATH . '/library/test', $config->paths->{1});
     }
-    
+
     /**
      * @group ZF-11702
      */
@@ -418,7 +418,7 @@ class Zend_Config_YamlTest extends PHPUnit\Framework\TestCase
         $this->assertFalse($config->usingTitleCasedOff->{0});
         $this->assertFalse($config->usingCapitalOff->{0});
     }
-    
+
     /**
      * @group ZF-11934
      */

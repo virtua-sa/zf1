@@ -79,7 +79,7 @@ class Zend_Http_CookieJarTest extends PHPUnit\Framework\TestCase
         }
 
         try {
-            $jar->addCookie(new Zend_Http_Cookiejar());
+            $jar->addCookie(new Zend_Http_CookieJar());
             $this->fail('Expected exception was not thrown');
         } catch (Zend_Http_Exception $e) {
             // We are ok
@@ -92,7 +92,7 @@ class Zend_Http_CookieJarTest extends PHPUnit\Framework\TestCase
      */
     public function testAddCookiesFromResponse()
     {
-        $jar = new Zend_Http_Cookiejar();
+        $jar = new Zend_Http_CookieJar();
         $res_str = $this->loadResponse(
             dirname(realpath(__FILE__)) . '/_files/response_with_cookies'
         );
@@ -115,7 +115,7 @@ class Zend_Http_CookieJarTest extends PHPUnit\Framework\TestCase
     {
         $this->expectException(\Zend_Http_Exception::class);
 
-        $jar = new Zend_Http_Cookiejar();
+        $jar = new Zend_Http_CookieJar();
         $jar->addCookiesFromResponse($resp, 'http://www.example.com');
     }
 

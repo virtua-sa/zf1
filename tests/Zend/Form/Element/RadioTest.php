@@ -114,13 +114,13 @@ class Zend_Form_Element_RadioTest extends PHPUnit\Framework\TestCase
             if (!preg_match('/(<input[^>]*?(value="' . $test . '")[^>]*>)/', $html, $m)) {
                 $this->fail('Unable to find matching disabled option for ' . $test);
             }
-            $this->assertRegexp('/<input[^>]*?(disabled="disabled")/', $m[1]);
+            $this->assertRegExp('/<input[^>]*?(disabled="disabled")/', $m[1]);
         }
         foreach (array('foo', 'bar', 'bat') as $test) {
             if (!preg_match('/(<input[^>]*?(value="' . $test . '")[^>]*>)/', $html, $m)) {
                 $this->fail('Unable to find matching option for ' . $test);
             }
-            $this->assertNotRegexp('/<input[^>]*?(disabled="disabled")/', $m[1], var_export($m, 1));
+            $this->assertNotRegExp('/<input[^>]*?(disabled="disabled")/', $m[1], var_export($m, 1));
         }
     }
 
@@ -150,7 +150,7 @@ class Zend_Form_Element_RadioTest extends PHPUnit\Framework\TestCase
                 'test' => 'Test',
             ));
         $html = $this->element->render($this->getView());
-        $this->assertRegexp('#<dt[^>]*>&\#160;</dt>.*?<dd#s', $html, $html);
+        $this->assertRegExp('#<dt[^>]*>&\#160;</dt>.*?<dd#s', $html, $html);
     }
 
     /**

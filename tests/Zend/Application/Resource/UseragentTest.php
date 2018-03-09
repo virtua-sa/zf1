@@ -75,7 +75,7 @@ class Zend_Application_Resource_UseragentTest extends PHPUnit\Framework\TestCase
 
     public function testInitializationInitializesUserAgentObject()
     {
-        $resource = new Zend_Application_Resource_Useragent(array());
+        $resource = new Zend_Application_Resource_UserAgent(array());
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
         $this->assertTrue($resource->getUserAgent() instanceof Zend_Http_UserAgent);
@@ -86,7 +86,7 @@ class Zend_Application_Resource_UseragentTest extends PHPUnit\Framework\TestCase
         $options = array(
             'storage' => array('adapter' => 'NonPersistent'),
         );
-        $resource = new Zend_Application_Resource_Useragent($options);
+        $resource = new Zend_Application_Resource_UserAgent($options);
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
         $ua      = $resource->getUserAgent();
@@ -97,7 +97,7 @@ class Zend_Application_Resource_UseragentTest extends PHPUnit\Framework\TestCase
     public function testInjectsUserAgentIntoViewHelperWhenViewResourcePresent()
     {
         $this->bootstrap->registerPluginResource('view', array());
-        $resource = new Zend_Application_Resource_Useragent(array());
+        $resource = new Zend_Application_Resource_UserAgent(array());
         $resource->setBootstrap($this->bootstrap);
         $resource->init();
 

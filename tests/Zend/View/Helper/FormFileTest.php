@@ -76,7 +76,7 @@ class Zend_View_Helper_FormFileTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => true)
         ));
 
-        $this->assertRegexp('/<input[^>]*?(disabled="disabled")/', $html);
+        $this->assertRegExp('/<input[^>]*?(disabled="disabled")/', $html);
     }
 
     /**
@@ -89,7 +89,7 @@ class Zend_View_Helper_FormFileTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => true)
         ));
 
-        $this->assertNotRegexp('/<input[^>]*?(type="hidden")/', $html);
+        $this->assertNotRegExp('/<input[^>]*?(type="hidden")/', $html);
     }
 
 

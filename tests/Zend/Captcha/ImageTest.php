@@ -138,25 +138,25 @@ class Zend_Captcha_ImageTest extends PHPUnit\Framework\TestCase
     {
         $html = $this->element->render($this->getView());
         $expect = sprintf('type="hidden" name="%s\[id\]" value="%s"', $this->element->getName(), $this->captcha->getId());
-        $this->assertRegexp("/<input[^>]*?$expect/", $html, $html);
+        $this->assertRegExp("/<input[^>]*?$expect/", $html, $html);
         $expect = sprintf('type="text" name="%s\[input\]"', $this->element->getName());
-        $this->assertRegexp("/<input[^>]*?$expect/", $html, $html);
+        $this->assertRegExp("/<input[^>]*?$expect/", $html, $html);
     }
 
     public function testCaptchaHasImage()
     {
         $html = $this->element->render($this->getView());
         $id = $this->captcha->getId();
-        $this->assertRegexp("|<img[^>]*?src=\"/images/captcha/$id.png\"|", $html, "Expected $id in HTML:\n" . $html);
+        $this->assertRegExp("|<img[^>]*?src=\"/images/captcha/$id.png\"|", $html, "Expected $id in HTML:\n" . $html);
     }
 
     public function testCaptchaHasAlt()
     {
         $html = $this->element->render($this->getView());
-        $this->assertRegexp('|<img[^>]*? alt=""|', $html, "Expected alt= in HTML:\n" . $html);
+        $this->assertRegExp('|<img[^>]*? alt=""|', $html, "Expected alt= in HTML:\n" . $html);
         $this->captcha->setImgAlt("Test Image");
         $html = $this->element->render($this->getView());
-        $this->assertRegexp('|<img[^>]*? alt="Test Image"|', $html, "Wrong alt in HTML:\n" . $html);
+        $this->assertRegExp('|<img[^>]*? alt="Test Image"|', $html, "Wrong alt in HTML:\n" . $html);
     }
 
     public function testCaptchaSetSuffix()

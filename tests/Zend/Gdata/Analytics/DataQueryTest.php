@@ -31,17 +31,17 @@ require_once 'Zend/Gdata/Analytics.php';
  * @group      Zend_Gdata
  * @group      Zend_Gdata_Analytics
  */
-class Zend_GData_Analytics_DataQueryTest extends PHPUnit\Framework\TestCase
+class Zend_Gdata_Analytics_DataQueryTest extends PHPUnit\Framework\TestCase
 {
 
     /**
-     * @var Zend_GData_Analytics_DataQuery
+     * @var Zend_Gdata_Analytics_DataQuery
      */
     public $dataQuery;
 
     public function setUp()
     {
-        $this->dataQuery = new Zend_GData_Analytics_DataQuery();
+        $this->dataQuery = new Zend_Gdata_Analytics_DataQuery();
     }
 
     public function testProfileId()
@@ -54,28 +54,28 @@ class Zend_GData_Analytics_DataQueryTest extends PHPUnit\Framework\TestCase
     public function testAddMetric()
     {
         $this->assertTrue(count($this->dataQuery->getMetrics()) == 0);
-        $this->dataQuery->addMetric(Zend_GData_Analytics_DataQuery::METRIC_BOUNCES);
+        $this->dataQuery->addMetric(Zend_Gdata_Analytics_DataQuery::METRIC_BOUNCES);
         $this->assertTrue(count($this->dataQuery->getMetrics()) == 1);
     }
 
     public function testAddAndRemoveMetric()
     {
-        $this->dataQuery->addMetric(Zend_GData_Analytics_DataQuery::METRIC_BOUNCES);
-        $this->dataQuery->removeMetric(Zend_GData_Analytics_DataQuery::METRIC_BOUNCES);
+        $this->dataQuery->addMetric(Zend_Gdata_Analytics_DataQuery::METRIC_BOUNCES);
+        $this->dataQuery->removeMetric(Zend_Gdata_Analytics_DataQuery::METRIC_BOUNCES);
         $this->assertTrue(count($this->dataQuery->getMetrics()) == 0);
     }
 
     public function testAddDimension()
     {
         $this->assertTrue(count($this->dataQuery->getDimensions()) == 0);
-        $this->dataQuery->addDimension(Zend_GData_Analytics_DataQuery::DIMENSION_AD_SLOT);
+        $this->dataQuery->addDimension(Zend_Gdata_Analytics_DataQuery::DIMENSION_AD_SLOT);
         $this->assertTrue(count($this->dataQuery->getDimensions()) == 1);
     }
 
     public function testAddAndRemoveDimension()
     {
-        $this->dataQuery->addDimension(Zend_GData_Analytics_DataQuery::DIMENSION_AD_SLOT);
-        $this->dataQuery->removeDimension(Zend_GData_Analytics_DataQuery::DIMENSION_AD_SLOT);
+        $this->dataQuery->addDimension(Zend_Gdata_Analytics_DataQuery::DIMENSION_AD_SLOT);
+        $this->dataQuery->removeDimension(Zend_Gdata_Analytics_DataQuery::DIMENSION_AD_SLOT);
         $this->assertTrue(count($this->dataQuery->getDimensions()) == 0);
     }
 
@@ -86,9 +86,9 @@ class Zend_GData_Analytics_DataQueryTest extends PHPUnit\Framework\TestCase
             ->addFilter('foo=bar')
             ->addFilter('bar>2')
             ->addOrFilter('baz=42')
-            ->addDimension(Zend_GData_Analytics_DataQuery::DIMENSION_CITY)
-            ->addMetric(Zend_GData_Analytics_DataQuery::METRIC_PAGEVIEWS)
-            ->addMetric(Zend_GData_Analytics_DataQuery::METRIC_VISITS);
+            ->addDimension(Zend_Gdata_Analytics_DataQuery::DIMENSION_CITY)
+            ->addMetric(Zend_Gdata_Analytics_DataQuery::METRIC_PAGEVIEWS)
+            ->addMetric(Zend_Gdata_Analytics_DataQuery::METRIC_VISITS);
         $url = parse_url($this->dataQuery->getQueryUrl());
         parse_str($url['query'], $parameter);
 
