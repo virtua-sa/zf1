@@ -63,8 +63,9 @@ class Zend_Cache_TwoLevelsBackendTest extends Zend_Cache_CommonExtendedBackendTe
             return;
         }
 
-        @mkdir($this->getTmpDir());
-        $this->_cache_dir = $this->getTmpDir() . DIRECTORY_SEPARATOR;
+        $dir = $this->getTmpDir();
+        @mkdir($dir);
+        $this->_cache_dir = $dir . DIRECTORY_SEPARATOR;
         $slowBackend = 'File';
         $fastBackend = 'Apc';
         $slowBackendOptions = array(

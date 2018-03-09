@@ -62,7 +62,10 @@ abstract class Zend_Cache_CommonBackendTest extends PHPUnit\Framework\TestCase {
 
     public function mkdir()
     {
-        @mkdir($this->getTmpDir());
+        $dir = $this->getTmpDir();
+        @mkdir($dir);
+
+        return $dir;
     }
 
     public function rmdir()
