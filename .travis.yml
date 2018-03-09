@@ -14,8 +14,12 @@ branches:
   only:
     master
 
+before_install:
+  - travis_retry composer self-update
+
 install:
- - phpenv rehash
+  - phpenv rehash
+  - travis_retry composer install --no-interaction --prefer-source
 
 services:
   - memcached
@@ -27,8 +31,6 @@ stages:
 before_script:
   - if [[ "$USE_XDEBUG" == false ]]; then phpenv config-rm xdebug.ini || return 0; fi
   - phpenv config-add tests/travis.ini
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --prefer-source
 
   - mysql -e 'create database zftest;'
   - psql -c 'create database zftest;' -U postgres
@@ -47,6 +49,11 @@ jobs:
   allow_failures:
     - php: nightly
   include:
+    - stage: phpstan analysis
+      php: 7.1
+      env: TMPDIR=/tmp USE_XDEBUG=false
+      script:
+        - ./bin/phpstan analyse -l 4 --autoload-file=vendor/autoload.php --memory-limit=1024M -c phpstan.neon ./library
     - stage: test with coverage
       php: 7.1
       env: TMPDIR=/tmp USE_XDEBUG=true
