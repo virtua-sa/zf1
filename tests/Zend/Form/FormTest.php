@@ -1106,7 +1106,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
                    ->bar->addElement('text', 'foo');
 
         $html = $this->form->setView($this->getView())->render();
-        $this->assertRegexp('/<dd.*?bar-foo.*?>/', $html);
+        $this->assertRegExp('/<dd.*?bar-foo.*?>/', $html);
     }
 
     public function testUseIdForDtTagByDefault()
@@ -1115,7 +1115,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
                    ->bar->addElement('text', 'foo');
 
         $html = $this->form->setView($this->getView())->render();
-        $this->assertRegexp('/<dt.*?bar-foo.*?>/', $html);
+        $this->assertRegExp('/<dt.*?bar-foo.*?>/', $html);
     }
 
     /**
@@ -1623,11 +1623,11 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
         $this->form->setView($this->getView())->populate($data['valid']);
         $html = $this->form->render();
 
-        $this->assertRegexp('/value=.foo Value./', $html);
-        $this->assertRegexp('/value=.baz Value./', $html);
-        $this->assertRegexp('/value=.quo Value./', $html);
-        $this->assertRegexp('/value=.zoo Value./', $html);
-        $this->assertRegexp('/value=.iek Value./', $html);
+        $this->assertRegExp('/value=.foo Value./', $html);
+        $this->assertRegExp('/value=.baz Value./', $html);
+        $this->assertRegExp('/value=.quo Value./', $html);
+        $this->assertRegExp('/value=.zoo Value./', $html);
+        $this->assertRegExp('/value=.iek Value./', $html);
     }
 
     public function testGetValidValuesWithElementsBelongTo()
@@ -3110,9 +3110,9 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
     {
         $this->assertNotEmpty($html);
         $this->assertContains('<form', $html);
-        $this->assertRegexp('/<form[^>]+action="' . $this->form->getAction() . '"/', $html);
-        $this->assertRegexp('/<form[^>]+method="' . $this->form->getMethod() . '"/i', $html);
-        $this->assertRegexp('#<form[^>]+enctype="application/x-www-form-urlencoded"#', $html);
+        $this->assertRegExp('/<form[^>]+action="' . $this->form->getAction() . '"/', $html);
+        $this->assertRegExp('/<form[^>]+method="' . $this->form->getMethod() . '"/i', $html);
+        $this->assertRegExp('#<form[^>]+enctype="application/x-www-form-urlencoded"#', $html);
         $this->assertContains('</form>', $html);
     }
 
@@ -3131,7 +3131,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
             $this->assertNotEmpty($key);
             $this->assertNotInternalType('numeric', $key);
             $this->assertContains('<input', $html);
-            $this->assertRegexp('/<input type="text" name="' . $key . '"/', $html);
+            $this->assertRegExp('/<input type="text" name="' . $key . '"/', $html);
         }
     }
 
@@ -3141,14 +3141,14 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
         $this->setupSubForm();
         $this->form->setView($this->getView());
         $html = $this->form->render();
-        $this->assertRegexp('/<fieldset/', $html);
+        $this->assertRegExp('/<fieldset/', $html);
         $this->assertContains('</fieldset>', $html);
         foreach ($this->form->sub as $key => $item) {
             $this->assertNotEmpty($key);
             $this->assertNotInternalType('numeric', $key);
             $this->assertContains('<input', $html);
             $pattern = '/<input type="text" name="sub\[' . $key . '\]"/';
-            $this->assertRegexp($pattern, $html, 'Pattern: ' . $pattern . "\nHTML:\n" . $html);
+            $this->assertRegExp($pattern, $html, 'Pattern: ' . $pattern . "\nHTML:\n" . $html);
         }
     }
 
@@ -3158,9 +3158,9 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
         $this->form->addDisplayGroup(array('foo', 'baz'), 'foobaz', array('legend' => 'Display Group'));
         $this->form->setView($this->getView());
         $html = $this->html = $this->form->render();
-        $this->assertRegexp('/<fieldset/', $html);
+        $this->assertRegExp('/<fieldset/', $html);
         $this->assertContains('</fieldset>', $html);
-        $this->assertRegexp('#<legend>Display Group</legend>#', $html, $html);
+        $this->assertRegExp('#<legend>Display Group</legend>#', $html, $html);
         $dom = new DOMDocument();
         $dom->loadHTML($html);
         $fieldsets = $dom->getElementsByTagName('fieldset');
@@ -3311,8 +3311,8 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
             $this->fail('Hidden elements should be grouped');
         }
         foreach (array('first', 'second', 'third') as $which) {
-            $this->assertRegexp('#<input[^]*name="' . $which . '"#', $matches[0]);
-            $this->assertRegexp('#<input[^]*value="' . $which . ' value"#', $matches[0]);
+            $this->assertRegExp('#<input[^]*name="' . $which . '"#', $matches[0]);
+            $this->assertRegExp('#<input[^]*value="' . $which . ' value"#', $matches[0]);
         }
     }
 
@@ -3632,7 +3632,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
             $decorator,
         ));
         $html = $this->form->render($this->getView());
-        $this->assertRegexp('#<tr><td>Foo</td><td>.*?<input[^>]+>.*?</td><td>sample description</td></tr>#s', $html, $html);
+        $this->assertRegExp('#<tr><td>Foo</td><td>.*?<input[^>]+>.*?</td><td>sample description</td></tr>#s', $html, $html);
     }
 
     /**
@@ -4074,7 +4074,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
 
         $html = $this->form->render($this->getView());
         $this->assertNotEmpty($html);
-        $this->assertRegexp('#<form[^>]+enctype="multipart/form-data"#', $html);
+        $this->assertRegExp('#<form[^>]+enctype="multipart/form-data"#', $html);
     }
 
     /**
@@ -4090,7 +4090,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
 
         $this->assertContains('id="txt"', $html);
         $this->assertContains('name="txt"', $html);
-        $this->assertRegexp('#<form[^>]+enctype="multipart/form-data"#', $html, $html);
+        $this->assertRegExp('#<form[^>]+enctype="multipart/form-data"#', $html, $html);
     }
 
     /**
@@ -4105,7 +4105,7 @@ class Zend_Form_FormTest extends PHPUnit\Framework\TestCase
 
         $this->assertContains('id="txt"', $html);
         $this->assertContains('name="txt"', $html);
-        $this->assertRegexp('#<form[^>]+enctype="multipart/form-data"#', $html, $html);
+        $this->assertRegExp('#<form[^>]+enctype="multipart/form-data"#', $html, $html);
     }
 
     /**

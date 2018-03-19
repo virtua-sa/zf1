@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Queue
- */
-require_once 'Zend/Queue.php';
-
-/**
- * @see Zend_Queue_Adapter_AdapterInterface
- */
-require_once 'Zend/Queue/Adapter/AdapterInterface.php';
-
-/**
  * Class for connecting to queues performing common operations.
  *
  * @category   Zend
@@ -69,7 +59,7 @@ abstract class Zend_Queue_Adapter_AdapterAbstract
     /**
      * Contains the Zend_Queue that this object
      *
-     * @var Zend_Queue_Adapter_Abstract
+     * @var Zend_Queue
      */
     protected $_queue = null;
 
@@ -91,8 +81,8 @@ abstract class Zend_Queue_Adapter_AdapterAbstract
      * host           => (string) What host to connect to, defaults to localhost
      * port           => (string) The port of the database
      *
-     * @param  array|Zend_Config $config An array having configuration data
-     * @param  Zend_Queue The Zend_Queue object that created this class
+     * @param  array|Zend_Config $options An array having configuration data
+     * @param  Zend_Queue $queue The Zend_Queue object that created this class
      * @return void
      * @throws Zend_Queue_Exception
      */
@@ -106,7 +96,6 @@ abstract class Zend_Queue_Adapter_AdapterAbstract
          * Verify that adapter parameters are in an array.
          */
         if (!is_array($options)) {
-            require_once 'Zend/Queue/Exception.php';
             throw new Zend_Queue_Exception('Adapter options must be an array or Zend_Config object');
         }
 
@@ -121,7 +110,6 @@ abstract class Zend_Queue_Adapter_AdapterAbstract
         // Normalize the options and merge with the defaults
         if (array_key_exists('options', $options)) {
             if (!is_array($options['options'])) {
-                require_once 'Zend/Queue/Exception.php';
                 throw new Zend_Queue_Exception("Configuration array 'options' must be an array");
             }
 

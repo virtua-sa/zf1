@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_XmlRpc_Value_Scalar
- */
-require_once 'Zend/XmlRpc/Value/Scalar.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_XmlRpc
  * @subpackage Value
@@ -45,7 +39,6 @@ class Zend_XmlRpc_Value_Integer extends Zend_XmlRpc_Value_Scalar
     public function __construct($value)
     {
         if ($value > PHP_INT_MAX) {
-            require_once 'Zend/XmlRpc/Value/Exception.php';
             throw new Zend_XmlRpc_Value_Exception('Overlong integer given');
         }
 

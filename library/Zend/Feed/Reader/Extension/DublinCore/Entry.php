@@ -20,21 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader
- */
-require_once 'Zend/Feed/Reader.php';
-
-/**
- * @see Zend_Feed_Reader_Extension_EntryAbstract
- */
-require_once 'Zend/Feed/Reader/Extension/EntryAbstract.php';
-
-/**
- * @see Zend_Date
- */
-require_once 'Zend/Date.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -46,8 +31,8 @@ class Zend_Feed_Reader_Extension_DublinCore_Entry
     /**
      * Get an author entry
      *
-     * @param DOMElement $element
-     * @return string
+     * @param int $index
+     * @return string|null
      */
     public function getAuthor($index = 0)
     {

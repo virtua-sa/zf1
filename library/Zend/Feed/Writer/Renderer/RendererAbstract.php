@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Feed_Writer */
-require_once 'Zend/Feed/Writer.php';
-
-/** @see Zend_Version */
-require_once 'Zend/Version.php';
-
 /**
  * @category   Zend
  * @package    Zend_Feed_Writer
@@ -99,7 +93,7 @@ class Zend_Feed_Writer_Renderer_RendererAbstract
      */
     public function saveXml()
     {
-        return $this->getDomDocument()->saveXml();
+        return $this->getDomDocument()->saveXML();
     }
 
     /**
@@ -163,7 +157,6 @@ class Zend_Feed_Writer_Renderer_RendererAbstract
     public function ignoreExceptions($bool = true)
     {
         if (!is_bool($bool)) {
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: $bool. Should be TRUE or FALSE (defaults to TRUE if null)');
         }
         $this->_ignoreExceptions = $bool;

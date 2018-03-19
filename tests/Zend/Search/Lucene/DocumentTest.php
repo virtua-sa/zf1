@@ -88,9 +88,9 @@ class Zend_Search_Lucene_DocumentTest extends PHPUnit\Framework\TestCase
     {
         $document =  new Zend_Search_Lucene_Document();
 
-        $document->addField(Zend_Search_Lucene_Field::Text('title',      'Title'));
-        $document->addField(Zend_Search_Lucene_Field::Text('annotation', 'Annotation'));
-        $document->addField(Zend_Search_Lucene_Field::Text('body',       'Document body, document body, document body...'));
+        $document->addField(Zend_Search_Lucene_Field::text('title',      'Title'));
+        $document->addField(Zend_Search_Lucene_Field::text('annotation', 'Annotation'));
+        $document->addField(Zend_Search_Lucene_Field::text('body',       'Document body, document body, document body...'));
 
         $fieldnamesDiffArray = array_diff($document->getFieldNames(), array('title', 'annotation', 'body'));
         $this->assertInternalType('array', $fieldnamesDiffArray);
@@ -114,7 +114,7 @@ class Zend_Search_Lucene_DocumentTest extends PHPUnit\Framework\TestCase
         }
 
         $wordsWithUmlautsIso88591 = iconv('UTF-8', 'ISO-8859-1', 'Words with umlauts: åãü...');
-        $document->addField(Zend_Search_Lucene_Field::Text('description', $wordsWithUmlautsIso88591, 'ISO-8859-1'));
+        $document->addField(Zend_Search_Lucene_Field::text('description', $wordsWithUmlautsIso88591, 'ISO-8859-1'));
         $this->assertEquals($document->description, $wordsWithUmlautsIso88591);
         $this->assertEquals($document->getFieldUtf8Value('description'), 'Words with umlauts: åãü...');
     }
@@ -122,12 +122,12 @@ class Zend_Search_Lucene_DocumentTest extends PHPUnit\Framework\TestCase
     public function testAddFieldMethodChaining()
     {
         $document =  new Zend_Search_Lucene_Document();
-        $this->assertTrue($document->addField(Zend_Search_Lucene_Field::Text('title', 'Title')) instanceof Zend_Search_Lucene_Document);
+        $this->assertTrue($document->addField(Zend_Search_Lucene_Field::text('title', 'Title')) instanceof Zend_Search_Lucene_Document);
 
         $document =  new Zend_Search_Lucene_Document();
-        $document->addField(Zend_Search_Lucene_Field::Text('title',      'Title'))
-                 ->addField(Zend_Search_Lucene_Field::Text('annotation', 'Annotation'))
-                 ->addField(Zend_Search_Lucene_Field::Text('body',       'Document body, document body, document body...'));
+        $document->addField(Zend_Search_Lucene_Field::text('title',      'Title'))
+                 ->addField(Zend_Search_Lucene_Field::text('annotation', 'Annotation'))
+                 ->addField(Zend_Search_Lucene_Field::text('body',       'Document body, document body, document body...'));
     }
 
 

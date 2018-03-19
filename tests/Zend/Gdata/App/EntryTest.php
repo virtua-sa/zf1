@@ -22,7 +22,6 @@
 
 require_once 'Zend/Gdata/App/Entry.php';
 require_once 'Zend/Gdata/App.php';
-require_once 'Zend/Gdata/TestUtility/MockHttpClient.php';
 require_once 'Zend/Gdata/HttpClient.php';
 
 /**
@@ -190,7 +189,7 @@ class Zend_Gdata_App_EntryTest extends PHPUnit\Framework\TestCase
         $this->enry->setService($this->service);
 
         // Set a URL for posting, so that save() will work
-        $editLink = new Zend_Gdata_App_extension_Link('http://example.com',
+        $editLink = new Zend_Gdata_App_Extension_Link('http://example.com',
                 'edit');
         $this->enry->setLink(array($editLink));
 
@@ -218,7 +217,7 @@ class Zend_Gdata_App_EntryTest extends PHPUnit\Framework\TestCase
         $this->enry->setService($this->service);
 
         // Set a URL for posting, so that save() will work
-        $editLink = new Zend_Gdata_App_extension_Link('http://example.com',
+        $editLink = new Zend_Gdata_App_Extension_Link('http://example.com',
                 'edit');
         $this->enry->setLink(array($editLink));
 

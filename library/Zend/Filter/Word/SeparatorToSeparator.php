@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_PregReplace
- */
-require_once 'Zend/Filter/PregReplace.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -40,7 +35,7 @@ class Zend_Filter_Word_SeparatorToSeparator extends Zend_Filter_PregReplace
      * Constructor
      *
      * @param  string  $searchSeparator      Seperator to search for
-     * @param  string  $replacementSeperator Seperator to replace with
+     * @param  string  $replacementSeparator Seperator to replace with
      * @return void
      */
     public function __construct($searchSeparator = ' ', $replacementSeparator = '-')
@@ -117,7 +112,6 @@ class Zend_Filter_Word_SeparatorToSeparator extends Zend_Filter_PregReplace
     protected function _separatorToSeparatorFilter($value)
     {
         if ($this->_searchSeparator == null) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('You must provide a search separator for this filter to work.');
         }
 

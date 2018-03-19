@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Dojo_Form_Element_Dijit */
-require_once 'Zend/Dojo/Form/Element/Dijit.php';
-
 /**
  * Editor dijit
  *
@@ -392,7 +389,6 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
     public function setHeight($height)
     {
         if (!preg_match('/^\d+(em|px|%)?$/i', $height)) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception('Invalid height provided; must be integer or CSS measurement');
         }
         if (!preg_match('/(em|px|%)$/', $height)) {
@@ -447,7 +443,6 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
     public function setMinHeight($minHeight)
     {
         if (!preg_match('/^\d+(em|px|%)?$/i', $minHeight)) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception('Invalid minHeight provided; must be integer or CSS measurement');
         }
         if (!preg_match('/(em|px|%)$/', $minHeight)) {
@@ -610,16 +605,16 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         if (in_array($plugin, $extraPlugins)) {
             return $this;
         }
-    
+
         $extraPlugins[] = (string) $plugin;
         $this->setDijitParam('extraPlugins', $extraPlugins);
         return $this;
     }
-    
+
     /**
      * Add multiple extra plugins.
      *
-     * @param  array $extraPlugins
+     * @param  array $plugins
      * @return Zend_Dojo_Form_Element_Editor
      */
     public function addExtraPlugins(array $plugins)
@@ -629,7 +624,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         }
         return $this;
     }
-    
+
     /**
      * Overwrite many extra plugins at once.
      *
@@ -642,7 +637,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         $this->addExtraPlugins($plugins);
         return $this;
     }
-    
+
     /**
      * Get all extra plugins.
      *
@@ -655,7 +650,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         }
         return $this->getDijitParam('extraPlugins');
     }
-    
+
     /**
      * Is a given extra plugin registered?
      *
@@ -667,7 +662,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         $extraPlugins = $this->getExtraPlugins();
         return in_array((string) $plugin, $extraPlugins);
     }
-    
+
     /**
      * Remove a given extra plugin.
      *
@@ -684,7 +679,7 @@ class Zend_Dojo_Form_Element_Editor extends Zend_Dojo_Form_Element_Dijit
         $this->setDijitParam('extraPlugins', $extraPlugins);
         return $this;
     }
-    
+
     /**
      * Clear all extra plugins.
      *

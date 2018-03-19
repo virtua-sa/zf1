@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Log_Writer_Abstract
- */
-require_once 'Zend/Log/Writer/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Log
@@ -36,14 +31,14 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
     extends Zend_Log_Writer_Abstract
 {
     /**
-     * @var Zend_Service_Log_Formatter_Interface
+     * @var Zend_Log_Formatter_Interface
      */
     protected $_formatter;
 
     /**
      * Connection to a windows Azure
      *
-     * @var Zend_Service_Service_WindowsAzure_Storage_Table
+     * @var Zend_Service_WindowsAzure_Storage_Table
      */
     protected $_tableStorageConnection = null;
 
@@ -71,10 +66,10 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
     protected $_messageBuffer = array();
 
     /**
-     * @param Zend_Service_Service_WindowsAzure_Storage_Table|Zend_Service_WindowsAzure_Storage_Table $tableStorageConnection
-     * @param string                                                                                  $tableName
-     * @param bool                                                                                    $createTable create the Windows Azure table for logging if it does not exist
-     * @param bool                                                                                    $bufferMessages
+     * @param Zend_Service_WindowsAzure_Storage_Table $tableStorageConnection
+     * @param string                                  $tableName
+     * @param bool                                    $createTable create the Windows Azure table for logging if it does not exist
+     * @param bool                                    $bufferMessages
      * @throws Zend_Service_Log_Exception
      */
     public function __construct(
@@ -83,15 +78,13 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
     )
     {
         if ($tableStorageConnection == null) {
-            require_once 'Zend/Service/Log/Exception.php';
-            throw new Zend_Service_Log_Exception(
+            throw new Zend_Log_Exception(
                 'No connection to the Windows Azure tables provided.'
             );
         }
 
         if (!is_string($tableName)) {
-            require_once 'Zend/Service/Log/Exception.php';
-            throw new Zend_Service_Log_Exception(
+            throw new Zend_Log_Exception(
                 'Provided Windows Azure table name must be a string.'
             );
         }
@@ -138,7 +131,7 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
      * Create a new instance of Zend_Service_Log_Writer_WindowsAzure
      *
      * @param  array $config
-     * @return Zend_Service_Log_Writer_WindowsAzure
+     * @return Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
      * @throws Zend_Service_Log_Exception
      */
     static public function factory($config)
@@ -165,11 +158,10 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
      * @todo enable custom formatters using the WindowsAzure_Storage_DynamicTableEntity class
      */
     public function setFormatter(
-        Zend_Service_Log_Formatter_Interface $formatter
+        Zend_Log_Formatter_Interface $formatter
     )
     {
-        require_once 'Zend/Service/Log/Exception.php';
-        throw new Zend_Service_Log_Exception(
+        throw new Zend_Log_Exception(
             get_class($this) . ' does not support formatting');
     }
 

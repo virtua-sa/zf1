@@ -40,76 +40,76 @@ class Zend_GData_Analytics_AccountQueryTest extends PHPUnit\Framework\TestCase
 
     public function setUp()
     {
-        $this->accountQuery = new Zend_GData_Analytics_AccountQuery();
-        $this->queryBase = Zend_GData_Analytics_AccountQuery::ANALYTICS_FEED_URI;
+        $this->accountQuery = new Zend_Gdata_Analytics_AccountQuery();
+        $this->queryBase = Zend_Gdata_Analytics_AccountQuery::ANALYTICS_FEED_URI;
     }
 
     public function testWebpropertiesAll()
     {
         $this->accountQuery->webproperties();
         $allQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/~all/webproperties', 
+            $this->queryBase . '/~all/webproperties',
             $allQuery
         );
     }
-    
+
     public function testWebpropertiesSpecific()
     {
         $this->accountQuery->webproperties(12345678);
         $specificQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/12345678/webproperties', 
+            $this->queryBase . '/12345678/webproperties',
             $specificQuery
         );
     }
-    
+
     public function testProfilesAll()
     {
         $this->accountQuery->profiles();
         $allQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/~all/webproperties/~all/profiles', 
+            $this->queryBase . '/~all/webproperties/~all/profiles',
             $allQuery
         );
     }
-    
+
     public function testProfilesSpecific()
     {
         $this->accountQuery->profiles('U-87654321-0', 87654321);
         $specificQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles', 
+            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles',
             $specificQuery
         );
     }
-    
+
     public function testGoalsAll()
     {
         $this->accountQuery->goals();
         $allQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/~all/webproperties/~all/profiles/~all/goals', 
+            $this->queryBase . '/~all/webproperties/~all/profiles/~all/goals',
             $allQuery
         );
     }
-    
+
     public function testGoalsSpecific()
     {
         $this->accountQuery->goals(42, 'U-87654321-0', 87654321);
         $specificQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles/42/goals', 
+            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles/42/goals',
             $specificQuery
         );
     }
-    
+
     public function testChainedProperties()
     {
         $this->accountQuery
@@ -117,9 +117,9 @@ class Zend_GData_Analytics_AccountQueryTest extends PHPUnit\Framework\TestCase
             ->profiles('U-87654321-0')
             ->webproperties(87654321);
         $specificQuery = $this->accountQuery->getQueryUrl();
-        
+
         $this->assertEquals(
-            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles/42/goals', 
+            $this->queryBase . '/87654321/webproperties/U-87654321-0/profiles/42/goals',
             $specificQuery
         );
     }

@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Db_Statement
- */
-require_once 'Zend/Db/Statement.php';
-
-/**
  * Extends for DB2 native adapter.
  *
  * @package    Zend_Db
@@ -62,10 +57,6 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
         $this->_stmt = @db2_prepare($connection, $sql);
 
         if (!$this->_stmt) {
-            /**
-             * @see Zend_Db_Statement_Db2_Exception
-             */
-            require_once 'Zend/Db/Statement/Db2/Exception.php';
             throw new Zend_Db_Statement_Db2_Exception(
                 db2_stmt_errormsg(),
                 db2_stmt_error()
@@ -97,10 +88,6 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
         }
 
         if (!db2_bind_param($this->_stmt, $parameter, "variable", $type, $datatype)) {
-            /**
-             * @see Zend_Db_Statement_Db2_Exception
-             */
-            require_once 'Zend/Db/Statement/Db2/Exception.php';
             throw new Zend_Db_Statement_Db2_Exception(
                 db2_stmt_errormsg(),
                 db2_stmt_error()
@@ -130,7 +117,7 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
      * Returns the number of columns in the result set.
      * Returns null if the statement has no result set metadata.
      *
-     * @return int The number of columns.
+     * @return int|false The number of columns.
      */
     public function columnCount()
     {
@@ -144,7 +131,7 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
      * Retrieves the error code, if any, associated with the last operation on
      * the statement handle.
      *
-     * @return string error code.
+     * @return string|false error code.
      */
     public function errorCode()
     {
@@ -164,7 +151,7 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
      * Retrieves an array of error information, if any, associated with the
      * last operation on the statement handle.
      *
-     * @return array
+     * @return array|false
      */
     public function errorInfo()
     {
@@ -205,10 +192,6 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
         }
 
         if ($retval === false) {
-            /**
-             * @see Zend_Db_Statement_Db2_Exception
-             */
-            require_once 'Zend/Db/Statement/Db2/Exception.php';
             throw new Zend_Db_Statement_Db2_Exception(
                 db2_stmt_errormsg(),
                 db2_stmt_error());
@@ -269,10 +252,6 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
                 }
                 break;
             default:
-                /**
-                 * @see Zend_Db_Statement_Db2_Exception
-                 */
-                require_once 'Zend/Db/Statement/Db2/Exception.php';
                 throw new Zend_Db_Statement_Db2_Exception("Invalid fetch mode '$style' specified");
                 break;
         }
@@ -303,10 +282,6 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
      */
     public function nextRowset()
     {
-        /**
-         * @see Zend_Db_Statement_Db2_Exception
-         */
-        require_once 'Zend/Db/Statement/Db2/Exception.php';
         throw new Zend_Db_Statement_Db2_Exception(__FUNCTION__ . '() is not implemented');
     }
 
@@ -315,7 +290,7 @@ class Zend_Db_Statement_Db2 extends Zend_Db_Statement
      * last INSERT, DELETE, or UPDATE statement executed by this
      * statement object.
      *
-     * @return int     The number of rows affected.
+     * @return int|false     The number of rows affected.
      */
     public function rowCount()
     {

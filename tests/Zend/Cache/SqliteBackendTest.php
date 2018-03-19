@@ -60,8 +60,9 @@ class Zend_Cache_sqliteBackendTest extends Zend_Cache_CommonExtendedBackendTest 
             return;
         }
 
-        @mkdir($this->getTmpDir());
-        $this->_cache_dir = $this->getTmpDir() . DIRECTORY_SEPARATOR;
+        $dir = $this->getTmpDir();
+        @mkdir($dir);
+        $this->_cache_dir = $dir . DIRECTORY_SEPARATOR;
         $this->_instance = new Zend_Cache_Backend_Sqlite(array(
             'cache_db_complete_path' => $this->_cache_dir . 'cache.db'
         ));

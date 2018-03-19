@@ -20,15 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-/**
- * @see Zend_Locale
- */
-require_once 'Zend/Locale.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -68,7 +59,7 @@ class Zend_Filter_Alpha implements Zend_Filter_Interface
     /**
      * Sets default option values for this instance
      *
-     * @param  boolean $allowWhiteSpace
+     * @param  boolean|Zend_Config|array $allowWhiteSpace
      * @return void
      */
     public function __construct($allowWhiteSpace = false)

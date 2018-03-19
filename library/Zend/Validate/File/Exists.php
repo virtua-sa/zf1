@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * Validator which checks if the file already exists in the directory
  *
  * @category  Zend
@@ -48,7 +43,7 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
 
     /**
      * Internal list of directories
-     * @var string
+     * @var string|null
      */
     protected $_directory = '';
 
@@ -72,7 +67,6 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
         } else if (is_string($directory)) {
             $directory = explode(',', $directory);
         } else if (!is_array($directory)) {
-            require_once 'Zend/Validate/Exception.php';
             throw new Zend_Validate_Exception ('Invalid options to validator provided');
         }
 
@@ -83,7 +77,7 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
      * Returns the set file directories which are checked
      *
      * @param  boolean $asArray Returns the values as array, when false an concated string is returned
-     * @return string
+     * @return string|array
      */
     public function getDirectory($asArray = false)
     {
@@ -100,7 +94,7 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
      * Sets the file directory which will be checked
      *
      * @param  string|array $directory The directories to validate
-     * @return Zend_Validate_File_Extension Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setDirectory($directory)
     {
@@ -114,7 +108,7 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
      *
      * @param  string|array $directory The directory to add for validation
      * @throws Zend_Validate_Exception
-     * @return Zend_Validate_File_Extension Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function addDirectory($directory)
     {
@@ -123,7 +117,6 @@ class Zend_Validate_File_Exists extends Zend_Validate_Abstract
         if (is_string($directory)) {
             $directory = explode(',', $directory);
         } else if (!is_array($directory)) {
-            require_once 'Zend/Validate/Exception.php';
             throw new Zend_Validate_Exception ('Invalid options to validator provided');
         }
 

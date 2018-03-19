@@ -20,15 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Registry */
-require_once 'Zend/Registry.php';
-
-/** Zend_View_Helper_Placeholder_Container_Abstract */
-require_once 'Zend/View/Helper/Placeholder/Container/Abstract.php';
-
-/** Zend_View_Helper_Placeholder_Container */
-require_once 'Zend/View/Helper/Placeholder/Container.php';
-
 /**
  * Registry for placeholder containers
  *
@@ -60,7 +51,7 @@ class Zend_View_Helper_Placeholder_Registry
     /**
      * Retrieve or create registry instnace
      *
-     * @return void
+     * @return Zend_View_Helper_Placeholder_Registry
      */
     public static function getRegistry()
     {
@@ -124,8 +115,8 @@ class Zend_View_Helper_Placeholder_Registry
      * Set the container for an item in the registry
      *
      * @param  string $key
-     * @param  Zend_View_Placeholder_Container_Abstract $container
-     * @return Zend_View_Placeholder_Registry
+     * @param  Zend_View_Helper_Placeholder_Container_Abstract $container
+     * @return $this
      */
     public function setContainer($key, Zend_View_Helper_Placeholder_Container_Abstract $container)
     {
@@ -160,13 +151,11 @@ class Zend_View_Helper_Placeholder_Registry
     public function setContainerClass($name)
     {
         if (!class_exists($name)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($name);
         }
 
         $reflection = new ReflectionClass($name);
         if (!$reflection->isSubclassOf(new ReflectionClass('Zend_View_Helper_Placeholder_Container_Abstract'))) {
-            require_once 'Zend/View/Helper/Placeholder/Registry/Exception.php';
             $e = new Zend_View_Helper_Placeholder_Registry_Exception('Invalid Container class specified');
             $e->setView($this->view);
             throw $e;

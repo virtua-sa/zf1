@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -77,10 +72,6 @@ class Zend_Validate_Ccnum extends Zend_Validate_Abstract
         $this->_setValue($value);
 
         if (null === self::$_filter) {
-            /**
-             * @see Zend_Filter_Digits
-             */
-            require_once 'Zend/Filter/Digits.php';
             self::$_filter = new Zend_Filter_Digits();
         }
 

@@ -55,7 +55,7 @@ class Zend_Json_Server_Response
 
     /**
      * JSON-RPC version
-     * @var string
+     * @var string|null
      */
     protected $_version;
 
@@ -139,7 +139,7 @@ class Zend_Json_Server_Response
     /**
      * Set JSON-RPC version
      *
-     * @param  string $version
+     * @param  string|array $version
      * @return Zend_Json_Server_Response
      */
     public function setVersion($version)
@@ -188,7 +188,6 @@ class Zend_Json_Server_Response
             $response['jsonrpc'] = $version;
         }
 
-        require_once 'Zend/Json.php';
         return Zend_Json::encode($response);
     }
 

@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps nickname entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -121,7 +116,7 @@ class Zend_Gdata_Gapps_NicknameQuery extends Zend_Gdata_Gapps_Query
      * returned.
      *
      * @see setUsername
-     * @return string The username to filter search results by, or null if
+     * @return string|null The username to filter search results by, or null if
      *              disabled.
      */
     public function getUsername()
@@ -153,7 +148,7 @@ class Zend_Gdata_Gapps_NicknameQuery extends Zend_Gdata_Gapps_Query
      * Get the first nickname which should be displayed when retrieving
      * a list of nicknames.
      *
-     * @return string The first nickname to be returned, or null to
+     * @return string|null The first nickname to be returned, or null to
      *              disable.
      */
     public function getStartNickname()

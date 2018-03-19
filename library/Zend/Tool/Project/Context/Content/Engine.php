@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Context_Content_Engine_CodeGenerator
- */
-require_once 'Zend/Tool/Project/Context/Content/Engine/CodeGenerator.php';
-
-/**
- * @see Zend_Tool_Project_Context_Content_Engine_Phtml
- */
-require_once 'Zend/Tool/Project/Context/Content/Engine/Phtml.php';
-
-/**
  * This class is the front most class for utilizing Zend_Tool_Project
  *
  * A profile is a hierarchical set of resources that keep track of
@@ -78,7 +68,7 @@ class Zend_Tool_Project_Context_Content_Engine
      * @param Zend_Tool_Project_Context_Interface $context
      * @param string $methodName
      * @param mixed $parameters
-     * @return string
+     * @return string|false
      */
     public function getContent(Zend_Tool_Project_Context_Interface $context, $methodName, $parameters)
     {

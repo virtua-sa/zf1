@@ -19,22 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Value
- */
-require_once 'Zend/XmlRpc/Value.php';
-
-/**
- * Zend_XmlRpc_Fault
- */
-require_once 'Zend/XmlRpc/Fault.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/** @see Zend_Xml_Exception */
-require_once 'Zend/Xml/Exception.php';
-
-/**
  * XmlRpc Request object
  *
  * Encapsulates an XmlRpc request, holding the method call and all parameters.
@@ -79,7 +63,7 @@ class Zend_XmlRpc_Request
 
     /**
      * Fault object, if any
-     * @var Zend_XmlRpc_Fault
+     * @var Zend_XmlRpc_Fault|Zend_XmlRpc_Server_Exception|null
      */
     protected $_fault = null;
 
@@ -373,7 +357,7 @@ class Zend_XmlRpc_Request
     /**
      * Retrieve the fault response, if any
      *
-     * @return null|Zend_XmlRpc_Fault
+     * @return null|Zend_XmlRpc_Fault|Zend_XmlRpc_Server_Exception
      */
     public function getFault()
     {
@@ -440,6 +424,6 @@ class Zend_XmlRpc_Request
      */
     public function __toString()
     {
-        return $this->saveXML();
+        return $this->saveXml();
     }
 }

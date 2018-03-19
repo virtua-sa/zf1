@@ -20,7 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Service/Rackspace/Servers.php';
 
 class Zend_Service_Rackspace_Servers_Image
 {
@@ -84,15 +83,12 @@ class Zend_Service_Rackspace_Servers_Image
     public function __construct($service, $data)
     {
         if (!($service instanceof Zend_Service_Rackspace_Servers) || !is_array($data)) {
-            require_once 'Zend/Service/Rackspace/Servers/Exception.php';
             throw new Zend_Service_Rackspace_Servers_Exception(self::ERROR_PARAM_CONSTRUCT);
         }
         if (!array_key_exists('name', $data)) {
-            require_once 'Zend/Service/Rackspace/Servers/Exception.php';
             throw new Zend_Service_Rackspace_Servers_Exception(self::ERROR_PARAM_NO_NAME);
         }
         if (!array_key_exists('id', $data)) {
-            require_once 'Zend/Service/Rackspace/Servers/Exception.php';
             throw new Zend_Service_Rackspace_Servers_Exception(self::ERROR_PARAM_NO_ID);
         }
         $this->service= $service;

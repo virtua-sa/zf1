@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Dojo_Form_Element_ValidationTextBox */
-require_once 'Zend/Dojo/Form/Element/ValidationTextBox.php';
-
 /**
  * DateTextBox dijit
  *
@@ -63,7 +60,7 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
     /**
      * Set am,pm flag
      *
-     * @param  bool $am,pm
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_DateTextBox
      */
     public function setAmPm($flag)
@@ -88,7 +85,7 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
     /**
      * Set strict flag
      *
-     * @param  bool $strict
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_DateTextBox
      */
     public function setStrict($flag)
@@ -136,7 +133,7 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
      * Set date format pattern
      *
      * @param  string $pattern
-     * @return Zend_Dojo_Form_Element_NumberTextBox
+     * @return $this
      */
     public function setDatePattern($pattern)
     {
@@ -159,13 +156,12 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
      *
      * @see    $_allowedFormatTypes
      * @param  string $formatLength
-     * @return Zend_Dojo_Form_Element_NumberTextBox
+     * @return $this
      */
     public function setFormatLength($formatLength)
     {
         $formatLength = strtolower($formatLength);
         if (!in_array($formatLength, $this->_allowedFormatTypes)) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception(sprintf('Invalid formatLength "%s" specified', $formatLength));
         }
 
@@ -188,13 +184,12 @@ class Zend_Dojo_Form_Element_DateTextBox extends Zend_Dojo_Form_Element_Validati
      *
      * @see    $_allowedSelectorTypes
      * @param  string $selector
-     * @return Zend_Dojo_Form_Element_NumberTextBox
+     * @return $this
      */
     public function setSelector($selector)
     {
         $selector = strtolower($selector);
         if (!in_array($selector, $this->_allowedSelectorTypes)) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception(sprintf('Invalid Selector "%s" specified', $selector));
         }
 

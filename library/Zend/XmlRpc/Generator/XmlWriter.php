@@ -21,11 +21,6 @@
  */
 
 /**
- * @var Zend_XmlRpc_Generator_GeneratorAbstract
- */
-require_once 'Zend/XmlRpc/Generator/GeneratorAbstract.php';
-
-/**
  * XML generator adapter based on XMLWriter
  */
 class Zend_XmlRpc_Generator_XmlWriter extends Zend_XmlRpc_Generator_GeneratorAbstract
@@ -76,7 +71,7 @@ class Zend_XmlRpc_Generator_XmlWriter extends Zend_XmlRpc_Generator_GeneratorAbs
      * Close an previously opened XML element
      *
      * @param string $name
-     * @return void
+     * @return $this
      */
     protected function _closeElement($name)
     {

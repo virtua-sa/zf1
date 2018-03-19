@@ -20,10 +20,6 @@
  */
 
 
-/** Zend_Pdf_Element */
-require_once 'Zend/Pdf/Element.php';
-
-
 /**
  * PDF file 'indirect object' element implementation
  *
@@ -37,7 +33,7 @@ class Zend_Pdf_Element_Object extends Zend_Pdf_Element
     /**
      * Object value
      *
-     * @var Zend_Pdf_Element
+     * @var Zend_Pdf_Element|null
      */
     protected $_value;
 
@@ -74,17 +70,14 @@ class Zend_Pdf_Element_Object extends Zend_Pdf_Element
     public function __construct(Zend_Pdf_Element $val, $objNum, $genNum, Zend_Pdf_ElementFactory $factory)
     {
         if ($val instanceof self) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Object number must not be an instance of Zend_Pdf_Element_Object.');
         }
 
         if ( !(is_integer($objNum) && $objNum > 0) ) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Object number must be positive integer.');
         }
 
         if ( !(is_integer($genNum) && $genNum >= 0) ) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Generation number must be non-negative integer.');
         }
 
@@ -145,7 +138,7 @@ class Zend_Pdf_Element_Object extends Zend_Pdf_Element
     /**
      * Return reference to the object
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)
@@ -215,7 +208,7 @@ class Zend_Pdf_Element_Object extends Zend_Pdf_Element
      * Detach PDF object from the factory (if applicable), clone it and attach to new factory.
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed  List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed  List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      */

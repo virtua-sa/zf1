@@ -17,10 +17,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Service/Amazon/Sqs.php';
-require_once 'Zend/Cloud/QueueService/Adapter/AbstractAdapter.php';
-require_once 'Zend/Cloud/QueueService/Exception.php';
-require_once 'Zend/Cloud/QueueService/Message.php';
 
 /**
  * SQS adapter for simple queue service.
@@ -94,8 +90,8 @@ class Zend_Cloud_QueueService_Adapter_Sqs
      * documentation for details.
      *
      * @param  string $name
-     * @param  array  $options
-     * @return string Queue ID (typically URL)
+     * @param  string  $options
+     * @return string|false Queue ID (typically URL)
      */
     public function createQueue($name, $options = null)
     {
@@ -172,7 +168,6 @@ class Zend_Cloud_QueueService_Adapter_Sqs
     public function storeQueueMetadata($queueId, $metadata, $options = null)
     {
         // TODO Add support for SetQueueAttributes to client library
-        require_once 'Zend/Cloud/OperationNotAvailableException.php';
         throw new Zend_Cloud_OperationNotAvailableException('Amazon SQS doesn\'t currently support storing metadata');
     }
 
@@ -235,7 +230,7 @@ class Zend_Cloud_QueueService_Adapter_Sqs
      * @param  string $queueId
      * @param  Zend_Cloud_QueueService_Message $message
      * @param  array  $options
-     * @return void
+     * @return bool
      */
     public function deleteMessage($queueId, $message, $options = null)
     {

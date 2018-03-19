@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Markup_TokenList
- */
-require_once 'Zend/Markup/TokenList.php';
-
-/**
  * @category   Zend
  * @package    Zend_Markup
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -39,7 +34,7 @@ class Zend_Markup_Token
     /**
      * Children of this token
      *
-     * @var Zend_Markup_TokenList
+     * @var Zend_Markup_TokenList|null
      */
     protected $_children;
 
@@ -81,7 +76,7 @@ class Zend_Markup_Token
     /**
      * The parent token
      *
-     * @var Zend_Markup_Token
+     * @var Zend_Markup_Token|null
      */
     protected $_parent;
 

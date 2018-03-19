@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Represents the gCal:accessLevel element used by the Calendar data API
  *
  * @category   Zend
@@ -105,7 +100,7 @@ class Zend_Gdata_Calendar_Extension_AccessLevel extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_Selected The element being modified.
+     * @return $this The element being modified.
      */
     public function setValue($value)
     {

@@ -32,7 +32,7 @@
 class Zend_Service_Amazon_OfferSet
 {
     /**
-     * @var string
+     * @var int
      */
     public $LowestNewPrice;
 
@@ -42,7 +42,7 @@ class Zend_Service_Amazon_OfferSet
     public $LowestNewPriceCurrency;
 
     /**
-     * @var string
+     * @var int
      */
     public $LowestUsedPrice;
 
@@ -106,10 +106,6 @@ class Zend_Service_Amazon_OfferSet
         }
         $offers = $xpath->query('./az:Offers/az:Offer', $dom);
         if ($offers->length >= 1) {
-            /**
-             * @see Zend_Service_Amazon_Offer
-             */
-            require_once 'Zend/Service/Amazon/Offer.php';
             foreach ($offers as $offer) {
                 $this->Offers[] = new Zend_Service_Amazon_Offer($offer);
             }

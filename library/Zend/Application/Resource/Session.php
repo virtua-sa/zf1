@@ -21,12 +21,6 @@
  */
 
 /**
- * @see Zend_Application_Resource_ResourceAbstract
- */
-require_once 'Zend/Application/Resource/ResourceAbstract.php';
-
-
-/**
  * Resource for setting session options
  *
  * @uses       Zend_Application_Resource_ResourceAbstract
@@ -41,7 +35,7 @@ class Zend_Application_Resource_Session extends Zend_Application_Resource_Resour
     /**
      * Save handler to use
      *
-     * @var Zend_Session_SaveHandler_Interface
+     * @var array|string|Zend_Session_SaveHandler_Interface
      */
     protected $_saveHandler = null;
 

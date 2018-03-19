@@ -19,12 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Mobile_Push_Message_Abstract **/
-require_once 'Zend/Mobile/Push/Message/Abstract.php';
-
-/** Zend_Uri **/
-require_once 'Zend/Uri.php';
-
 /**
  * Mpns Message
  *

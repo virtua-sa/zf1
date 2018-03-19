@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_View_Helper_Abstract.php */
-require_once 'Zend/View/Helper/Abstract.php';
-
 /**
  * Helper for declaring default values of template variables
  *
@@ -60,7 +57,7 @@ class Zend_View_Helper_DeclareVars extends Zend_View_Helper_Abstract
      * );
      * </code>
      *
-     * @param string|array variable number of arguments, all string names of variables to test
+     * @param string|array ...$args variable number of arguments, all string names of variables to test
      * @return void
      */
     public function declareVars()

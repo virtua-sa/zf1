@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Http_Client */
-require_once 'Zend/Http/Client.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
@@ -43,7 +40,7 @@ class Zend_Oauth
     /**
      * Singleton instance if required of the HTTP client
      *
-     * @var Zend_Http_Client
+     * @var Zend_Http_Client|null
      */
     protected static $httpClient = null;
 

@@ -206,7 +206,7 @@ class Zend_Form_ElementTest extends PHPUnit\Framework\TestCase
 
     public function checkFilterValues($item, $key)
     {
-        $this->assertRegexp('/^[A-Z]+$/', $item);
+        $this->assertRegExp('/^[A-Z]+$/', $item);
     }
 
     public function testRetrievingArrayValueFiltersAllArrayValues()
@@ -1400,7 +1400,7 @@ class Zend_Form_ElementTest extends PHPUnit\Framework\TestCase
             $decorator,
         ));
         $html = $this->element->render($this->getView());
-        $this->assertRegexp('#<tr><td>Foo</td><td>.*?<input[^>]+>.*?</td><td>sample description</td></tr>#s', $html, $html);
+        $this->assertRegExp('#<tr><td>Foo</td><td>.*?<input[^>]+>.*?</td><td>sample description</td></tr>#s', $html, $html);
     }
 
     public function testCanRetrieveSingleDecoratorRegisteredAsDecoratorObjectUsingShortName()
@@ -1583,7 +1583,7 @@ class Zend_Form_ElementTest extends PHPUnit\Framework\TestCase
         $this->assertInternalType('string', $html);
         $this->assertNotEmpty($html);
         $this->assertContains('error', $html);
-        $this->assertRegexp('/empty/i', $html);
+        $this->assertRegExp('/empty/i', $html);
     }
 
     public function testToStringProxiesToRender()
@@ -1971,7 +1971,7 @@ class Zend_Form_ElementTest extends PHPUnit\Framework\TestCase
         $this->assertNotContains('<label', $html);
 
         $html = $this->element->renderLabel('this is the content');
-        $this->assertRegexp('#<label[^>]*for="' . $this->element->getFullyQualifiedName() . '"[^>]*>Foo Label</label>#', $html);
+        $this->assertRegExp('#<label[^>]*for="' . $this->element->getFullyQualifiedName() . '"[^>]*>Foo Label</label>#', $html);
         $this->assertContains('this is the content', $html);
         $this->assertNotContains('<input', $html);
     }

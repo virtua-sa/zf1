@@ -22,36 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Kind_EventEntry
- */
-require_once 'Zend/Gdata/Kind/EventEntry.php';
-
-/**
- * @see Zend_Gdata_Calendar_Extension_SendEventNotifications
- */
-require_once 'Zend/Gdata/Calendar/Extension/SendEventNotifications.php';
-
-/**
- * @see Zend_Gdata_Calendar_Extension_Timezone
- */
-require_once 'Zend/Gdata/Calendar/Extension/Timezone.php';
-
-/**
- * @see Zend_Gdata_Calendar_Extension_Link
- */
-require_once 'Zend/Gdata/Calendar/Extension/Link.php';
-
-/**
- * @see Zend_Gdata_Calendar_Extension_QuickAdd
- */
-require_once 'Zend/Gdata/Calendar/Extension/QuickAdd.php';
-
-/**
  * Data model class for a Google Calendar Event Entry
  *
  * @category   Zend
@@ -138,7 +108,7 @@ class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
 
     /**
      * @param Zend_Gdata_Calendar_Extension_Timezone $value
-     * @return Zend_Gdata_Extension_EventEntry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setTimezone($value)
     {
@@ -153,7 +123,7 @@ class Zend_Gdata_Calendar_EventEntry extends Zend_Gdata_Kind_EventEntry
 
     /**
      * @param Zend_Gdata_Calendar_Extension_QuickAdd $value
-     * @return Zend_Gdata_Extension_ListEntry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setQuickAdd($value)
     {

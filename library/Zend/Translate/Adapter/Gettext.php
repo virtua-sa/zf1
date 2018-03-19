@@ -19,12 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Locale */
-require_once 'Zend/Locale.php';
-
-/** Zend_Translate_Adapter */
-require_once 'Zend/Translate/Adapter.php';
-
 /**
  * @category   Zend
  * @package    Zend_Translate
@@ -58,7 +52,7 @@ class Zend_Translate_Adapter_Gettext extends Zend_Translate_Adapter {
      * @param  string  $filename  MO file to add, full path must be given for access
      * @param  string  $locale    New Locale/Language to set, identical with locale identifier,
      *                            see Zend_Locale for more information
-     * @param  array   $option    OPTIONAL Options to use
+     * @param  array   $options   OPTIONAL Options to use
      * @throws Zend_Translation_Exception
      * @return array
      */
@@ -68,12 +62,10 @@ class Zend_Translate_Adapter_Gettext extends Zend_Translate_Adapter {
         $this->_bigEndian = false;
         $this->_file      = @fopen($filename, 'rb');
         if (!$this->_file) {
-            require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('Error opening translation file \'' . $filename . '\'.');
         }
         if (@filesize($filename) < 10) {
             @fclose($this->_file);
-            require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('\'' . $filename . '\' is not a gettext file');
         }
 
@@ -85,7 +77,6 @@ class Zend_Translate_Adapter_Gettext extends Zend_Translate_Adapter {
             $this->_bigEndian = true;
         } else {
             @fclose($this->_file);
-            require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('\'' . $filename . '\' is not a gettext file');
         }
         // read revision - not supported for now
@@ -133,7 +124,7 @@ class Zend_Translate_Adapter_Gettext extends Zend_Translate_Adapter {
                 }
             }
         }
-        
+
         @fclose($this->_file);
 
         $this->_data[$locale][''] = trim($this->_data[$locale]['']);

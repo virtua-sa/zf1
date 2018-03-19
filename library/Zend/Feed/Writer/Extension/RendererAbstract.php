@@ -19,11 +19,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Feed_Writer_Extension_RendererInterface
- */
-require_once 'Zend/Feed/Writer/Extension/RendererInterface.php';
-
  /**
  * @category   Zend
  * @package    Zend_Feed_Writer
@@ -96,7 +91,7 @@ abstract class Zend_Feed_Writer_Extension_RendererAbstract
     /**
      * Get feed encoding
      *
-     * @return void
+     * @return string
      */
     public function getEncoding()
     {

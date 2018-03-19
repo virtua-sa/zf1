@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_CodeGenerator_Php_Abstract
- */
-require_once 'Zend/CodeGenerator/Php/Abstract.php';
-
-/**
- * @see Zend_CodeGenerator_Php_Abstract
- */
-require_once 'Zend/CodeGenerator/Php/Docblock.php';
-
-/**
  * @category   Zend
  * @package    Zend_CodeGenerator
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -68,7 +58,7 @@ abstract class Zend_CodeGenerator_Php_Member_Abstract extends Zend_CodeGenerator
     protected $_isStatic   = false;
 
     /**
-     * @var const
+     * @var string
      */
     protected $_visibility = self::VISIBILITY_PUBLIC;
 
@@ -81,7 +71,7 @@ abstract class Zend_CodeGenerator_Php_Member_Abstract extends Zend_CodeGenerator
      * setDocblock() Set the docblock
      *
      * @param Zend_CodeGenerator_Php_Docblock|array|string $docblock
-     * @return Zend_CodeGenerator_Php_File
+     * @return $this
      */
     public function setDocblock($docblock)
     {
@@ -92,7 +82,6 @@ abstract class Zend_CodeGenerator_Php_Member_Abstract extends Zend_CodeGenerator
         if (is_array($docblock)) {
             $docblock = new Zend_CodeGenerator_Php_Docblock($docblock);
         } elseif (!$docblock instanceof Zend_CodeGenerator_Php_Docblock) {
-            require_once 'Zend/CodeGenerator/Php/Exception.php';
             throw new Zend_CodeGenerator_Php_Exception('setDocblock() is expecting either a string, array or an instance of Zend_CodeGenerator_Php_Docblock');
         }
 
@@ -179,7 +168,7 @@ abstract class Zend_CodeGenerator_Php_Member_Abstract extends Zend_CodeGenerator
     /**
      * setVisitibility()
      *
-     * @param const $visibility
+     * @param string $visibility
      * @return Zend_CodeGenerator_Php_Member_Abstract
      */
     public function setVisibility($visibility)
@@ -191,7 +180,7 @@ abstract class Zend_CodeGenerator_Php_Member_Abstract extends Zend_CodeGenerator
     /**
      * getVisibility()
      *
-     * @return const
+     * @return string
      */
     public function getVisibility()
     {

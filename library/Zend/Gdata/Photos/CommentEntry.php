@@ -22,31 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_Id
- */
-require_once 'Zend/Gdata/Photos/Extension/Id.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_PhotoId
- */
-require_once 'Zend/Gdata/Photos/Extension/PhotoId.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_Weight
- */
-require_once 'Zend/Gdata/Photos/Extension/Weight.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Category
- */
-require_once 'Zend/Gdata/App/Extension/Category.php';
-
-/**
  * Data model class for a Comment Entry.
  *
  * To transfer user entries to and from the servers, including
@@ -69,7 +44,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
     /**
      * gphoto:id element
      *
-     * @var Zend_Gdata_Photos_Extension_Id
+     * @var Zend_Gdata_Photos_Extension_Id|string|null
      */
     protected $_gphotoId = null;
 
@@ -78,7 +53,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
      * actual identification number unique exclusively to photo entries,
      * whereas gphoto:id can refer to all gphoto objects
      *
-     * @var Zend_Gdata_Photos_Extension_PhotoId
+     * @var Zend_Gdata_Photos_Extension_PhotoId|string|null
      */
     protected $_gphotoPhotoId = null;
 
@@ -151,7 +126,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:photoid attribute.
      *
      * @see setGphotoPhotoId
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_PhotoId|string|null The requested attribute.
      */
     public function getGphotoPhotoId()
     {
@@ -162,7 +137,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:photoid attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_PhotoId The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoPhotoId($value)
     {
@@ -174,7 +149,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:id attribute.
      *
      * @see setGphotoId
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_Id|string|null The requested attribute.
      */
     public function getGphotoId()
     {
@@ -185,7 +160,7 @@ class Zend_Gdata_Photos_CommentEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:id attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Id The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoId($value)
     {

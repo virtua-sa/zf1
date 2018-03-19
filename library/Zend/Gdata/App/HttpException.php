@@ -22,16 +22,6 @@
  */
 
 /**
- * Zend_Gdata_App_Exception
- */
-require_once 'Zend/Gdata/App/Exception.php';
-
-/**
- * Zend_Http_Client_Exception
- */
-require_once 'Zend/Http/Client/Exception.php';
-
-/**
  * Gdata exceptions
  *
  * Class to represent exceptions that occur during Gdata operations.
@@ -52,8 +42,8 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
      * Create a new Zend_Gdata_App_HttpException
      *
      * @param  string $message Optionally set a message
-     * @param Zend_Http_Client_Exception Optionally pass in a Zend_Http_Client_Exception
-     * @param Zend_Http_Response Optionally pass in a Zend_Http_Response
+     * @param Zend_Http_Client_Exception $e Optionally pass in a Zend_Http_Client_Exception
+     * @param Zend_Http_Response $response Optionally pass in a Zend_Http_Response
      */
     public function __construct($message = null, $e = null, $response = null)
     {
@@ -107,7 +97,7 @@ class Zend_Gdata_App_HttpException extends Zend_Gdata_App_Exception
     /**
      * Get the body of the Zend_Http_Response
      *
-     * @return string
+     * @return string|null
      */
     public function getRawResponseBody()
     {

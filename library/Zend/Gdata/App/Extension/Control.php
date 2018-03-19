@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Extension
- */
-require_once 'Zend/Gdata/App/Extension.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Draft
- */
-require_once 'Zend/Gdata/App/Extension/Draft.php';
-
-/**
  * Represents the app:control element
  *
  * @category   Zend
@@ -87,7 +77,7 @@ class Zend_Gdata_App_Extension_Control extends Zend_Gdata_App_Extension
 
     /**
      * @param Zend_Gdata_App_Extension_Draft $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setDraft($value)
     {

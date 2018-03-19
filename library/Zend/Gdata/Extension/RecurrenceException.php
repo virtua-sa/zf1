@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Extension_EntryLink
- */
-require_once 'Zend/Gdata/Extension/EntryLink.php';
-
-/**
- * @see Zend_Gdata_Extension_OriginalEvent
- */
-require_once 'Zend/Gdata/Extension/OriginalEvent.php';
-
-/**
  * Data model class to represent an entry's recurrenceException
  *
  * @category   Zend
@@ -56,8 +41,8 @@ class Zend_Gdata_Extension_RecurrenceException extends Zend_Gdata_Extension
     /**
      * Constructs a new Zend_Gdata_Extension_RecurrenceException object.
      * @param bool $specialized (optional) Whether this is a specialized exception or not.
-     * @param Zend_Gdata_EntryLink (optional) An Event entry with details about the exception.
-     * @param Zend_Gdata_OriginalEvent (optional) The origianl recurrent event this is an exeption to.
+     * @param Zend_Gdata_Extension_EntryLink $entryLink (optional) An Event entry with details about the exception.
+     * @param Zend_Gdata_Extension_OriginalEvent $originalEvent (optional) The origianl recurrent event this is an exeption to.
      */
     public function __construct($specialized = null, $entryLink = null,
             $originalEvent = null)

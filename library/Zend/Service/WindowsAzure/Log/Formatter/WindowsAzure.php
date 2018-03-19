@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Log_Formatter_Interface
- */
-require_once 'Zend/Log/Formatter/Interface.php';
-
-/**
- * @see Zend_Service_WindowsAzure_Storage_DynamicTableEntity
- */
-require_once 'Zend/Service/WindowsAzure/Storage/DynamicTableEntity.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Log

@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -35,7 +30,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Callback in a call_user_func format
      *
-     * @var string|array
+     * @var callable
      */
     protected $_callback = null;
 
@@ -49,7 +44,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Constructor
      *
-     * @param string|array $callback Callback in a call_user_func format
+     * @param array|Zend_Config $options
      * @param mixed        $options  (Optional) Default options for this filter
      */
     public function __construct($options)
@@ -67,7 +62,6 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
         }
 
         if (!array_key_exists('callback', $options)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('Missing callback to use');
         }
 
@@ -80,7 +74,7 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Returns the set callback
      *
-     * @return string|array Set callback
+     * @return callable Set callback
      */
     public function getCallback()
     {
@@ -90,13 +84,12 @@ class Zend_Filter_Callback implements Zend_Filter_Interface
     /**
      * Sets a new callback for this filter
      *
-     * @param unknown_type $callback
-     * @return unknown
+     * @param callable $callback
+     * @return $this
      */
     public function setCallback($callback, $options = null)
     {
         if (!is_callable($callback)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('Callback can not be accessed');
         }
 

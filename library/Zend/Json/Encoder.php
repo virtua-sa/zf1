@@ -122,7 +122,6 @@ class Zend_Json_Encoder
                     return '"* RECURSION (' . get_class($value) . ') *"';
 
                 } else {
-                    require_once 'Zend/Json/Exception.php';
                     throw new Zend_Json_Exception(
                         'Cycles not supported in JSON encoding, cycle introduced by '
                         . 'class "' . get_class($value) . '"'
@@ -186,7 +185,7 @@ class Zend_Json_Encoder
      * the last index is (count($array) -1); any deviation from that is
      * considered an associative array, and will be encoded as such.
      *
-     * @param array& $array
+     * @param array $array
      * @return string
      */
     protected function _encodeArray(&$array)
@@ -226,7 +225,7 @@ class Zend_Json_Encoder
      * If value type is not a string, number, boolean, or null, the string
      * 'null' is returned.
      *
-     * @param mixed& $value
+     * @param mixed $value
      * @return string
      */
     protected function _encodeDatum(&$value)
@@ -249,7 +248,7 @@ class Zend_Json_Encoder
     /**
      * JSON encode a string value by escaping characters as necessary
      *
-     * @param string& $value
+     * @param string $string
      * @return string
      */
     protected function _encodeString(&$string)
@@ -406,7 +405,6 @@ class Zend_Json_Encoder
     {
         $cls = new ReflectionClass($className);
         if (! $cls->isInstantiable()) {
-            require_once 'Zend/Json/Exception.php';
             throw new Zend_Json_Exception("$className must be instantiable");
         }
 

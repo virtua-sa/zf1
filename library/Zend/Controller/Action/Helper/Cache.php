@@ -20,25 +20,11 @@
  */
 
 /**
- * @see Zend_Controller_Action_Helper_Abstract
- */
-require_once 'Zend/Controller/Action/Helper/Abstract.php';
-
-/**
- * @see Zend_Controller_Action_Exception
- */
-require_once 'Zend/Controller/Action/Exception.php';
-
-/**
- * @see Zend_Cache_Manager
- */
-require_once 'Zend/Cache/Manager.php';
-
-/**
  * @category   Zend
  * @package    Zend_Controller
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method Zend_Cache_Core getCache(string $name)
  */
 class Zend_Controller_Action_Helper_Cache
     extends Zend_Controller_Action_Helper_Abstract
@@ -217,7 +203,7 @@ class Zend_Controller_Action_Helper_Cache
      * Set an instance of the Cache Manager for this helper
      *
      * @param Zend_Cache_Manager $manager
-     * @return void
+     * @return $this
      */
     public function setManager(Zend_Cache_Manager $manager)
     {

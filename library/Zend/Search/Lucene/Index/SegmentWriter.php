@@ -21,15 +21,6 @@
  */
 
 
-/** Zend_Search_Lucene_Index_FieldInfo */
-require_once 'Zend/Search/Lucene/Index/FieldInfo.php';
-
-/** Zend_Search_Lucene_Index_Term */
-require_once 'Zend/Search/Lucene/Index/Term.php';
-
-/** Zend_Search_Lucene_Index_TermInfo */
-require_once 'Zend/Search/Lucene/Index/TermInfo.php';
-
 /**
  * @category   Zend
  * @package    Zend_Search_Lucene
@@ -102,7 +93,7 @@ abstract class Zend_Search_Lucene_Index_SegmentWriter
      * List of the index files.
      * Used for automatic compound file generation
      *
-     * @var unknown_type
+     * @var array
      */
     protected $_files = array();
 
@@ -314,28 +305,28 @@ abstract class Zend_Search_Lucene_Index_SegmentWriter
     /**
      * Term Dictionary file
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_tisFile = null;
 
     /**
      * Term Dictionary index file
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_tiiFile = null;
 
     /**
      * Frequencies file
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_frqFile = null;
 
     /**
      * Positions file
      *
-     * @var Zend_Search_Lucene_Storage_File
+     * @var Zend_Search_Lucene_Storage_File|null
      */
     private $_prxFile = null;
 
@@ -350,28 +341,28 @@ abstract class Zend_Search_Lucene_Index_SegmentWriter
     /**
      * Last saved term
      *
-     * @var Zend_Search_Lucene_Index_Term
+     * @var Zend_Search_Lucene_Index_Term|null
      */
     private $_prevTerm;
 
     /**
      * Last saved term info
      *
-     * @var Zend_Search_Lucene_Index_TermInfo
+     * @var Zend_Search_Lucene_Index_TermInfo|null
      */
     private $_prevTermInfo;
 
     /**
      * Last saved index term
      *
-     * @var Zend_Search_Lucene_Index_Term
+     * @var Zend_Search_Lucene_Index_Term|null
      */
     private $_prevIndexTerm;
 
     /**
      * Last saved index term info
      *
-     * @var Zend_Search_Lucene_Index_TermInfo
+     * @var Zend_Search_Lucene_Index_TermInfo|null
      */
     private $_prevIndexTermInfo;
 

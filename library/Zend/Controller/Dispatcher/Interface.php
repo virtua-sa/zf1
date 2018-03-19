@@ -21,16 +21,6 @@
  */
 
 /**
- * Zend_Controller_Request_Abstract
- */
-require_once 'Zend/Controller/Request/Abstract.php';
-
-/**
- * Zend_Controller_Response_Abstract
- */
-require_once 'Zend/Controller/Response/Abstract.php';
-
-/**
  * @package    Zend_Controller
  * @subpackage Dispatcher
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -118,7 +108,7 @@ interface Zend_Controller_Dispatcher_Interface
      * only that parameter; if an array of parameter names is provided, clears
      * each.
      *
-     * @param null|string|array single key or array of keys for params to clear
+     * @param null|string|array $name single key or array of keys for params to clear
      * @return Zend_Controller_Dispatcher_Interface
      */
     public function clearParams($name = null);
@@ -153,7 +143,7 @@ interface Zend_Controller_Dispatcher_Interface
      * Specify a string or an array; if an array is specified, all paths will be
      * added.
      *
-     * @param string|array $dir
+     * @param string|array $path
      * @return Zend_Controller_Dispatcher_Interface
      */
     public function setControllerDirectory($path);

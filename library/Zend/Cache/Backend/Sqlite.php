@@ -22,16 +22,6 @@
 
 
 /**
- * @see Zend_Cache_Backend_Interface
- */
-require_once 'Zend/Cache/Backend/ExtendedInterface.php';
-
-/**
- * @see Zend_Cache_Backend
- */
-require_once 'Zend/Cache/Backend.php';
-
-/**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -390,7 +380,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
      * - mtime : timestamp of last modification time
      *
      * @param string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return array|false array of metadatas (false if the cache id is not found)
      */
     public function getMetadatas($id)
     {

@@ -18,7 +18,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Stdlib/CallbackHandler.php';
 
 /**
  * Interface for messengers
@@ -40,11 +39,11 @@ interface Zend_EventManager_EventCollection
      * - Passing event name, target, and array|ArrayAccess of arguments
      *
      * Can emulate triggerUntil() if the last argument provided is a callback.
-     * 
-     * @param  string $event 
-     * @param  object|string $target 
-     * @param  array|object $argv 
-     * @param  null|callback $callback 
+     *
+     * @param  string $event
+     * @param  object|string $target
+     * @param  array|object $argv
+     * @param  null|callable $callback
      * @return Zend_EventManager_ResponseCollection
      */
     public function trigger($event, $target = null, $argv = array(), $callback = null);
@@ -57,20 +56,20 @@ interface Zend_EventManager_EventCollection
      * - Passing event name, Event object, and callback only
      * - Passing event name, target, Event object, and callback
      * - Passing event name, target, array|ArrayAccess of arguments, and callback
-     * 
-     * @param  string $event 
-     * @param  object|string $target 
-     * @param  array|object $argv 
-     * @param  callback $callback 
+     *
+     * @param  string $event
+     * @param  object|string $target
+     * @param  array|object $argv
+     * @param  callable $callback
      * @return Zend_EventManager_ResponseCollection
      */
     public function triggerUntil($event, $target, $argv = null, $callback = null);
 
     /**
      * Attach a listener to an event
-     * 
-     * @param  string $event 
-     * @param  callback $callback
+     *
+     * @param  string $event
+     * @param  callable $callback
      * @param  int $priority Priority at which to register listener
      * @return Zend_Stdlib_CallbackHandler
      */
@@ -78,31 +77,31 @@ interface Zend_EventManager_EventCollection
 
     /**
      * Detach an event listener
-     * 
-     * @param  Zend_Stdlib_CallbackHandler|Zend_EventManager_ListenerAggregate $listener 
-     * @return void
+     *
+     * @param  Zend_Stdlib_CallbackHandler|Zend_EventManager_ListenerAggregate $listener
+     * @return bool
      */
     public function detach($listener);
 
     /**
      * Get a list of events for which this collection has listeners
-     * 
+     *
      * @return array
      */
     public function getEvents();
 
     /**
      * Retrieve a list of listeners registered to a given event
-     * 
-     * @param  string $event 
-     * @return array|object
+     *
+     * @param  string $event
+     * @return Zend_Stdlib_PriorityQueue
      */
     public function getListeners($event);
 
     /**
      * Clear all listeners for a given event
-     * 
-     * @param  string $event 
+     *
+     * @param  string $event
      * @return void
      */
     public function clearListeners($event);

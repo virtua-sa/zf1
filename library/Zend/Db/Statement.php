@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Db
- */
-require_once 'Zend/Db.php';
-
-/**
- * @see Zend_Db_Statement_Interface
- */
-require_once 'Zend/Db/Statement/Interface.php';
-
-/**
  * Abstract class to emulate a PDOStatement for native database adapters.
  *
  * @category   Zend
@@ -95,7 +85,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
     protected $_sqlParam = array();
 
     /**
-     * @var Zend_Db_Profiler_Query
+     * @var int|null
      */
     protected $_queryId = null;
 
@@ -145,18 +135,10 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
         foreach ($this->_sqlSplit as $key => $val) {
             if ($val == '?') {
                 if ($this->_adapter->supportsParameters('positional') === false) {
-                    /**
-                     * @see Zend_Db_Statement_Exception
-                     */
-                    require_once 'Zend/Db/Statement/Exception.php';
                     throw new Zend_Db_Statement_Exception("Invalid bind-variable position '$val'");
                 }
             } else if ($val[0] == ':') {
                 if ($this->_adapter->supportsParameters('named') === false) {
-                    /**
-                     * @see Zend_Db_Statement_Exception
-                     */
-                    require_once 'Zend/Db/Statement/Exception.php';
                     throw new Zend_Db_Statement_Exception("Invalid bind-variable name '$val'");
                 }
             }
@@ -180,7 +162,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
         // get the character for value quoting
         // this should be '
         $q = $this->_adapter->quote('a');
-        $q = $q[0];        
+        $q = $q[0];
         // get the value used as an escaped quote,
         // e.g. \' or ''
         $qe = $this->_adapter->quote($q);
@@ -193,7 +175,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
             // this segfaults only after 65,000 characters instead of 9,000
             $sql = preg_replace("/$q([^$q{$escapeChar}]*|($qe)*)*$q/s", '', $sql);
         }
-        
+
         // get a version of the SQL statement with all quoted
         // values and delimited identifiers stripped out
         // remove "foo\"bar"
@@ -241,10 +223,6 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
     public function bindParam($parameter, &$variable, $type = null, $length = null, $options = null)
     {
         if (!is_int($parameter) && !is_string($parameter)) {
-            /**
-             * @see Zend_Db_Statement_Exception
-             */
-            require_once 'Zend/Db/Statement/Exception.php';
             throw new Zend_Db_Statement_Exception('Invalid bind-variable position');
         }
 
@@ -263,10 +241,6 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
         }
 
         if ($position === null) {
-            /**
-             * @see Zend_Db_Statement_Exception
-             */
-            require_once 'Zend/Db/Statement/Exception.php';
             throw new Zend_Db_Statement_Exception("Invalid bind-variable position '$parameter'");
         }
 
@@ -356,7 +330,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
      * Returns a single column from the next row of a result set.
      *
      * @param int $col OPTIONAL Position of the column to fetch.
-     * @return string One value from the next row of result set, or false.
+     * @return string|false One value from the next row of result set, or false.
      */
     public function fetchColumn($col = 0)
     {
@@ -433,10 +407,6 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
             case Zend_Db::FETCH_BOUND:
             default:
                 $this->closeCursor();
-                /**
-                 * @see Zend_Db_Statement_Exception
-                 */
-                require_once 'Zend/Db/Statement/Exception.php';
                 throw new Zend_Db_Statement_Exception('invalid fetch mode');
                 break;
         }
@@ -479,7 +449,7 @@ abstract class Zend_Db_Statement implements Zend_Db_Statement_Interface
     /**
      * Gets the resource or object setup by the
      * _parse
-     * @return unknown_type
+     * @return resource|object
      */
     public function getDriverStatement()
     {

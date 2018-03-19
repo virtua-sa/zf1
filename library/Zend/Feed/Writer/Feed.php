@@ -19,42 +19,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Date
- */
-require_once 'Zend/Date.php';
-
-/**
- * @see Zend_Date
- */
-require_once 'Zend/Uri.php';
-
-/**
- * @see Zend_Feed_Writer
- */
-require_once 'Zend/Feed/Writer.php';
-
-/**
- * @see Zend_Feed_Writer_Entry
- */
-require_once 'Zend/Feed/Writer/Entry.php';
-
-/**
- * @see Zend_Feed_Writer_Deleted
- */
-require_once 'Zend/Feed/Writer/Deleted.php';
-
-/**
- * @see Zend_Feed_Writer_Renderer_Feed_Atom
- */
-require_once 'Zend/Feed/Writer/Renderer/Feed/Atom.php';
-
-/**
- * @see Zend_Feed_Writer_Renderer_Feed_Rss
- */
-require_once 'Zend/Feed/Writer/Renderer/Feed/Rss.php';
-
-require_once 'Zend/Feed/Writer/Feed/FeedAbstract.php';
 
 /**
  * @category   Zend
@@ -101,7 +65,7 @@ implements Iterator, Countable
      * Appends a Zend_Feed_Writer_Deleted object representing a new entry tombstone
      * to the feed data container's internal group of entries.
      *
-     * @param Zend_Feed_Writer_Deleted $entry
+     * @param Zend_Feed_Writer_Deleted $deleted
      */
     public function addTombstone(Zend_Feed_Writer_Deleted $deleted)
     {
@@ -147,7 +111,6 @@ implements Iterator, Countable
         if (isset($this->_entries[$index])) {
             unset($this->_entries[$index]);
         }
-        require_once 'Zend/Feed/Exception.php';
         throw new Zend_Feed_Exception('Undefined index: ' . $index . '. Entry does not exist.');
     }
 
@@ -162,7 +125,6 @@ implements Iterator, Countable
         if (isset($this->_entries[$index])) {
             return $this->_entries[$index];
         }
-        require_once 'Zend/Feed/Exception.php';
         throw new Zend_Feed_Exception('Undefined index: ' . $index . '. Entry does not exist.');
     }
 
@@ -208,7 +170,7 @@ implements Iterator, Countable
     /**
      * Return the current entry
      *
-     * @return Zend_Feed_Reader_Entry_Interface
+     * @return Zend_Feed_Writer_Entry
      */
     public function current()
     {
@@ -218,7 +180,7 @@ implements Iterator, Countable
     /**
      * Return the current feed key
      *
-     * @return unknown
+     * @return int
      */
     public function key()
     {
@@ -267,7 +229,6 @@ implements Iterator, Countable
         $this->setType(strtolower($type));
         $type = ucfirst($this->getType());
         if ($type !== 'Rss' && $type !== 'Atom') {
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid feed type specified: ' . $type . '.'
             . ' Should be one of "rss" or "atom".');
         }

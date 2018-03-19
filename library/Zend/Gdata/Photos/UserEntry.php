@@ -22,51 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Gapps
- */
-require_once 'Zend/Gdata/Gapps.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_Nickname
- */
-require_once 'Zend/Gdata/Photos/Extension/Nickname.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_Thumbnail
- */
-require_once 'Zend/Gdata/Photos/Extension/Thumbnail.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_QuotaCurrent
- */
-require_once 'Zend/Gdata/Photos/Extension/QuotaCurrent.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_QuotaLimit
- */
-require_once 'Zend/Gdata/Photos/Extension/QuotaLimit.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
- */
-require_once 'Zend/Gdata/Photos/Extension/MaxPhotosPerAlbum.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_User
- */
-require_once 'Zend/Gdata/Photos/Extension/User.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Category
- */
-require_once 'Zend/Gdata/App/Extension/Category.php';
-
-/**
  * Data model class for a User Entry.
  *
  * To transfer user entries to and from the servers, including
@@ -89,42 +44,42 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
     /**
      * gphoto:nickname element
      *
-     * @var Zend_Gdata_Photos_Extension_Nickname
+     * @var Zend_Gdata_Photos_Extension_Nickname|string|null
      */
     protected $_gphotoNickname = null;
 
     /**
      * gphoto:user element
      *
-     * @var Zend_Gdata_Photos_Extension_User
+     * @var Zend_Gdata_Photos_Extension_User|string|null
      */
     protected $_gphotoUser = null;
 
     /**
      * gphoto:thumbnail element
      *
-     * @var Zend_Gdata_Photos_Extension_Thumbnail
+     * @var Zend_Gdata_Photos_Extension_Thumbnail|string|null
      */
     protected $_gphotoThumbnail = null;
 
     /**
      * gphoto:quotalimit element
      *
-     * @var Zend_Gdata_Photos_Extension_QuotaLimit
+     * @var Zend_Gdata_Photos_Extension_QuotaLimit|string|null
      */
     protected $_gphotoQuotaLimit = null;
 
     /**
      * gphoto:quotacurrent element
      *
-     * @var Zend_Gdata_Photos_Extension_QuotaCurrent
+     * @var Zend_Gdata_Photos_Extension_QuotaCurrent|string|null
      */
     protected $_gphotoQuotaCurrent = null;
 
     /**
      * gphoto:maxPhotosPerAlbum element
      *
-     * @var Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum
+     * @var Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum|string|null
      */
     protected $_gphotoMaxPhotosPerAlbum = null;
 
@@ -229,7 +184,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:nickname attribute.
      *
      * @see setGphotoNickname
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_Nickname|string|null The requested attribute.
      */
     public function getGphotoNickname()
     {
@@ -240,7 +195,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:nickname attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Nickname The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoNickname($value)
     {
@@ -252,7 +207,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:thumbnail attribute.
      *
      * @see setGphotoThumbnail
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_Thumbnail|string|null The requested attribute.
      */
     public function getGphotoThumbnail()
     {
@@ -263,7 +218,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:thumbnail attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Thumbnail The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoThumbnail($value)
     {
@@ -275,7 +230,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:quotacurrent attribute.
      *
      * @see setGphotoQuotaCurrent
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_QuotaCurrent|string|null The requested attribute.
      */
     public function getGphotoQuotaCurrent()
     {
@@ -286,7 +241,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:quotacurrent attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_QuotaCurrent The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoQuotaCurrent($value)
     {
@@ -298,7 +253,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:quotalimit attribute.
      *
      * @see setGphotoQuotaLimit
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_QuotaLimit|string|null The requested attribute.
      */
     public function getGphotoQuotaLimit()
     {
@@ -309,7 +264,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:quotalimit attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_QuotaLimit The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoQuotaLimit($value)
     {
@@ -321,7 +276,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:maxPhotosPerAlbum attribute.
      *
      * @see setGphotoMaxPhotosPerAlbum
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum|string|null The requested attribute.
      */
     public function getGphotoMaxPhotosPerAlbum()
     {
@@ -332,7 +287,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:maxPhotosPerAlbum attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_MaxPhotosPerAlbum The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoMaxPhotosPerAlbum($value)
     {
@@ -344,7 +299,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Get the value for this element's gphoto:user attribute.
      *
      * @see setGphotoUser
-     * @return string The requested attribute.
+     * @return Zend_Gdata_Photos_Extension_User|string|null The requested attribute.
      */
     public function getGphotoUser()
     {
@@ -355,7 +310,7 @@ class Zend_Gdata_Photos_UserEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:user attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_User The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoUser($value)
     {

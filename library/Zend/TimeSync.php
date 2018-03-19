@@ -21,11 +21,6 @@
  */
 
 /**
- * Zend_Date
- */
-require_once 'Zend/Date.php';
-
-/**
  * @category   Zend
  * @package    Zend_TimeSync
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -49,7 +44,7 @@ class Zend_TimeSync implements IteratorAggregate
     /**
      * Holds a reference to the timeserver that is currently being used
      *
-     * @var object
+     * @var object|false
      */
     protected $_current;
 
@@ -164,7 +159,6 @@ class Zend_TimeSync implements IteratorAggregate
         if (isset($this->_timeservers[$alias]) === true) {
             $this->_current = $this->_timeservers[$alias];
         } else {
-            require_once 'Zend/TimeSync/Exception.php';
             throw new Zend_TimeSync_Exception("'$alias' does not point to valid timeserver");
         }
     }
@@ -185,7 +179,6 @@ class Zend_TimeSync implements IteratorAggregate
         if (isset(Zend_TimeSync::$options[$key]) === true) {
             return Zend_TimeSync::$options[$key];
         } else {
-            require_once 'Zend/TimeSync/Exception.php';
             throw new Zend_TimeSync_Exception("'$key' does not point to valid option");
         }
     }
@@ -204,14 +197,12 @@ class Zend_TimeSync implements IteratorAggregate
             if (isset($this->_current) && $this->_current !== false) {
                 return $this->_current;
             } else {
-                require_once 'Zend/TimeSync/Exception.php';
                 throw new Zend_TimeSync_Exception('there is no timeserver set');
             }
         }
         if (isset($this->_timeservers[$alias]) === true) {
             return $this->_timeservers[$alias];
         } else {
-            require_once 'Zend/TimeSync/Exception.php';
             throw new Zend_TimeSync_Exception("'$alias' does not point to valid timeserver");
         }
     }
@@ -239,7 +230,6 @@ class Zend_TimeSync implements IteratorAggregate
      */
     public function getDate($locale = null)
     {
-        require_once 'Zend/TimeSync/Exception.php';
         foreach ($this->_timeservers as $alias => $server) {
             $this->_current = $server;
             try {
@@ -288,13 +278,11 @@ class Zend_TimeSync implements IteratorAggregate
 
         $protocol = ucfirst(strtolower($protocol));
         if (!in_array($protocol, $this->_allowedSchemes)) {
-            require_once 'Zend/TimeSync/Exception.php';
             throw new Zend_TimeSync_Exception("'$protocol' is not a supported protocol");
         }
 
         $className = 'Zend_TimeSync_' . $protocol;
         if (!class_exists($className)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($className);
         }
         $timeServerObj = new $className($adress, $port);

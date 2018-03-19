@@ -20,7 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Service/Rackspace/Files.php';
 
 class Zend_Service_Rackspace_Files_Container
 {
@@ -39,26 +38,23 @@ class Zend_Service_Rackspace_Files_Container
      * Construct
      *
      * @param Zend_Service_Rackspace_Files $service
-     * @param                              $data
+     * @param array                        $data
      *
      * @throws Zend_Service_Rackspace_Files_Exception
      */
     public function __construct($service, $data)
     {
         if (!($service instanceof Zend_Service_Rackspace_Files)) {
-            require_once 'Zend/Service/Rackspace/Files/Exception.php';
             throw new Zend_Service_Rackspace_Files_Exception(
                 self::ERROR_PARAM_FILE_CONSTRUCT
             );
         }
         if (!is_array($data)) {
-            require_once 'Zend/Service/Rackspace/Files/Exception.php';
             throw new Zend_Service_Rackspace_Files_Exception(
                 self::ERROR_PARAM_ARRAY_CONSTRUCT
             );
         }
         if (!array_key_exists('name', $data)) {
-            require_once 'Zend/Service/Rackspace/Files/Exception.php';
             throw new Zend_Service_Rackspace_Files_Exception(
                 self::ERROR_PARAM_NO_NAME
             );

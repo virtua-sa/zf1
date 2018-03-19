@@ -22,12 +22,6 @@
 
 
 /**
- * Zend_XmlRpc_Exception
- */
-require_once 'Zend/XmlRpc/Exception.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_XmlRpc
  * @subpackage Value

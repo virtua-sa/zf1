@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_Navigation_HelperAbstract
- */
-require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
-
-/**
  * Helper for printing <link> elements
  *
  * @category   Zend
@@ -101,7 +96,7 @@ class Zend_View_Helper_Navigation_Links
      *
      * @see _findRoot()
      *
-     * @var Zend_Navigation_Container
+     * @var Zend_Navigation_Container|null
      */
     protected $_root;
 
@@ -264,13 +259,12 @@ class Zend_View_Helper_Navigation_Links
      * @param  Zend_Navigation_Page $page       page to find relations for
      * @param  string              $rel         relation, "rel" or "rev"
      * @param  string              $type        link type, e.g. 'start', 'next'
-     * @return Zend_Navigaiton_Page|array|null  page(s), or null if not found
+     * @return Zend_Navigation_Page|array|null  page(s), or null if not found
      * @throws Zend_View_Exception              if $rel is not "rel" or "rev"
      */
     public function findRelation(Zend_Navigation_Page $page, $rel, $type)
     {
         if (!in_array($rel, array('rel', 'rev'))) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception(sprintf(
                 'Invalid argument: $rel must be "rel" or "rev"; "%s" given',
                 $rel));
@@ -611,7 +605,7 @@ class Zend_View_Helper_Navigation_Links
      * makes sure finder methods will not traverse above the container given
      * to the render method.
      *
-     * @param  Zend_Navigaiton_Page $page  page to find root for
+     * @param  Zend_Navigation_Page $page  page to find root for
      * @return Zend_Navigation_Container   the root container of the given page
      */
     protected function _findRoot(Zend_Navigation_Page $page)
@@ -709,7 +703,6 @@ class Zend_View_Helper_Navigation_Links
     public function renderLink(Zend_Navigation_Page $page, $attrib, $relation)
     {
         if (!in_array($attrib, array('rel', 'rev'))) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception(sprintf(
                     'Invalid relation attribute "%s", must be "rel" or "rev"',
                     $attrib));

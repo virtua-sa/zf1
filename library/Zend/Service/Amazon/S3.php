@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Abstract
- */
-require_once 'Zend/Service/Amazon/Abstract.php';
-
-/**
- * @see Zend_Crypt_Hmac
- */
-require_once 'Zend/Crypt/Hmac.php';
-
-/**
  * Amazon S3 PHP connection class
  *
  * @category   Zend
@@ -52,7 +42,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     /**
      * Endpoint for the service
      *
-     * @var Zend_Uri_Http
+     * @var Zend_Uri
      */
     protected $_endpoint;
 
@@ -79,10 +69,6 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
             $endpoint = Zend_Uri::factory($endpoint);
         }
         if (!$endpoint->valid()) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception('Invalid endpoint supplied');
         }
         $this->_endpoint = $endpoint;
@@ -92,7 +78,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     /**
      * Get current S3 endpoint
      *
-     * @return Zend_Uri_Http
+     * @return Zend_Uri
      */
     public function getEndpoint()
     {
@@ -123,26 +109,14 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     {
         $len = strlen($bucket);
         if ($len < 3 || $len > 255) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Bucket name \"$bucket\" must be between 3 and 255 characters long");
         }
 
         if (preg_match('/[^a-z0-9\._-]/', $bucket)) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Bucket name \"$bucket\" contains invalid characters");
         }
 
         if (preg_match('/(\d){1,3}\.(\d){1,3}\.(\d){1,3}\.(\d){1,3}/', $bucket)) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Bucket name \"$bucket\" cannot be an IP address");
         }
         return true;
@@ -283,7 +257,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
             );
             $objects = $this->getObjectsByBucket($bucket,$params);
         }
-        
+
         return true;
     }
 
@@ -489,10 +463,6 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     {
         $data = @file_get_contents($path);
         if ($data === false) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Cannot read file $path");
         }
 
@@ -519,10 +489,6 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
     {
         $data = @fopen($path, "rb");
         if ($data === false) {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Cannot open file $path");
         }
 
@@ -592,6 +558,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
      * @param string $destObject    Destination object name
      * @param array  $meta          (OPTIONAL) Metadata to apply to destination object.
      *                              Set to null to retain existing metadata.
+     * @return bool
      */
     public function moveObject($sourceObject, $destObject, $meta = null)
     {
@@ -628,10 +595,6 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
         $headers['Date'] = gmdate(DATE_RFC1123, time());
 
         if(is_resource($data) && $method != 'PUT') {
-            /**
-             * @see Zend_Service_Amazon_S3_Exception
-             */
-            require_once 'Zend/Service/Amazon/S3/Exception.php';
             throw new Zend_Service_Amazon_S3_Exception("Only PUT request supports stream data");
         }
 
@@ -647,7 +610,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
             $pathparts = explode('?',$parts[1]);
             $endpath = $pathparts[0];
             $endpoint->setPath('/'.$endpath);
-            
+
         }
         else {
             $endpoint->setPath('/');
@@ -686,7 +649,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
                  $headers['Content-type'] = self::getMimeType($path);
              }
              $client->setRawData($data, $headers['Content-type']);
-         } 
+         }
          do {
             $retry = false;
 
@@ -716,7 +679,7 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
      *
      * @param  string $method
      * @param  string $path
-     * @param  array &$headers
+     * @param  array $headers
      * @return string
      */
     protected function addSignature($method, $path, &$headers)
@@ -992,10 +955,6 @@ class Zend_Service_Amazon_S3 extends Zend_Service_Amazon_Abstract
      */
     public function registerStreamWrapper($name='s3')
     {
-        /**
-         * @see Zend_Service_Amazon_S3_Stream
-         */
-        require_once 'Zend/Service/Amazon/S3/Stream.php';
 
         stream_register_wrapper($name, 'Zend_Service_Amazon_S3_Stream');
         $this->registerAsClient($name);

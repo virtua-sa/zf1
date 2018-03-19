@@ -43,7 +43,7 @@ class Zend_Gdata_MimeFile
     /**
      * Create a new MimeFile object.
      *
-     * @param string $fileHandle An open file handle to the file being
+     * @param resource $fileHandle An open file handle to the file being
      *               read.
      */
     public function __construct($fileHandle)

@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Exception
- */
-require_once 'Zend/Service/Amazon/Exception.php';
-
-/**
  * The Custom Exception class that allows you to have access to the AWS Error Code.
  *
  * @category   Zend
@@ -38,7 +33,7 @@ class Zend_Service_Amazon_SimpleDb_Page
     /**
      * Page data
      *
-     * @var string
+     * @var mixed
      */
     protected $_data;
 
@@ -52,7 +47,7 @@ class Zend_Service_Amazon_SimpleDb_Page
     /**
      * Constructor
      *
-     * @param string      $data
+     * @param mixed      $data
      * @param string|null $token
      */
     public function __construct($data, $token = null)
@@ -64,7 +59,7 @@ class Zend_Service_Amazon_SimpleDb_Page
     /**
      * Set page data
      *
-     * @param string $data
+     * @param mixed $data
      */
     public function setData($data)
     {
@@ -74,7 +69,7 @@ class Zend_Service_Amazon_SimpleDb_Page
     /**
      * Retrieve page data
      *
-     * @return string
+     * @return mixed
      */
     public function getData()
     {

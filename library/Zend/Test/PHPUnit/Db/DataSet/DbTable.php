@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Db_Table_Abstract
- */
-require_once "Zend/Db/Table/Abstract.php";
-
-/**
  * Use a Zend_Db_Table for assertions with other PHPUnit Database Extension table types.
  *
  * @uses       PHPUnit\DbUnit\DataSet\QueryTable
@@ -50,7 +45,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
     protected $_columns = array();
 
     /**
-     * @var string
+     * @var string|Zend_Db_Select|null
      */
     protected $_where = null;
 
@@ -60,7 +55,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit\DbUnit\DataSet\QueryT
     protected $_orderBy = null;
 
     /**
-     * @var string
+     * @var int|null
      */
     protected $_count = null;
 

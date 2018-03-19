@@ -22,82 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaContent
- */
-require_once 'Zend/Gdata/Media/Extension/MediaContent.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaCategory
- */
-require_once 'Zend/Gdata/Media/Extension/MediaCategory.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaCopyright
- */
-require_once 'Zend/Gdata/Media/Extension/MediaCopyright.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaCredit
- */
-require_once 'Zend/Gdata/Media/Extension/MediaCredit.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaDescription
- */
-require_once 'Zend/Gdata/Media/Extension/MediaDescription.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaHash
- */
-require_once 'Zend/Gdata/Media/Extension/MediaHash.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaKeywords
- */
-require_once 'Zend/Gdata/Media/Extension/MediaKeywords.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaPlayer
- */
-require_once 'Zend/Gdata/Media/Extension/MediaPlayer.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaRating
- */
-require_once 'Zend/Gdata/Media/Extension/MediaRating.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaRestriction
- */
-require_once 'Zend/Gdata/Media/Extension/MediaRestriction.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaText
- */
-require_once 'Zend/Gdata/Media/Extension/MediaText.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaThumbnail
- */
-require_once 'Zend/Gdata/Media/Extension/MediaThumbnail.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaTitle
- */
-require_once 'Zend/Gdata/Media/Extension/MediaTitle.php';
-
-
-/**
  * This class represents the media:group element of Media RSS.
  * It allows the grouping of media:content elements that are
  * different representations of the same content.  When it exists,
@@ -176,7 +100,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     protected $_thumbnail = array();
 
     /**
-     * @var string
+     * @var Zend_Gdata_Media_Extension_MediaTitle
      */
     protected $_title = null;
 
@@ -339,7 +263,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
 
     /**
      * @param array $value
-     * @return Zend_Gdata_Media_MediaGroup Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setContent($value)
     {
@@ -464,8 +388,8 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array $value
-     * @return Zend_Gdata_Media_Extension_MediaGroup Provides a fluent interface
+     * @param Zend_Gdata_Media_Extension_MediaKeywords $value
+     * @return $this Provides a fluent interface
      */
     public function setKeywords($value)
     {
@@ -482,7 +406,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array
+     * @param array $value
      * @return Zend_Gdata_Media_Extension_MediaGroup
      */
     public function setPlayer($value)
@@ -500,7 +424,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array
+     * @param array $value
      * @return Zend_Gdata_Media_Extension_MediaGroup
      */
     public function setRating($value)
@@ -518,7 +442,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array
+     * @param array $value
      * @return Zend_Gdata_Media_Extension_MediaGroup
      */
     public function setRestriction($value)
@@ -536,7 +460,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array
+     * @param array $value
      * @return Zend_Gdata_Media_Extension_MediaGroup
      */
     public function setThumbnail($value)
@@ -554,7 +478,7 @@ class Zend_Gdata_Media_Extension_MediaGroup extends Zend_Gdata_Extension
     }
 
     /**
-     * @param array
+     * @param array $value
      * @return Zend_Gdata_Media_Extension_MediaGroup
      */
     public function setMediaText($value)

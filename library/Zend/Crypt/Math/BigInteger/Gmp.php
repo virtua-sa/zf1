@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Crypt_Math_BigInteger_Interface
- */
-require_once 'Zend/Crypt/Math/BigInteger/Interface.php';
-
-/**
  * Support for arbitrary precision mathematics in PHP.
  *
  * Zend_Crypt_Math_BigInteger_Gmp is a wrapper across the PHP BCMath
@@ -162,7 +157,7 @@ class Zend_Crypt_Math_BigInteger_Gmp implements Zend_Crypt_Math_BigInteger_Inter
     /**
      * Calculate square root
      *
-     * @param $operand
+     * @param string|object|resource $operand
      * @return string
      */
     public function sqrt($operand)

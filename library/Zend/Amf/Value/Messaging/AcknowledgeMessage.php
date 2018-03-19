@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Amf_Value_Messaging_AsyncMessage */
-require_once 'Zend/Amf/Value/Messaging/AsyncMessage.php';
-
 /**
  * This is the type of message returned by the MessageBroker
  * to endpoints after the broker has routed an endpoint's message
@@ -40,7 +37,7 @@ class Zend_Amf_Value_Messaging_AcknowledgeMessage extends Zend_Amf_Value_Messagi
     /**
      * Create a new Acknowledge Message
      *
-     * @param unknown_type $message
+     * @param object $message
      */
     public function __construct($message)
     {
@@ -49,7 +46,7 @@ class Zend_Amf_Value_Messaging_AcknowledgeMessage extends Zend_Amf_Value_Messagi
         $this->messageId   = $this->generateId();
         $this->timestamp   = time().'00';
         $this->timeToLive  = 0;
-        $this->headers     = new STDClass();
+        $this->headers     = new stdClass();
         $this->body        = null;
 
         // correleate the two messages

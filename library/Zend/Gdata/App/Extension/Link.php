@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Data model for representing an atom:link element
  *
  * @category   Zend
@@ -118,7 +113,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setHref($value)
     {
@@ -136,7 +131,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setRel($value)
     {
@@ -154,7 +149,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setType($value)
     {
@@ -172,7 +167,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setHrefLang($value)
     {
@@ -190,7 +185,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setTitle($value)
     {
@@ -208,7 +203,7 @@ class Zend_Gdata_App_Extension_Link extends Zend_Gdata_App_Extension
 
     /**
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setLength($value)
     {

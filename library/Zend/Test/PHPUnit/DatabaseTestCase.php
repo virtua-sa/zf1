@@ -21,31 +21,6 @@
  */
 
 /**
- * @see Zend_Test_PHPUnit_Db_Operation_Truncate
- */
-require_once "Zend/Test/PHPUnit/Db/Operation/Truncate.php";
-
-/**
- * @see Zend_Test_PHPUnit_Db_Operation_Insert
- */
-require_once "Zend/Test/PHPUnit/Db/Operation/Insert.php";
-
-/**
- * @see Zend_Test_PHPUnit_Db_DataSet_DbTableDataSet
- */
-require_once "Zend/Test/PHPUnit/Db/DataSet/DbTableDataSet.php";
-
-/**
- * @see Zend_Test_PHPUnit_Db_DataSet_DbTable
- */
-require_once "Zend/Test/PHPUnit/Db/DataSet/DbTable.php";
-
-/**
- * @see Zend_Test_PHPUnit_Db_DataSet_DbRowset
- */
-require_once "Zend/Test/PHPUnit/Db/DataSet/DbRowset.php";
-
-/**
  * Generic Testcase for Zend Framework related DbUnit Testing with PHPUnit
  *
  * @uses       PHPUnit\DbUnit\TestCase
@@ -136,7 +111,7 @@ abstract class Zend_Test_PHPUnit_DatabaseTestCase extends PHPUnit\DbUnit\TestCas
      * Create a data table based on a Zend_Db_Table_Rowset instance
      *
      * @param  Zend_Db_Table_Rowset_Abstract $rowset
-     * @param  string
+     * @param  string $tableName
      * @return Zend_Test_PHPUnit_Db_DataSet_DbRowset
      */
     protected function createDbRowset(Zend_Db_Table_Rowset_Abstract $rowset, $tableName = null)

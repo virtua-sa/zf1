@@ -21,17 +21,6 @@
  */
 
 /**
- * @see Zend_Cache_Backend_Interface
- */
-require_once 'Zend/Cache/Backend/ExtendedInterface.php';
-
-/**
- * @see Zend_Cache_Backend
- */
-require_once 'Zend/Cache/Backend.php';
-
-
-/**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -400,7 +389,7 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      * - mtime : timestamp of last modification time
      *
      * @param string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return array|false array of metadatas (false if the cache id is not found)
      */
     public function getMetadatas($id)
     {
@@ -914,7 +903,7 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      *
      * @param  string $id Cache id
      * @param  boolean $parts if true, returns array of directory parts instead of single string
-     * @return string Complete directory path
+     * @return string|array Complete directory path
      */
     protected function _path($id, $parts = false)
     {
@@ -979,7 +968,7 @@ class Zend_Cache_Backend_File extends Zend_Cache_Backend implements Zend_Cache_B
      * Return the file content of the given file
      *
      * @param  string $file File complete path
-     * @return string File content (or false if problem)
+     * @return string|false File content (or false if problem)
      */
     protected function _fileGetContents($file)
     {

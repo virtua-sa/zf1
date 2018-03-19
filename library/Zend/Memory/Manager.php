@@ -19,16 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Memory_Container_Movable */
-require_once 'Zend/Memory/Container/Movable.php';
-
-/** Zend_Memory_Container_Locked */
-require_once 'Zend/Memory/Container/Locked.php';
-
-/** Zend_Memory_AccessController */
-require_once 'Zend/Memory/AccessController.php';
-
-
 /**
  * Memory manager
  *
@@ -46,7 +36,7 @@ class Zend_Memory_Manager
     /**
      * Object storage backend
      *
-     * @var Zend_Cache_Backend_Interface
+     * @var Zend_Cache_Backend_Interface|Zend_Cache_Backend
      */
     private $_backend = null;
 
@@ -115,14 +105,14 @@ class Zend_Memory_Manager
      * object.
      * So we have to trace only _first_ object modification and do nothing for others
      *
-     * @var Zend_Memory_Container_Movable
+     * @var Zend_Memory_Container_Movable|null
      */
     private $_lastModified = null;
 
     /**
      * Unique memory manager id
      *
-     * @var integer
+     * @var string
      */
     private $_managerId;
 
@@ -156,7 +146,6 @@ class Zend_Memory_Manager
      * If backend is not specified, then memory objects are never swapped
      *
      * @param Zend_Cache_Backend $backend
-     * @param array $backendOptions associative array of options for the corresponding backend constructor
      */
     public function __construct($backend = null)
     {
@@ -305,7 +294,7 @@ class Zend_Memory_Manager
      *
      * @internal
      * @param integer $id
-     * @return Zend_Memory_Container
+     * @return null
      */
     public function unlink(Zend_Memory_Container_Movable $container, $id)
     {
@@ -313,7 +302,7 @@ class Zend_Memory_Manager
             // Drop all object modifications
             $this->_lastModified = null;
             unset($this->_sizes[$id]);
-            return;
+            return null;
         }
 
         if (isset($this->_unloadCandidates[$id])) {
@@ -407,7 +396,6 @@ class Zend_Memory_Manager
             }
         }
 
-        require_once 'Zend/Memory/Exception.php';
         throw new Zend_Memory_Exception('Memory manager can\'t get enough space.');
     }
 

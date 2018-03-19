@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Exif
- */
-require_once 'Zend/Gdata/Exif.php';
-
-/**
- * @see Zend_Gdata_Exif_Extension_Tags
- */
-require_once 'Zend/Gdata/Exif/Extension/Tags.php';
-
-/**
  * An Atom entry containing EXIF metadata.
  *
  * @category   Zend
@@ -57,7 +42,7 @@ class Zend_Gdata_Exif_Entry extends Zend_Gdata_Entry
     /**
      * The tags that belong to the Exif group.
      *
-     * @var string
+     * @var Zend_Gdata_Exif_Extension_Tags
      */
     protected $_tags = null;
 

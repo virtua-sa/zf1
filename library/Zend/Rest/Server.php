@@ -21,21 +21,6 @@
  */
 
 /**
- * @see Zend_Server_Interface
- */
-require_once 'Zend/Server/Interface.php';
-
-/**
- * @see Zend_Server_Reflection
- */
-require_once 'Zend/Server/Reflection.php';
-
-/**
- * @see Zend_Server_Abstract
- */
-require_once 'Zend/Server/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Rest
  * @subpackage Server
@@ -171,7 +156,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
      *
      * @param  array $request
      * @throws Zend_Rest_Server_Exception
-     * @return string|void
+     * @return string|null
      */
     public function handle($request = false)
     {
@@ -228,7 +213,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
 
                     $result = false;
                     if (count($callingArgs) < count($funcArgs)) {
-                        require_once 'Zend/Rest/Server/Exception.php';
                         $result = $this->fault(
                             new Zend_Rest_Server_Exception(
                                 'Invalid Method Call to ' . $this->_method
@@ -271,7 +255,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
                         }
                     }
                 } else {
-                    require_once "Zend/Rest/Server/Exception.php";
                     $result = $this->fault(
                         new Zend_Rest_Server_Exception(
                             "Unknown Method '$this->_method'."
@@ -280,7 +263,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
                     );
                 }
             } else {
-                require_once "Zend/Rest/Server/Exception.php";
                 $result = $this->fault(
                     new Zend_Rest_Server_Exception(
                         "Unknown Method '$this->_method'."
@@ -289,7 +271,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
                 );
             }
         } else {
-            require_once "Zend/Rest/Server/Exception.php";
             $result = $this->fault(
                 new Zend_Rest_Server_Exception("No Method Specified."),
                 404
@@ -316,7 +297,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
             }
 
             echo $response;
-            return;
+            return null;
         }
 
         return $response;
@@ -472,7 +453,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
      *
      * Creates XML error response, returning DOMDocument with response.
      *
-     * @param string|Exception $fault Message
+     * @param string|Exception $exception Message
      * @param int $code Error Code
      * @return DOMDocument
      */
@@ -561,7 +542,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
     /**
      * Implement Zend_Server_Interface::addFunction()
      *
-     * @param string $function Function Name
+     * @param string|array $function Function Name
      * @param string $namespace Function namespace (unused)
      */
     public function addFunction($function, $namespace = '')
@@ -574,7 +555,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
             if (is_callable($func) && !in_array($func, self::$magicMethods)) {
                 $this->_functions[$func] = $this->_reflection->reflectFunction($func);
             } else {
-                require_once 'Zend/Rest/Server/Exception.php';
                 throw new Zend_Rest_Server_Exception(
                     "Invalid Method Added to Service."
                 );
@@ -652,7 +632,6 @@ class Zend_Rest_Server implements Zend_Server_Interface
                 $object = $this->_functions[$this->_method]->getDeclaringClass()->newInstance();
             }
         } catch (Exception $e) {
-            require_once 'Zend/Rest/Server/Exception.php';
             throw new Zend_Rest_Server_Exception(
                 'Error instantiating class ' . $class .
                 ' to invoke method '

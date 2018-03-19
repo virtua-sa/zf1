@@ -37,7 +37,7 @@ class Zend_Registry extends ArrayObject
 
     /**
      * Registry object provides storage for shared objects.
-     * @var Zend_Registry
+     * @var Zend_Registry|null
      */
     private static $_registry = null;
 
@@ -66,7 +66,6 @@ class Zend_Registry extends ArrayObject
     public static function setInstance(Zend_Registry $registry)
     {
         if (self::$_registry !== null) {
-            require_once 'Zend/Exception.php';
             throw new Zend_Exception('Registry is already initialized');
         }
 
@@ -97,20 +96,14 @@ class Zend_Registry extends ArrayObject
     public static function setClassName($registryClassName = 'Zend_Registry')
     {
         if (self::$_registry !== null) {
-            require_once 'Zend/Exception.php';
             throw new Zend_Exception('Registry is already initialized');
         }
 
         if (!is_string($registryClassName)) {
-            require_once 'Zend/Exception.php';
             throw new Zend_Exception("Argument is not a class name");
         }
 
-        /**
-         * @see Zend_Loader
-         */
         if (!class_exists($registryClassName)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($registryClassName);
         }
 
@@ -143,7 +136,6 @@ class Zend_Registry extends ArrayObject
         $instance = self::getInstance();
 
         if (!$instance->offsetExists($index)) {
-            require_once 'Zend/Exception.php';
             throw new Zend_Exception("No entry is registered for key '$index'");
         }
 

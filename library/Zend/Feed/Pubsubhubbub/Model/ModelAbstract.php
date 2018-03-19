@@ -20,15 +20,6 @@
  */
 
 
-/** @see Zend_Db_Table */
-require_once 'Zend/Db/Table.php';
-
-/**
- * @see Zend_Registry
- * Seems to fix the file not being included by Zend_Db_Table...
- */
-require_once 'Zend/Registry.php';
-
 /**
  * @category   Zend
  * @package    Zend_Feed_Pubsubhubbub
@@ -40,7 +31,7 @@ class Zend_Feed_Pubsubhubbub_Model_ModelAbstract
     /**
      * Zend_Db_Table instance to host database methods
      *
-     * @var Zend_Db_Table
+     * @var Zend_Db_Table_Abstract
      */
     protected $_db = null;
 

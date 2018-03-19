@@ -20,14 +20,6 @@
  */
 
 /**
- * @see Zend_Ldap_Converter
- */
-require_once 'Zend/Ldap/Converter.php';
-
-/** @see Zend_Crypt_Math */
-require_once 'Zend/Crypt/Math.php';
-
-/**
  * Zend_Ldap_Attribute is a collection of LDAP attribute related functions.
  *
  * @category   Zend
@@ -268,7 +260,7 @@ class Zend_Ldap_Attribute
      * @param  string      $password
      * @param  string      $hashType
      * @param  string|null $attribName
-     * @return null
+     * @return void
      */
     public static function setPassword(array &$data, $password, $hashType = self::PASSWORD_HASH_MD5,
         $attribName = null)
@@ -344,7 +336,7 @@ class Zend_Ldap_Attribute
      * @param  integer|array|Traversable $value
      * @param  boolean                   $utc
      * @param  boolean                   $append
-     * @return null
+     * @return void
      */
     public static function setDateTimeAttribute(array &$data, $attribName, $value, $utc = false,
         $append = false)

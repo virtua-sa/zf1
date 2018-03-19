@@ -21,12 +21,6 @@
  */
 
 /**
- * @see Zend_Application_Resource_ResourceAbstract
- */
-require_once 'Zend/Application/Resource/ResourceAbstract.php';
-
-
-/**
  * Resource for settings Dojo options
  *
  * @uses       Zend_Application_Resource_ResourceAbstract
@@ -57,7 +51,7 @@ class Zend_Application_Resource_Dojo
     /**
      * Retrieve Dojo View Helper
      *
-     * @return Zend_Dojo_View_Dojo_Container
+     * @return Zend_Dojo_View_Helper_Dojo_Container
      */
     public function getDojo()
     {

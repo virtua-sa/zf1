@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Set_Abstract
- */
-require_once 'Zend/Service/Ebay/Finding/Set/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -38,7 +33,7 @@ class Zend_Service_Ebay_Finding_Aspect_Histogram_Value_Set extends Zend_Service_
     /**
      * Implement SeekableIterator::current()
      *
-     * @return Zend_Service_Ebay_Finding_Aspect_Histogram_Value
+     * @return Zend_Service_Ebay_Finding_Aspect_Histogram_Value|null
      */
     public function current()
     {
@@ -48,10 +43,6 @@ class Zend_Service_Ebay_Finding_Aspect_Histogram_Value_Set extends Zend_Service_
             return null;
         }
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Aspect_Histogram_Value
-         */
-        require_once 'Zend/Service/Ebay/Finding/Aspect/Histogram/Value.php';
         return new Zend_Service_Ebay_Finding_Aspect_Histogram_Value($node);
     }
 }

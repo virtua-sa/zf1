@@ -46,7 +46,7 @@ class Zend_Amf_Value_TraitsInfo
     protected $_externalizable;
 
     /**
-     * @var array Class properties
+     * @var array|null Class properties
      */
     protected $_properties;
 
@@ -56,7 +56,7 @@ class Zend_Amf_Value_TraitsInfo
      * @param  string $className
      * @param  boolean $dynamic
      * @param  boolean $externalizable
-     * @param  boolean $properties
+     * @param  array $properties
      * @return void
      */
     public function __construct($className, $dynamic=false, $externalizable=false, $properties=null)

@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth */
-require_once 'Zend/Oauth.php';
-
-/** Zend_Oauth_Http */
-require_once 'Zend/Oauth/Http.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
@@ -109,7 +103,7 @@ class Zend_Oauth_Http_Utility
      * @param  array $params
      * @param  null|string $realm
      * @param  bool $excludeCustomParams
-     * @return void
+     * @return string
      */
     public function toAuthorizationHeader(array $params, $realm = null, $excludeCustomParams = true)
     {
@@ -154,7 +148,6 @@ class Zend_Oauth_Http_Utility
             $className = 'Zend_Oauth_Signature_' . ucfirst(strtolower($signatureMethod));
         }
 
-        require_once str_replace('_', '/', $className) . '.php';
         $signatureObject = new $className($consumerSecret, $tokenSecret, $hashAlgo);
         return $signatureObject->sign($params, $method, $url);
     }

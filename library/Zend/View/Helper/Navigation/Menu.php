@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_Navigation_HelperAbstract
- */
-require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
-
-/**
  * Helper for rendering menus from navigation containers
  *
  * @category   Zend
@@ -113,7 +108,7 @@ class Zend_View_Helper_Navigation_Menu
      * @var string
      */
     protected $_innerIndent = '    ';
-    
+
     /**
      * View helper entry point:
      * Retrieves helper and optionally sets container to operate on
@@ -285,10 +280,10 @@ class Zend_View_Helper_Navigation_Menu
     {
         return $this->_onlyActiveBranch;
     }
-    
+
     /**
      * Sets a flag indicating whether to expand all sibling nodes of the active branch
-     * 
+     *
      * @param  bool $flag                        [optional] expand all siblings of
      *                                           nodes in the active branch. Default is true.
      * @return Zend_View_Helper_Navigation_Menu  fluent interface, returns self
@@ -311,7 +306,7 @@ class Zend_View_Helper_Navigation_Menu
     {
         return $this->_expandSiblingNodesOfActiveBranch;
     }
-    
+
     /**
      * Enables/disables rendering of parents when only rendering active branch
      *
@@ -485,7 +480,7 @@ class Zend_View_Helper_Navigation_Menu
             $element              = 'a';
             $attribs['href']      = $href;
             $attribs['target']    = $page->getTarget();
-            $attribs['accesskey'] = $page->getAccessKey();
+            $attribs['accesskey'] = $page->getAccesskey();
         } else {
             $element = 'span';
         }
@@ -1038,7 +1033,6 @@ class Zend_View_Helper_Navigation_Menu
         }
 
         if (empty($partial)) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception(
                 'Unable to render menu: No partial view script provided'
             );
@@ -1052,7 +1046,6 @@ class Zend_View_Helper_Navigation_Menu
 
         if (is_array($partial)) {
             if (count($partial) != 2) {
-                require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception(
                     'Unable to render menu: A view partial supplied as '
                     .  'an array must contain two values: partial view '

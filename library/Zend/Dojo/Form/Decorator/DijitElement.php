@@ -18,9 +18,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Form_Decorator_ViewHelper */
-require_once 'Zend/Form/Decorator/ViewHelper.php';
-
 /**
  * Zend_Dojo_Form_Decorator_DijitElement
  *
@@ -88,7 +85,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
      *
      * @param  string $key
      * @param  mixed $value
-     * @return Zend_Dojo_Form_Decorator_DijitContainer
+     * @return $this
      */
     public function setDijitParam($key, $value)
     {
@@ -100,7 +97,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
      * Set dijit option parameters
      *
      * @param  array $params
-     * @return Zend_Dojo_Form_Decorator_DijitContainer
+     * @return $this
      */
     public function setDijitParams(array $params)
     {
@@ -152,7 +149,6 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
         $element = $this->getElement();
         $view = $element->getView();
         if (null === $view) {
-            require_once 'Zend/Form/Decorator/Exception.php';
             throw new Zend_Form_Decorator_Exception('DijitElement decorator cannot render without a registered view object');
         }
 

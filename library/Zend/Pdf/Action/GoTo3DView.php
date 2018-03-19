@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Action */
-require_once 'Zend/Pdf/Action.php';
-
-
 /**
  * PDF 'Set the current view of a 3D annotation' action
  * PDF 1.6+ feature

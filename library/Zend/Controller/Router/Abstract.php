@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Controller_Router_Interface */
-require_once 'Zend/Controller/Router/Interface.php';
-
 /**
  * Simple first implementation of a router, to be replaced
  * with rules-based URI processor.
@@ -125,7 +122,7 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
      * only that parameter; if an array of parameter names is provided, clears
      * each.
      *
-     * @param null|string|array single key or array of keys for params to clear
+     * @param null|string|array $name single key or array of keys for params to clear
      * @return Zend_Controller_Router_Abstract
      */
     public function clearParams($name = null)
@@ -157,7 +154,6 @@ abstract class Zend_Controller_Router_Abstract implements Zend_Controller_Router
             return $this->_frontController;
         }
 
-        require_once 'Zend/Controller/Front.php';
         $this->_frontController = Zend_Controller_Front::getInstance();
 
         return $this->_frontController;

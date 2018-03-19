@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Framework_Provider_Signature
- */
-require_once 'Zend/Tool/Framework/Provider/Signature.php';
-
-/**
- * @see Zend_Tool_Framework_Registry_EnabledInterface
- */
-require_once 'Zend/Tool/Framework/Registry/EnabledInterface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -41,7 +31,7 @@ class Zend_Tool_Framework_Provider_Repository
 {
 
     /**
-     * @var Zend_Tool_Framework_Registry
+     * @var Zend_Tool_Framework_Registry_Interface|null
      */
     protected $_registry = null;
 
@@ -69,7 +59,7 @@ class Zend_Tool_Framework_Provider_Repository
      * setRegistry()
      *
      * @param Zend_Tool_Framework_Registry_Interface $registry
-     * @return unknown
+     * @return $this
      */
     public function setRegistry(Zend_Tool_Framework_Registry_Interface $registry)
     {
@@ -80,8 +70,8 @@ class Zend_Tool_Framework_Provider_Repository
     /**
      * Set the ProcessOnAdd flag
      *
-     * @param unknown_type $processOnAdd
-     * @return unknown
+     * @param bool $processOnAdd
+     * @return $this
      */
     public function setProcessOnAdd($processOnAdd = true)
     {
@@ -112,7 +102,6 @@ class Zend_Tool_Framework_Provider_Repository
             (array_key_exists($providerName, $this->_unprocessedProviders)
                 || array_key_exists($providerName, $this->_providers)))
         {
-            require_once 'Zend/Tool/Framework/Provider/Exception.php';
             throw new Zend_Tool_Framework_Provider_Exception('A provider by the name ' . $providerName
                 . ' is already registered and $overrideExistingProvider is set to false.');
         }
@@ -256,7 +245,7 @@ class Zend_Tool_Framework_Provider_Repository
     /**
      * _parseName - internal method to determine the name of an action when one is not explicity provided.
      *
-     * @param Zend_Tool_Framework_Action_Interface $action
+     * @param Zend_Tool_Framework_Provider_Interface $provider
      * @return string
      */
     protected function _parseName(Zend_Tool_Framework_Provider_Interface $provider)

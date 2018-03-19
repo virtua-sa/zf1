@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader
- */
-require_once 'Zend/Feed/Reader.php';
-
-/**
- * @see Zend_feed_Reader_FeedInterface
- */
-require_once 'Zend/Feed/Reader/FeedInterface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -89,10 +79,10 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
     /**
      * Constructor
      *
-     * @param DomDocument The DOM object for the feed's XML
+     * @param DOMDocument $domDocument The DOM object for the feed's XML
      * @param string $type Feed type
      */
-    public function __construct(DomDocument $domDocument, $type = null)
+    public function __construct(DOMDocument $domDocument, $type = null)
     {
         $this->_domDocument = $domDocument;
         $this->_xpath = new DOMXPath($this->_domDocument);
@@ -190,7 +180,7 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
      */
     public function saveXml()
     {
-          return $this->getDomDocument()->saveXml();
+          return $this->getDomDocument()->saveXML();
     }
 
     /**
@@ -226,7 +216,7 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
     /**
      * Return the current feed key
      *
-     * @return unknown
+     * @return int
      */
     public function key()
     {
@@ -273,7 +263,6 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
                 return call_user_func_array(array($extension, $method), $args);
             }
         }
-        require_once 'Zend/Feed/Exception.php';
         throw new Zend_Feed_Exception('Method: ' . $method
         . 'does not exist and could not be located on a registered Extension');
     }
@@ -282,7 +271,7 @@ abstract class Zend_Feed_Reader_FeedAbstract implements Zend_Feed_Reader_FeedInt
      * Return an Extension object with the matching name (postfixed with _Feed)
      *
      * @param string $name
-     * @return Zend_Feed_Reader_Extension_FeedAbstract
+     * @return Zend_Feed_Reader_Extension_FeedAbstract|null
      */
     public function getExtension($name)
     {

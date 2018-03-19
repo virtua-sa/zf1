@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Entity responsible for making the resource available
  *
  * @category   Zend
@@ -45,8 +40,7 @@ class Zend_Gdata_DublinCore_Extension_Publisher extends Zend_Gdata_Extension
      * Constructor for Zend_Gdata_DublinCore_Extension_Publisher which
      * Entity responsible for making the resource available
      *
-     * @param DOMElement $element (optional) DOMElement from which this
-     *          object should be constructed.
+     * @param string $value
      */
     public function __construct($value = null)
     {

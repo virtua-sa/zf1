@@ -100,7 +100,7 @@ class Zend_Gdata_GappsOnlineTest extends PHPUnit\Framework\TestCase
         // Since we can't retrieve the password or hash function via the
         // API, let's see if a ClientLogin auth request succeeds
         try {
-            Zend_Gdata_ClientLogin::getHTTPClient($this->id . '@' .
+            Zend_Gdata_ClientLogin::getHttpClient($this->id . '@' .
                 $this->domain, self::PASSWORD, 'xapi');
         } catch (Zend_Gdata_App_AuthException $e) {
            $this->fail("Unable to authenticate new user via ClientLogin.");

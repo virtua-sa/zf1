@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Log_Filter_Abstract */
-require_once 'Zend/Log/Filter/Abstract.php';
-
 /**
  * @category   Zend
  * @package    Zend_Log
@@ -48,7 +45,6 @@ class Zend_Log_Filter_Message extends Zend_Log_Filter_Abstract
     public function __construct($regexp)
     {
         if (@preg_match($regexp, '') === false) {
-            require_once 'Zend/Log/Exception.php';
             throw new Zend_Log_Exception("Invalid regular expression '$regexp'");
         }
         $this->_regexp = $regexp;

@@ -32,7 +32,7 @@ class Zend_Translate_Plural
     /**
      * Manual rule to use
      *
-     * @var string
+     * @var array
      */
     protected static $_plural = array();
 
@@ -201,7 +201,7 @@ class Zend_Translate_Plural
      *
      * @param string $rule   Callback which acts as rule
      * @param string $locale Locale which is used for this callback
-     * @return null
+     * @return void
      */
     public static function setPlural($rule, $locale)
     {
@@ -215,7 +215,6 @@ class Zend_Translate_Plural
         }
 
         if (!is_callable($rule)) {
-            require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('The given rule can not be called');
         }
 

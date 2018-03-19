@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Mime
- */
-require_once 'Zend/Mime.php';
-
-/**
  * @category   Zend
  * @package    Zend_Mime
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -139,7 +134,7 @@ class Zend_Mime_Decode
                 ), $message
             );
 
-            return;
+            return null;
         }
 
         // find an empty line between headers and body
@@ -168,7 +163,7 @@ class Zend_Mime_Decode
 
         if ($headers === false) {
             // an error occurs during the decoding
-            return;
+            return null;
         }
 
         // normalize header names

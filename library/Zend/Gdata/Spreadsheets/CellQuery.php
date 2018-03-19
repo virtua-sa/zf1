@@ -22,16 +22,6 @@
  */
 
 /**
- * Zend_Gdata_App_util
- */
-require_once('Zend/Gdata/App/Util.php');
-
-/**
- * Zend_Gdata_Query
- */
-require_once('Zend/Gdata/Query.php');
-
-/**
  * Assists in constructing queries for Google Spreadsheets cells
  *
  * @link http://code.google.com/apis/gdata/spreadsheets/
@@ -192,7 +182,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the min-row attribute for this query.
      *
-     * @return string min-row
+     * @return string|null min-row
      */
     public function getMinRow()
     {
@@ -222,7 +212,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the max-row attribute for this query.
      *
-     * @return string max-row
+     * @return string|null max-row
      */
     public function getMaxRow()
     {
@@ -252,7 +242,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the min-col attribute for this query.
      *
-     * @return string min-col
+     * @return string|null min-col
      */
     public function getMinCol()
     {
@@ -282,7 +272,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the max-col attribute for this query.
      *
-     * @return string max-col
+     * @return string|null max-col
      */
     public function getMaxCol()
     {
@@ -312,7 +302,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the range attribute for this query.
      *
-     * @return string range
+     * @return string|null range
      */
     public function getRange()
     {
@@ -344,7 +334,7 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
     /**
      * Gets the return-empty attribute for this query.
      *
-     * @return string return-empty
+     * @return string|null return-empty
      */
     public function getReturnEmpty()
     {
@@ -368,28 +358,24 @@ class Zend_Gdata_Spreadsheets_CellQuery extends Zend_Gdata_Query
             if ($this->_spreadsheetKey != null) {
                 $uri .= '/'.$this->_spreadsheetKey;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('A spreadsheet key must be provided for cell queries.');
             }
 
             if ($this->_worksheetId != null) {
                 $uri .= '/'.$this->_worksheetId;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('A worksheet id must be provided for cell queries.');
             }
 
             if ($this->_visibility != null) {
                 $uri .= '/'.$this->_visibility;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('A visibility must be provided for cell queries.');
             }
 
             if ($this->_projection != null) {
                 $uri .= '/'.$this->_projection;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('A projection must be provided for cell queries.');
             }
 

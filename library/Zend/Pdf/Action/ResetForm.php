@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Action */
-require_once 'Zend/Pdf/Action.php';
-
-
 /**
  * PDF 'Set fields to their default values' action
  * PDF 1.2+ feature

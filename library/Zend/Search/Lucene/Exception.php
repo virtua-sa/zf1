@@ -21,12 +21,6 @@
 
 
 /**
- * Framework base exception
- */
-require_once 'Zend/Search/Exception.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Search_Lucene
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

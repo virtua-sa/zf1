@@ -310,7 +310,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue( $provider->login(self::USER, self::PASSWORD) );
         $this->assertTrue( $provider->allowSite("http://www.test1.com/") );
         $this->assertTrue( $provider->allowSite("http://www.test2.com/", $sreg) );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -321,7 +321,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->denySite("http://www.test3.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -333,7 +333,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->denySite("http://www.test1.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => false,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -345,7 +345,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->denySite("http://www.test2.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => false,
                                'http://www.test2.com/' => false,
                                'http://www.test3.com/' => false
@@ -375,7 +375,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue( $provider->login(self::USER, self::PASSWORD) );
         $this->assertTrue( $provider->allowSite("http://www.test1.com/") );
         $this->assertTrue( $provider->allowSite("http://www.test2.com/", $sreg) );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -386,7 +386,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->delSite("http://www.test3.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -397,7 +397,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->delSite("http://www.test1.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
                                        'nickname' => 'test_id'
@@ -407,7 +407,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $storage->getTrustedSites(self::USER) );
 
         $this->assertTrue( $provider->delSite("http://www.test2.com/") );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                            ),
                            $storage->getTrustedSites(self::USER) );
 
@@ -431,7 +431,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
         $this->assertTrue( $provider->login(self::USER, self::PASSWORD) );
         $this->assertTrue( $provider->allowSite("http://www.test1.com/") );
         $this->assertTrue( $provider->allowSite("http://www.test2.com/", $sreg) );
-        $this->AssertSame( array(
+        $this->assertSame( array(
                                'http://www.test1.com/' => true,
                                'http://www.test2.com/' => array(
                                    'Zend_OpenId_Extension_Sreg' => array(
@@ -442,7 +442,7 @@ class Zend_OpenId_ProviderTest extends PHPUnit\Framework\TestCase
                            $provider->getTrustedSites() );
 
         $this->_user->delLoggedInUser();
-        $this->AssertFalse( $provider->getTrustedSites() );
+        $this->assertFalse( $provider->getTrustedSites() );
 
         $storage->delUser(self::USER);
     }

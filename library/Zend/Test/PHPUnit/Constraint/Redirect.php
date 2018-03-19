@@ -20,7 +20,5 @@
  * @version    $Id$
  */
 
-include(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'Redirect41.php');
-
 class Zend_Test_PHPUnit_Constraint_Redirect extends Zend_Test_PHPUnit_Constraint_Redirect41
 {}

@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Gapps_UserEntry
- */
-require_once 'Zend/Gdata/Gapps/UserEntry.php';
-
-/**
  * Data model for a collection of Google Apps user entries, usually
  * provided by the Google Apps servers.
  *

@@ -21,12 +21,6 @@
  */
 
 /**
- * Zend_XmlRpc_Fault
- */
-require_once 'Zend/XmlRpc/Fault.php';
-
-
-/**
  * XMLRPC Server Faults
  *
  * Encapsulates an exception for use as an XMLRPC fault response. Valid

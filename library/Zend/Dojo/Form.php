@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Form */
-require_once 'Zend/Form.php';
-
 /**
  * Dijit-enabled Form
  *
@@ -75,7 +72,7 @@ class Zend_Dojo_Form extends Zend_Form
      * Ensures that the view object has the dojo view helper path set.
      *
      * @param  Zend_View_Interface $view
-     * @return Zend_Dojo_Form_Element_Dijit
+     * @return $this
      */
     public function setView(Zend_View_Interface $view = null)
     {

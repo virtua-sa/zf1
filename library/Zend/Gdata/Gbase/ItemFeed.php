@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gbase_Feed
- */
-require_once 'Zend/Gdata/Gbase/Feed.php';
-
-/**
  * Represents the Google Base Customer Items Feed
  *
  * @link http://code.google.com/apis/base/

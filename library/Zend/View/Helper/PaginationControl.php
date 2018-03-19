@@ -30,7 +30,7 @@ class Zend_View_Helper_PaginationControl
     /**
      * View instance
      *
-     * @var Zend_View_Instance
+     * @var Zend_View_Interface
      */
     public $view = null;
 
@@ -78,7 +78,7 @@ class Zend_View_Helper_PaginationControl
      * if so, uses that.  Also, if no scrolling style or partial are specified,
      * the defaults will be used (if set).
      *
-     * @param  Zend_Paginator (Optional) $paginator
+     * @param  Zend_Paginator $paginator
      * @param  string $scrollingStyle (Optional) Scrolling style
      * @param  string $partial (Optional) View partial
      * @param  array|string $params (Optional) params to pass to the partial
@@ -91,10 +91,6 @@ class Zend_View_Helper_PaginationControl
             if (isset($this->view->paginator) and $this->view->paginator !== null and $this->view->paginator instanceof Zend_Paginator) {
                 $paginator = $this->view->paginator;
             } else {
-                /**
-                 * @see Zend_View_Exception
-                 */
-                require_once 'Zend/View/Exception.php';
 
                 $e = new Zend_View_Exception('No paginator instance provided or incorrect type');
                 $e->setView($this->view);
@@ -104,10 +100,6 @@ class Zend_View_Helper_PaginationControl
 
         if ($partial === null) {
             if (self::$_defaultViewPartial === null) {
-                /**
-                 * @see Zend_View_Exception
-                 */
-                require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception('No view partial provided and no default set');
                 $e->setView($this->view);
                 throw $e;
@@ -124,10 +116,6 @@ class Zend_View_Helper_PaginationControl
 
         if (is_array($partial)) {
             if (count($partial) != 2) {
-                /**
-                 * @see Zend_View_Exception
-                 */
-                require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception('A view partial supplied as an array must contain two values: the filename and its module');
                 $e->setView($this->view);
                 throw $e;

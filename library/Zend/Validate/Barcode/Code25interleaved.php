@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Barcode_AdapterAbstract
- */
-require_once 'Zend/Validate/Barcode/AdapterAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -34,7 +29,7 @@ class Zend_Validate_Barcode_Code25interleaved extends Zend_Validate_Barcode_Adap
 {
     /**
      * Allowed barcode lengths
-     * @var integer
+     * @var string
      */
     protected $_length = 'even';
 

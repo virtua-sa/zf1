@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Console_GetOpt
- */
-require_once 'Zend/Console/Getopt.php';
-
-/**
- * @see Zend_Tool_Framework_Registry_EnabledInterface
- */
-require_once 'Zend/Tool/Framework/Registry/EnabledInterface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -117,7 +107,6 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
     {
 
         if ($this->_request == null || $this->_response == null) {
-            require_once 'Zend/Tool/Framework/Client/Exception.php';
             throw new Zend_Tool_Framework_Client_Exception('The client registry must have both a request and response registered.');
         }
 
@@ -134,7 +123,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
             $this->_parseGlobalPart();
         } catch (Zend_Tool_Framework_Client_Exception $exception) {
             $this->_createHelpResponse(array('error' => $exception->getMessage()));
-            return;
+            return null;
         }
 
         // ensure there are arguments left
@@ -147,7 +136,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
             } else {
                 $this->_createHelpResponse(array('error' => 'An action and provider is required.'));
             }
-            return;
+            return null;
         }
 
         // process the action part of the command line
@@ -156,7 +145,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
         } catch (Zend_Tool_Framework_Client_Exception $exception) {
             $this->_request->setDispatchable(false);
             $this->_createHelpResponse(array('error' => $exception->getMessage()));
-            return;
+            return null;
         }
 
         if ($this->_helpKnownAction) {
@@ -178,7 +167,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
             } else {
                 $this->_createHelpResponse(array_merge($helpResponseOptions, array('error' => 'A provider is required.')));
             }
-            return;
+            return null;
         }
 
 
@@ -188,7 +177,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
         } catch (Zend_Tool_Framework_Client_Exception $exception) {
             $this->_request->setDispatchable(false);
             $this->_createHelpResponse(array('error' => $exception->getMessage()));
-            return;
+            return null;
         }
 
         if ($this->_helpKnownProvider) {
@@ -221,7 +210,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
                     array('error' => 'Unknown arguments left on the command line: ' . implode(' ', $this->_argumentsWorking))
                     ));
             }
-            return;
+            return null;
         }
 
         // everything was processed and this is a request for help information
@@ -230,7 +219,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
             $this->_createHelpResponse($helpResponseOptions);
         }
 
-        return;
+        return null;
     }
 
     /**
@@ -265,7 +254,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         $this->_argumentsWorking = $getoptParser->getRemainingArgs();
 
-        return;
+        return null;
     }
 
     /**
@@ -280,7 +269,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         if ($consoleActionName == '?') {
             $this->_help = true;
-            return;
+            return null;
         }
 
         $actionSearchCriteria = array(
@@ -303,14 +292,13 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         // if no action, handle error
         if (!$actionMetadata) {
-            require_once 'Zend/Tool/Framework/Client/Exception.php';
             throw new Zend_Tool_Framework_Client_Exception('Action \'' . $consoleActionName . '\' is not a valid action.');
         }
 
         // prepare action request name
         $this->_helpKnownAction = true;
         $this->_request->setActionName($actionMetadata->getActionName());
-        return;
+        return null;
     }
 
     /**
@@ -333,7 +321,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         if ($consoleProviderName == '?') {
             $this->_help = true;
-            return;
+            return null;
         }
 
         $providerSearchCriteria = array(
@@ -355,7 +343,6 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
         }
 
         if (!$providerMetadata) {
-            require_once 'Zend/Tool/Framework/Client/Exception.php';
             throw new Zend_Tool_Framework_Client_Exception(
                 'Provider \'' . $consoleProviderFull . '\' is not a valid provider.'
                 );
@@ -366,7 +353,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         if ($consoleSpecialtyName == '?') {
             $this->_help = true;
-            return;
+            return null;
         }
 
         $providerSpecialtySearchCriteria = array(
@@ -387,7 +374,6 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
         }
 
         if (!$providerSpecialtyMetadata) {
-            require_once 'Zend/Tool/Framework/Client/Exception.php';
             throw new Zend_Tool_Framework_Client_Exception(
                 'Provider \'' . $consoleSpecialtyName . '\' is not a valid specialty.'
                 );
@@ -395,7 +381,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         $this->_helpKnownSpecialty = true;
         $this->_request->setSpecialtyName($providerSpecialtyMetadata->getSpecialtyName());
-        return;
+        return null;
     }
 
     /**
@@ -407,7 +393,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
     {
         if (current($this->_argumentsWorking) == '?') {
             $this->_help = true;
-            return;
+            return null;
         }
 
         $searchParams = array(
@@ -464,7 +450,7 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         if (!$getoptOptions) {
             // no options to parse here, return
-            return;
+            return null;
         }
 
         // if non-option arguments exist, attempt to process them before processing options
@@ -506,17 +492,16 @@ class Zend_Tool_Framework_Client_Console_ArgumentParser implements Zend_Tool_Fra
 
         $this->_argumentsWorking = $getoptParser->getRemainingArgs();
 
-        return;
+        return null;
     }
 
     /**
      * _createHelpResponse
      *
-     * @param unknown_type $options
+     * @param array $options
      */
     protected function _createHelpResponse($options = array())
     {
-        require_once 'Zend/Tool/Framework/Client/Console/HelpSystem.php';
         $helpSystem = new Zend_Tool_Framework_Client_Console_HelpSystem();
         $helpSystem->setRegistry($this->_registry);
 

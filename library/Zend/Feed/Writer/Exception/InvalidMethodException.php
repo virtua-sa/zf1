@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Exception
- */
-require_once 'Zend/Feed/Exception.php';
-
-
-/**
  * Feed exceptions
  *
  * Class to represent exceptions that occur during Feed operations.

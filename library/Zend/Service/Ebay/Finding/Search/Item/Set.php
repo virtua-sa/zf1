@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Finding_Set_Abstract
- */
-require_once 'Zend/Service/Ebay/Finding/Set/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -38,7 +33,7 @@ class Zend_Service_Ebay_Finding_Search_Item_Set extends Zend_Service_Ebay_Findin
     /**
      * Implement SeekableIterator::current()
      *
-     * @return Zend_Service_Ebay_Finding_Search_Item
+     * @return Zend_Service_Ebay_Finding_Search_Item|null
      */
     public function current()
     {
@@ -48,10 +43,6 @@ class Zend_Service_Ebay_Finding_Search_Item_Set extends Zend_Service_Ebay_Findin
             return null;
         }
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Search_Item
-         */
-        require_once 'Zend/Service/Ebay/Finding/Search/Item.php';
         return new Zend_Service_Ebay_Finding_Search_Item($node);
     }
 }

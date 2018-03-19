@@ -22,26 +22,6 @@
  */
 
 /**
- * @see Zend_OpenId
- */
-require_once "Zend/OpenId.php";
-
-/**
- * @see Zend_OpenId_Extension
- */
-require_once "Zend/OpenId/Extension.php";
-
-/**
- * @see Zend_OpenId_Consumer_Storage
- */
-require_once "Zend/OpenId/Consumer/Storage.php";
-
-/**
- * @see Zend_Http_Client
- */
-require_once 'Zend/Http/Client.php';
-
-/**
  * OpenID consumer implementation
  *
  * @category   Zend
@@ -69,7 +49,7 @@ class Zend_OpenId_Consumer
      * Enables or disables consumer to use association with server based on
      * Diffie-Hellman key agreement
      *
-     * @var Zend_OpenId_Consumer_Storage $_dumbMode
+     * @var bool $_dumbMode
      */
     protected $_dumbMode = false;
 
@@ -115,7 +95,6 @@ class Zend_OpenId_Consumer
                                 $dumbMode = false)
     {
         if ($storage === null) {
-            require_once "Zend/OpenId/Consumer/Storage/File.php";
             $this->_storage = new Zend_OpenId_Consumer_Storage_File();
         } else {
             $this->_storage = $storage;
@@ -186,7 +165,7 @@ class Zend_OpenId_Consumer
      * failure.
      *
      * @param array $params HTTP query data from OpenID server
-     * @param string &$identity this argument is set to end-user's claimed
+     * @param string $identity this argument is set to end-user's claimed
      *  identifier or OpenID provider local identifier.
      * @param mixed $extensions extension object or array of extensions objects
      * @return bool
@@ -221,7 +200,6 @@ class Zend_OpenId_Consumer
                     $identity = $_SESSION["zend_openid"]["claimed_id"];
                 }
             } else {
-                require_once "Zend/Session/Namespace.php";
                 $this->_session = new Zend_Session_Namespace("zend_openid");
                 if ($this->_session->identity === $identity) {
                     $identity = $this->_session->claimed_id;
@@ -257,7 +235,7 @@ class Zend_OpenId_Consumer
             /* Ignore query part in openid.return_to */
             $pos = strpos($params['openid_return_to'], '?');
             if ($pos === false ||
-                SUBSTR($params['openid_return_to'], 0 , $pos) != Zend_OpenId::selfUrl()) {
+                substr($params['openid_return_to'], 0 , $pos) != Zend_OpenId::selfUrl()) {
 
                 $this->_setError("Wrong openid.return_to '".
                     $params['openid_return_to']."' != '" . Zend_OpenId::selfUrl() ."'");
@@ -300,7 +278,7 @@ class Zend_OpenId_Consumer
             if (isset($params['openid_op_endpoint']) && $url !== $params['openid_op_endpoint']) {
                 $this->_setError("The op_endpoint URI is not the same of URI associated with the assoc_handle");
                 return false;
-            }       
+            }
             $signed = explode(',', $params['openid_signed']);
             // Check the parameters for the signature
             // @see https://openid.net/specs/openid-authentication-2_0.html#positive_assertions
@@ -314,7 +292,7 @@ class Zend_OpenId_Consumer
                     return false;
                 }
             }
-            
+
             $data = '';
             foreach ($signed as $key) {
                 $data .= $key . ':' . $params['openid_' . strtr($key,'.','_')] . "\n";
@@ -458,11 +436,11 @@ class Zend_OpenId_Consumer
      * external storage
      *
      * @param string $url OpenID server url
-     * @param string &$handle association handle
-     * @param string &$macFunc HMAC function (sha1 or sha256)
-     * @param string &$secret shared secret
-     * @param integer &$expires expiration UNIX time
-     * @return void
+     * @param string $handle association handle
+     * @param string $macFunc HMAC function (sha1 or sha256)
+     * @param string $secret shared secret
+     * @param integer $expires expiration UNIX time
+     * @return bool
      */
     protected function _getAssociation($url, &$handle, &$macFunc, &$secret, &$expires)
     {
@@ -493,7 +471,7 @@ class Zend_OpenId_Consumer
      * @param string $url OpenID server url
      * @param string $method HTTP request method 'GET' or 'POST'
      * @param array $params additional qwery parameters to be passed with
-     * @param int &$staus HTTP status code
+     * @param int $status HTTP status code
      *  request
      * @return mixed
      */
@@ -732,9 +710,9 @@ class Zend_OpenId_Consumer
      * and OpenID protocol version. Returns true on succees and false on
      * failure.
      *
-     * @param string &$id OpenID identity URL
-     * @param string &$server OpenID server URL
-     * @param float &$version OpenID protocol version
+     * @param string $id OpenID identity URL
+     * @param string $server OpenID server URL
+     * @param float $version OpenID protocol version
      * @return bool
      * @todo OpenID 2.0 (7.3) XRI and Yadis discovery
      */
@@ -763,13 +741,13 @@ class Zend_OpenId_Consumer
                 $r)) {
             $XRDS = $r[3];
             $version = 2.0;
-            $response = $this->_httpRequest($XRDS); 
+            $response = $this->_httpRequest($XRDS);
             if (preg_match(
                     '/<URI>([^\t]*)<\/URI>/i',
                     $response,
                     $x)) {
                 $server = $x[1];
-                // $realId 
+                // $realId
                 $realId = 'http://specs.openid.net/auth/2.0/identifier_select';
             }
             else {
@@ -906,7 +884,6 @@ class Zend_OpenId_Consumer
                     "identity" => $id,
                     "claimed_id" => $claimedId);
             } else {
-                require_once "Zend/Session/Namespace.php";
                 $this->_session = new Zend_Session_Namespace("zend_openid");
                 $this->_session->identity = $id;
                 $this->_session->claimed_id = $claimedId;

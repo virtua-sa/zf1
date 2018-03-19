@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Extension
- */
-require_once 'Zend/Gdata/App/Extension.php';
-
-/**
  * Represents the media:thumbnail element
  *
  * @category   Zend
@@ -42,22 +37,22 @@ class Zend_Gdata_Media_Extension_MediaThumbnail extends Zend_Gdata_Extension
     protected $_rootNamespace = 'media';
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $_url = null;
 
     /**
-     * @var int
+     * @var int|null|string
      */
     protected $_width = null;
 
     /**
-     * @var int
+     * @var int|null|string
      */
     protected $_height = null;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $_time = null;
 
@@ -145,7 +140,7 @@ class Zend_Gdata_Media_Extension_MediaThumbnail extends Zend_Gdata_Extension
 
     /**
      * @param string $value
-     * @return Zend_Gdata_Media_Extension_MediaThumbnail Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setUrl($value)
     {
@@ -154,7 +149,7 @@ class Zend_Gdata_Media_Extension_MediaThumbnail extends Zend_Gdata_Extension
     }
 
     /**
-     * @return int
+     * @return int|string|null
      */
     public function getWidth()
     {
@@ -163,7 +158,7 @@ class Zend_Gdata_Media_Extension_MediaThumbnail extends Zend_Gdata_Extension
 
     /**
      * @param int $value
-     * @return Zend_Gdata_Media_Extension_MediaThumbnail Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setWidth($value)
     {
@@ -172,7 +167,7 @@ class Zend_Gdata_Media_Extension_MediaThumbnail extends Zend_Gdata_Extension
     }
 
     /**
-     * @return int
+     * @return int|string|null
      */
     public function getHeight()
     {

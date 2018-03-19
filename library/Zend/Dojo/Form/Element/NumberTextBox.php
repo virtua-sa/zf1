@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Dojo_Form_Element_ValidationTextBox */
-require_once 'Zend/Dojo/Form/Element/ValidationTextBox.php';
-
 /**
  * NumberTextBox dijit
  *
@@ -106,7 +103,6 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
     {
         $type = strtolower($type);
         if (!in_array($type, $this->_allowedTypes)) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception(sprintf('Invalid numeric type "%s" specified', $type));
         }
 
@@ -149,7 +145,7 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
     /**
      * Set strict flag
      *
-     * @param  bool $strict
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_NumberTextBox
      */
     public function setStrict($flag)

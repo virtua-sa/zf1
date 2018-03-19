@@ -19,7 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Http/UserAgent/AbstractDevice.php';
 
 /**
  * Feed browser type matcher
@@ -69,7 +68,7 @@ class Zend_Http_UserAgent_Feed extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Look for features
      *
-     * @return string
+     * @return array
      */
     protected function _defineFeatures()
     {

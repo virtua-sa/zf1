@@ -20,7 +20,6 @@
  * @version    $Id$
  */
 
-require_once 'Zend/Xml/Security.php';
 
 /**
  * @category   Zend
@@ -31,13 +30,13 @@ require_once 'Zend/Xml/Security.php';
  */
 class Zend_Rest_Client_Result implements IteratorAggregate {
     /**
-     * @var SimpleXMLElement
+     * @var SimpleXMLElement|bool
      */
     protected $_sxml;
 
     /**
      * error information
-     * @var string
+     * @var string|null
      */
     protected $_errstr;
 
@@ -50,7 +49,7 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     public function __construct($data)
     {
         set_error_handler(array($this, 'handleXmlErrors'));
-        $this->_sxml = Zend_Xml_Security::scan($data); 
+        $this->_sxml = Zend_Xml_Security::scan($data);
         restore_error_handler();
         if($this->_sxml === false) {
             if ($this->_errstr === null) {
@@ -59,7 +58,6 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
                 $message = "REST Response Error: " . $this->_errstr;
                 $this->_errstr = null;
             }
-            require_once "Zend/Rest/Client/Result/Exception.php";
             throw new Zend_Rest_Client_Result_Exception($message);
         }
     }
@@ -183,7 +181,7 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     {
         $status = $this->_sxml->xpath('//status/text()');
         if ( !isset($status[0]) ) return false;
-        
+
         $status = strtolower($status[0]);
 
         if (ctype_alpha($status) && $status == 'success') {

@@ -41,7 +41,7 @@ class Zend_DebugTest extends PHPUnit\Framework\TestCase
         $sapi = php_sapi_name();
         Zend_Debug::setSapi(null);
         $data = 'string';
-        $result = Zend_Debug::Dump($data, null, false);
+        $result = Zend_Debug::dump($data, null, false);
         $this->assertEquals($sapi, Zend_Debug::getSapi());
     }
 
@@ -49,7 +49,7 @@ class Zend_DebugTest extends PHPUnit\Framework\TestCase
     {
         Zend_Debug::setSapi('cli');
         $data = 'string';
-        $result = Zend_Debug::Dump($data, null, false);
+        $result = Zend_Debug::dump($data, null, false);
         $result = str_replace(array(PHP_EOL, "\n"), '_', $result);
         $expected = "__.*string\(6\) \"string\"__";
         $this->assertRegExp('/^' . $expected . '$/', $result);
@@ -59,7 +59,7 @@ class Zend_DebugTest extends PHPUnit\Framework\TestCase
     {
         Zend_Debug::setSapi('cgi');
         $data = 'string';
-        $result = Zend_Debug::Dump($data, null, false);
+        $result = Zend_Debug::dump($data, null, false);
 
         $this->assertRegExp(
             '/^<pre>.*string\(6\) ("|&quot;)string("|&quot;)' . "\n" . '<\/pre>$/s',
@@ -73,7 +73,7 @@ class Zend_DebugTest extends PHPUnit\Framework\TestCase
         $data = 'string';
 
         ob_start();
-        $result1 = Zend_Debug::Dump($data, null, true);
+        $result1 = Zend_Debug::dump($data, null, true);
         $result2 = ob_get_clean();
 
         $this->assertContains('string(6) "string"', $result1);
@@ -85,7 +85,7 @@ class Zend_DebugTest extends PHPUnit\Framework\TestCase
         Zend_Debug::setSapi('cli');
         $data = 'string';
         $label = 'LABEL';
-        $result = Zend_Debug::Dump($data, $label, false);
+        $result = Zend_Debug::dump($data, $label, false);
         $result = str_replace(array(PHP_EOL, "\n"), '_', $result);
         $expected = "_{$label} .*_string\(6\) \"string\"__";
         $this->assertRegExp('/^' . $expected . '$/', $result);

@@ -20,21 +20,7 @@
  */
 
 
-/** Zend_Search_Lucene_Index_TermsStream_Interface */
-require_once 'Zend/Search/Lucene/Index/TermsStream/Interface.php';
-
-
 /** Classes used within Zend_Search_Lucene_Interface API */
-
-/** Zend_Search_Lucene_Document */
-require_once 'Zend/Search/Lucene/Document.php';
-
-/** Zend_Search_Lucene_Index_Term */
-require_once 'Zend/Search/Lucene/Index/Term.php';
-
-/** Zend_Search_Lucene_Index_DocsFilter */
-require_once 'Zend/Search/Lucene/Index/DocsFilter.php';
-
 
 /**
  * @category   Zend
@@ -244,7 +230,7 @@ interface Zend_Search_Lucene_Interface extends Zend_Search_Lucene_Index_TermsStr
      *
      * Default value is 10
      *
-     * @param integer $maxMergeDocs
+     * @param integer $mergeFactor
      */
     public function setMergeFactor($mergeFactor);
 
@@ -313,7 +299,7 @@ interface Zend_Search_Lucene_Interface extends Zend_Search_Lucene_Index_TermsStr
      *
      * @param Zend_Search_Lucene_Index_Term $term
      * @param Zend_Search_Lucene_Index_DocsFilter|null $docsFilter
-     * @return integer
+     * @return array
      */
     public function termFreqs(Zend_Search_Lucene_Index_Term $term, $docsFilter = null);
 

@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps email list entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -121,7 +116,7 @@ class Zend_Gdata_Gapps_EmailListQuery extends Zend_Gdata_Gapps_Query
      * null will be returned.
      *
      * @see setRecipient
-     * @return string The recipient email address to filter search results by,
+     * @return string|null The recipient email address to filter search results by,
      *              or null if disabled.
      */
     public function getRecipient()
@@ -153,7 +148,7 @@ class Zend_Gdata_Gapps_EmailListQuery extends Zend_Gdata_Gapps_Query
      * Get the first email list which should be displayed when retrieving
      * a list of email lists.
      *
-     * @return string The first email list to be returned, or null to
+     * @return string|null The first email list to be returned, or null to
      *              disable.
      */
     public function getStartEmailListName()

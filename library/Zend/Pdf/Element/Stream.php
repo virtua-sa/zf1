@@ -20,13 +20,6 @@
  */
 
 
-/** Internally used classes */
-require_once 'Zend/Pdf.php';
-
-
-/** Zend_Pdf_Element */
-require_once 'Zend/Pdf/Element.php';
-
 /**
  * PDF file 'stream' element implementation
  *
@@ -108,7 +101,7 @@ class Zend_Pdf_Element_Stream extends Zend_Pdf_Element
      * Detach PDF object from the factory (if applicable), clone it and attach to new factory.
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed  List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed  List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      */
@@ -120,7 +113,7 @@ class Zend_Pdf_Element_Stream extends Zend_Pdf_Element
     /**
      * Return object as string
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)

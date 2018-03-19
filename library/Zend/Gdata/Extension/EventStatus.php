@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Represents the gd:eventStatus element
  *
  * @category   Zend
@@ -81,7 +76,7 @@ class Zend_Gdata_Extension_EventStatus extends Zend_Gdata_Extension
      * Set the value for this element's Value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Visibility The element being modified.
+     * @return $this The element being modified.
      */
     public function setValue($value)
     {

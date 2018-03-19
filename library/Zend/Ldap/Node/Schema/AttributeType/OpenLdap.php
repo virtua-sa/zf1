@@ -21,15 +21,6 @@
  */
 
 /**
- * @see Zend_Ldap_Node_Schema_Item
- */
-require_once 'Zend/Ldap/Node/Schema/Item.php';
-/**
- * @see Zend_Ldap_Node_Schema_AttributeType_Interface
- */
-require_once 'Zend/Ldap/Node/Schema/AttributeType/Interface.php';
-
-/**
  * Zend_Ldap_Node_Schema_AttributeType_OpenLdap provides access to the attribute type
  * schema information on an OpenLDAP server.
  *
@@ -38,6 +29,11 @@ require_once 'Zend/Ldap/Node/Schema/AttributeType/Interface.php';
  * @subpackage Schema
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property mixed $_parents
+ * @property mixed $desc
+ * @property mixed $name
+ * @property mixed $oid
+ * @property mixed $syntax
  */
 class Zend_Ldap_Node_Schema_AttributeType_OpenLdap extends Zend_Ldap_Node_Schema_Item
     implements Zend_Ldap_Node_Schema_AttributeType_Interface
@@ -65,7 +61,7 @@ class Zend_Ldap_Node_Schema_AttributeType_OpenLdap extends Zend_Ldap_Node_Schema
     /**
      * Gets the attribute syntax
      *
-     * @return string
+     * @return string|null
      */
     public function getSyntax()
     {

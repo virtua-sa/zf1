@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Dojo_View_Helper_DijitContainer */
-require_once 'Zend/Dojo/View/Helper/DijitContainer.php';
-
 /**
  * Dojo StackContainer dijit
  *
@@ -53,7 +50,7 @@ class Zend_Dojo_View_Helper_StackContainer extends Zend_Dojo_View_Helper_DijitCo
      * @param  string $content
      * @param  array $params  Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
-     * @return string
+     * @return string|$this
      */
     public function stackContainer($id = null, $content = '', array $params = array(), array $attribs = array())
     {

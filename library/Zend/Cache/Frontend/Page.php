@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Cache_Core
- */
-require_once 'Zend/Cache/Core.php';
-
-
-/**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Frontend
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -123,7 +117,6 @@ class Zend_Cache_Frontend_Page extends Zend_Cache_Core
      * Constructor
      *
      * @param  array   $options                Associative array of options
-     * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
      * @throws Zend_Cache_Exception
      * @return void
      */
@@ -205,7 +198,7 @@ class Zend_Cache_Frontend_Page extends Zend_Cache_Core
     /**
      * Specific setter for the 'regexps' option (with some additional tests)
      *
-     * @param  array $options Associative array
+     * @param  array $regexps Associative array
      * @throws Zend_Cache_Exception
      * @return void
      */

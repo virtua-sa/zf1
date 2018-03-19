@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension_Metric
- */
-require_once 'Zend/Gdata/Analytics/Extension/Metric.php';
-
-/**
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Analytics

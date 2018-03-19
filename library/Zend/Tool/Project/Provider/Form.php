@@ -58,7 +58,7 @@ class Zend_Tool_Project_Provider_Form extends Zend_Tool_Project_Provider_Abstrac
      * @param Zend_Tool_Project_Profile $profile
      * @param string $formName
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return bool
      */
     public static function hasResource(Zend_Tool_Project_Profile $profile, $formName, $moduleName = null)
     {
@@ -75,7 +75,7 @@ class Zend_Tool_Project_Provider_Form extends Zend_Tool_Project_Provider_Abstrac
      *
      * @param Zend_Tool_Project_Profile $profile
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     protected static function _getFormsDirectoryResource(Zend_Tool_Project_Profile $profile, $moduleName = null)
     {

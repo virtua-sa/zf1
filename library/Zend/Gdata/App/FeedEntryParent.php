@@ -21,55 +21,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Gdata_App_Extension_Element
-*/
-require_once 'Zend/Gdata/App/Extension/Element.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Author
-*/
-require_once 'Zend/Gdata/App/Extension/Author.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Category
-*/
-require_once 'Zend/Gdata/App/Extension/Category.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Contributor
-*/
-require_once 'Zend/Gdata/App/Extension/Contributor.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Id
- */
-require_once 'Zend/Gdata/App/Extension/Id.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Link
- */
-require_once 'Zend/Gdata/App/Extension/Link.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Rights
- */
-require_once 'Zend/Gdata/App/Extension/Rights.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Title
- */
-require_once 'Zend/Gdata/App/Extension/Title.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Updated
- */
-require_once 'Zend/Gdata/App/Extension/Updated.php';
-
-/**
- * Zend_Version
- */
-require_once 'Zend/Version.php';
 
 /**
  * Abstract class for common functionality in entries and feeds
@@ -102,6 +53,10 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     protected $_contributor = array();
     protected $_id = null;
     protected $_link = array();
+
+    /**
+     * @var Zend_Gdata_App_Extension_Rights
+     */
     protected $_rights = null;
     protected $_title = null;
     protected $_updated = null;
@@ -165,7 +120,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      *
      * @deprecated Deprecated as of Zend Framework 1.7. Use
      *             getService() instead.
-     * @return Zend_Http_Client_Abstract
+     * @return Zend_Http_Client
      */
     public function getHttpClient()
     {
@@ -483,7 +438,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Rights
+     * @return Zend_Gdata_App_Extension_Rights
      */
     public function getRights()
     {
@@ -517,7 +472,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      * The title is an extremely short textual representation of this
      * resource and is found as an atom:title element in a feed or entry
      *
-     * @return string
+     * @return string|null
      */
     public function getTitleValue()
     {
@@ -565,7 +520,7 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
      * unsets the Etag.
      *
      * @param string|null $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setEtag($value) {
         $this->_etag = $value;
@@ -593,7 +548,6 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     public function setMajorProtocolVersion($value)
     {
         if (!($value >= 1) && ($value !== null)) {
-            require_once('Zend/Gdata/App/InvalidArgumentException.php');
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Major protocol version must be >= 1');
         }
@@ -623,7 +577,6 @@ abstract class Zend_Gdata_App_FeedEntryParent extends Zend_Gdata_App_Base
     public function setMinorProtocolVersion($value)
     {
         if (!($value >= 0)) {
-            require_once('Zend/Gdata/App/InvalidArgumentException.php');
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Minor protocol version must be >= 0 or null');
         }

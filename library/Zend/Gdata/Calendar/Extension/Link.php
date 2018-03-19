@@ -21,17 +21,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/App/Extension/Link.php';
-
-/**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Calendar/Extension/WebContent.php';
-
-
-/**
  * Specialized Link class for use with Calendar. Enables use of gCal extension elements.
  *
  * @category   Zend
@@ -48,7 +37,7 @@ class Zend_Gdata_Calendar_Extension_Link extends Zend_Gdata_App_Extension_Link
     /**
      * Constructs a new Zend_Gdata_Calendar_Extension_Link object.
      * @see Zend_Gdata_App_Extension_Link#__construct
-     * @param Zend_Gdata_Calendar_Extension_Webcontent $webContent
+     * @param Zend_Gdata_Calendar_Extension_WebContent $webContent
      */
     public function __construct($href = null, $rel = null, $type = null,
             $hrefLang = null, $title = null, $length = null, $webContent = null)
@@ -101,7 +90,7 @@ class Zend_Gdata_Calendar_Extension_Link extends Zend_Gdata_App_Extension_Link
     /**
      * Get the value for this element's WebContent attribute.
      *
-     * @return Zend_Gdata_Calendar_Extension_Webcontent The WebContent value
+     * @return Zend_Gdata_Calendar_Extension_WebContent The WebContent value
      */
     public function getWebContent()
     {
@@ -112,7 +101,7 @@ class Zend_Gdata_Calendar_Extension_Link extends Zend_Gdata_App_Extension_Link
      * Set the value for this element's WebContent attribute.
      *
      * @param Zend_Gdata_Calendar_Extension_WebContent $value The desired value for this attribute.
-     * @return Zend_Calendar_Extension_Link The element being modified.  Provides a fluent interface.
+     * @return $this The element being modified.  Provides a fluent interface.
      */
     public function setWebContent($value)
     {

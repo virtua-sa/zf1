@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_StringToLower
- */
-require_once 'Zend/Filter/StringToLower.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -56,18 +51,15 @@ class Zend_Filter_File_LowerCase extends Zend_Filter_StringToLower
     public function filter($value)
     {
         if (!file_exists($value)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception("File '$value' not found");
         }
 
         if (!is_writable($value)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception("File '$value' is not writable");
         }
 
         $content = file_get_contents($value);
         if (!$content) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception("Problem while reading file '$value'");
         }
 
@@ -75,7 +67,6 @@ class Zend_Filter_File_LowerCase extends Zend_Filter_StringToLower
         $result  = file_put_contents($value, $content);
 
         if (!$result) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception("Problem while writing file '$value'");
         }
 

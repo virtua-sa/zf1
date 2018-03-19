@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Loader */
-require_once 'Zend/Loader.php';
-
 /**
  * Autoloader stack and namespace autoloader
  *
@@ -35,7 +32,7 @@ require_once 'Zend/Loader.php';
 class Zend_Loader_Autoloader
 {
     /**
-     * @var Zend_Loader_Autoloader Singleton instance
+     * @var Zend_Loader_Autoloader|null Singleton instance
      */
     protected static $_instance;
 
@@ -45,7 +42,7 @@ class Zend_Loader_Autoloader
     protected $_autoloaders = array();
 
     /**
-     * @var array Default autoloader callback
+     * @var array|callable Default autoloader callback
      */
     protected $_defaultAutoloader = array('Zend_Loader', 'loadClass');
 
@@ -137,8 +134,8 @@ class Zend_Loader_Autoloader
     /**
      * Set the default autoloader implementation
      *
-     * @param  string|array $callback PHP callback
-     * @return void
+     * @param  callable $callback PHP callback
+     * @return $this
      */
     public function setDefaultAutoloader($callback)
     {
@@ -153,7 +150,7 @@ class Zend_Loader_Autoloader
     /**
      * Retrieve the default autoloader callback
      *
-     * @return string|array PHP Callback
+     * @return callable|array PHP Callback
      */
     public function getDefaultAutoloader()
     {
@@ -467,7 +464,7 @@ class Zend_Loader_Autoloader
      * Internal autoloader implementation
      *
      * @param  string $class
-     * @return bool
+     * @return false|string
      */
     protected function _autoload($class)
     {
@@ -503,7 +500,7 @@ class Zend_Loader_Autoloader
      *
      * @param  string $path
      * @param  string $version
-     * @return void
+     * @return string
      */
     protected function _getVersionPath($path, $version)
     {

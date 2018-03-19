@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_OpenId_Provider_Storage
- */
-require_once "Zend/OpenId/Provider/Storage.php";
-
-/**
  * External storage implemmentation using serialized files
  *
  * @category   Zend
@@ -132,9 +127,9 @@ class Zend_OpenId_Provider_Storage_File extends Zend_OpenId_Provider_Storage
      * otherwise
      *
      * @param string $handle assiciation handle
-     * @param string &$macFunc HMAC function (sha1 or sha256)
-     * @param string &$secret shared secret
-     * @param string &$expires expiration UNIX time
+     * @param string $macFunc HMAC function (sha1 or sha256)
+     * @param string $secret shared secret
+     * @param string $expires expiration UNIX time
      * @return bool
      */
     public function getAssociation($handle, &$macFunc, &$secret, &$expires)
@@ -353,7 +348,7 @@ class Zend_OpenId_Provider_Storage_File extends Zend_OpenId_Provider_Storage
      * by $id
      *
      * @param string $id user identity URL
-     * @return array
+     * @return array|false
      */
     public function getTrustedSites($id)
     {

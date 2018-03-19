@@ -22,27 +22,13 @@
 
 
 /**
- * @see Zend_Mail_Storage_Abstract
- */
-require_once 'Zend/Mail/Storage/Abstract.php';
-
-/**
- * @see Zend_Mail_Protocol_Pop3
- */
-require_once 'Zend/Mail/Protocol/Pop3.php';
-
-/**
- * @see Zend_Mail_Message
- */
-require_once 'Zend/Mail/Message.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Mail
  * @subpackage Storage
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property bool $hasUniqueid
+ * @property bool $hasTop
  */
 class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
 {
@@ -109,10 +95,6 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
     {
         if ($part !== null) {
             // TODO: implement
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('not implemented');
         }
 
@@ -132,10 +114,6 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
     {
         if ($part !== null) {
             // TODO: implement
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('not implemented');
         }
 
@@ -154,7 +132,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
      *   - port port for POP3 server [optional, default = 110]
      *   - ssl 'SSL' or 'TLS' for secure sockets
      *
-     * @param array $params mail reader specific parameters
+     * @param array|Zend_Mail_Protocol_Pop3 $params mail reader specific parameters
      * @throws Zend_Mail_Storage_Exception
      * @throws Zend_Mail_Protocol_Exception
      */
@@ -174,10 +152,6 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
         }
 
         if (!isset($params->user)) {
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('need at least user in params');
         }
 
@@ -195,7 +169,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
      * Close resource for mail lib. If you need to control, when the resource
      * is closed. Otherwise the destructor would call this.
      *
-     * @return null
+     * @return void
      */
     public function close()
     {
@@ -205,7 +179,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
     /**
      * Keep the server busy.
      *
-     * @return null
+     * @return void
      * @throws Zend_Mail_Protocol_Exception
      */
     public function noop()
@@ -219,7 +193,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
      * identify the message.
      *
      * @param  int $id number of message
-     * @return null
+     * @return void
      * @throws Zend_Mail_Protocol_Exception
      */
     public function removeMessage($id)
@@ -260,7 +234,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
      * as parameter and use this method to translate it to message number right before calling removeMessage()
      *
      * @param string $id unique id
-     * @return int message number
+     * @return string message number
      * @throws Zend_Mail_Storage_Exception
      */
     public function getNumberByUniqueId($id)
@@ -276,10 +250,6 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
             }
         }
 
-        /**
-         * @see Zend_Mail_Storage_Exception
-         */
-        require_once 'Zend/Mail/Storage/Exception.php';
         throw new Zend_Mail_Storage_Exception('unique id not found');
     }
 
@@ -289,7 +259,7 @@ class Zend_Mail_Storage_Pop3 extends Zend_Mail_Storage_Abstract
      *
      * @see Zend_Mail_Storage_Abstract:__get()
      * @param  string $var
-     * @return string
+     * @return string|bool
      * @throws Zend_Mail_Storage_Exception
      */
     public function __get($var)

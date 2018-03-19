@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Extension_Text
- */
-require_once 'Zend/Gdata/App/Extension/Text.php';
-
-/**
  * Represents the atom:content element
  *
  * @category   Zend
@@ -77,7 +72,7 @@ class Zend_Gdata_App_Extension_Content extends Zend_Gdata_App_Extension_Text
 
     /**
      * @param string $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setSrc($value)
     {

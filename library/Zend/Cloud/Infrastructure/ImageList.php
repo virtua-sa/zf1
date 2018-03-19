@@ -8,7 +8,6 @@
  */
 
 
-require_once 'Zend/Cloud/Infrastructure/Image.php';
 
 /**
  * List of images
@@ -21,7 +20,7 @@ require_once 'Zend/Cloud/Infrastructure/Image.php';
 class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayAccess
 {
     /**
-     * @var array Array of Zend_Cloud_Infrastructure_Image
+     * @var Zend_Cloud_Infrastructure_Image[] Array of Zend_Cloud_Infrastructure_Image
      */
     protected $images = array();
 
@@ -32,7 +31,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
 
     /**
      * The Image adapter (if exists)
-     * 
+     *
      * @var object
      */
     protected $adapter;
@@ -40,14 +39,13 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
     /**
      * Constructor
      *
-     * @param  array $list
+     * @param  array $images
      * @param  null|object $adapter
      * @return boolean
      */
     public function __construct($images, $adapter = null)
     {
         if (empty($images) || !is_array($images)) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception(__CLASS__ . ' expects an array of images');
         }
 
@@ -71,8 +69,8 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
     /**
      * Add an image
      *
-     * @param  Image
-     * @return ImageList
+     * @param  Zend_Cloud_Infrastructure_Image $image
+     * @return $this
      */
     protected function addImage(Zend_Cloud_Infrastructure_Image $image)
     {
@@ -97,7 +95,7 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      *
      * Implement Iterator::current()
      *
-     * @return Image
+     * @return Zend_Cloud_Infrastructure_Image
      */
     public function current()
     {
@@ -176,12 +174,11 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      *
      * @param   int     $offset
      * @throws  Zend_Cloud_Infrastructure_Exception
-     * @return  Image
+     * @return  Zend_Cloud_Infrastructure_Image
      */
     public function offsetGet($offset)
     {
         if (!$this->offsetExists($offset)) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception('Illegal index');
         }
         return $this->images[$offset];
@@ -198,7 +195,6 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      */
     public function offsetSet($offset, $value)
     {
-        require_once 'Zend/Cloud/Infrastructure/Exception.php';
         throw new Zend_Cloud_Infrastructure_Exception('You are trying to set read-only property');
     }
 
@@ -212,7 +208,6 @@ class Zend_Cloud_Infrastructure_ImageList implements Countable, Iterator, ArrayA
      */
     public function offsetUnset($offset)
     {
-        require_once 'Zend/Cloud/Infrastructure/Exception.php';
         throw new Zend_Cloud_Infrastructure_Exception('You are trying to unset read-only property');
     }
 }

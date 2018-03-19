@@ -22,17 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Abstract
- */
-require_once 'Zend/Feed/Abstract.php';
-
-/**
- * @see Zend_Feed_Entry_Rss
- */
-require_once 'Zend/Feed/Entry/Rss.php';
-
-
-/**
  * RSS channel class
  *
  * The Zend_Feed_Rss class is a concrete subclass of
@@ -87,10 +76,6 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
             $this->_element = $this->_element->getElementsByTagName('channel')->item(0);
         }
         if (!$this->_element) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('No root <channel> element found, cannot parse channel.');
         }
 
@@ -127,7 +112,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
     /**
      * Generate the header of the feed when working in write mode
      *
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return DOMElement root node
      */
     protected function _mapFeedHeaders($array)
@@ -261,7 +246,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
      * Adds the iTunes extensions to a root node
      *
      * @param  DOMElement $root
-     * @param  array $array
+     * @param  ArrayObject $array
      * @return void
      */
     private function _buildiTunes(DOMElement $root, $array)
@@ -387,7 +372,7 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
      * </item>
      *
      * @param  DOMElement $root the root node to use
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return void
      */
     protected function _mapFeedEntries(DOMElement $root, $array)
@@ -515,10 +500,6 @@ class Zend_Feed_Rss extends Zend_Feed_Abstract
     public function send()
     {
         if (headers_sent()) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Cannot send RSS because headers have already been sent.');
         }
 

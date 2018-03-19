@@ -64,7 +64,7 @@ class Zend_View_Helper_FormTextareaTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => true)
         ));
 
-        $this->assertRegexp('/<textarea[^>]*?(disabled="disabled")/', $html);
+        $this->assertRegExp('/<textarea[^>]*?(disabled="disabled")/', $html);
     }
 
     /**
@@ -78,6 +78,6 @@ class Zend_View_Helper_FormTextareaTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => true)
         ));
 
-        $this->assertNotRegexp('/<textarea[^>]*?(type="hidden")/', $html);
+        $this->assertNotRegExp('/<textarea[^>]*?(type="hidden")/', $html);
     }
 }

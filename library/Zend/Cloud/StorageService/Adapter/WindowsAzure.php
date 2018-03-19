@@ -17,9 +17,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Cloud/StorageService/Adapter.php';
-require_once 'Zend/Service/WindowsAzure/Storage/Blob.php';
-require_once 'Zend/Cloud/StorageService/Exception.php';
 
 /**
  *
@@ -363,12 +360,12 @@ class Zend_Cloud_StorageService_Adapter_WindowsAzure
      *
      * @param  string $path
      * @param  array  $options
-     * @return array
+     * @return array|false
      */
     public function fetchMetadata($path, $options = null)
     {
         try {
-            return $this->_storageClient->getBlobMetaData(
+            return $this->_storageClient->getBlobMetadata(
                 $this->_container,
                 $path
             );
@@ -434,7 +431,7 @@ class Zend_Cloud_StorageService_Adapter_WindowsAzure
 
     /**
      * Get the concrete adapter.
-     * @return Zend_Service_Azure_Storage_Blob
+     * @return Zend_Service_WindowsAzure_Storage_Blob
      */
     public function getClient()
     {

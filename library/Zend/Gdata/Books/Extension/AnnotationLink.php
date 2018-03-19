@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Books_Extension_BooksLink
- */
-require_once 'Zend/Gdata/Books/Extension/BooksLink.php';
-
-/**
  * Describes an annotation link
  *
  * @category   Zend
@@ -49,8 +44,6 @@ class Zend_Gdata_Books_Extension_AnnotationLink extends
      * @param string|null $hrefLang Resource language
      * @param string|null $title Human-readable resource title
      * @param string|null $length Resource length in octets
-     * @param DOMElement $element (optional) DOMElement from which this
-     *          object should be constructed.
      */
     public function __construct($href = null, $rel = null, $type = null,
             $hrefLang = null, $title = null, $length = null)

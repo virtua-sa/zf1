@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Auth_Adapter_Interface */
-require_once 'Zend/Auth/Adapter/Interface.php';
-
 /**
  * Base abstract class for AMF authentication implementation
  *

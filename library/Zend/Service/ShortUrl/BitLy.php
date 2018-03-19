@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Service_ShortUrl_AbstractShortener
- */
-require_once 'Zend/Service/ShortUrl/AbstractShortener.php';
-
-/**
  * Bit.ly API implementation
  *
  * @category   Zend
@@ -45,7 +40,7 @@ class Zend_Service_ShortUrl_BitLy extends Zend_Service_ShortUrl_AbstractShortene
     /**
      * user login name
      *
-     * @var string
+     * @var string|null
      */
     protected $_loginName;
 
@@ -72,7 +67,7 @@ class Zend_Service_ShortUrl_BitLy extends Zend_Service_ShortUrl_AbstractShortene
     /**
      * set OAuth credentials
      *
-     * @param $accessToken
+     * @param string $accessToken
      * @return Zend_Service_ShortUrl_BitLy
      */
     public function setOAuthAccessToken($accessToken)
@@ -85,8 +80,8 @@ class Zend_Service_ShortUrl_BitLy extends Zend_Service_ShortUrl_AbstractShortene
     /**
      * set login credentials
      *
-     * @param $login
-     * @param $apiKey
+     * @param string $login
+     * @param string $apiKey
      * @return Zend_Service_ShortUrl_BitLy
      */
     public function setApiLogin($login, $apiKey)

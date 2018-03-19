@@ -85,7 +85,7 @@ class Zend_Form_Decorator_DescriptionTest extends PHPUnit\Framework\TestCase
     public function testParagraphTagsContainHintClassByDefault()
     {
         $this->testRendersDescriptionInParagraphTagsByDefault();
-        $this->assertRegexp('/<p[^>]*?class="hint"/', $this->html);
+        $this->assertRegExp('/<p[^>]*?class="hint"/', $this->html);
     }
 
     public function testCanSpecifyAlternateTag()
@@ -111,14 +111,14 @@ class Zend_Form_Decorator_DescriptionTest extends PHPUnit\Framework\TestCase
     public function testAlternateTagContainsHintClass()
     {
         $this->testCanSpecifyAlternateTag();
-        $this->assertRegexp('/<quote[^>]*?class="hint"/', $this->html);
+        $this->assertRegExp('/<quote[^>]*?class="hint"/', $this->html);
     }
 
     public function testCanSpecifyAlternateClass()
     {
         $this->decorator->setOption('class', 'haha');
         $html = $this->decorator->render('');
-        $this->assertRegexp('/<p[^>]*?class="haha"/', $html);
+        $this->assertRegExp('/<p[^>]*?class="haha"/', $html);
     }
 
     public function testRenderingEscapesDescriptionByDefault()

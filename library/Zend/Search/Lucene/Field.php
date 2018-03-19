@@ -47,7 +47,7 @@ class Zend_Search_Lucene_Field
     /**
      * Field value
      *
-     * @var boolean
+     * @var string
      */
     public $value;
 
@@ -169,7 +169,6 @@ class Zend_Search_Lucene_Field
      *
      * @param string $name
      * @param string $value
-     * @param string $encoding
      * @return Zend_Search_Lucene_Field
      */
     public static function binary($name, $value)

@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Spreadsheets_Extension_RowCount
- */
-require_once 'Zend/Gdata/Spreadsheets/Extension/RowCount.php';
-
-/**
- * @see Zend_Gdata_Spreadsheets_Extension_ColCount
- */
-require_once 'Zend/Gdata/Spreadsheets/Extension/ColCount.php';
-
-/**
  *
  * @category   Zend
  * @package    Zend_Gdata
@@ -64,14 +49,14 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
     /**
     * The row count for the feed.
     *
-    * @var Zend_Gdata_Spreadsheets_Extension_RowCount
+    * @var Zend_Gdata_Spreadsheets_Extension_RowCount|int|null
     */
     protected $_rowCount = null;
 
     /**
     * The column count for the feed.
     *
-    * @var Zend_Gdata_Spreadsheets_Extension_ColCount
+    * @var Zend_Gdata_Spreadsheets_Extension_ColCount|int|null
     */
     protected $_colCount = null;
 
@@ -119,7 +104,7 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
 
     /**
      * Gets the row count for this feed.
-     * @return string The row count for the feed.
+     * @return Zend_Gdata_Spreadsheets_Extension_RowCount|int|null The row count for the feed.
      */
     public function getRowCount()
     {
@@ -128,7 +113,7 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
 
     /**
      * Gets the column count for this feed.
-     * @return string The column count for the feed.
+     * @return Zend_Gdata_Spreadsheets_Extension_ColCount|int|null The column count for the feed.
      */
     public function getColumnCount()
     {
@@ -137,7 +122,7 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
 
     /**
      * Sets the row count for this feed.
-     * @param string $rowCount The new row count for the feed.
+     * @param int $rowCount The new row count for the feed.
      */
     public function setRowCount($rowCount)
     {
@@ -147,7 +132,7 @@ class Zend_Gdata_Spreadsheets_CellFeed extends Zend_Gdata_Feed
 
     /**
      * Sets the column count for this feed.
-     * @param string $colCount The new column count for the feed.
+     * @param int $colCount The new column count for the feed.
      */
     public function setColumnCount($colCount)
     {

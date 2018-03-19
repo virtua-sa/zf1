@@ -22,31 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata
- */
-require_once 'Zend/Gdata.php';
-
-/**
- * @see Zend_Gdata_Calendar_EventFeed
- */
-require_once 'Zend/Gdata/Calendar/EventFeed.php';
-
-/**
- * @see Zend_Gdata_Calendar_EventEntry
- */
-require_once 'Zend/Gdata/Calendar/EventEntry.php';
-
-/**
- * @see Zend_Gdata_Calendar_ListFeed
- */
-require_once 'Zend/Gdata/Calendar/ListFeed.php';
-
-/**
- * @see Zend_Gdata_Calendar_ListEntry
- */
-require_once 'Zend/Gdata/Calendar/ListEntry.php';
-
-/**
  * Service class for interacting with the Google Calendar data API
  * @link http://code.google.com/apis/gdata/calendar.html
  *
@@ -93,7 +68,7 @@ class Zend_Gdata_Calendar extends Zend_Gdata
      * Retreive feed object
      *
      * @param mixed $location The location for the feed, as a URL or Query
-     * @return Zend_Gdata_Calendar_EventFeed
+     * @return Zend_Gdata_Calendar_EventFeed|string
      */
     public function getCalendarEventFeed($location = null)
     {
@@ -110,12 +85,11 @@ class Zend_Gdata_Calendar extends Zend_Gdata
     /**
      * Retreive entry object
      *
-     * @return Zend_Gdata_Calendar_EventEntry
+     * @return Zend_Gdata_Calendar_EventEntry|string
      */
     public function getCalendarEventEntry($location = null)
     {
         if ($location == null) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Location must not be null');
         } else if ($location instanceof Zend_Gdata_Query) {
@@ -130,7 +104,7 @@ class Zend_Gdata_Calendar extends Zend_Gdata
     /**
      * Retrieve feed object
      *
-     * @return Zend_Gdata_Calendar_ListFeed
+     * @return Zend_Gdata_Calendar_ListFeed|string
      */
     public function getCalendarListFeed()
     {
@@ -141,12 +115,11 @@ class Zend_Gdata_Calendar extends Zend_Gdata
     /**
      * Retreive entryobject
      *
-     * @return Zend_Gdata_Calendar_ListEntry
+     * @return Zend_Gdata_Calendar_ListEntry|string
      */
     public function getCalendarListEntry($location = null)
     {
         if ($location == null) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Location must not be null');
         } else if ($location instanceof Zend_Gdata_Query) {

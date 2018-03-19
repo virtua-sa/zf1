@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -107,7 +102,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
     /**
      * Returns the set types
      *
-     * @return array
+     * @return int
      */
     public function getType()
     {
@@ -117,7 +112,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
     /**
      * Set the types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Validate_Exception
      * @return Zend_Validate_NotEmpty
      */
@@ -139,7 +134,6 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
         }
 
         if (!is_int($type) || ($type < 0) || ($type > self::ALL)) {
-            require_once 'Zend/Validate/Exception.php';
             throw new Zend_Validate_Exception('Unknown type');
         }
 
@@ -152,7 +146,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
      *
      * Returns true if and only if $value is not an empty value.
      *
-     * @param  string $value
+     * @param  string|array|int|float|bool|object $value
      * @return boolean
      */
     public function isValid($value)

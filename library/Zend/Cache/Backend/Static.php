@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Cache_Backend_Interface
- */
-require_once 'Zend/Cache/Backend/Interface.php';
-
-/**
- * @see Zend_Cache_Backend
- */
-require_once 'Zend/Cache/Backend.php';
-
-/**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -475,7 +465,7 @@ class Zend_Cache_Backend_Static
      * should be completely cleaned as the mapping of tags to caches will
      * have been irrevocably lost.
      *
-     * @param  Zend_Cache_Core
+     * @param  Zend_Cache_Core $cache
      * @return void
      */
     public function setInnerCache(Zend_Cache_Core $cache)
@@ -556,7 +546,7 @@ class Zend_Cache_Backend_Static
      * otherwise return the non-string (assumed octal or decimal int already)
      *
      * @param string $val The potential octal in need of conversion
-     * @return int
+     * @return int|string
      */
     protected function _octdec($val)
     {

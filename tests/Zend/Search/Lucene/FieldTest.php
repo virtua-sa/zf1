@@ -37,7 +37,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 {
     public function testBinary()
     {
-        $field = Zend_Search_Lucene_Field::Binary('field', 'value');
+        $field = Zend_Search_Lucene_Field::binary('field', 'value');
 
         $this->assertEquals($field->boost, 1);
         $this->assertEquals($field->encoding, '');
@@ -52,7 +52,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 
     public function testKeyword()
     {
-        $field = Zend_Search_Lucene_Field::Keyword('field', 'value');
+        $field = Zend_Search_Lucene_Field::keyword('field', 'value');
 
         $this->assertEquals($field->boost, 1);
         $this->assertEquals($field->encoding, '');
@@ -67,7 +67,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 
     public function testText()
     {
-        $field = Zend_Search_Lucene_Field::Text('field', 'value');
+        $field = Zend_Search_Lucene_Field::text('field', 'value');
 
         $this->assertEquals($field->boost, 1);
         $this->assertEquals($field->encoding, '');
@@ -82,7 +82,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 
     public function testUnIndexed()
     {
-        $field = Zend_Search_Lucene_Field::UnIndexed('field', 'value');
+        $field = Zend_Search_Lucene_Field::unIndexed('field', 'value');
 
         $this->assertEquals($field->boost, 1);
         $this->assertEquals($field->encoding, '');
@@ -97,7 +97,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 
     public function testUnStored()
     {
-        $field = Zend_Search_Lucene_Field::UnStored('field', 'value');
+        $field = Zend_Search_Lucene_Field::unStored('field', 'value');
 
         $this->assertEquals($field->boost, 1);
         $this->assertEquals($field->encoding, '');
@@ -112,7 +112,7 @@ class Zend_Search_Lucene_FieldTest extends PHPUnit\Framework\TestCase
 
     public function testEncoding()
     {
-        $field = Zend_Search_Lucene_Field::Text('field', 'Words with umlauts: εγό...', 'ISO-8859-1');
+        $field = Zend_Search_Lucene_Field::text('field', 'Words with umlauts: εγό...', 'ISO-8859-1');
 
         $this->assertEquals($field->encoding, 'ISO-8859-1');
 

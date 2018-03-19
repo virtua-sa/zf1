@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps group entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -57,7 +52,7 @@ class Zend_Gdata_Gapps_GroupQuery extends Zend_Gdata_Gapps_Query
      * @param string $domain (optional) The Google Apps-hosted domain to use
      *          when constructing query URIs.
      * @param string $groupId (optional) Value for the groupId property.
-     * @param string $startGroupName (optional) Value for the
+     * @param string $startGroupId (optional) Value for the
      *          startGroupName property.
      */
     public function __construct($domain = null, $groupId = null,
@@ -85,9 +80,6 @@ class Zend_Gdata_Gapps_GroupQuery extends Zend_Gdata_Gapps_Query
     /**
      * Get the group id to query for. If no group id is set, null will be
      * returned.
-     *
-     * @param string $value The group id to filter search results by, or
-     *          null if disabled.
      */
     public function getGroupId()
     {
@@ -117,7 +109,7 @@ class Zend_Gdata_Gapps_GroupQuery extends Zend_Gdata_Gapps_Query
      * null will be returned.
      *
      * @see setMember
-     * @return string The member email address to filter search
+     * @return string|null The member email address to filter search
      *              results by, or null if disabled.
      */
     public function getMember()
@@ -150,7 +142,7 @@ class Zend_Gdata_Gapps_GroupQuery extends Zend_Gdata_Gapps_Query
     /**
      *
      * @see setDirectOnly
-     * @return bool
+     * @return bool|null
      */
     public function getDirectOnly()
     {
@@ -187,7 +179,7 @@ class Zend_Gdata_Gapps_GroupQuery extends Zend_Gdata_Gapps_Query
      * a list of groups.
      *
      * @see setStartGroupId
-     * @return string The first group id to be returned, or null if
+     * @return string|null The first group id to be returned, or null if
      *          disabled.
      */
     public function getStartGroupId()

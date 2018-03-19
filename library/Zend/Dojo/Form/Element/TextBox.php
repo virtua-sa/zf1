@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Dojo_Form_Element_Dijit */
-require_once 'Zend/Dojo/Form/Element/Dijit.php';
-
 /**
  * TextBox dijit
  *
@@ -43,7 +40,7 @@ class Zend_Dojo_Form_Element_TextBox extends Zend_Dojo_Form_Element_Dijit
     /**
      * Set lowercase flag
      *
-     * @param  bool $lowercase
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_TextBox
      */
     public function setLowercase($flag)
@@ -68,7 +65,7 @@ class Zend_Dojo_Form_Element_TextBox extends Zend_Dojo_Form_Element_Dijit
     /**
      * Set propercase flag
      *
-     * @param  bool $propercase
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_TextBox
      */
     public function setPropercase($flag)
@@ -93,7 +90,7 @@ class Zend_Dojo_Form_Element_TextBox extends Zend_Dojo_Form_Element_Dijit
     /**
      * Set uppercase flag
      *
-     * @param  bool $uppercase
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_TextBox
      */
     public function setUppercase($flag)
@@ -118,7 +115,7 @@ class Zend_Dojo_Form_Element_TextBox extends Zend_Dojo_Form_Element_Dijit
     /**
      * Set trim flag
      *
-     * @param  bool $trim
+     * @param  bool $flag
      * @return Zend_Dojo_Form_Element_TextBox
      */
     public function setTrim($flag)

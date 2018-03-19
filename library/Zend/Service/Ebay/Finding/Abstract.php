@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Abstract
- */
-require_once 'Zend/Service/Ebay/Abstract.php';
-
-/**
- * @see Zend_Service_Ebay_Finding
- */
-require_once 'Zend/Service/Ebay/Finding.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay

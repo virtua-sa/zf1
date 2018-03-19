@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Extension_Who
- */
-require_once 'Zend/Gdata/Extension/Who.php';
-
-/**
  * Data model class for a Google Apps Email List Recipient Entry.
  *
  * Each instance of this class represents a recipient of an email list
@@ -135,7 +125,7 @@ class Zend_Gdata_Gapps_EmailListRecipientEntry extends Zend_Gdata_Entry
      *
      * @param Zend_Gdata_Extension_Who $value The desired value for this
      *          instance's who property.
-     * @return Zend_Gdata_Gapps_EventEntry Provides a fluent interface.
+     * @return $this Provides a fluent interface.
      */
     public function setWho($value)
     {

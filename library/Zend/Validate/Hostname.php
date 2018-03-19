@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
- * @see Zend_Validate_Ip
- */
-require_once 'Zend/Validate/Ip.php';
-
-/**
  * Please note there are two standalone test scripts for testing IDN characters due to problems
  * with file encoding.
  *
@@ -1515,7 +1505,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * Sets validator options
      *
      * @see http://www.iana.org/cctld/specifications-policies-cctlds-01apr02.htm  Technical Specifications for ccTLDs
-     * @param array $options Validator options
+     * @param array|Zend_Config $options Validator options
      */
     public function __construct($options = array())
     {
@@ -1898,7 +1888,7 @@ class Zend_Validate_Hostname extends Zend_Validate_Abstract
      * In case of a decoding failure the original string is returned
      *
      * @param  string $encoded Punycode encoded string to decode
-     * @return string
+     * @return string|false
      */
     protected function decodePunycode($encoded)
     {

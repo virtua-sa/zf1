@@ -21,13 +21,6 @@
  */
 
 
-/** @see Zend_Cache_Backend_Interface */
-require_once 'Zend/Cache/Backend/Interface.php';
-
-/** @see Zend_Cache_Backend */
-require_once 'Zend/Cache/Backend.php';
-
-
 /**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
@@ -83,7 +76,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
      *
      * @param  string  $id                     cache id
      * @param  boolean $doNotTestCacheValidity if set to true, the cache validity won't be tested
-     * @return string cached datas (or false)
+     * @return string|false cached datas (or false)
      */
     public function load($id, $doNotTestCacheValidity = false)
     {

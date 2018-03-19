@@ -20,9 +20,6 @@
  * @version    $Id $
  */
 
-/** Zend_Mobile_Push_Apns **/
-require_once 'Zend/Mobile/Push/Apns.php';
-
 /**
  * Apns Test Proxy
  * This class is utilized for unit testing purposes
@@ -31,12 +28,12 @@ require_once 'Zend/Mobile/Push/Apns.php';
  * @package    Zend_Mobile
  * @subpackage Push
  */
-class Zend_Mobile_Push_Test_ApnsProxy extends Zend_Mobile_Push_Apns 
+class Zend_Mobile_Push_Test_ApnsProxy extends Zend_Mobile_Push_Apns
 {
     /**
      * Read Response
      *
-     * @var string
+     * @var string|null
      */
     protected $_readResponse;
 

@@ -119,10 +119,6 @@ abstract class Zend_Service_Ebay_Abstract
         }
 
         if (!is_array($options)) {
-            /**
-             * @see Zend_Service_Ebay_Exception
-             */
-            require_once 'Zend/Service/Ebay/Exception.php';
             throw new Zend_Service_Ebay_Exception('Invalid options provided.');
         }
 
@@ -298,10 +294,6 @@ abstract class Zend_Service_Ebay_Abstract
                 break;
 
             default:
-                /**
-                 * @see Zend_Service_Ebay_Exception
-                 */
-                require_once 'Zend/Service/Ebay/Exception.php';
                 throw new Zend_Service_Ebay_Exception("Invalid type '{$type}'.");
         }
         return $value;

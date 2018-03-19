@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Amf_Value_Messaging_AcknowledgeMessage */
-require_once 'Zend/Amf/Value/Messaging/AcknowledgeMessage.php';
-
 /**
  * Creates the error message to report to flex the issue with the call
  *
@@ -43,7 +40,7 @@ class Zend_Amf_Value_Messaging_ErrorMessage extends Zend_Amf_Value_Messaging_Ack
 
     /**
      * Error code number
-     * @var string
+     * @var int
      */
     public $faultCode;
 

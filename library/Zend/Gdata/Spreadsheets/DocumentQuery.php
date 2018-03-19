@@ -22,16 +22,6 @@
  */
 
 /**
- * Zend_Gdata_App_util
- */
-require_once('Zend/Gdata/App/Util.php');
-
-/**
- * Zend_Gdata_Query
- */
-require_once('Zend/Gdata/Query.php');
-
-/**
  * Assists in constructing queries for Google Spreadsheets documents
  *
  * @link http://code.google.com/apis/gdata/spreadsheets/
@@ -65,7 +55,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the spreadsheet key for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setSpreadsheetKey($value)
     {
@@ -85,7 +75,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
     /**
      * Sets the worksheet id for this query.
      * @param string $value
-     * @return Zend_Gdata_Spreadsheets_CellQuery Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setWorksheetId($value)
     {
@@ -193,7 +183,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
 
     /**
      * Gets the title attribute for this query.
-     * @return string title
+     * @return string|null title
      */
     public function getTitle()
     {
@@ -206,7 +196,7 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
 
     /**
      * Gets the title-exact attribute for this query.
-     * @return string title-exact
+     * @return string|null title-exact
      */
     public function getTitleExact()
     {
@@ -224,14 +214,12 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
         if ($this->_visibility != null) {
             $uri .= '/'.$this->_visibility;
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception('A visibility must be provided for document queries.');
         }
 
         if ($this->_projection != null) {
             $uri .= '/'.$this->_projection;
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception('A projection must be provided for document queries.');
         }
 
@@ -250,7 +238,6 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
         if ($this->_documentType != null) {
             $uri .= '/'.$this->_documentType;
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception('A document type must be provided for document queries.');
         }
 
@@ -263,7 +250,6 @@ class Zend_Gdata_Spreadsheets_DocumentQuery extends Zend_Gdata_Query
             if ($this->_spreadsheetKey != null) {
                 $uri .= '/'.$this->_spreadsheetKey;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('A spreadsheet key must be provided for worksheet document queries.');
             }
             $uri .= $this->appendVisibilityProjection();

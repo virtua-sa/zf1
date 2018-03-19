@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_S3
- */
-require_once 'Zend/Service/Amazon/S3.php';
-
-/**
  * Amazon S3 PHP stream wrapper
  *
  * @category   Zend
@@ -52,22 +47,22 @@ class Zend_Service_Amazon_S3_Stream
     private $_objectSize = 0;
 
     /**
-     * @var string File name to interact with
+     * @var string|null File name to interact with
      */
     private $_objectName = null;
 
     /**
-     * @var string Current read/write buffer
+     * @var string|null Current read/write buffer
      */
     private $_objectBuffer = null;
 
     /**
-     * @var array Available buckets
+     * @var array|false Available buckets
      */
     private $_bucketList = array();
 
     /**
-     * @var Zend_Service_Amazon_S3
+     * @var Zend_Service_Amazon_S3|null
      */
     private $_s3 = null;
 
@@ -83,19 +78,11 @@ class Zend_Service_Amazon_S3_Stream
             $url = explode(':', $path);
 
             if (!$url) {
-                /**
-                 * @see Zend_Service_Amazon_S3_Exception
-                 */
-                require_once 'Zend/Service/Amazon/S3/Exception.php';
                 throw new Zend_Service_Amazon_S3_Exception("Unable to parse URL $path");
             }
 
             $this->_s3 = Zend_Service_Amazon_S3::getWrapperClient($url[0]);
             if (!$this->_s3) {
-                /**
-                 * @see Zend_Service_Amazon_S3_Exception
-                 */
-                require_once 'Zend/Service/Amazon/S3/Exception.php';
                 throw new Zend_Service_Amazon_S3_Exception("Unknown client for wrapper {$url[0]}");
             }
         }
@@ -179,7 +166,7 @@ class Zend_Service_Amazon_S3_Stream
      * parameter to fread().
      *
      * @param  integer $count
-     * @return string
+     * @return string|false
      */
     public function stream_read($count)
     {
@@ -314,7 +301,7 @@ class Zend_Service_Amazon_S3_Stream
     /**
      * Returns data array of stream variables
      *
-     * @return array
+     * @return array|false
      */
     public function stream_stat()
     {

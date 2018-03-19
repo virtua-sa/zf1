@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Entry
- */
-require_once 'Zend/Gdata/App/Entry.php';
-
-/**
- * @see Zend_Gdata_App_FeedSourceParent
- */
-require_once 'Zend/Gdata/App/FeedSourceParent.php';
-
-/**
  * Atom feed class
  *
  * @category   Zend
@@ -39,6 +29,7 @@ require_once 'Zend/Gdata/App/FeedSourceParent.php';
  * @subpackage App
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property Zend_Gdata_App_Feed $entries
  */
 class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
         implements Iterator, ArrayAccess, Countable
@@ -212,7 +203,7 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Adds an entry representation to the array of entries
      * contained within this feed
      *
-     * @param Zend_Gdata_App_Entry An individual entry to add.
+     * @param Zend_Gdata_App_Entry $value An individual entry to add.
      * @return Zend_Gdata_App_Feed Provides a fluent interface
      */
     public function addEntry($value)
@@ -237,7 +228,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Required by the ArrayAccess interface
      *
      * @param int $key The index to get
-     * @param Zend_Gdata_App_Entry $value The value to set
      */
     public function offsetGet($key)
     {
@@ -250,7 +240,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
      * Required by the ArrayAccess interface
      *
      * @param int $key The index to set
-     * @param Zend_Gdata_App_Entry $value The value to set
      */
     public function offsetUnset($key)
     {
@@ -281,7 +270,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
     {
         $nextLink = $this->getNextLink();
         if (!$nextLink) {
-            require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_Exception('No link to next set ' .
             'of results found.');
         }
@@ -302,7 +290,6 @@ class Zend_Gdata_App_Feed extends Zend_Gdata_App_FeedSourceParent
     {
         $previousLink = $this->getPreviousLink();
         if (!$previousLink) {
-            require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_Exception('No link to previous set ' .
             'of results found.');
         }

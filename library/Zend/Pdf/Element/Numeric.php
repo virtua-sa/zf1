@@ -20,10 +20,6 @@
  */
 
 
-/** Zend_Pdf_Element */
-require_once 'Zend/Pdf/Element.php';
-
-
 /**
  * PDF file 'numeric' element implementation
  *
@@ -37,7 +33,7 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Object value
      *
-     * @var numeric
+     * @var int|string|float
      */
     public $value;
 
@@ -45,13 +41,12 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Object constructor
      *
-     * @param numeric $val
+     * @param int|float|string $val
      * @throws Zend_Pdf_Exception
      */
     public function __construct($val)
     {
         if ( !is_numeric($val) ) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Argument must be numeric');
         }
 
@@ -73,7 +68,7 @@ class Zend_Pdf_Element_Numeric extends Zend_Pdf_Element
     /**
      * Return object as string
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)

@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_WindowsAzure_RetryPolicy_RetryPolicyAbstract
- */
-require_once 'Zend/Service/WindowsAzure/RetryPolicy/RetryPolicyAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage RetryPolicy
@@ -77,7 +72,6 @@ class Zend_Service_WindowsAzure_RetryPolicy_RetryN extends Zend_Service_WindowsA
                 return $returnValue;
             } catch (Exception $ex) {
                 if ($retriesLeft == 1) {
-                    require_once 'Zend/Service/WindowsAzure/RetryPolicy/Exception.php';
                     throw new Zend_Service_WindowsAzure_RetryPolicy_Exception("Exceeded retry count of " . $this->_retryCount . ". " . $ex->getMessage());
                 }
                     

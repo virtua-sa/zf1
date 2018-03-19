@@ -21,14 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Ebay_Abstract
- */
-require_once 'Zend/Service/Ebay/Abstract.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Ebay
@@ -87,10 +79,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
             // check application id
             $options = parent::optionsToArray($options);
             if (!array_key_exists(self::OPTION_APP_ID, $options)) {
-                /**
-                 * @see Zend_Service_Ebay_Finding_Exception
-                 */
-                require_once 'Zend/Service/Ebay/Finding/Exception.php';
                 throw new Zend_Service_Ebay_Finding_Exception(
                     'Application Id is missing.');
             }
@@ -107,10 +95,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function setClient($client)
     {
         if (!$client instanceof Zend_Rest_Client) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Exception
-             */
-            require_once 'Zend/Service/Ebay/Finding/Exception.php';
             throw new Zend_Service_Ebay_Finding_Exception(
                 'Client object must extend Zend_Rest_Client.');
         }
@@ -125,10 +109,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function getClient()
     {
         if (!$this->_client instanceof Zend_Rest_Client) {
-            /**
-             * @see Zend_Rest_Client
-             */
-            require_once 'Zend/Rest/Client.php';
             $this->_client = new Zend_Rest_Client();
         }
         return $this->_client;
@@ -257,10 +237,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         // do request
         $dom = $this->_request($operation, $options);
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Response_Items
-         */
-        require_once 'Zend/Service/Ebay/Finding/Response/Items.php';
         $response = new Zend_Service_Ebay_Finding_Response_Items($dom->firstChild);
         return $response->setOperation($operation)
                         ->setOption($options);
@@ -284,10 +260,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         $operation = 'getHistograms';
         $dom       = $this->_request($operation, $options);
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Response_Histograms
-         */
-        require_once 'Zend/Service/Ebay/Finding/Response/Histograms.php';
         $response = new Zend_Service_Ebay_Finding_Response_Histograms($dom->firstChild);
         return $response->setOperation($operation)
                         ->setOption($options);
@@ -312,10 +284,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         $operation = 'getSearchKeywordsRecommendation';
         $dom       = $this->_request($operation, $options);
 
-        /**
-         * @see Zend_Service_Ebay_Finding_Response_Keywords
-         */
-        require_once 'Zend/Service/Ebay/Finding/Response/Keywords.php';
         $response = new Zend_Service_Ebay_Finding_Response_Keywords($dom->firstChild);
         return $response->setOperation($operation)
                         ->setOption($options);
@@ -408,10 +376,6 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
 
         // throw exception when an error was detected
         if (strlen($message) > 0) {
-            /**
-             * @see Zend_Service_Ebay_Finding_Exception
-             */
-            require_once 'Zend/Service/Ebay/Finding/Exception.php';
             throw new Zend_Service_Ebay_Finding_Exception($message);
         }
 

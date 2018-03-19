@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Crypt_Math_BigInteger_Interface
- */
-require_once 'Zend/Crypt/Math/BigInteger/Interface.php';
-
-/**
  * Support for arbitrary precision mathematics in PHP.
  *
  * Zend_Crypt_Math_BigInteger_Bcmath is a wrapper across the PHP BCMath

@@ -22,17 +22,6 @@
 
 
 /**
- * @see Zend_Feed_Abstract
- */
-require_once 'Zend/Feed/Abstract.php';
-
-/**
- * @see Zend_Feed_Entry_Atom
- */
-require_once 'Zend/Feed/Entry/Atom.php';
-
-
-/**
  * Atom feed class
  *
  * The Zend_Feed_Atom class is a concrete subclass of the general
@@ -89,10 +78,6 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
             // Try to find a single <entry> instead.
             $element = $this->_element->getElementsByTagName($this->_entryElementName)->item(0);
             if (!$element) {
-                /**
-                 * @see Zend_Feed_Exception
-                 */
-                require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('No root <feed> or <' . $this->_entryElementName
                                               . '> element found, cannot parse feed.');
             }
@@ -183,7 +168,7 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
     /**
      * Generate the header of the feed when working in write mode
      *
-     * @param  array $array the data to use
+     * @param  ArrayObject $array the data to use
      * @return DOMElement root node
      */
     protected function _mapFeedHeaders($array)
@@ -376,15 +361,11 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
     public function send()
     {
         if (headers_sent()) {
-            /**
-             * @see Zend_Feed_Exception
-             */
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Cannot send ATOM because headers have already been sent.');
         }
 
         header('Content-Type: application/atom+xml; charset=' . $this->_element->ownerDocument->actualEncoding);
 
-        echo $this->saveXML();
+        echo $this->saveXml();
     }
 }

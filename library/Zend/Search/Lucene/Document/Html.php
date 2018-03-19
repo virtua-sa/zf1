@@ -21,10 +21,6 @@
  */
 
 
-/** Zend_Search_Lucene_Document */
-require_once 'Zend/Search/Lucene/Document.php';
-
-
 /**
  * HTML document.
  *
@@ -137,11 +133,11 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
             // title should always have only one entry, but we process all nodeset entries
             $docTitle .= $titleNode->nodeValue . ' ';
         }
-        $this->addField(Zend_Search_Lucene_Field::Text('title', $docTitle, 'UTF-8'));
+        $this->addField(Zend_Search_Lucene_Field::text('title', $docTitle, 'UTF-8'));
 
         $metaNodes = $xpath->query('/html/head/meta[@name]');
         foreach ($metaNodes as $metaNode) {
-            $this->addField(Zend_Search_Lucene_Field::Text($metaNode->getAttribute('name'),
+            $this->addField(Zend_Search_Lucene_Field::text($metaNode->getAttribute('name'),
                                                            $metaNode->getAttribute('content'),
                                                            'UTF-8'));
         }
@@ -153,9 +149,9 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
             $this->_retrieveNodeText($bodyNode, $docBody);
         }
         if ($storeContent) {
-            $this->addField(Zend_Search_Lucene_Field::Text('body', $docBody, 'UTF-8'));
+            $this->addField(Zend_Search_Lucene_Field::text('body', $docBody, 'UTF-8'));
         } else {
-            $this->addField(Zend_Search_Lucene_Field::UnStored('body', $docBody, 'UTF-8'));
+            $this->addField(Zend_Search_Lucene_Field::unStored('body', $docBody, 'UTF-8'));
         }
 
         $linkNodes = $this->_doc->getElementsByTagName('a');
@@ -211,7 +207,7 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
      * We should exclude scripts, which may be not included into comment tags, CDATA sections,
      *
      * @param DOMNode $node
-     * @param string &$text
+     * @param string $text
      */
     private function _retrieveNodeText(DOMNode $node, &$text)
     {
@@ -279,14 +275,13 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
      *
      * @param DOMText $node
      * @param array   $wordsToHighlight
-     * @param callback $callback   Callback method, used to transform (highlighting) text.
+     * @param callable $callback   Callback method, used to transform (highlighting) text.
      * @param array    $params     Array of additionall callback parameters (first non-optional parameter is a text to transform)
      * @throws Zend_Search_Lucene_Exception
      */
     protected function _highlightTextNode(DOMText $node, $wordsToHighlight, $callback, $params)
     {
         /** Zend_Search_Lucene_Analysis_Analyzer */
-        require_once 'Zend/Search/Lucene/Analysis/Analyzer.php';
 
         $analyzer = Zend_Search_Lucene_Analysis_Analyzer::getDefault();
         $analyzer->setInput($node->nodeValue, 'UTF-8');
@@ -325,7 +320,6 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
                                        . $highlightedWordNodeSetHtml
                                        . '</body></html>');
             if (!$success) {
-                require_once 'Zend/Search/Lucene/Exception.php';
                 throw new Zend_Search_Lucene_Exception("Error occured while loading highlighted text fragment: '$highlightedWordNodeSetHtml'.");
             }
             $highlightedWordNodeSetXpath = new DOMXPath($highlightedWordNodeSetDomDocument);
@@ -347,7 +341,7 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
      *
      * @param DOMNode $contextNode
      * @param array $wordsToHighlight
-     * @param callback $callback   Callback method, used to transform (highlighting) text.
+     * @param callable $callback   Callback method, used to transform (highlighting) text.
      * @param array    $params     Array of additionall callback parameters (first non-optional parameter is a text to transform)
      */
     protected function _highlightNodeRecursive(DOMNode $contextNode, $wordsToHighlight, $callback, $params)
@@ -405,7 +399,7 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
      * Highlight text using specified View helper or callback function.
      *
      * @param string|array $words  Words to highlight. Words could be organized using the array or string.
-     * @param callback $callback   Callback method, used to transform (highlighting) text.
+     * @param callable $callback   Callback method, used to transform (highlighting) text.
      * @param array    $params     Array of additionall callback parameters passed through into it
      *                             (first non-optional parameter is an HTML fragment for highlighting)
      * @return string
@@ -414,7 +408,6 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
     public function highlightExtended($words, $callback, $params = array())
     {
         /** Zend_Search_Lucene_Analysis_Analyzer */
-        require_once 'Zend/Search/Lucene/Analysis/Analyzer.php';
 
         if (!is_array($words)) {
             $words = array($words);
@@ -437,7 +430,6 @@ class Zend_Search_Lucene_Document_Html extends Zend_Search_Lucene_Document
         }
 
         if (!is_callable($callback)) {
-            require_once 'Zend/Search/Lucene/Exception.php';
             throw new Zend_Search_Lucene_Exception('$viewHelper parameter must be a View Helper name, View Helper object or callback.');
         }
 

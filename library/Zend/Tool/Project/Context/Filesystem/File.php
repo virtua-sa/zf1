@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Context_Filesystem_Abstract
- */
-require_once 'Zend/Tool/Project/Context/Filesystem/Abstract.php';
-
-/**
  * This class is the front most class for utilizing Zend_Tool_Project
  *
  * A profile is a hierarchical set of resources that keep track of
@@ -93,7 +88,7 @@ class Zend_Tool_Project_Context_Filesystem_File extends Zend_Tool_Project_Contex
     /**
      * setResource()
      *
-     * @param unknown_type $resource
+     * @param Zend_Tool_Project_Profile_Resource $resource
      */
     public function setResource(Zend_Tool_Project_Profile_Resource $resource)
     {

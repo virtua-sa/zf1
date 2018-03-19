@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Framework_Metadata_Interface
- */
-require_once 'Zend/Tool/Framework/Metadata/Interface.php';
-
-/**
- * @see Zend_Tool_Framework_Metadata_Attributable
- */
-require_once 'Zend/Tool/Framework/Metadata/Attributable.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -148,7 +138,7 @@ class Zend_Tool_Framework_Metadata_Basic
     /**
      * setValue()
      *
-     * @param unknown_type $Value
+     * @param mixed $value
      * @return Zend_Tool_Framework_Metadata_Basic
      */
     public function setValue($value)
@@ -183,7 +173,7 @@ class Zend_Tool_Framework_Metadata_Basic
      * getAttributes() - this will retrieve any attributes of this object that exist as properties
      * This is most useful for printing metadata.
      *
-     * @param const $type
+     * @param string $type
      * @return array
      */
     public function getAttributes($type = self::ATTRIBUTES_ALL, $stringRepresentationOfNonScalars = false)

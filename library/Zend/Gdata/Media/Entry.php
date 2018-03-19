@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Media
- */
-require_once 'Zend/Gdata/Media.php';
-
-/**
- * @see Zend_Gdata_Media_Extension_MediaGroup
- */
-require_once 'Zend/Gdata/Media/Extension/MediaGroup.php';
-
-/**
  * Represents the Gdata flavor of an Atom entry
  *
  * @category   Zend
@@ -53,7 +38,7 @@ class Zend_Gdata_Media_Entry extends Zend_Gdata_Entry
     /**
      * media:group element
      *
-     * @var Zend_Gdata_Media_Extension_MediaGroup
+     * @var Zend_Gdata_Media_Extension_MediaGroup|null|string
      */
     protected $_mediaGroup = null;
 
@@ -111,7 +96,7 @@ class Zend_Gdata_Media_Entry extends Zend_Gdata_Entry
     /**
      * Returns the entry's mediaGroup object.
      *
-     * @return Zend_Gdata_Media_Extension_MediaGroup
+     * @return Zend_Gdata_Media_Extension_MediaGroup|null|string
     */
     public function getMediaGroup()
     {
@@ -122,7 +107,7 @@ class Zend_Gdata_Media_Entry extends Zend_Gdata_Entry
      * Sets the entry's mediaGroup object.
      *
      * @param Zend_Gdata_Media_Extension_MediaGroup $mediaGroup
-     * @return Zend_Gdata_Media_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setMediaGroup($mediaGroup)
     {

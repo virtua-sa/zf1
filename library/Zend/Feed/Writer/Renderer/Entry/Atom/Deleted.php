@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Writer_Renderer_RendererAbstract
- */
-require_once 'Zend/Feed/Writer/Renderer/RendererAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Writer
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -48,7 +43,7 @@ class Zend_Feed_Writer_Renderer_Entry_Atom_Deleted
     /**
      * Render atom entry
      *
-     * @return Zend_Feed_Writer_Renderer_Entry_Atom
+     * @return $this
      */
     public function render()
     {

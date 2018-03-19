@@ -20,16 +20,12 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Resource */
-require_once 'Zend/Pdf/Resource.php';
-
 /**
  * Zend_Pdf_Font
  *
  * Zend_Pdf_Font class constants are used within Zend_Pdf_Resource_Font
  * and its subclusses.
  */
-require_once 'Zend/Pdf/Font.php';
 
 /**
  * Abstract class which manages PDF fonts.
@@ -84,31 +80,31 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
 
     /**
      * The position below the text baseline of the underline (in glyph units).
-     * @var integer
+     * @var integer|null
      */
     protected $_underlinePosition = 0;
 
     /**
      * The thickness of the underline (in glyph units).
-     * @var integer
+     * @var integer|null
      */
     protected $_underlineThickness = 0;
 
     /**
      * The position above the text baseline of the strikethrough (in glyph units).
-     * @var integer
+     * @var integer|null
      */
     protected $_strikePosition = 0;
 
     /**
      * The thickness of the strikethrough (in glyph units).
-     * @var integer
+     * @var integer|null
      */
     protected $_strikeThickness = 0;
 
     /**
      * Number of glyph units per em. See {@link getUnitsPerEm()}.
-     * @var integer
+     * @var integer|null
      */
     protected $_unitsPerEm = 0;
 
@@ -126,7 +122,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
 
     /**
      * Typographical line gap. See {@link getLineGap()}.
-     * @var integer
+     * @var integer|null
      */
     protected $_lineGap = 0;
 
@@ -219,7 +215,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
      *   in preferred order. Use the ISO 639 standard 2-letter language codes.
      * @param string $characterSet (optional) Desired resulting character set.
      *   You may use any character set supported by {@link iconv()};
-     * @return string
+     * @return string|null
      */
     public function getFontName($nameType, $language, $characterSet = null)
     {

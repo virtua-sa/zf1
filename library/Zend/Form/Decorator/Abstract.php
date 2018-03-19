@@ -18,9 +18,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Form_Decorator_Interface */
-require_once 'Zend/Form/Decorator/Interface.php';
-
 /**
  * Zend_Form_Decorator_Abstract
  *
@@ -41,12 +38,12 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
 
     /**
      * Default placement: append
-     * @var string
+     * @var string|null
      */
     protected $_placement = 'APPEND';
 
     /**
-     * @var Zend_Form_Element|Zend_Form
+     * @var Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup
      */
     protected $_element;
 
@@ -143,7 +140,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
      * Remove single option
      *
      * @param mixed $key
-     * @return void
+     * @return bool
      */
     public function removeOption($key)
     {
@@ -169,7 +166,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     /**
      * Set current form element
      *
-     * @param  Zend_Form_Element|Zend_Form $element
+     * @param  Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup $element
      * @return Zend_Form_Decorator_Abstract
      * @throws Zend_Form_Decorator_Exception on invalid element type
      */
@@ -179,7 +176,6 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
             && (!$element instanceof Zend_Form)
             && (!$element instanceof Zend_Form_DisplayGroup))
         {
-            require_once 'Zend/Form/Decorator/Exception.php';
             throw new Zend_Form_Decorator_Exception('Invalid element type passed to decorator');
         }
 
@@ -190,7 +186,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     /**
      * Retrieve current element
      *
-     * @return Zend_Form_Element|Zend_Form
+     * @return Zend_Form_Element|Zend_Form|Zend_Form_DisplayGroup
      */
     public function getElement()
     {
@@ -248,7 +244,6 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
      */
     public function render($content)
     {
-        require_once 'Zend/Form/Decorator/Exception.php';
         throw new Zend_Form_Decorator_Exception('render() not implemented');
     }
 }

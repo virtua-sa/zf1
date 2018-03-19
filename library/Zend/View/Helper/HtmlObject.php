@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_HtmlElement
- */
-require_once 'Zend/View/Helper/HtmlElement.php';
-
-/**
  * @category   Zend
  * @package    Zend_View
  * @subpackage Helper
@@ -41,7 +36,7 @@ class Zend_View_Helper_HtmlObject extends Zend_View_Helper_HtmlElement
      * @param string $type Data file type
      * @param array  $attribs Attribs for the object tag
      * @param array  $params Params for in the object tag
-     * @param string $content Alternative content for object
+     * @param string|array $content Alternative content for object
      * @return string
      */
     public function htmlObject($data, $type, array $attribs = array(), array $params = array(), $content = null)

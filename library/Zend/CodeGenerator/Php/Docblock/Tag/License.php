@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_CodeGenerator_Php_Docblock_Tag
- */
-require_once 'Zend/CodeGenerator/Php/Docblock/Tag.php';
-
-/**
  * @category   Zend
  * @package    Zend_CodeGenerator
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -47,7 +42,7 @@ class Zend_CodeGenerator_Php_Docblock_Tag_License extends Zend_CodeGenerator_Php
     /**
      * fromReflection()
      *
-     * @param Zend_Reflection_Docblock_Tag $reflectionTagReturn
+     * @param Zend_Reflection_Docblock_Tag $reflectionTagLicense
      * @return Zend_CodeGenerator_Php_Docblock_Tag_License
      */
     public static function fromReflection(Zend_Reflection_Docblock_Tag $reflectionTagLicense)

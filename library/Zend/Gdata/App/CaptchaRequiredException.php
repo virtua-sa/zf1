@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_CaptchaRequiredException
- */
-require_once 'Zend/Gdata/App/AuthException.php';
-
-/**
  * Gdata exceptions
  *
  * Class to represent an exception that occurs during the use of ClientLogin.

@@ -20,32 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Tool_Project_Profile
- */
-require_once 'Zend/Tool/Project/Profile.php';
-
-/**
- * @see Zend_Tool_Framework_Provider_Abstract
- */
-require_once 'Zend/Tool/Framework/Provider/Abstract.php';
-
-/**
- * @see Zend_Tool_Project_Context_Repository
- */
-require_once 'Zend/Tool/Project/Context/Repository.php';
-
-/**
- * @see Zend_Tool_Project_Profile_FileParser_Xml
- */
-require_once 'Zend/Tool/Project/Profile/FileParser/Xml.php';
-
-/**
- * @see Zend_Tool_Framework_Registry
- */
-require_once 'Zend/Tool/Framework/Registry.php';
-
-require_once 'Zend/Tool/Framework/Provider/Initializable.php';
 
 /**
  * @category   Zend
@@ -121,7 +95,7 @@ abstract class Zend_Tool_Project_Provider_Abstract
      * @param bool   $loadProfileFlag         Whether or not to throw an exception when no profile is found
      * @param string $projectDirectory        The project directory to use to search
      * @param bool   $searchParentDirectories Whether or not to search upper level direcotries
-     * @return Zend_Tool_Project_Profile
+     * @return Zend_Tool_Project_Profile|false
      */
     protected function _loadProfile($loadProfileFlag = self::NO_PROFILE_THROW_EXCEPTION, $projectDirectory = null, $searchParentDirectories = true)
     {
@@ -187,7 +161,6 @@ abstract class Zend_Tool_Project_Provider_Abstract
     {
         $profile = $this->_loadProfile();
         if ($profile === false) {
-            require_once 'Zend/Tool/Project/Provider/Exception.php';
             throw new Zend_Tool_Project_Provider_Exception('A project profile was not found in the current working directory.');
         }
         return $profile;
@@ -196,7 +169,7 @@ abstract class Zend_Tool_Project_Provider_Abstract
     /**
      * Return the currently loaded profile
      *
-     * @return Zend_Tool_Project_Profile
+     * @return Zend_Tool_Project_Profile|false
      */
     protected function _getProfile($loadProfileFlag = self::NO_PROFILE_THROW_EXCEPTION)
     {
@@ -234,7 +207,6 @@ abstract class Zend_Tool_Project_Provider_Abstract
         }
 
         if (!class_exists('Zend_Tool_Project_Context_Content_Engine')) {
-            require_once 'Zend/Tool/Project/Context/Content/Engine.php';
         }
 
         $engine = new Zend_Tool_Project_Context_Content_Engine($storage);

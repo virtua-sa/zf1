@@ -59,7 +59,7 @@ abstract class Zend_Pdf_Element
      *
      * $factory parameter defines operation context.
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     abstract public function toString($factory = null);
@@ -74,7 +74,7 @@ abstract class Zend_Pdf_Element
      * (Needs PHP 5.3.x to attach object _with_ additional data to storage)
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      */
@@ -145,10 +145,8 @@ abstract class Zend_Pdf_Element
     public static function phpToPdf($input)
     {
         if (is_numeric($input)) {
-            require_once 'Zend/Pdf/Element/Numeric.php';
             return new Zend_Pdf_Element_Numeric($input);
         } else if (is_bool($input)) {
-            require_once 'Zend/Pdf/Element/Boolean.php';
             return new Zend_Pdf_Element_Boolean($input);
         } else if (is_array($input)) {
             $pdfElementsArray = array();
@@ -162,14 +160,11 @@ abstract class Zend_Pdf_Element
             }
 
             if ($isDictionary) {
-                require_once 'Zend/Pdf/Element/Dictionary.php';
                 return new Zend_Pdf_Element_Dictionary($pdfElementsArray);
             } else {
-                require_once 'Zend/Pdf/Element/Array.php';
                 return new Zend_Pdf_Element_Array($pdfElementsArray);
             }
         } else {
-            require_once 'Zend/Pdf/Element/String.php';
             return new Zend_Pdf_Element_String((string)$input);
         }
     }

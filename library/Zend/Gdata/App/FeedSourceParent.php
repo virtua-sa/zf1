@@ -22,36 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Entry
- */
-require_once 'Zend/Gdata/App/Entry.php';
-
-/**
- * @see Zend_Gdata_App_FeedSourceParent
- */
-require_once 'Zend/Gdata/App/FeedEntryParent.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Generator
- */
-require_once 'Zend/Gdata/App/Extension/Generator.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Icon
- */
-require_once 'Zend/Gdata/App/Extension/Icon.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Logo
- */
-require_once 'Zend/Gdata/App/Extension/Logo.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Subtitle
- */
-require_once 'Zend/Gdata/App/Extension/Subtitle.php';
-
-/**
  * Atom feed class
  *
  * @category   Zend
@@ -193,7 +163,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Generator
+     * @return Zend_Gdata_App_Extension_Generator
      */
     public function getGenerator()
     {
@@ -211,7 +181,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Icon
+     * @return Zend_Gdata_App_Extension_Icon
      */
     public function getIcon()
     {
@@ -229,7 +199,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_logo
+     * @return Zend_Gdata_App_Extension_Logo
      */
     public function getlogo()
     {
@@ -237,7 +207,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_logo $value
+     * @param Zend_Gdata_App_Extension_Logo $value
      * @return Zend_Gdata_App_FeedSourceParent Provides a fluent interface
      */
     public function setlogo($value)
@@ -247,7 +217,7 @@ abstract class Zend_Gdata_App_FeedSourceParent extends Zend_Gdata_App_FeedEntryP
     }
 
     /**
-     * @return Zend_Gdata_AppExtension_Subtitle
+     * @return Zend_Gdata_App_Extension_Subtitle
      */
     public function getSubtitle()
     {

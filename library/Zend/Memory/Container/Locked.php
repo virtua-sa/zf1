@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Memory_Container */
-require_once 'Zend/Memory/Container.php';
-
 /**
  * Memory value container
  *
@@ -45,8 +42,6 @@ class Zend_Memory_Container_Locked extends Zend_Memory_Container
     /**
      * Object constructor
      *
-     * @param Zend_Memory_Manager $memoryManager
-     * @param integer $id
      * @param string $value
      */
     public function __construct($value)
@@ -86,7 +81,7 @@ class Zend_Memory_Container_Locked extends Zend_Memory_Container
      * _Must_ be used for value access before PHP v 5.2
      * or _may_ be used for performance considerations
      *
-     * @return &string
+     * @return string
      */
     public function &getRef()
     {

@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Form_Decorator_Abstract */
-require_once 'Zend/Form/Decorator/Abstract.php';
-
 /**
  * Zend_Form_Decorator_Label
  *
@@ -43,6 +40,14 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
+ * @method getOptPrefix()
+ * @method getOptSuffix()
+ * @method getReqPrefix()
+ * @method getReqSuffix()
+ * @method setOptPrefix()
+ * @method setOptSuffix()
+ * @method setReqPrefix()
+ * @method setReqSuffix()
  */
 class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
 {
@@ -55,19 +60,19 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
 
     /**
      * Default placement: prepend
-     * @var string
+     * @var string|null
      */
     protected $_placement = 'PREPEND';
 
     /**
      * HTML tag with which to surround label
-     * @var string
+     * @var string|null
      */
     protected $_tag;
 
     /**
      * Class for the HTML tag with which to surround label
-     * @var string
+     * @var string|null
      */
     protected $_tagClass;
 
@@ -164,7 +169,7 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
     /**
      * Get the class to apply to the HTML tag, if any, with which to surround label
      *
-     * @return void
+     * @return string
      */
     public function getTagClass()
     {
@@ -260,14 +265,12 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
                     $key = 'optional' . $position;
                     break;
                 default:
-                    require_once 'Zend/Form/Exception.php';
                     throw new Zend_Form_Exception(sprintf('Invalid method "%s" called in Label decorator, and detected as type %s', $method, $type));
             }
 
             switch ($head) {
                 case 'set':
                     if (0 === count($args)) {
-                        require_once 'Zend/Form/Exception.php';
                         throw new Zend_Form_Exception(sprintf('Method "%s" requires at least one argument; none provided', $method));
                     }
                     $value = array_shift($args);
@@ -286,7 +289,6 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
             }
         }
 
-        require_once 'Zend/Form/Exception.php';
         throw new Zend_Form_Exception(sprintf('Invalid method "%s" called in Label decorator', $method));
     }
 
@@ -432,7 +434,6 @@ class Zend_Form_Decorator_Label extends Zend_Form_Decorator_Abstract
         }
 
         if (null !== $tag) {
-            require_once 'Zend/Form/Decorator/HtmlTag.php';
             $decorator = new Zend_Form_Decorator_HtmlTag();
             if (null !== $this->_tagClass) {
                 $decorator->setOptions(array('tag'   => $tag,

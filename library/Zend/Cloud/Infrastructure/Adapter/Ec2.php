@@ -7,15 +7,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Service/Amazon/Ec2/Instance.php';
-require_once 'Zend/Service/Amazon/Ec2/Image.php';
-require_once 'Zend/Service/Amazon/Ec2/Availabilityzones.php';
-require_once 'Zend/Service/Amazon/Ec2/CloudWatch.php';
-require_once 'Zend/Cloud/Infrastructure/Instance.php';
-require_once 'Zend/Cloud/Infrastructure/InstanceList.php';
-require_once 'Zend/Cloud/Infrastructure/Image.php';
-require_once 'Zend/Cloud/Infrastructure/ImageList.php';
-require_once 'Zend/Cloud/Infrastructure/Adapter/AbstractAdapter.php';
 
 /**
  * Amazon EC2 adapter for infrastructure service
@@ -36,58 +27,58 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
     const AWS_SECURITY_GROUP = 'securityGroup';
 
     /**
-     * Ec2 Instance 
-     * 
-     * @var Ec2Instance
+     * Ec2 Instance
+     *
+     * @var Zend_Service_Amazon_Ec2_Instance
      */
     protected $ec2;
 
     /**
      * Ec2 Image
-     * 
-     * @var Ec2Image
+     *
+     * @var Zend_Service_Amazon_Ec2_Image
      */
     protected $ec2Image;
 
     /**
      * Ec2 Zone
-     * 
-     * @var Ec2Zone
+     *
+     * @var Zend_Service_Amazon_Ec2_Availabilityzones
      */
     protected $ec2Zone;
 
     /**
-     * Ec2 Monitor 
-     * 
-     * @var Ec2Monitor
+     * Ec2 Monitor
+     *
+     * @var Zend_Service_Amazon_Ec2_CloudWatch
      */
     protected $ec2Monitor;
 
     /**
      * AWS Access Key
-     * 
-     * @var string 
+     *
+     * @var string
      */
     protected $accessKey;
 
     /**
      * AWS Access Secret
-     * 
-     * @var string 
+     *
+     * @var string
      */
     protected $accessSecret;
 
     /**
-     * Region zone 
-     * 
-     * @var string 
+     * Region zone
+     *
+     * @var string
      */
     protected $region;
 
     /**
      * Map array between EC2 and Infrastructure status
-     * 
-     * @var array 
+     *
+     * @var array
      */
     protected $mapStatus = array (
         'running'       => Zend_Cloud_Infrastructure_Instance::STATUS_RUNNING,
@@ -101,8 +92,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Map monitor metrics between Infrastructure and EC2
-     * 
-     * @var array 
+     *
+     * @var array
      */
     protected $mapMetrics= array (
         Zend_Cloud_Infrastructure_Instance::MONITOR_CPU         => 'CPUUtilization',
@@ -127,16 +118,14 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
                 $options = iterator_to_array($options);
             }
         }
-        
+
         if (empty($options) || !is_array($options)) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception('Invalid options provided');
         }
-        
-        if (!isset($options[self::AWS_ACCESS_KEY]) 
+
+        if (!isset($options[self::AWS_ACCESS_KEY])
             || !isset($options[self::AWS_SECRET_KEY])
         ) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception('AWS keys not specified!');
         }
 
@@ -151,7 +140,6 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
         try {
             $this->ec2 = new Zend_Service_Amazon_Ec2_Instance($options[self::AWS_ACCESS_KEY], $options[self::AWS_SECRET_KEY], $this->region);
         } catch (Exception  $e) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception('Error on create: ' . $e->getMessage(), $e->getCode(), $e);
         }
 
@@ -162,13 +150,13 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Convert the attributes of EC2 into attributes of Infrastructure
-     * 
+     *
      * @param  array $attr
-     * @return array|boolean 
+     * @return array|boolean
      */
     private function convertAttributes($attr)
     {
-        $result = array();       
+        $result = array();
         if (!empty($attr) && is_array($attr)) {
             $result[Zend_Cloud_Infrastructure_Instance::INSTANCE_ID]         = $attr['instanceId'];
             $result[Zend_Cloud_Infrastructure_Instance::INSTANCE_STATUS]     = $this->mapStatus[$attr['instanceState']['name']];
@@ -216,8 +204,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
      * Return a list of the available instancies
      *
      * @return Zend_Cloud_Infrastructure_InstanceList
-     */ 
-    public function listInstances() 
+     */
+    public function listInstances()
     {
         $this->adapterResult = $this->ec2->describe();
 
@@ -231,31 +219,31 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
     /**
      * Return the status of an instance
      *
-     * @param  string
+     * @param  string $id
      * @return string|boolean
-     */ 
+     */
     public function statusInstance($id)
     {
         $this->adapterResult = $this->ec2->describe($id);
         if (empty($this->adapterResult['instances'])) {
             return false;
-        }    
+        }
         $result = $this->adapterResult['instances'][0];
         return $this->mapStatus[$result['instanceState']['name']];
     }
 
     /**
      * Return the public DNS name of the instance
-     * 
+     *
      * @param  string $id
-     * @return string|boolean 
+     * @return string|boolean
      */
-    public function publicDnsInstance($id) 
+    public function publicDnsInstance($id)
     {
         $this->adapterResult = $this->ec2->describe($id);
         if (empty($this->adapterResult['instances'])) {
             return false;
-        }    
+        }
         $result = $this->adapterResult['instances'][0];
         return $result['dnsName'];
     }
@@ -265,7 +253,7 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
      *
      * @param string $id
      * @return boolean
-     */ 
+     */
     public function rebootInstance($id)
     {
         $this->adapterResult= $this->ec2->reboot($id);
@@ -277,8 +265,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
      *
      * @param string $name
      * @param array $options
-     * @return Instance|boolean
-     */ 
+     * @return Zend_Cloud_Infrastructure_Instance|boolean
+     */
     public function createInstance($name, $options)
     {
         // @todo instance's name management?
@@ -295,42 +283,40 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
      *
      * @param  string $id
      * @return boolean
-     */ 
+     */
     public function stopInstance($id)
     {
-        require_once 'Zend/Cloud/Infrastructure/Exception.php';
         throw new Zend_Cloud_Infrastructure_Exception('The stopInstance method is not implemented in the adapter');
     }
- 
+
     /**
      * Start an instance
      *
      * @param  string $id
      * @return boolean
-     */ 
+     */
     public function startInstance($id)
     {
-        require_once 'Zend/Cloud/Infrastructure/Exception.php';
         throw new Zend_Cloud_Infrastructure_Exception('The startInstance method is not implemented in the adapter');
     }
- 
+
     /**
      * Destroy an instance
      *
      * @param  string $id
      * @return boolean
-     */ 
+     */
     public function destroyInstance($id)
     {
         $this->adapterResult = $this->ec2->terminate($id);
         return (!empty($this->adapterResult));
     }
- 
+
     /**
      * Return a list of all the available instance images
      *
-     * @return ImageList
-     */ 
+     * @return Zend_Cloud_Infrastructure_ImageList
+     */
     public function imagesInstance()
     {
         if (!isset($this->ec2Image)) {
@@ -338,7 +324,7 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
         }
 
         $this->adapterResult = $this->ec2Image->describe();
-                
+
         $images = array();
 
         foreach ($this->adapterResult as $result) {
@@ -365,13 +351,13 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Return all the available zones
-     * 
+     *
      * @return array
      */
     public function zonesInstance()
     {
         if (!isset($this->ec2Zone)) {
-            $this->ec2Zone = new Zend_Service_Amazon_Ec2_AvailabilityZones($this->accessKey,$this->accessSecret,$this->region);
+            $this->ec2Zone = new Zend_Service_Amazon_Ec2_Availabilityzones($this->accessKey,$this->accessSecret,$this->region);
         }
         $this->adapterResult = $this->ec2Zone->describe();
 
@@ -388,12 +374,12 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Return the system information about the $metric of an instance
-     * 
+     *
      * @param  string $id
      * @param  string $metric
      * @param  null|array $options
-     * @return array
-     */ 
+     * @return array|false
+     */
     public function monitorInstance($id, $metric, $options = null)
     {
         if (empty($id) || empty($metric)) {
@@ -401,29 +387,26 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
         }
 
         if (!in_array($metric,$this->validMetrics)) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception(sprintf(
-                'The metric "%s" is not valid', 
+                'The metric "%s" is not valid',
                 $metric
             ));
         }
 
         if (!empty($options) && !is_array($options)) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception('The options must be an array');
         }
 
-        if (!empty($options) 
-            && (empty($options[Zend_Cloud_Infrastructure_Instance::MONITOR_START_TIME]) 
+        if (!empty($options)
+            && (empty($options[Zend_Cloud_Infrastructure_Instance::MONITOR_START_TIME])
                 || empty($options[Zend_Cloud_Infrastructure_Instance::MONITOR_END_TIME]))
         ) {
-            require_once 'Zend/Cloud/Infrastructure/Exception.php';
             throw new Zend_Cloud_Infrastructure_Exception(sprintf(
                 'The options array must contain: "%s" and "%s"',
                 $options[Zend_Cloud_Infrastructure_Instance::MONITOR_START_TIME],
                 $options[Zend_Cloud_Infrastructure_Instance::MONITOR_END_TIME]
             ));
-        }      
+        }
 
         if (!isset($this->ec2Monitor)) {
             $this->ec2Monitor = new Zend_Service_Amazon_Ec2_CloudWatch($this->accessKey, $this->accessSecret, $this->region);
@@ -465,8 +448,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
     }
 
     /**
-     * Get the adapter 
-     * 
+     * Get the adapter
+     *
      * @return Zend_Service_Amazon_Ec2_Instance
      */
     public function getAdapter()
@@ -476,8 +459,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Get last HTTP request
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function getLastHttpRequest()
     {
@@ -486,8 +469,8 @@ class Zend_Cloud_Infrastructure_Adapter_Ec2 extends Zend_Cloud_Infrastructure_Ad
 
     /**
      * Get the last HTTP response
-     * 
-     * @return Zend_Http_Response 
+     *
+     * @return Zend_Http_Response
      */
     public function getLastHttpResponse()
     {

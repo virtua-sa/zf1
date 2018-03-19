@@ -58,8 +58,8 @@ class Zend_Cache_FileBackendTest extends Zend_Cache_CommonExtendedBackendTest {
 
     public function setUp($notag = false)
     {
-        $this->mkdir();
-        $this->_cache_dir = $this->getTmpDir() . DIRECTORY_SEPARATOR;
+        $tmpDir = $this->mkdir();
+        $this->_cache_dir = $tmpDir . DIRECTORY_SEPARATOR;
         $this->_instance = new Zend_Cache_Backend_File(array(
             'cache_dir' => $this->_cache_dir,
         ));

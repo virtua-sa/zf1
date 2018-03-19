@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
- * @see Zend_Gdata_Gapps
- */
-require_once 'Zend/Gdata/Gapps.php';
-
-/**
  * Represents the apps:name element used by the Apps data API. This is used
  * to represent a user's full name. This class is usually contained within
  * instances of Zend_Gdata_Gapps_UserEntry.

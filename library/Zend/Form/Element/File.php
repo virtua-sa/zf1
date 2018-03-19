@@ -18,9 +18,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Form_Element_Xhtml */
-require_once 'Zend/Form/Element/Xhtml.php';
-
 /**
  * Zend_Form_Element
  *
@@ -100,7 +97,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      *
      * @param  Zend_Loader_PluginLoader_Interface $loader
      * @param  string $type
-     * @return Zend_Form_Element_File
+     * @return $this
      */
     public function setPluginLoader(Zend_Loader_PluginLoader_Interface $loader, $type)
     {
@@ -129,7 +126,6 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
         }
 
         if (!array_key_exists($type, $this->_loaders)) {
-            require_once 'Zend/Loader/PluginLoader.php';
             $loader = new Zend_Loader_PluginLoader(array(
                 'Zend_File_Transfer_Adapter' => 'Zend/File/Transfer/Adapter/',
             ));
@@ -145,7 +141,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * @param  string $prefix
      * @param  string $path
      * @param  string $type
-     * @return Zend_Form_Element_File
+     * @return $this
      */
     public function addPrefixPath($prefix, $path, $type = null)
     {
@@ -184,7 +180,6 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
             $class  = $loader->load($adapter);
             $this->_adapter = new $class;
         } else {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception('Invalid adapter specified');
         }
 
@@ -516,7 +511,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
     /**
      * Get the upload destination
      *
-     * @return string
+     * @return string|array|null
      */
     public function getDestination()
     {
@@ -528,7 +523,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      *
      * @param  string  $value (Optional) Element or file to return
      * @param  boolean $path  (Optional) Return also the path, defaults to true
-     * @return string
+     * @return string|array
      */
     public function getFileName($value = null, $path = true)
     {
@@ -612,7 +607,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * Sets the maximum file size of the form
      *
      * @param  integer $size
-     * @return integer
+     * @return $this
      */
     public function setMaxFileSize($size)
     {
@@ -693,7 +688,7 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
      * Processes the file, returns null or the filename only
      * For the complete path, use getFileName
      *
-     * @return null|string
+     * @return null|string|array
      */
     public function getValue()
     {
@@ -756,7 +751,6 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
 
         $translator = $this->getTransferAdapter()->getTranslator();
         if (null === $translator) {
-            require_once 'Zend/Form.php';
             return Zend_Form::getDefaultTranslator();
         }
 
@@ -874,7 +868,6 @@ class Zend_Form_Element_File extends Zend_Form_Element_Xhtml
         }
 
         if (!$marker) {
-            require_once 'Zend/Form/Element/Exception.php';
             throw new Zend_Form_Element_Exception('No file decorator found... unable to render file element');
         }
 

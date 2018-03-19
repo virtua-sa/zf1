@@ -20,10 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Pdf_Action */
-require_once 'Zend/Pdf/Action.php';
-
-
 /**
  * PDF 'Updates the display of a document, using a transition dictionary' action
  * PDF 1.5+ feature

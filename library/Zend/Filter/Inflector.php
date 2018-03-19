@@ -19,16 +19,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Filter
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter.php';
-
-/**
- * @see Zend_Loader_PluginLoader
- */
-require_once 'Zend/Loader/PluginLoader.php';
 
 /**
  * Filter chain for string inflection
@@ -68,7 +58,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Constructor
      *
-     * @param string|array $options Options to set
+     * @param string|array|Zend_Config $options Options to set
      */
     public function __construct($options = null)
     {
@@ -141,7 +131,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Set options
      *
-     * @param  array $options
+     * @param  array|Zend_Config $options
      * @return Zend_Filter_Inflector
      */
     public function setOptions($options) {
@@ -194,7 +184,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      * Set Whether or not the inflector should throw an exception when a replacement
      * identifier is still found within an inflected target.
      *
-     * @param bool $throwTargetExceptions
+     * @param bool $throwTargetExceptionsOn
      * @return Zend_Filter_Inflector
      */
     public function setThrowTargetExceptionsOn($throwTargetExceptionsOn)
@@ -242,7 +232,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      * Set a Target
      * ex: 'scripts/:controller/:action.:suffix'
      *
-     * @param string
+     * @param string $target
      * @return Zend_Filter_Inflector
      */
     public function setTarget($target)
@@ -264,7 +254,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Set Target Reference
      *
-     * @param reference $target
+     * @param string $target
      * @return Zend_Filter_Inflector
      */
     public function setTargetReference(&$target)
@@ -300,7 +290,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      *     'suffix'      => 'phtml'
      *     );
      *
-     * @param array
+     * @param array $rules
      * @return Zend_Filter_Inflector
      */
     public function addRules(Array $rules)
@@ -374,7 +364,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      *
      * @param string $spec
      * @param array|string|Zend_Filter_Interface $ruleSet
-     * @return Zend_Filter_Inflector
+     * @return $this
      */
     public function setFilterRule($spec, $ruleSet)
     {
@@ -388,7 +378,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
      *
      * @param mixed $spec
      * @param mixed $ruleSet
-     * @return void
+     * @return $this
      */
     public function addFilterRule($spec, $ruleSet)
     {
@@ -483,7 +473,6 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
         $inflectedTarget = preg_replace(array_keys($processedParts), array_values($processedParts), $this->_target);
 
         if ($this->_throwTargetExceptionsOn && (preg_match('#(?='.$pregQuotedTargetReplacementIdentifier.'[A-Za-z]{1})#', $inflectedTarget) == true)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('A replacement identifier ' . $this->_targetReplacementIdentifier . ' was found inside the inflected target, perhaps a rule was not satisfied with a target source?  Unsatisfied inflected target: ' . $inflectedTarget);
         }
 
@@ -504,7 +493,7 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
     /**
      * Resolve named filters and convert them to filter objects.
      *
-     * @param  string $rule
+     * @param  string|Zend_Filter_Interface $rule
      * @return Zend_Filter_Interface
      */
     protected function _getRule($rule)
@@ -518,7 +507,6 @@ class Zend_Filter_Inflector implements Zend_Filter_Interface
         $className  = $this->getPluginLoader()->load($rule);
         $ruleObject = new $className();
         if (!$ruleObject instanceof Zend_Filter_Interface) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('No class named ' . $rule . ' implementing Zend_Filter_Interface could be found');
         }
 

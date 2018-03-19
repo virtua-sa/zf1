@@ -57,7 +57,7 @@ class Zend_Server_Definition implements Countable, Iterator
      * Set flag indicating whether or not overwriting existing methods is allowed
      *
      * @param mixed $flag
-     * @return void
+     * @return $this
      */
     public function setOverwriteExistingMethods($flag)
     {
@@ -76,10 +76,8 @@ class Zend_Server_Definition implements Countable, Iterator
     public function addMethod($method, $name = null)
     {
         if (is_array($method)) {
-            require_once 'Zend/Server/Method/Definition.php';
             $method = new Zend_Server_Method_Definition($method);
         } elseif (!$method instanceof Zend_Server_Method_Definition) {
-            require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception('Invalid method provided');
         }
 
@@ -92,12 +90,10 @@ class Zend_Server_Definition implements Countable, Iterator
             $name = $method->getName();
         }
         if (null === $name) {
-            require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception('No method name provided');
         }
 
         if (!$this->_overwriteExistingMethods && array_key_exists($name, $this->_methods)) {
-            require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception(sprintf('Method by name of "%s" already exists', $name));
         }
         $this->_methods[$name] = $method;
@@ -146,7 +142,7 @@ class Zend_Server_Definition implements Countable, Iterator
      * Get a given method definition
      *
      * @param  string $method
-     * @return null|Zend_Server_Method_Definition
+     * @return null|Zend_Server_Method_Definition|false
      */
     public function getMethod($method)
     {
@@ -238,7 +234,7 @@ class Zend_Server_Definition implements Countable, Iterator
     /**
      * Iterator: advance to next method
      *
-     * @return void
+     * @return false|Zend_Server_Method_Definition
      */
     public function next()
     {
@@ -248,7 +244,7 @@ class Zend_Server_Definition implements Countable, Iterator
     /**
      * Iterator: return to first method
      *
-     * @return void
+     * @return false|Zend_Server_Method_Definition
      */
     public function rewind()
     {

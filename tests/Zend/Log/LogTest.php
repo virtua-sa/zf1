@@ -105,7 +105,7 @@ class Zend_Log_LogTest extends PHPUnit\Framework\TestCase
             $logger->log('message', Zend_Log::INFO);
             $this->fail();
         } catch (Zend_Log_Exception $e) {
-            $this->assertRegexp('/no writer/i', $e->getMessage());
+            $this->assertRegExp('/no writer/i', $e->getMessage());
         }
     }
 
@@ -531,7 +531,7 @@ class Zend_Log_LogTest extends PHPUnit\Framework\TestCase
                 )
             );
 
-            $logger = Zend_log::factory($config);
+            $logger = Zend_Log::factory($config);
             $logger->info('this is a test');
 
         } catch (Zend_Log_Exception $e) {

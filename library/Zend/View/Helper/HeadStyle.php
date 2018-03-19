@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_View_Helper_Placeholder_Container_Standalone */
-require_once 'Zend/View/Helper/Placeholder/Container/Standalone.php';
-
 /**
  * Helper for setting and retrieving stylesheets
  *
@@ -61,7 +58,7 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
 
     /**
      * Capture type and/or attributes (used for hinting during capture)
-     * @var string
+     * @var string|null
      */
     protected $_captureAttrs = null;
 
@@ -132,7 +129,7 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
      *
      * @param  string $method
      * @param  array $args
-     * @return void
+     * @return mixed|$this
      * @throws Zend_View_Exception When no $content provided or invalid method
      */
     public function __call($method, $args)
@@ -150,7 +147,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
             }
 
             if (1 > $argc) {
-                require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception(sprintf('Method "%s" requires minimally content for the stylesheet', $method));
                 $e->setView($this->view);
                 throw $e;
@@ -180,7 +176,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
      * Determine if a value is a valid style tag
      *
      * @param  mixed $value
-     * @param  string $method
      * @return boolean
      */
     protected function _isValid($value)
@@ -204,7 +199,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
     public function append($value)
     {
         if (!$this->_isValid($value)) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception('Invalid value passed to append; please use appendStyle()');
             $e->setView($this->view);
             throw $e;
@@ -223,7 +217,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
     public function offsetSet($index, $value)
     {
         if (!$this->_isValid($value)) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception('Invalid value passed to offsetSet; please use offsetSetStyle()');
             $e->setView($this->view);
             throw $e;
@@ -241,7 +234,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
     public function prepend($value)
     {
         if (!$this->_isValid($value)) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception('Invalid value passed to prepend; please use prependStyle()');
             $e->setView($this->view);
             throw $e;
@@ -259,7 +251,6 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
     public function set($value)
     {
         if (!$this->_isValid($value)) {
-            require_once 'Zend/View/Exception.php';
             $e = new Zend_View_Exception('Invalid value passed to set; please use setStyle()');
             $e->setView($this->view);
             throw $e;
@@ -271,14 +262,13 @@ class Zend_View_Helper_HeadStyle extends Zend_View_Helper_Placeholder_Container_
     /**
      * Start capture action
      *
-     * @param  mixed $captureType
-     * @param  string $typeOrAttrs
+     * @param  mixed $type
+     * @param  string $attrs
      * @return void
      */
     public function captureStart($type = Zend_View_Helper_Placeholder_Container_Abstract::APPEND, $attrs = null)
     {
         if ($this->_captureLock) {
-            require_once 'Zend/View/Helper/Placeholder/Container/Exception.php';
             $e = new Zend_View_Helper_Placeholder_Container_Exception('Cannot nest headStyle captures');
             $e->setView($this->view);
             throw $e;

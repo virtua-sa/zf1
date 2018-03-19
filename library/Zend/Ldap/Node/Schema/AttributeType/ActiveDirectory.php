@@ -21,15 +21,6 @@
  */
 
 /**
- * @see Zend_Ldap_Node_Schema_Item
- */
-require_once 'Zend/Ldap/Node/Schema/Item.php';
-/**
- * @see Zend_Ldap_Node_Schema_AttributeType_Interface
- */
-require_once 'Zend/Ldap/Node/Schema/AttributeType/Interface.php';
-
-/**
  * Zend_Ldap_Node_Schema_AttributeType_ActiveDirectory provides access to the attribute type
  * schema information on an Active Directory server.
  *
@@ -38,6 +29,7 @@ require_once 'Zend/Ldap/Node/Schema/AttributeType/Interface.php';
  * @subpackage Schema
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @property array $ldapdisplayname
  */
 class Zend_Ldap_Node_Schema_AttributeType_ActiveDirectory extends Zend_Ldap_Node_Schema_Item
     implements Zend_Ldap_Node_Schema_AttributeType_Interface

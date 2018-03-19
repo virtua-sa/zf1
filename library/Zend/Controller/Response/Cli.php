@@ -20,10 +20,6 @@
  */
 
 
-/** Zend_Controller_Response_Abstract */
-require_once 'Zend/Controller/Response/Abstract.php';
-
-
 /**
  * Zend_Controller_Response_Cli
  *
@@ -51,7 +47,7 @@ class Zend_Controller_Response_Cli extends Zend_Controller_Response_Abstract
     /**
      * Magic __toString functionality
      *
-     * @return string
+     * @return string|array
      */
     public function __toString()
     {

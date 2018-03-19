@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Application_Bootstrap_BootstrapAbstract
- */
-require_once 'Zend/Application/Bootstrap/BootstrapAbstract.php';
-
-/**
  * Concrete base class for bootstrap classes
  *
  * Registers and utilizes Zend_Controller_Front by default.
@@ -112,7 +107,7 @@ class Zend_Application_Bootstrap_Bootstrap
      * Set module resource loader
      *
      * @param  Zend_Loader_Autoloader_Resource $loader
-     * @return Zend_Application_Module_Bootstrap
+     * @return $this
      */
     public function setResourceLoader(Zend_Loader_Autoloader_Resource $loader)
     {
@@ -147,7 +142,7 @@ class Zend_Application_Bootstrap_Bootstrap
     /**
      * Get application namespace (used for module autoloading)
      *
-     * @return string
+     * @return string|false
      */
     public function getAppNamespace()
     {
@@ -157,8 +152,8 @@ class Zend_Application_Bootstrap_Bootstrap
     /**
      * Set application namespace (for module autoloading)
      *
-     * @param  string
-     * @return Zend_Application_Bootstrap_Bootstrap
+     * @param  string $value
+     * @return $this
      */
     public function setAppNamespace($value)
     {

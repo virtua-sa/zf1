@@ -20,26 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader_Extension_FeedAbstract
- */
-require_once 'Zend/Feed/Reader/Extension/FeedAbstract.php';
-
-/**
- * @see Zend_Date
- */
-require_once 'Zend/Date.php';
-
-/**
- * @see Zend_Uri
- */
-require_once 'Zend/Uri.php';
-
-/**
- * @see Zend_Feed_Reader_Collection_Author
- */
-require_once 'Zend/Feed/Reader/Collection/Author.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -504,7 +484,7 @@ class Zend_Feed_Reader_Extension_Atom_Feed
      * Get an author entry in RSS format
      *
      * @param  DOMElement $element
-     * @return string
+     * @return string|null
      */
     protected function _getAuthor(DOMElement $element)
     {

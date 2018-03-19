@@ -36,7 +36,7 @@ class Zend_Service_StrikeIron
 {
     /**
      * Options to pass to Zend_Service_StrikeIron_Base constructor
-     * @param array
+     * @var array
      */
     protected $_options;
 
@@ -69,7 +69,6 @@ class Zend_Service_StrikeIron
 
         try {
             if (!class_exists($class)) {
-                require_once 'Zend/Loader.php';
                 @Zend_Loader::loadClass($class);
             }
             if (!class_exists($class, false)) {
@@ -77,10 +76,6 @@ class Zend_Service_StrikeIron
             }
         } catch (Exception $e) {
             $msg = "Service '$class' could not be loaded: " . $e->getMessage();
-            /**
-             * @see Zend_Service_StrikeIron_Exception
-             */
-            require_once 'Zend/Service/StrikeIron/Exception.php';
             throw new Zend_Service_StrikeIron_Exception($msg, $e->getCode(), $e);
         }
 

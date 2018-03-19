@@ -22,41 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_FeedEntryParent
- */
-require_once 'Zend/Gdata/App/FeedEntryParent.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Content
- */
-require_once 'Zend/Gdata/App/Extension/Content.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Edited
- */
-require_once 'Zend/Gdata/App/Extension/Edited.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Published
- */
-require_once 'Zend/Gdata/App/Extension/Published.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Source
- */
-require_once 'Zend/Gdata/App/Extension/Source.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Summary
- */
-require_once 'Zend/Gdata/App/Extension/Summary.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Control
- */
-require_once 'Zend/Gdata/App/Extension/Control.php';
-
-/**
  * Concrete class for working with Atom entries.
  *
  * @category   Zend
@@ -227,9 +192,9 @@ class Zend_Gdata_App_Entry extends Zend_Gdata_App_FeedEntryParent
      * by the server, or null if no changes exist. This does not
      * modify the current entry instance.
      *
-     * @param string|null The URI to send requests to, or null if $data
+     * @param string|null $uri The URI to send requests to, or null if $data
      *        contains the URI.
-     * @param string|null The name of the class that should we deserializing
+     * @param string|null $className The name of the class that should we deserializing
      *        the server response. If null, then 'Zend_Gdata_App_Entry' will
      *        be used.
      * @param array $extraHeaders Extra headers to add to the request, as an

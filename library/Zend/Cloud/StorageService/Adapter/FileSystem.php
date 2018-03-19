@@ -17,8 +17,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Cloud/StorageService/Adapter.php';
-require_once 'Zend/Cloud/StorageService/Exception.php';
 
 /**
  * FileSystem adapter for unstructured cloud storage.
@@ -135,7 +133,7 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
      * @TODO Support streams for those services that don't support natively
      *
      * @param  string $sourcePath
-     * @param  string $destination path
+     * @param  string $destinationPath
      * @param  array $options
      * @return void
      */
@@ -153,7 +151,7 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
      * @TODO Support streams for those services that don't support natively
      *
      * @param  string $sourcePath
-     * @param  string $destination path
+     * @param  string $destinationPath
      * @param  array $options
      * @return void
      */
@@ -228,7 +226,6 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
      */
     public function storeMetadata($destinationPath, $metadata, $options = array())
     {
-        require_once 'Zend/Cloud/OperationNotAvailableException.php';
         throw new Zend_Cloud_OperationNotAvailableException('Storing metadata not implemented');
     }
 
@@ -236,12 +233,10 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
      * Delete a key/value array of metadata at the given path.
      *
      * @param  string $path
-     * @param  array $options
      * @return void
      */
     public function deleteMetadata($path)
     {
-        require_once 'Zend/Cloud/OperationNotAvailableException.php';
         throw new Zend_Cloud_OperationNotAvailableException('Deleting metadata not implemented');
     }
 
@@ -258,7 +253,7 @@ class Zend_Cloud_StorageService_Adapter_FileSystem implements Zend_Cloud_Storage
 
     /**
      * Get the concrete client.
-     * @return strings
+     * @return string
      */
     public function getClient()
     {

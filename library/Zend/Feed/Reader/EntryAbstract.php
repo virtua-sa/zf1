@@ -44,7 +44,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
     /**
      * Entry instance
      *
-     * @var Zend_Feed_Entry_Interface
+     * @var DOMElement
      */
     protected $_entry = null;
 
@@ -136,7 +136,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
         $dom = new DOMDocument('1.0', $this->getEncoding());
         $entry = $dom->importNode($this->getElement(), true);
         $dom->appendChild($entry);
-        return $dom->saveXml();
+        return $dom->saveXML();
     }
 
     /**
@@ -166,7 +166,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
      * Set the XPath query
      *
      * @param  DOMXPath $xpath
-     * @return Zend_Feed_Reader_Entry_EntryAbstract
+     * @return $this
      */
     public function setXpath(DOMXPath $xpath)
     {
@@ -188,7 +188,7 @@ abstract class Zend_Feed_Reader_EntryAbstract
      * Return an Extension object with the matching name (postfixed with _Entry)
      *
      * @param string $name
-     * @return Zend_Feed_Reader_Extension_EntryAbstract
+     * @return Zend_Feed_Reader_Extension_EntryAbstract|null
      */
     public function getExtension($name)
     {
@@ -213,7 +213,6 @@ abstract class Zend_Feed_Reader_EntryAbstract
                 return call_user_func_array(array($extension, $method), $args);
             }
         }
-        require_once 'Zend/Feed/Exception.php';
         throw new Zend_Feed_Exception(
             'Method: ' . $method
             . 'does not exist and could not be located on a registered Extension'

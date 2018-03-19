@@ -84,7 +84,7 @@ class Zend_Server_Method_Prototype
     /**
      * Add a parameter
      *
-     * @param  string $parameter
+     * @param  string|Zend_Server_Method_Parameter $parameter
      * @return Zend_Server_Method_Prototype
      */
     public function addParameter($parameter)
@@ -95,7 +95,6 @@ class Zend_Server_Method_Prototype
                 $this->_parameterNameMap[$name] = count($this->_parameters) - 1;
             }
         } else {
-            require_once 'Zend/Server/Method/Parameter.php';
             $parameter = new Zend_Server_Method_Parameter(array(
                 'type' => (string) $parameter,
             ));
@@ -107,7 +106,7 @@ class Zend_Server_Method_Prototype
     /**
      * Add parameters
      *
-     * @param  array $parameter
+     * @param  array $parameters
      * @return Zend_Server_Method_Prototype
      */
     public function addParameters(array $parameters)

@@ -19,12 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_Captcha_Adapter */
-require_once 'Zend/Captcha/Adapter.php';
-
-/** @see Zend_Validate_Abstract */
-require_once 'Zend/Validate/Abstract.php';
-
 /**
  * Base class for Captcha adapters
  *
@@ -106,7 +100,7 @@ abstract class Zend_Captcha_Base extends Zend_Validate_Abstract implements Zend_
      *
      * @param string $key
      * @param string $value
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setOption($key, $value)
     {
@@ -131,7 +125,7 @@ abstract class Zend_Captcha_Base extends Zend_Validate_Abstract implements Zend_
      * Set object state from options array
      *
      * @param  array $options
-     * @return Zend_Form_Element
+     * @return $this
      */
     public function setOptions($options = null)
     {

@@ -23,18 +23,6 @@
 
 
 /**
- * @see Zend_Db_Select
- */
-require_once 'Zend/Db/Select.php';
-
-
-/**
- * @see Zend_Db_Table_Abstract
- */
-require_once 'Zend/Db/Table/Abstract.php';
-
-
-/**
  * Class for SQL SELECT query manipulation for the Zend_Db_Table component.
  *
  * @category   Zend
@@ -55,7 +43,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
     /**
      * Table integrity override.
      *
-     * @var array
+     * @var bool
      */
     protected $_integrityCheck = true;
 
@@ -69,7 +57,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
     /**
      * Class constructor
      *
-     * @param Zend_Db_Table_Abstract $adapter
+     * @param Zend_Db_Table_Abstract $table
      */
     public function __construct(Zend_Db_Table_Abstract $table)
     {
@@ -91,7 +79,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
     /**
      * Sets the primary table name and retrieves the table schema.
      *
-     * @param Zend_Db_Table_Abstract $adapter
+     * @param Zend_Db_Table_Abstract $table
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function setTable(Zend_Db_Table_Abstract $table)
@@ -109,7 +97,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
      * Setting this flag to false skips the checks for table joins, allowing
      * 'hybrid' table rows to be created.
      *
-     * @param Zend_Db_Table_Abstract $adapter
+     * @param bool $flag
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function setIntegrityCheck($flag = true)
@@ -166,7 +154,7 @@ class Zend_Db_Table_Select extends Zend_Db_Select
                                                                       name.
      * @param  array|string|Zend_Db_Expr $cols The columns to select from this table.
      * @param  string $schema The schema name to specify, if any.
-     * @return Zend_Db_Table_Select This Zend_Db_Table_Select object.
+     * @return $this This Zend_Db_Table_Select object.
      */
     public function from($name, $cols = self::SQL_WILDCARD, $schema = null)
     {
@@ -211,7 +199,6 @@ class Zend_Db_Table_Select extends Zend_Db_Select
                     // Check each column to ensure it only references the primary table
                     if ($column) {
                         if (!isset($from[$table]) || $from[$table]['tableName'] != $primary) {
-                            require_once 'Zend/Db/Table/Select/Exception.php';
                             throw new Zend_Db_Table_Select_Exception('Select query cannot join with another table');
                         }
                     }

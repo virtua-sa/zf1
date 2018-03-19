@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Photos_UserQuery
- */
-require_once('Zend/Gdata/Photos/UserQuery.php');
-
-/**
  * Assists in constructing album queries for various entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -46,14 +41,14 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
     /**
      * The name of the album to query for. Mutually exclusive with AlbumId.
      *
-     * @var string
+     * @var string|null
      */
     protected $_albumName = null;
 
     /**
      * The ID of the album to query for. Mutually exclusive with AlbumName.
      *
-     * @var string
+     * @var string|null
      */
     protected $_albumId = null;
 
@@ -134,11 +129,9 @@ class Zend_Gdata_Photos_AlbumQuery extends Zend_Gdata_Photos_UserQuery
         } elseif ($this->getAlbumName() === null && $this->getAlbumId() !== null) {
             $uri .= '/albumid/' . $this->getAlbumId();
         } elseif ($this->getAlbumName() !== null && $this->getAlbumId() !== null) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'AlbumName and AlbumId cannot both be non-null');
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'AlbumName and AlbumId cannot both be null');
         }

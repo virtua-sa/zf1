@@ -48,7 +48,7 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
     /**
      * Zend_Queue_Adapter_AdapterInterface parent class or instance
      *
-     * @var Zend_Queue_Adapter_AdapterInterface
+     * @var Zend_Queue_Adapter_AdapterInterface|Zend_Queue|null
      */
     protected $_queue = null;
 
@@ -93,14 +93,12 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
         }
 
         if (!is_array($options['data'])) {
-            require_once 'Zend/Queue/Exception.php';
             throw new Zend_Queue_Exception('array optionsuration must have $options[\'data\'] = array');
         }
 
         // load the message class
         $classname = $this->_messageClass;
         if (!class_exists($classname)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($classname);
         }
 
@@ -161,7 +159,7 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
     /**
      * Returns the queue object, or null if this is disconnected message set
      *
-     * @return Zend_Queue|null
+     * @return Zend_Queue_Adapter_AdapterInterface|Zend_Queue|null
      */
     public function getQueue()
     {
@@ -172,7 +170,7 @@ class Zend_Queue_Message_Iterator implements Iterator, Countable
      * Set the queue object, to re-establish a live connection
      * to the queue for a Message that has been de-serialized.
      *
-     * @param  Zend_Queue_Adapter_AdapterInterface $queue
+     * @param  Zend_Queue $queue
      * @return boolean
      * @throws Zend_Queue_Exception
      */

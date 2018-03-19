@@ -20,12 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Log */
-require_once 'Zend/Log.php';
-
-/** Zend_Log_Writer_Abstract */
-require_once 'Zend/Log/Writer/Abstract.php';
-
 /**
  * Writes log messages to syslog
  *
@@ -56,7 +50,7 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
     /**
      * The default log priority - for unmapped custom priorities
      *
-     * @var string
+     * @var int
      */
     protected $_defaultPriority = LOG_NOTICE;
 
@@ -70,7 +64,7 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
     /**
      * Last facility name set by a syslog-writer instance
      *
-     * @var string
+     * @var int
      */
     protected static $_lastFacility;
 
@@ -195,14 +189,12 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
         }
 
         if (!in_array($facility, $this->_validFacilities)) {
-            require_once 'Zend/Log/Exception.php';
             throw new Zend_Log_Exception('Invalid log facility provided; please see http://php.net/openlog for a list of valid facility values');
         }
 
         if ('WIN' == strtoupper(substr(PHP_OS, 0, 3))
             && ($facility !== LOG_USER)
         ) {
-            require_once 'Zend/Log/Exception.php';
             throw new Zend_Log_Exception('Only LOG_USER is a valid log facility on Windows');
         }
 

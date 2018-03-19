@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Photos_Extension_Weight
- */
-require_once 'Zend/Gdata/Photos/Extension/Weight.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Category
- */
-require_once 'Zend/Gdata/App/Extension/Category.php';
-
-/**
  * Data model class for a Tag Entry.
  *
  * To transfer user entries to and from the servers, including
@@ -130,7 +115,7 @@ class Zend_Gdata_Photos_TagEntry extends Zend_Gdata_Entry
      * Set the value for this element's gphoto:weight attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Photos_Extension_Weight The element being modified.
+     * @return $this The element being modified.
      */
     public function setGphotoWeight($value)
     {

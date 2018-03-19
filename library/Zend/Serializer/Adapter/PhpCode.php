@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Serializer_Adapter_AdapterAbstract */
-require_once 'Zend/Serializer/Adapter/AdapterAbstract.php';
-
 /**
  * @category   Zend
  * @package    Zend_Serializer
@@ -59,7 +56,6 @@ class Zend_Serializer_Adapter_PhpCode extends Zend_Serializer_Adapter_AdapterAbs
         $eval = @eval('$ret=' . $code . ';');
         if ($eval === false) {
                 $lastErr = error_get_last();
-                require_once 'Zend/Serializer/Exception.php';
                 throw new Zend_Serializer_Exception('eval failed: ' . $lastErr['message']);
         }
         return $ret;

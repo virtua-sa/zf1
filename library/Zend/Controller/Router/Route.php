@@ -20,9 +20,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Controller_Router_Route_Abstract */
-require_once 'Zend/Controller/Router/Route/Abstract.php';
-
 /**
  * Route
  *
@@ -381,7 +378,6 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
                 } elseif (array_key_exists($name, $this->_defaults)) {
                     $value = $this->_defaults[$name];
                 } else {
-                    require_once 'Zend/Controller/Router/Exception.php';
                     throw new Zend_Controller_Router_Exception($name . ' is not specified');
                 }
 
@@ -450,7 +446,7 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
      * Return a single parameter of route's defaults
      *
      * @param string $name Array key of the parameter
-     * @return string Previously set default
+     * @return string|null Previously set default
      */
     public function getDefault($name)
     {
@@ -539,7 +535,6 @@ class Zend_Controller_Router_Route extends Zend_Controller_Router_Route_Abstract
             }
         }
 
-        require_once 'Zend/Controller/Router/Exception.php';
         throw new Zend_Controller_Router_Exception('Could not find a translator');
     }
 

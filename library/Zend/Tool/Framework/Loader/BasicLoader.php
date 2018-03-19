@@ -20,22 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Tool_Framework_Loader_Abstract
- */
-require_once 'Zend/Tool/Framework/Loader/Interface.php';
-
-/**
- * @see Zend_Tool_Framework_Registry_EnabledInterface
- */
-require_once 'Zend/Tool/Framework/Registry/EnabledInterface.php';
-
-/**
- * @see Zend_Loader
- */
-require_once 'Zend/Loader.php';
-require_once 'Zend/Tool/Framework/Manifest/Interface.php';
-require_once 'Zend/Tool/Framework/Provider/Interface.php';
 
 /**
  * @category   Zend
@@ -47,7 +31,7 @@ class Zend_Tool_Framework_Loader_BasicLoader
     implements Zend_Tool_Framework_Loader_Interface, Zend_Tool_Framework_Registry_EnabledInterface
 {
     /**
-     * @var Zend_Tool_Framework_Repository_Interface
+     * @var Zend_Tool_Framework_Registry_Interface
      */
     protected $_registry = null;
 
@@ -78,7 +62,7 @@ class Zend_Tool_Framework_Loader_BasicLoader
      * the registry
      *
      * @param Zend_Tool_Framework_Registry_Interface $registry
-     * @return Zend_Tool_Framework_Loader_Abstract
+     * @return $this
      */
     public function setRegistry(Zend_Tool_Framework_Registry_Interface $registry)
     {
@@ -88,7 +72,7 @@ class Zend_Tool_Framework_Loader_BasicLoader
 
     /**
      * @param  array $classesToLoad
-     * @return Zend_Tool_Framework_Loader_Abstract
+     * @return $this
      */
     public function setClassesToLoad(array $classesToLoad)
     {

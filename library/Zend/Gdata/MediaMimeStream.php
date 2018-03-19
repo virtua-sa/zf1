@@ -21,16 +21,6 @@
  * @version    $Id$
  */
 
-/**
-*  @see Zend_Gdata_MimeFile
-*/
-require_once 'Zend/Gdata/MimeFile.php';
-
-/**
-* @see Zend_Gdata_MimeBodyString
-*/
-require_once 'Zend/Gdata/MimeBodyString.php';
-
 
 /**
  * A streaming Media MIME class that allows for buffered read operations.
@@ -92,7 +82,6 @@ class Zend_Gdata_MediaMimeStream
         $fileContentType = null)
     {
         if (!file_exists($filePath) || !is_readable($filePath)) {
-            require_once 'Zend/Gdata/App/IOException.php';
             throw new Zend_Gdata_App_IOException('File to be uploaded at ' .
                 $filePath . ' does not exist or is not readable.');
         }
@@ -113,7 +102,7 @@ class Zend_Gdata_MediaMimeStream
     /**
      * Sandwiches the entry body into a MIME message
      *
-     * @return void
+     * @return Zend_Gdata_MimeBodyString
      */
     private function wrapEntry($entry, $fileMimeType)
     {
@@ -128,15 +117,15 @@ class Zend_Gdata_MediaMimeStream
     /**
      * Read a specific chunk of the the MIME multipart message.
      *
-     * @param integer $bufferSize The size of the chunk that is to be read,
+     * @param integer $bytesRequested The size of the chunk that is to be read,
      *                            must be lower than MAX_BUFFER_SIZE.
-     * @return string A corresponding piece of the message. This could be
+     * @return string|false A corresponding piece of the message. This could be
      *                binary or regular text.
      */
     public function read($bytesRequested)
     {
         if($this->_currentPart >= count($this->_parts)) {
-          return FALSE;
+          return false;
         }
 
         $activePart = $this->_parts[$this->_currentPart];

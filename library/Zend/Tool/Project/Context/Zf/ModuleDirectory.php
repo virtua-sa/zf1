@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Context_Filesystem_Directory
- */
-require_once 'Zend/Tool/Project/Context/Filesystem/Directory.php';
-
-/**
  * This class is the front most class for utilizing Zend_Tool_Project
  *
  * A profile is a hierarchical set of resources that keep track of
@@ -52,7 +47,7 @@ class Zend_Tool_Project_Context_Zf_ModuleDirectory extends Zend_Tool_Project_Con
     /**
      * init()
      *
-     * @return Zend_Tool_Project_Context_Zf_ControllerFile
+     * @return $this
      */
     public function init()
     {

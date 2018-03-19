@@ -22,34 +22,6 @@
  */
 
 /**
- * Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/App/Feed.php';
-
-/**
- * Zend_Gdata_Http_Client
- */
-require_once 'Zend/Http/Client.php';
-
-/**
- * Zend_Version
- */
-require_once 'Zend/Version.php';
-
-/**
- * Zend_Gdata_App_MediaSource
- */
-require_once 'Zend/Gdata/App/MediaSource.php';
-
-/**
- * Zend_Uri/Http
- */
-require_once 'Zend/Uri/Http.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/**
  * Provides Atom Publishing Protocol (APP) functionality.  This class and all
  * other components of Zend_Gdata_App are designed to work independently from
  * other Zend_Gdata components in order to interact with generic APP services.
@@ -252,7 +224,6 @@ class Zend_Gdata_App
             $client = new Zend_Http_Client();
         }
         if (!$client instanceof Zend_Http_Client) {
-            require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_HttpException(
                 'Argument is not an instance of Zend_Http_Client.');
         }
@@ -339,7 +310,6 @@ class Zend_Gdata_App
     public static function setGzipEnabled($enabled = false)
     {
         if ($enabled && !function_exists('gzinflate')) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'You cannot enable gzipped responses if the zlib module ' .
                     'is not enabled in your PHP installation.');
@@ -416,7 +386,6 @@ class Zend_Gdata_App
     public function setMajorProtocolVersion($value)
     {
         if (!($value >= 1)) {
-            require_once('Zend/Gdata/App/InvalidArgumentException.php');
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Major protocol version must be >= 1');
         }
@@ -446,7 +415,6 @@ class Zend_Gdata_App
     public function setMinorProtocolVersion($value)
     {
         if (!($value >= 0)) {
-            require_once('Zend/Gdata/App/InvalidArgumentException.php');
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Minor protocol version must be >= 0');
         }
@@ -587,7 +555,7 @@ class Zend_Gdata_App
      * @param string $url The URL to which this request is being performed
      * @param array $headers An associative array of HTTP headers
      *                       for this request
-     * @param string $body The body of the HTTP request
+     * @param string|Zend_Gdata_MediaMimeStream $body The body of the HTTP request
      * @param string $contentType The value for the content type
      *                                of the request body
      * @param int $remainingRedirects Number of redirects to follow if request
@@ -597,7 +565,6 @@ class Zend_Gdata_App
     public function performHttpRequest($method, $url, $headers = null,
         $body = null, $contentType = null, $remainingRedirects = null)
     {
-        require_once 'Zend/Http/Client/Exception.php';
         if ($remainingRedirects === null) {
             $remainingRedirects = self::getMaxRedirects();
         }
@@ -616,13 +583,11 @@ class Zend_Gdata_App
         // check the overridden method
         if (($method == 'POST' || $method == 'PUT') && $body === null &&
             $headers['x-http-method-override'] != 'DELETE') {
-                require_once 'Zend/Gdata/App/InvalidArgumentException.php';
                 throw new Zend_Gdata_App_InvalidArgumentException(
                         'You must specify the data to post as either a ' .
                         'string or a child of Zend_Gdata_App_Entry');
         }
         if ($url === null) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                 'You must specify an URI to which to post.');
         }
@@ -648,7 +613,6 @@ class Zend_Gdata_App
 
         // Set the params for the new request to be performed
         $this->_httpClient->setHeaders($headers);
-        require_once 'Zend/Uri/Http.php';
         $uri = Zend_Uri_Http::fromString($url);
         preg_match("/^(.*?)(\?.*)?$/", $url, $matches);
         $this->_httpClient->setUri($matches[1]);
@@ -670,10 +634,8 @@ class Zend_Gdata_App
             $oldHttpAdapter = $this->_httpClient->getAdapter();
 
             if ($oldHttpAdapter instanceof Zend_Http_Client_Adapter_Proxy) {
-                require_once 'Zend/Gdata/HttpAdapterStreamingProxy.php';
                 $newAdapter = new Zend_Gdata_HttpAdapterStreamingProxy();
             } else {
-                require_once 'Zend/Gdata/HttpAdapterStreamingSocket.php';
                 $newAdapter = new Zend_Gdata_HttpAdapterStreamingSocket();
             }
             $this->_httpClient->setAdapter($newAdapter);
@@ -692,7 +654,6 @@ class Zend_Gdata_App
             if ($usingMimeStream) {
                 $this->_httpClient->setAdapter($oldHttpAdapter);
             }
-            require_once 'Zend/Gdata/App/HttpException.php';
             throw new Zend_Gdata_App_HttpException($e->getMessage(), $e);
         }
         if ($response->isRedirect() && $response->getStatus() != '304') {
@@ -702,13 +663,11 @@ class Zend_Gdata_App
                     $method, $newUrl, $headers, $body,
                     $contentType, $remainingRedirects);
             } else {
-                require_once 'Zend/Gdata/App/HttpException.php';
                 throw new Zend_Gdata_App_HttpException(
                         'Number of redirects exceeds maximum', null, $response);
             }
         }
         if (!$response->isSuccessful()) {
-            require_once 'Zend/Gdata/App/HttpException.php';
             $exceptionMessage = 'Expected response code 200, got ' .
                 $response->getStatus();
             if (self::getVerboseExceptionMessages()) {
@@ -806,9 +765,9 @@ class Zend_Gdata_App
      *
      * @param string $string
      * @param string $className The class which is used as the return type
-     * @param integer $majorProcolVersion (optional) The major protocol version
+     * @param integer $majorProtocolVersion (optional) The major protocol version
      *        of the data model object that is to be created.
-     * @param integer $minorProcolVersion (optional) The minor protocol version
+     * @param integer $minorProtocolVersion (optional) The minor protocol version
      *        of the data model object that is to be created.
      * @throws Zend_Gdata_App_Exception
      * @return Zend_Gdata_App_Feed
@@ -818,7 +777,6 @@ class Zend_Gdata_App
         $minorProtocolVersion = null)
     {
         if (!class_exists($className, false)) {
-          require_once 'Zend/Loader.php';
           @Zend_Loader::loadClass($className);
         }
 
@@ -829,7 +787,6 @@ class Zend_Gdata_App
         @ini_restore('track_errors');
 
         if (!$doc) {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception(
                 "DOMDocument cannot parse XML: $php_errormsg");
         }
@@ -838,7 +795,7 @@ class Zend_Gdata_App
         $feed->setMajorProtocolVersion($majorProtocolVersion);
         $feed->setMinorProtocolVersion($minorProtocolVersion);
         $feed->transferFromXML($string);
-        $feed->setHttpClient(self::getstaticHttpClient());
+        $feed->setHttpClient(self::getStaticHttpClient());
         return $feed;
     }
 
@@ -859,7 +816,6 @@ class Zend_Gdata_App
         $feed = @file_get_contents($filename, $useIncludePath);
         @ini_restore('track_errors');
         if ($feed === false) {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception(
                 "File could not be loaded: $php_errormsg");
         }
@@ -888,7 +844,7 @@ class Zend_Gdata_App
      *
      * @param mixed $data The Zend_Gdata_App_Entry or XML to post
      * @param string $uri POST URI
-     * @param array $headers Additional HTTP headers to insert.
+     * @param array $remainingRedirects
      * @param string $contentType Content-type of the data
      * @param array $extraHeaders Extra headers to add to the request, as an
      *        array of string-based key/value pairs.
@@ -913,7 +869,7 @@ class Zend_Gdata_App
      *
      * @param mixed $data The Zend_Gdata_App_Entry or XML to post
      * @param string $uri PUT URI
-     * @param array $headers Additional HTTP headers to insert.
+     * @param array $remainingRedirects
      * @param string $contentType Content-type of the data
      * @param array $extraHeaders Extra headers to add to the request, as an
      *        array of string-based key/value pairs.
@@ -937,7 +893,7 @@ class Zend_Gdata_App
      * DELETE entry with client object
      *
      * @param mixed $data The Zend_Gdata_App_Entry or URL to delete
-     * @return void
+     * @return Zend_Http_Response
      * @throws Zend_Gdata_App_Exception
      * @throws Zend_Gdata_App_HttpException
      * @throws Zend_Gdata_App_InvalidArgumentException
@@ -976,14 +932,13 @@ class Zend_Gdata_App
         $extraHeaders = array())
     {
         if (!class_exists($className, false)) {
-          require_once 'Zend/Loader.php';
           @Zend_Loader::loadClass($className);
         }
 
         $response = $this->post($data, $uri, null, null, $extraHeaders);
 
         $returnEntry = new $className($response->getBody());
-        $returnEntry->setHttpClient(self::getstaticHttpClient());
+        $returnEntry->setHttpClient(self::getStaticHttpClient());
 
         $etag = $response->getHeader('ETag');
         if ($etag !== null) {
@@ -997,9 +952,9 @@ class Zend_Gdata_App
      * Update an entry
      *
      * @param mixed $data Zend_Gdata_App_Entry or XML (w/ID and link rel='edit')
-     * @param string|null The URI to send requests to, or null if $data
+     * @param string|null $uri The URI to send requests to, or null if $data
      *        contains the URI.
-     * @param string|null The name of the class that should be deserialized
+     * @param string|null $className The name of the class that should be deserialized
      *        from the server response. If null, then 'Zend_Gdata_App_Entry'
      *        will be used.
      * @param array $extraHeaders Extra headers to add to the request, as an
@@ -1017,13 +972,12 @@ class Zend_Gdata_App
         }
 
         if (!class_exists($className, false)) {
-          require_once 'Zend/Loader.php';
           @Zend_Loader::loadClass($className);
         }
 
         $response = $this->put($data, $uri, null, null, $extraHeaders);
         $returnEntry = new $className($response->getBody());
-        $returnEntry->setHttpClient(self::getstaticHttpClient());
+        $returnEntry->setHttpClient(self::getStaticHttpClient());
 
         $etag = $response->getHeader('ETag');
         if ($etag !== null) {
@@ -1056,7 +1010,6 @@ class Zend_Gdata_App
                      // Autoloading disabled on next line for compatibility
                      // with magic factories. See ZF-6660.
                      if (!class_exists($name . '_' . $class, false)) {
-                        require_once 'Zend/Loader.php';
                         @Zend_Loader::loadClass($name . '_' . $class);
                      }
                      $foundClassName = $name . '_' . $class;
@@ -1082,12 +1035,10 @@ class Zend_Gdata_App
                 }
                 return $instance;
             } else {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception(
                         "Unable to find '${class}' in registered packages");
             }
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception("No such method ${method}");
         }
     }
@@ -1146,7 +1097,7 @@ class Zend_Gdata_App
      * @param string $className (optional) The class of feed to be returned.
      *          If null, the next feed (if found) will be the same class as
      *          the feed that was given as the first argument.
-     * @return Zend_Gdata_App_Feed|null Returns a
+     * @return Zend_Gdata_App_Feed|null|string Returns a
      *          Zend_Gdata_App_Feed or null if no next set of results
      *          exists.
      */
@@ -1173,7 +1124,7 @@ class Zend_Gdata_App
      * @param string $className (optional) The class of feed to be returned.
      *          If null, the previous feed (if found) will be the same class as
      *          the feed that was given as the first argument.
-     * @return Zend_Gdata_App_Feed|null Returns a
+     * @return Zend_Gdata_App_Feed|null|string Returns a
      *          Zend_Gdata_App_Feed or null if no previous set of results
      *          exists.
      */
@@ -1197,7 +1148,7 @@ class Zend_Gdata_App
      * property. If Etags are not supported by the server or cannot be
      * extracted from the data, then null will be returned.
      *
-     * @param boolean $allowWeak If false, then if a weak Etag is detected,
+     * @param boolean $allowWeek If false, then if a weak Etag is detected,
      *        then return null rather than the Etag.
      * @return string|null $data
      */
@@ -1236,7 +1187,7 @@ class Zend_Gdata_App
      */
     public function useObjectMapping($value)
     {
-        if ($value === True) {
+        if ($value === true) {
             $this->_useObjectMapping = true;
         } else {
             $this->_useObjectMapping = false;

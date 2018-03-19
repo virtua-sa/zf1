@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Paginator_Adapter_Interface
- */
-require_once 'Zend/Paginator/Adapter/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Paginator
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -42,7 +37,7 @@ class Zend_Paginator_Adapter_Null implements Zend_Paginator_Adapter_Interface
     /**
      * Constructor.
      *
-     * @param array $count Total item count
+     * @param int $count Total item count
      */
     public function __construct($count = 0)
     {

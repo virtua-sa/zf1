@@ -20,22 +20,6 @@
  */
 
 /**
- * @see Zend_Feed_Reader
- */
-require_once 'Zend/Feed/Reader.php';
-
-/**
- * @see Zend_Feed_Reader_Entry_Atom
- */
-require_once 'Zend/Feed/Reader/Entry/Atom.php';
-
-
-/**
- * @see Zend_Feed_Reader_Entry_Rss
- */
-require_once 'Zend/Feed/Reader/Entry/Rss.php';
-
-/**
  * @category   Zend
  * @package    Zend_Feed_Reader
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -74,11 +58,10 @@ abstract class Zend_Feed_Reader_Extension_FeedAbstract
     /**
      * Constructor
      *
-     * @param  Zend_Feed_Abstract $feed The source Zend_Feed object
      * @param  string $type Feed type
      * @return void
      */
-    public function __construct(DomDocument $dom, $type = null, DOMXPath $xpath = null)
+    public function __construct(DOMDocument $dom, $type = null, DOMXPath $xpath = null)
     {
         $this->_domDocument = $dom;
 
@@ -143,7 +126,7 @@ abstract class Zend_Feed_Reader_Extension_FeedAbstract
      * Set the XPath query
      *
      * @param  DOMXPath $xpath
-     * @return Zend_Feed_Reader_Extension_EntryAbstract
+     * @return $this
      */
     public function setXpath(DOMXPath $xpath)
     {
@@ -155,7 +138,7 @@ abstract class Zend_Feed_Reader_Extension_FeedAbstract
     /**
      * Get the DOMXPath object
      *
-     * @return string
+     * @return DOMXPath
      */
     public function getXpath()
     {

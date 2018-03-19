@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Provider_Abstract
- */
-require_once 'Zend/Tool/Project/Provider/Abstract.php';
-
-/**
- * @see Zend_Tool_Framework_Provider_Pretendable
- */
-require_once 'Zend/Tool/Framework/Provider/Pretendable.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tool
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -75,7 +65,7 @@ class Zend_Tool_Project_Provider_Action
      * @param string $actionName
      * @param string $controllerName
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return bool
      */
     public static function hasResource(Zend_Tool_Project_Profile $profile, $actionName, $controllerName, $moduleName = null)
     {
@@ -102,7 +92,7 @@ class Zend_Tool_Project_Provider_Action
      * @param Zend_Tool_Project_Profile $profile
      * @param string $controllerName
      * @param string $moduleName
-     * @return Zend_Tool_Project_Profile_Resource
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     protected static function _getControllerFileResource(Zend_Tool_Project_Profile $profile, $controllerName, $moduleName = null)
     {
@@ -136,7 +126,6 @@ class Zend_Tool_Project_Provider_Action
         $response = $this->_registry->getResponse();
 
         // determine if testing is enabled in the project
-        require_once 'Zend/Tool/Project/Provider/Test.php';
         $testingEnabled = Zend_Tool_Project_Provider_Test::isTestingEnabled($this->_loadedProfile);
 
         if ($testingEnabled && !Zend_Tool_Project_Provider_Test::isPHPUnitAvailable()) {

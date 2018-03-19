@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_OpenId_Extension
- */
-require_once "Zend/OpenId/Extension.php";
-
-/**
  * 'Simple Refistration Extension' for Zend_OpenId
  *
  * @category   Zend
@@ -115,7 +110,7 @@ class Zend_OpenId_Extension_Sreg extends Zend_OpenId_Extension
      * Adds additional SREG data to OpenId 'checkid_immediate' or
      * 'checkid_setup' request.
      *
-     * @param array &$params request's var/val pairs
+     * @param array $params request's var/val pairs
      * @return bool
      */
     public function prepareRequest(&$params)
@@ -200,7 +195,7 @@ class Zend_OpenId_Extension_Sreg extends Zend_OpenId_Extension
     /**
      * Adds additional SREG data to OpenId 'id_res' response.
      *
-     * @param array &$params response's var/val pairs
+     * @param array $params response's var/val pairs
      * @return bool
      */
     public function prepareResponse(&$params)
@@ -256,7 +251,7 @@ class Zend_OpenId_Extension_Sreg extends Zend_OpenId_Extension
      * Addes SREG properties that are allowed to be send to consumer to
      * the given $data argument.
      *
-     * @param array &$data data to be stored in tusted servers database
+     * @param array $data data to be stored in tusted servers database
      * @return bool
      */
     public function getTrustData(&$data)

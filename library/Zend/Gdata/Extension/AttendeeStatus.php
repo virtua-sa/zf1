@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Data model class to represent an attendee's status (gd:attendeeStatus)
  *
  * @category   Zend
@@ -102,7 +97,7 @@ class Zend_Gdata_Extension_AttendeeStatus extends Zend_Gdata_Extension
      * Set the value for this element's Value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Extension_Visibility The element being modified.
+     * @return $this The element being modified.
      */
     public function setValue($value)
     {

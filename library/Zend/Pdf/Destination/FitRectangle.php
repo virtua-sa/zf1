@@ -21,14 +21,7 @@
  */
 
 
-/** Internally used classes */
-require_once 'Zend/Pdf/Element/Array.php';
-require_once 'Zend/Pdf/Element/Name.php';
-require_once 'Zend/Pdf/Element/Numeric.php';
 
-
-/** Zend_Pdf_Destination_Explicit */
-require_once 'Zend/Pdf/Destination/Explicit.php';
 
 /**
  * Zend_Pdf_Destination_FitRectangle explicit detination
@@ -68,7 +61,6 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
         } else if (is_integer($page)) {
             $destinationArray->items[] = new Zend_Pdf_Element_Numeric($page);
         } else {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Page entry must be a Zend_Pdf_Page object or a page number.');
         }
 
@@ -95,7 +87,7 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
      * Set left edge of the displayed page
      *
      * @param float $left
-     * @return Zend_Pdf_Action_FitRectangle
+     * @return $this
      */
     public function setLeftEdge($left)
     {
@@ -117,7 +109,7 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
      * Set bottom edge of the displayed page
      *
      * @param float $bottom
-     * @return Zend_Pdf_Action_FitRectangle
+     * @return $this
      */
     public function setBottomEdge($bottom)
     {
@@ -139,7 +131,7 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
      * Set right edge of the displayed page
      *
      * @param float $right
-     * @return Zend_Pdf_Action_FitRectangle
+     * @return $this
      */
     public function setRightEdge($right)
     {
@@ -161,7 +153,7 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
      * Set top edge of the displayed page
      *
      * @param float $top
-     * @return Zend_Pdf_Action_FitRectangle
+     * @return $this
      */
     public function setTopEdge($top)
     {

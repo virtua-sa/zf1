@@ -74,7 +74,7 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit\Framework\TestCase
             'value'  => 'bar',
             'attribs'=> array('disable' => true)
         ));
-        $this->assertRegexp('/<input[^>]*?(disabled="disabled")/', $html);
+        $this->assertRegExp('/<input[^>]*?(disabled="disabled")/', $html);
     }
 
     /**
@@ -97,7 +97,7 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit\Framework\TestCase
             'value'  => 'bar',
             'attribs'=> array('checked' => true)
         ));
-        $this->assertRegexp('/<input[^>]*?(checked="checked")/', $html);
+        $this->assertRegExp('/<input[^>]*?(checked="checked")/', $html);
         $count = substr_count($html, 'checked');
         $this->assertEquals(2, $count);
     }
@@ -111,19 +111,19 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit\Framework\TestCase
             'name'  => 'foo[]',
             'value' => 'bar'
         ));
-        $this->assertRegexp('/<input[^>]*?(id="foo")/', $html);
+        $this->assertRegExp('/<input[^>]*?(id="foo")/', $html);
 
         $html = $this->helper->formCheckbox(array(
             'name'  => 'foo[bar]',
             'value' => 'bar'
         ));
-        $this->assertRegexp('/<input[^>]*?(id="foo-bar")/', $html);
+        $this->assertRegExp('/<input[^>]*?(id="foo-bar")/', $html);
 
         $html = $this->helper->formCheckbox(array(
             'name'  => 'foo[bar][baz]',
             'value' => 'bar'
         ));
-        $this->assertRegexp('/<input[^>]*?(id="foo-bar-baz")/', $html);
+        $this->assertRegExp('/<input[^>]*?(id="foo-bar-baz")/', $html);
     }
 
     /**
@@ -135,7 +135,7 @@ class Zend_View_Helper_FormCheckboxTest extends PHPUnit\Framework\TestCase
             'name'  => 'foo[]',
             'value' => 'bar'
         ));
-        $this->assertNotRegexp('/<input[^>]*?(type="hidden")/', $html);
+        $this->assertNotRegExp('/<input[^>]*?(type="hidden")/', $html);
     }
 
     /**

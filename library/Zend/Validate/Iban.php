@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * Validates IBAN Numbers (International Bank Account Numbers)
  *
  * @category   Zend
@@ -52,7 +47,7 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Optional locale
      *
-     * @var string|Zend_Locale|null
+     * @var string|Zend_Locale|null|false
      */
     protected $_locale;
 
@@ -149,7 +144,6 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
         }
 
         if (empty($locale)) {
-            require_once 'Zend/Registry.php';
             if (Zend_Registry::isRegistered('Zend_Locale')) {
                 $locale = Zend_Registry::get('Zend_Locale');
             }
@@ -163,7 +157,7 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Returns the locale option
      *
-     * @return string|Zend_Locale|null
+     * @return string|Zend_Locale|null|false
      */
     public function getLocale()
     {
@@ -173,18 +167,16 @@ class Zend_Validate_Iban extends Zend_Validate_Abstract
     /**
      * Sets the locale option
      *
-     * @param  string|Zend_Locale $locale
+     * @param  string|Zend_Locale|false $locale
      * @throws Zend_Locale_Exception
      * @throws Zend_Validate_Exception
-     * @return Zend_Validate_Date provides a fluent interface
+     * @return $this provides a fluent interface
      */
     public function setLocale($locale = null)
     {
         if ($locale !== false) {
-            require_once 'Zend/Locale.php';
             $locale = Zend_Locale::findLocale($locale);
             if (strlen($locale) < 4) {
-                require_once 'Zend/Validate/Exception.php';
                 throw new Zend_Validate_Exception('Region must be given for IBAN validation');
             }
         }

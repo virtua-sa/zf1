@@ -59,8 +59,8 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'options' => $options,
         ));
         foreach ($options as $key => $value) {
-            $this->assertRegexp('#<label.*?>.*?' . $value . '.*?</label>#', $html, $html);
-            $this->assertRegexp('#<label.*?>.*?<input.*?</label>#', $html, $html);
+            $this->assertRegExp('#<label.*?>.*?' . $value . '.*?</label>#', $html, $html);
+            $this->assertRegExp('#<label.*?>.*?<input.*?</label>#', $html, $html);
         }
     }
 
@@ -78,7 +78,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'attribs' => array('labelPlacement' => 'append')
         ));
         foreach ($options as $key => $value) {
-            $this->assertRegexp('#<label.*?>.*?<input .*?' . $value . '</label>#', $html, $html);
+            $this->assertRegExp('#<label.*?>.*?<input .*?' . $value . '</label>#', $html, $html);
         }
 
         $html = $this->helper->formRadio(array(
@@ -88,7 +88,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'attribs' => array('labelPlacement' => 'prepend')
         ));
         foreach ($options as $key => $value) {
-            $this->assertRegexp('#<label.*?>' . $value . '<input .*?</label>#', $html, $html);
+            $this->assertRegExp('#<label.*?>' . $value . '<input .*?</label>#', $html, $html);
         }
     }
 
@@ -108,7 +108,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
                 'labelPlacement' => 'append',
             )
         ));
-        $this->assertRegexp('#<input[^>]*(checked="checked")#', $html, $html);
+        $this->assertRegExp('#<input[^>]*(checked="checked")#', $html, $html);
     }
 
     public function testCanSpecifyRadioLabelAttribs()
@@ -126,8 +126,8 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
         ));
 
         foreach ($options as $key => $value) {
-            $this->assertRegexp('#<label[^>]*?class="testclass"[^>]*>.*?' . $value . '#', $html, $html);
-            $this->assertRegexp('#<label[^>]*?id="testid"[^>]*>.*?' . $value . '#', $html, $html);
+            $this->assertRegExp('#<label[^>]*?class="testclass"[^>]*>.*?' . $value . '#', $html, $html);
+            $this->assertRegExp('#<label[^>]*?id="testid"[^>]*>.*?' . $value . '#', $html, $html);
         }
     }
 
@@ -167,7 +167,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => true)
         ));
 
-        $this->assertRegexp('/<input[^>]*?(disabled="disabled")/', $html, $html);
+        $this->assertRegExp('/<input[^>]*?(disabled="disabled")/', $html, $html);
         $count = substr_count($html, 'disabled="disabled"');
         $this->assertEquals(3, $count);
     }
@@ -189,7 +189,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'attribs' => array('disable' => array('bar'))
         ));
 
-        $this->assertRegexp('/<input[^>]*?(value="bar")[^>]*(disabled="disabled")/', $html, $html);
+        $this->assertRegExp('/<input[^>]*?(value="bar")[^>]*(disabled="disabled")/', $html, $html);
         $count = substr_count($html, 'disabled="disabled"');
         $this->assertEquals(1, $count);
     }
@@ -212,9 +212,9 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
         ));
 
         foreach (array('foo', 'baz') as $test) {
-            $this->assertRegexp('/<input[^>]*?(value="' . $test . '")[^>]*?(disabled="disabled")/', $html, $html);
+            $this->assertRegExp('/<input[^>]*?(value="' . $test . '")[^>]*?(disabled="disabled")/', $html, $html);
         }
-        $this->assertNotRegexp('/<input[^>]*?(value="bar")[^>]*?(disabled="disabled")/', $html, $html);
+        $this->assertNotRegExp('/<input[^>]*?(value="bar")[^>]*?(disabled="disabled")/', $html, $html);
         $count = substr_count($html, 'disabled="disabled"');
         $this->assertEquals(2, $count);
     }
@@ -262,7 +262,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
             'options' => $options,
         ));
 
-        $this->assertNotRegexp('/<input[^>]*?(type="hidden")/', $html);
+        $this->assertNotRegExp('/<input[^>]*?(type="hidden")/', $html);
     }
 
     public function testSpecifyingAValueThatMatchesAnOptionChecksIt()
@@ -322,7 +322,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
         $filter = new Zend_Filter_Alnum();
         foreach ($options as $key => $value) {
             $id = 'foo-' . $filter->filter($key);
-            $this->assertRegexp('/<input([^>]*)(id="' . $id . '")/', $html);
+            $this->assertRegExp('/<input([^>]*)(id="' . $id . '")/', $html);
         }
     }
 
@@ -344,7 +344,7 @@ class Zend_View_Helper_FormRadioTest extends PHPUnit\Framework\TestCase
         $filter = new Zend_Filter_Alnum();
         foreach ($options as $key => $value) {
             $id = 'foo-bar-' . $filter->filter($key);
-            $this->assertRegexp('/<input([^>]*)(id="' . $id . '")/', $html);
+            $this->assertRegExp('/<input([^>]*)(id="' . $id . '")/', $html);
         }
     }
 

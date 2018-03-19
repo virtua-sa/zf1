@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Rackspace_Exception
- */
-require_once 'Zend/Service/Rackspace/Exception.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_Rackspace
  * @subpackage Files

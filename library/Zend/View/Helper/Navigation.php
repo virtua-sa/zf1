@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_View_Helper_Navigation_HelperAbstract
- */
-require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
-
-/**
  * Proxy helper for retrieving navigational helpers and forwarding calls
  *
  * @category   Zend
@@ -33,10 +28,10 @@ require_once 'Zend/View/Helper/Navigation/HelperAbstract.php';
  * @subpackage Helper
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
- * @method Zend_View_Helper_Navigation_Breadcrumbs breadcrumbs
- * @method Zend_View_Helper_Navigation_Links links
- * @method Zend_View_Helper_Navigation_Menu menu
- * @method Zend_View_Helper_Navigation_Sitemap sitemap
+ * @method Zend_View_Helper_Navigation_Breadcrumbs breadcrumbs()
+ * @method Zend_View_Helper_Navigation_Links links()
+ * @method Zend_View_Helper_Navigation_Menu menu()
+ * @method Zend_View_Helper_Navigation_Sitemap sitemap()
  */
 class Zend_View_Helper_Navigation
     extends Zend_View_Helper_Navigation_HelperAbstract
@@ -147,7 +142,7 @@ class Zend_View_Helper_Navigation
      *                                             exceptions should be
      *                                             thrown if something goes
      *                                             wrong. Default is true.
-     * @return Zend_View_Helper_Navigation_Helper  helper instance
+     * @return Zend_View_Helper_Navigation_Helper|null  helper instance
      * @throws Zend_Loader_PluginLoader_Exception  if $strict is true and
      *                                             helper cannot be found
      * @throws Zend_View_Exception                 if $strict is true and
@@ -164,11 +159,11 @@ class Zend_View_Helper_Navigation
             // Add navigation helper path at the beginning
             $paths = $this->view->getHelperPaths();
             $this->view->setHelperPath(null);
-            
+
             $this->view->addHelperPath(
                     str_replace('_', '/', self::NS),
                     self::NS);
-            
+
             foreach ($paths as $ns => $path) {
                 $this->view->addHelperPath($path, $ns);
             }
@@ -186,7 +181,6 @@ class Zend_View_Helper_Navigation
 
         if (!$helper instanceof Zend_View_Helper_Navigation_Helper) {
             if ($strict) {
-                require_once 'Zend/View/Exception.php';
                 $e = new Zend_View_Exception(sprintf(
                         'Proxy helper "%s" is not an instance of ' .
                         'Zend_View_Helper_Navigation_Helper',

@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * @category   Zend
  * @package    Zend_Gdata
  * @subpackage Analytics
@@ -72,7 +67,7 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
      * instance members.  If no mapping is defined, the name and value are
      * stored in an array.
      *
-     * @param DOMNode $attribute The DOMNode attribute needed to be handled
+     * @param DOMNode $child The DOMNode attribute needed to be handled
      */
     protected function takeChildFromDOM($child)
     {
@@ -93,7 +88,7 @@ class Zend_Gdata_Analytics_Extension_TableId extends Zend_Gdata_Extension
      * Set the value for this element's value attribute.
      *
      * @param string $value The desired value for this attribute.
-     * @return Zend_Gdata_Calendar_Extension_Timezone The element being modified.
+     * @return $this The element being modified.
      */
     public function setValue($value)
     {

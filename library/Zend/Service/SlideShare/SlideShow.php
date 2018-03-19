@@ -101,7 +101,7 @@ class Zend_Service_SlideShare_SlideShow
     /**
      * The ID of the slide show on the server
      *
-     * @var int the Slide show ID number on the server
+     * @var string the Slide show ID number on the server
      */
     protected $_slideShowId;
 
@@ -251,7 +251,7 @@ class Zend_Service_SlideShare_SlideShow
     /**
      * Gets the ID for the slide show
      *
-     * @return int The slide show ID
+     * @return string The slide show ID
      */
     public function getId()
     {

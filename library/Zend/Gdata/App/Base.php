@@ -22,14 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Util
- */
-require_once 'Zend/Gdata/App/Util.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/**
  * Abstract class for all XML elements
  *
  * @category   Zend
@@ -42,17 +34,17 @@ abstract class Zend_Gdata_App_Base
 {
 
     /**
-     * @var string The XML element name, including prefix if desired
+     * @var string|null The XML element name, including prefix if desired
      */
     protected $_rootElement = null;
 
     /**
-     * @var string The XML namespace prefix
+     * @var string|null The XML namespace prefix
      */
     protected $_rootNamespace = 'atom';
 
     /**
-     * @var string The XML namespace URI - takes precedence over lookup up the
+     * @var string|null The XML namespace URI - takes precedence over lookup up the
      * corresponding URI for $_rootNamespace
      */
     protected $_rootNamespaceURI = null;
@@ -68,7 +60,7 @@ abstract class Zend_Gdata_App_Base
     protected $_extensionAttributes = array();
 
     /**
-     * @var string XML child text node content
+     * @var string|null XML child text node content
      */
     protected $_text = null;
 
@@ -307,17 +299,14 @@ abstract class Zend_Gdata_App_Base
             $doc = @Zend_Xml_Security::scan($xml, $doc);
             @ini_restore('track_errors');
             if (!$doc) {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception("DOMDocument cannot parse XML: $php_errormsg");
             }
             $element = $doc->getElementsByTagName($this->_rootElement)->item(0);
             if (!$element) {
-                require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception('No root <' . $this->_rootElement . '> element');
             }
             $this->transferFromDOM($element);
         } else {
-            require_once 'Zend/Gdata/App/Exception.php';
             throw new Zend_Gdata_App_Exception('XML passed to transferFromXML cannot be null');
         }
     }
@@ -483,7 +472,6 @@ abstract class Zend_Gdata_App_Base
         } else if (property_exists($this, "_${name}")) {
             return $this->{'_' . $name};
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         }
@@ -499,7 +487,7 @@ abstract class Zend_Gdata_App_Base
      * TODO Remove ability to bypass getFoo() methods??
      *
      * @param string $name
-     * @param string $value
+     * @param string $val
      */
     public function __set($name, $val)
     {
@@ -509,7 +497,6 @@ abstract class Zend_Gdata_App_Base
         } else if (isset($this->{'_' . $name}) || ($this->{'_' . $name} === null)) {
             $this->{'_' . $name} = $val;
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . '  does not exist');
         }
@@ -525,7 +512,6 @@ abstract class Zend_Gdata_App_Base
         $rc = new ReflectionClass(get_class($this));
         $privName = '_' . $name;
         if (!($rc->hasProperty($privName))) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         } else {

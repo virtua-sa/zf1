@@ -19,7 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Http/UserAgent/AbstractDevice.php';
 
 /**
  * Spam browser type matcher
@@ -66,7 +65,7 @@ class Zend_Http_UserAgent_Spam extends Zend_Http_UserAgent_AbstractDevice
     /**
      * Look for features
      *
-     * @return string
+     * @return array
      */
     protected function _defineFeatures()
     {

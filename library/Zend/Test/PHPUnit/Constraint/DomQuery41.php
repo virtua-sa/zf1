@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** @see Zend_Dom_Query */
-require_once 'Zend/Dom/Query.php';
-
 /**
  * Zend_Dom_Query-based PHPUnit Constraint
  *
@@ -121,7 +118,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      * Whether or not path is a straight XPath expression
      *
      * @param  bool $flag
-     * @return Zend_Test_PHPUnit_Constraint_DomQuery
+     * @return $this
      */
     public function setUseXpath($flag = true)
     {
@@ -132,11 +129,11 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
     /**
      * Evaluate an object to see if it fits the constraints
      *
-     * @param  string       Response content to be matched against (haystack)
-     * @param  null|string  Assertion type
-     * @param  string       (optional) String to match (needle), may be required depending on assertion type
+     * @param  string       $content Response content to be matched against (haystack)
+     * @param  null|string  $assertType Assertion type
+     * @param  string|false       $match (optional) String to match (needle), may be required depending on assertion type
      * @return bool
-     * 
+     *
      * NOTE:
      * Drastic changes up to PHPUnit 3.5.15 this was:
      *     public function evaluate($other, $assertType = null)
@@ -144,7 +141,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      *     public function evaluate($other, $description = '', $returnResult = FALSE)
      * We use the new interface for PHP-strict checking, but emulate the old one
      */
-    public function evaluate($content, $assertType = '', $match = FALSE)
+    public function evaluate($content, $assertType = '', $match = false)
     {
         if (strstr($assertType, 'Not')) {
             $this->setNegate(true);
@@ -157,7 +154,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
         }
 
         if (!in_array($assertType, $this->_assertTypes)) {
-            require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
             throw new Zend_Test_PHPUnit_Constraint_Exception(sprintf('Invalid assertion type "%s" provided to %s constraint', $assertType, __CLASS__));
         }
 
@@ -171,7 +167,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
         switch ($assertType) {
             case self::ASSERT_CONTENT_CONTAINS:
                 if (!$match) {
-                    require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No content provided against which to match');
                 }
                 $this->_content = $match;
@@ -180,7 +175,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
                     : $this->_matchContent($result, $match);
             case self::ASSERT_CONTENT_REGEX:
                 if (!$match) {
-                    require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No pattern provided against which to match');
                 }
                 $this->_content = $match;
@@ -191,7 +185,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
             case self::ASSERT_CONTENT_COUNT_MIN:
             case self::ASSERT_CONTENT_COUNT_MAX:
                 if ($match === false) {
-                    require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
                     throw new Zend_Test_PHPUnit_Constraint_Exception('No count provided against which to compare');
                 }
                 $this->_content = $match;
@@ -210,9 +203,9 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      * Report Failure
      *
      * @see    PHPUnit\Framework\Constraint\Constraint for implementation details
-     * @param  mixed    CSS selector path
-     * @param  string   Failure description
-     * @param  object   Cannot be used, null
+     * @param  mixed    $other CSS selector path
+     * @param  string   $description Failure description
+     * @param  \SebastianBergmann\Comparator\ComparisonFailure   $cannot_be_used Cannot be used, null
      * @return void
      * @throws PHPUnit\Framework\ExpectationFailedException
      * NOTE:
@@ -226,7 +219,6 @@ class Zend_Test_PHPUnit_Constraint_DomQuery41 extends PHPUnit\Framework\Constrai
      */
     public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used = NULL)
     {
-        require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
             case self::ASSERT_CONTENT_CONTAINS:
                 $failure = 'Failed asserting node denoted by %s CONTAINS content "%s"';

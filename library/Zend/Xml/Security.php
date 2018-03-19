@@ -19,7 +19,7 @@
  * @version    $Id$
  */
 
- 
+
 /**
  * @category   Zend
  * @package    Zend_Xml_SecurityScan
@@ -64,9 +64,9 @@ class Zend_Xml_Security
      * Scan XML string for potential XXE and XEE attacks
      *
      * @param   string $xml
-     * @param   DomDocument $dom
+     * @param   DOMDocument $dom
      * @throws  Zend_Xml_Exception
-     * @return  SimpleXMLElement|DomDocument|boolean
+     * @return  SimpleXMLElement|DOMDocument|false
      */
     public static function scan($xml, DOMDocument $dom = null)
     {
@@ -91,7 +91,7 @@ class Zend_Xml_Security
         // error disabled with @ for PHP-FPM scenario
         set_error_handler(array('Zend_Xml_Security', 'loadXmlErrorHandler'), E_WARNING);
 
-        $result = $dom->loadXml($xml, LIBXML_NONET);
+        $result = $dom->loadXML($xml, LIBXML_NONET);
         restore_error_handler();
 
         if (!$result) {
@@ -108,7 +108,6 @@ class Zend_Xml_Security
             foreach ($dom->childNodes as $child) {
                 if ($child->nodeType === XML_DOCUMENT_TYPE_NODE) {
                     if ($child->entities->length > 0) {
-                        require_once 'Exception.php';
                         throw new Zend_Xml_Exception(self::ENTITY_DETECT);
                     }
                 }
@@ -137,12 +136,11 @@ class Zend_Xml_Security
      * @param  string $file
      * @param  DOMDocument $dom
      * @throws Zend_Xml_Exception
-     * @return SimpleXMLElement|DomDocument
+     * @return SimpleXMLElement|DOMDocument|false
      */
     public static function scanFile($file, DOMDocument $dom = null)
     {
         if (!file_exists($file)) {
-            require_once 'Exception.php';
             throw new Zend_Xml_Exception(
                 "The file $file specified doesn't exist"
             );

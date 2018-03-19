@@ -22,10 +22,6 @@
  * @license    http://phpazure.codeplex.com/license
  */
 
-/**
- * @see Zend_Service_Console_Command_ParameterSource_ParameterSourceInterface
- */
-require_once 'Zend/Service/Console/Command/ParameterSource/ParameterSourceInterface.php';
 
 /**
  * @category   Zend

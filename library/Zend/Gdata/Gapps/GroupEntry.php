@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Gapps_Extension_Property
- */
-require_once 'Zend/Gdata/Gapps/Extension/Property.php';
-
-/**
  * Data model class for a Google Apps Group Entry.
  *
  * Each group entry describes a single group within a Google Apps hosted
@@ -58,7 +48,7 @@ class Zend_Gdata_Gapps_GroupEntry extends Zend_Gdata_Entry
      * <apps:property> element containing information about other items
      * relevant to this entry.
      *
-     * @var Zend_Gdata_Gapps_Extension_Property
+     * @var Zend_Gdata_Gapps_Extension_Property|array
      */
     protected $_property = array();
 

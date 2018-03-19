@@ -57,7 +57,7 @@ class Zend_Feed_Writer
     /**
      * PluginLoader instance used by component
      *
-     * @var Zend_Loader_PluginLoader_Interface
+     * @var Zend_Loader_PluginLoader_Interface|null
      */
     protected static $_pluginLoader = null;
 
@@ -85,7 +85,7 @@ class Zend_Feed_Writer
     /**
      * Set plugin loader for use with Extensions
      *
-     * @param  Zend_Loader_PluginLoader_Interface
+     * @param Zend_Loader_PluginLoader_Interface $loader
      */
     public static function setPluginLoader(Zend_Loader_PluginLoader_Interface $loader)
     {
@@ -100,7 +100,6 @@ class Zend_Feed_Writer
     public static function getPluginLoader()
     {
         if (!isset(self::$_pluginLoader)) {
-            require_once 'Zend/Loader/PluginLoader.php';
             self::$_pluginLoader = new Zend_Loader_PluginLoader(array(
                 'Zend_Feed_Writer_Extension_' => 'Zend/Feed/Writer/Extension/',
             ));
@@ -187,7 +186,6 @@ class Zend_Feed_Writer
             && !self::getPluginLoader()->isLoaded($feedRendererName)
             && !self::getPluginLoader()->isLoaded($entryRendererName)
         ) {
-            require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Could not load extension: ' . $name
                 . 'using Plugin Loader. Check prefix paths are configured and extension exists.');
         }

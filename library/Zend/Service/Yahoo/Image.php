@@ -34,7 +34,7 @@ class Zend_Service_Yahoo_Image
     /**
      * Image URL
      *
-     * @var string
+     * @var Zend_Uri
      */
     public $Url;
 

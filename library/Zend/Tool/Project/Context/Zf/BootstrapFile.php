@@ -40,12 +40,12 @@ class Zend_Tool_Project_Context_Zf_BootstrapFile extends Zend_Tool_Project_Conte
     protected $_filesystemName = 'Bootstrap.php';
 
     /**
-     * @var Zend_Tool_Project_Profile_Resource
+     * @var Zend_Tool_Project_Profile_Resource|false
      */
     protected $_applicationConfigFile = null;
 
     /**
-     * @var Zend_Tool_Project_Profile_Resource
+     * @var Zend_Tool_Project_Profile_Resource|false
      */
     protected $_applicationDirectory = null;
 
@@ -82,7 +82,7 @@ class Zend_Tool_Project_Context_Zf_BootstrapFile extends Zend_Tool_Project_Conte
     /**
      * getContents()
      *
-     * @return array
+     * @return string
      */
     public function getContents()
     {

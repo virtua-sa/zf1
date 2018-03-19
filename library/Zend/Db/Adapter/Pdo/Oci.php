@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Db_Adapter_Pdo_Abstract
- */
-require_once 'Zend/Db/Adapter/Pdo/Abstract.php';
-
-
-/**
  * Class for connecting to Oracle databases and performing common operations.
  *
  * @category   Zend
@@ -111,8 +105,8 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
      * but the Oracle OCI driver must use the same implementation as the
      * Zend_Db_Adapter_Abstract class.
      *
-     * @param string $value     Raw string
-     * @return string           Quoted string
+     * @param string|int|float $value     Raw string
+     * @return string|int|float           Quoted string
      */
     protected function _quote($value)
     {
@@ -277,7 +271,7 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
      * (e.g. Oracle, PostgreSQL, DB2).  Other RDBMS brands return null.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function lastSequenceId($sequenceName)
     {
@@ -292,7 +286,7 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
      * (e.g. Oracle, PostgreSQL, DB2).  Other RDBMS brands return null.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function nextSequenceId($sequenceName)
     {
@@ -316,7 +310,7 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
      *
      * @param string $tableName   OPTIONAL Name of table.
      * @param string $primaryKey  OPTIONAL Name of primary key column.
-     * @return string
+     * @return string|null|int
      * @throws Zend_Db_Adapter_Oracle_Exception
      */
     public function lastInsertId($tableName = null, $primaryKey = null)
@@ -346,15 +340,11 @@ class Zend_Db_Adapter_Pdo_Oci extends Zend_Db_Adapter_Pdo_Abstract
     {
         $count = intval($count);
         if ($count <= 0) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             throw new Zend_Db_Adapter_Exception("LIMIT argument count=$count is not valid");
         }
 
         $offset = intval($offset);
         if ($offset < 0) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             throw new Zend_Db_Adapter_Exception("LIMIT argument offset=$offset is not valid");
         }
 

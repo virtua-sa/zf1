@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps email list recipient
  * entries. Instances of this class can be provided in many places where a
  * URL is required.
@@ -85,9 +80,6 @@ class Zend_Gdata_Gapps_EmailListRecipientQuery extends Zend_Gdata_Gapps_Query
     /**
      * Get the email list name to query for. If no name is set, null will be
      * returned.
-     *
-     * @param string $value The email list name to filter search results by,
-     *          or null if disabled.
      */
     public function getEmailListName()
     {
@@ -114,7 +106,7 @@ class Zend_Gdata_Gapps_EmailListRecipientQuery extends Zend_Gdata_Gapps_Query
      * Get the first recipient which should be displayed when retrieving
      * a list of email list recipients.
      *
-     * @return string The first recipient to be returned, or null if
+     * @return string|null The first recipient to be returned, or null if
      *              disabled.
      */
     public function getStartRecipient()
@@ -141,7 +133,6 @@ class Zend_Gdata_Gapps_EmailListRecipientQuery extends Zend_Gdata_Gapps_Query
         if ($this->_emailListName !== null) {
             $uri .= '/' . $this->_emailListName;
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'EmailListName must not be null');
         }

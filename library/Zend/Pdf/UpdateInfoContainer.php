@@ -54,14 +54,14 @@ class Zend_Pdf_UpdateInfoContainer
     /**
      * String representation of the object
      *
-     * @var Zend_Memory_Container|null
+     * @var Zend_Memory_Container|null|string
      */
     private $_dump = null;
 
     /**
      * Object constructor
      *
-     * @param integer $objCount
+     * @param integer $objNum
      */
     public function __construct($objNum, $genNum, $isFree, $dump = null)
     {
@@ -71,7 +71,6 @@ class Zend_Pdf_UpdateInfoContainer
 
         if ($dump !== null) {
             if (strlen($dump) > 1024) {
-                require_once 'Zend/Pdf.php';
                 $this->_dump = Zend_Pdf::getMemoryManager()->create($dump);
             } else {
                 $this->_dump = $dump;

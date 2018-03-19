@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Gapps_Query
- */
-require_once('Zend/Gdata/Gapps/Query.php');
-
-/**
  * Assists in constructing queries for Google Apps member entries.
  * Instances of this class can be provided in many places where a URL is
  * required.
@@ -93,8 +88,6 @@ class Zend_Gdata_Gapps_MemberQuery extends Zend_Gdata_Gapps_Query
      * Get the group id to query for. If no group id is set, null will be
      * returned.
      *
-     * @param string $value The group id to filter search results by, or
-     *          null if disabled.
      * @return string The group id
      */
     public function getGroupId()
@@ -121,9 +114,7 @@ class Zend_Gdata_Gapps_MemberQuery extends Zend_Gdata_Gapps_Query
      * Get the member id to query for. If no member id is set, null will be
      * returned.
      *
-     * @param string $value The member id to filter search results by, or
-     *          null if disabled.
-     * @return The member id
+     * @return string The member id
      */
     public function getMemberId()
     {
@@ -151,7 +142,7 @@ class Zend_Gdata_Gapps_MemberQuery extends Zend_Gdata_Gapps_Query
      * a list of users.
      *
      * @see setStartUsername
-     * @return string The first username to be returned, or null if
+     * @return string|null The first username to be returned, or null if
      *          disabled.
      */
     public function getStartMemberId()
@@ -177,7 +168,6 @@ class Zend_Gdata_Gapps_MemberQuery extends Zend_Gdata_Gapps_Query
         if ($this->_groupId !== null) {
             $uri .= '/' . $this->_groupId;
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'groupId must not be null');
         }

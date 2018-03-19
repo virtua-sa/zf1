@@ -20,13 +20,6 @@
  */
 
 
-/** Internally used classes */
-require_once 'Zend/Pdf/Element/Name.php';
-
-
-/** Zend_Pdf_Element */
-require_once 'Zend/Pdf/Element.php';
-
 /**
  * PDF file 'dictionary' element implementation
  *
@@ -57,17 +50,14 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
         if ($val === null) {
             return;
         } else if (!is_array($val)) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Argument must be an array');
         }
 
         foreach ($val as $name => $element) {
             if (!$element instanceof Zend_Pdf_Element) {
-                require_once 'Zend/Pdf/Exception.php';
                 throw new Zend_Pdf_Exception('Array elements must be Zend_Pdf_Element objects');
             }
             if (!is_string($name)) {
-                require_once 'Zend/Pdf/Exception.php';
                 throw new Zend_Pdf_Exception('Array keys must be strings');
             }
             $this->_items[$name] = $element;
@@ -101,7 +91,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Get handler
      *
-     * @param string $property
+     * @param string $item
      * @return Zend_Pdf_Element | null
      */
     public function __get($item)
@@ -115,7 +105,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Set handler
      *
-     * @param string $property
+     * @param string $item
      * @param  mixed $value
      */
     public function __set($item, $value)
@@ -141,7 +131,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
     /**
      * Return object as string
      *
-     * @param Zend_Pdf_Factory $factory
+     * @param Zend_Pdf_ElementFactory $factory
      * @return string
      */
     public function toString($factory = null)
@@ -151,7 +141,6 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
 
         foreach ($this->_items as $name => $element) {
             if (!is_object($element)) {
-                require_once 'Zend/Pdf/Exception.php';
                 throw new Zend_Pdf_Exception('Wrong data');
             }
 
@@ -172,7 +161,7 @@ class Zend_Pdf_Element_Dictionary extends Zend_Pdf_Element
      * Detach PDF object from the factory (if applicable), clone it and attach to new factory.
      *
      * @param Zend_Pdf_ElementFactory $factory  The factory to attach
-     * @param array &$processed  List of already processed indirect objects, used to avoid objects duplication
+     * @param array $processed  List of already processed indirect objects, used to avoid objects duplication
      * @param integer $mode  Cloning mode (defines filter for objects cloning)
      * @returns Zend_Pdf_Element
      * @throws Zend_Pdf_Exception

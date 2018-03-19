@@ -21,19 +21,6 @@
  */
 
 
-/** @see Zend_Db_Adapter_Pdo_Abstract */
-require_once 'Zend/Db/Adapter/Pdo/Abstract.php';
-
-/** @see Zend_Db_Abstract_Pdo_Ibm_Db2 */
-require_once 'Zend/Db/Adapter/Pdo/Ibm/Db2.php';
-
-/** @see Zend_Db_Abstract_Pdo_Ibm_Ids */
-require_once 'Zend/Db/Adapter/Pdo/Ibm/Ids.php';
-
-/** @see Zend_Db_Statement_Pdo_Ibm */
-require_once 'Zend/Db/Statement/Pdo/Ibm.php';
-
-
 /**
  * @category   Zend
  * @package    Zend_Db
@@ -53,7 +40,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * The IBM data server connected to
      *
-     * @var string
+     * @var Zend_Db_Adapter_Pdo_Ibm_Db2|Zend_Db_Adapter_Pdo_Ibm_Ids|null
      */
     protected $_serverType = null;
 
@@ -130,8 +117,6 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
                     }
             }
         } catch (PDOException $e) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             $error = strpos($e->getMessage(), 'driver does not support that attribute');
             if ($error) {
                 throw new Zend_Db_Adapter_Exception("PDO_IBM driver extension is downlevel.  Please use driver release version 1.2.1 or later", 0, $e);
@@ -177,8 +162,6 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
 
         if (array_key_exists('host', $this->_config) &&
         !array_key_exists('port', $config)) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             throw new Zend_Db_Adapter_Exception("Configuration must have a key for 'port' when 'host' is specified");
         }
     }
@@ -187,7 +170,6 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * Prepares an SQL statement.
      *
      * @param string $sql The SQL statement with placeholders.
-     * @param array $bind An array of data to bind to the placeholders.
      * @return PDOStatement
      */
     public function prepare($sql)
@@ -289,7 +271,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      *
      * @param string $tableName OPTIONAL
      * @param string $primaryKey OPTIONAL
-     * @return integer
+     * @return integer|string
      */
     public function lastInsertId($tableName = null, $primaryKey = null)
     {
@@ -313,7 +295,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * Return the most recent value from the specified sequence in the database.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function lastSequenceId($sequenceName)
     {
@@ -326,7 +308,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
      * and return it.
      *
      * @param string $sequenceName
-     * @return integer
+     * @return integer|string
      */
     public function nextSequenceId($sequenceName)
     {
@@ -337,7 +319,7 @@ class Zend_Db_Adapter_Pdo_Ibm extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * Retrieve server version in PHP style
      * Pdo_Idm doesn't support getAttribute(PDO::ATTR_SERVER_VERSION)
-     * @return string
+     * @return string|null
      */
     public function getServerVersion()
     {

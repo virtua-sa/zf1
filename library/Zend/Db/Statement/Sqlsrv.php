@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Db_Statement
- */
-require_once 'Zend/Db/Statement.php';
-
-/**
  * Extends for Microsoft SQL Server Driver for PHP
  *
  * @category   Zend
@@ -66,7 +61,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
         $this->_stmt = sqlsrv_prepare($connection, $sql);
 
         if (!$this->_stmt) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception(sqlsrv_errors());
         }
 
@@ -126,7 +120,7 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
      * Retrieves the error code, if any, associated with the last operation on
      * the statement handle.
      *
-     * @return string error code.
+     * @return string|false error code.
      */
     public function errorCode()
     {
@@ -147,7 +141,7 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
      * Retrieves an array of error information, if any, associated with the
      * last operation on the statement handle.
      *
-     * @return array
+     * @return array|false
      */
     public function errorInfo()
     {
@@ -202,7 +196,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
         $this->_stmt = sqlsrv_query($connection, $this->_originalSQL, $params);
 
         if (!$this->_stmt) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception(sqlsrv_errors());
         }
 
@@ -233,7 +226,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
         $values = sqlsrv_fetch_array($this->_stmt, SQLSRV_FETCH_ASSOC);
 
         if (!$values && (null !== $error = sqlsrv_errors())) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception($error);
         }
 
@@ -270,7 +262,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
                 $row   = $this->_fetchBound($row);
                 break;
             default:
-                require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
                 throw new Zend_Db_Statement_Sqlsrv_Exception("Invalid fetch mode '$style' specified");
                 break;
         }
@@ -282,7 +273,7 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
      * Returns a single column from the next row of a result set.
      *
      * @param int $col OPTIONAL Position of the column to fetch.
-     * @return string
+     * @return mixed|false
      * @throws Zend_Db_Statement_Exception
      */
     public function fetchColumn($col = 0)
@@ -293,7 +284,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
 
         if (!sqlsrv_fetch($this->_stmt)) {
             if (null !== $error = sqlsrv_errors()) {
-                require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
                 throw new Zend_Db_Statement_Sqlsrv_Exception($error);
             }
 
@@ -303,7 +293,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
 
         $data = sqlsrv_get_field($this->_stmt, $col); //0-based
         if ($data === false) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception(sqlsrv_errors());
         }
 
@@ -327,7 +316,6 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
         $obj = sqlsrv_fetch_object($this->_stmt);
 
         if ($error = sqlsrv_errors()) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception($error);
         }
 
@@ -373,10 +361,9 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
     public function nextRowset()
     {
         if (sqlsrv_next_result($this->_stmt) === false) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception(sqlsrv_errors());
         }
-        
+
         // reset column keys
         $this->_keys = null;
 
@@ -388,7 +375,7 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
      * last INSERT, DELETE, or UPDATE statement executed by this
      * statement object.
      *
-     * @return int     The number of rows affected.
+     * @return int|false     The number of rows affected.
      * @throws Zend_Db_Statement_Exception
      */
     public function rowCount()
@@ -405,13 +392,12 @@ class Zend_Db_Statement_Sqlsrv extends Zend_Db_Statement
 
         // Strict check is necessary; 0 is a valid return value
         if ($num_rows === false) {
-            require_once 'Zend/Db/Statement/Sqlsrv/Exception.php';
             throw new Zend_Db_Statement_Sqlsrv_Exception(sqlsrv_errors());
         }
 
         return $num_rows;
     }
-    
+
     /**
      * Returns an array containing all of the result set rows.
      *

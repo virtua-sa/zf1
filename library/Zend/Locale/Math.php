@@ -208,7 +208,7 @@ class Zend_Locale_Math
      *
      * @param integer $value Value to erase the exponent
      * @param integer $scale (Optional) Scale to use
-     * @return string
+     * @return string|int
      */
     public static function exponent($value, $scale = null)
     {
@@ -350,6 +350,5 @@ class Zend_Locale_Math
 if (!extension_loaded('bcmath')
     || (defined('TESTS_ZEND_LOCALE_BCMATH_ENABLED') && !TESTS_ZEND_LOCALE_BCMATH_ENABLED)
 ) {
-    require_once 'Zend/Locale/Math/PhpMath.php';
     Zend_Locale_Math_PhpMath::disable();
 }

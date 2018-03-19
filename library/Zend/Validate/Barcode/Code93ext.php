@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Barcode_AdapterAbstract
- */
-require_once 'Zend/Validate/Barcode/AdapterAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -40,7 +35,7 @@ class Zend_Validate_Barcode_Code93ext extends Zend_Validate_Barcode_AdapterAbstr
 
     /**
      * Allowed barcode characters
-     * @var string
+     * @var int
      */
     protected $_characters = 128;
 

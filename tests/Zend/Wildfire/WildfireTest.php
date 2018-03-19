@@ -437,7 +437,7 @@ class Zend_Wildfire_WildfireTest extends PHPUnit\Framework\TestCase
 
 
         $message->setDestroy(true);
-        $this->assertfalse(Zend_Wildfire_Plugin_FirePhp::send($message));
+        $this->assertFalse(Zend_Wildfire_Plugin_FirePhp::send($message));
 
         $message->setDestroy(false);
         $this->assertTrue(Zend_Wildfire_Plugin_FirePhp::send($message));

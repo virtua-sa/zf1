@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Service_WindowsAzure_Storage_StorageEntityAbstract
- */
-require_once 'Zend/Service/WindowsAzure/Storage/StorageEntityAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Service_WindowsAzure
  * @subpackage Storage

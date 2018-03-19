@@ -36,7 +36,7 @@ class Zend_Cache_Core
     /**
      * Backend Object
      *
-     * @var Zend_Cache_Backend_Interface $_backend
+     * @var Zend_Cache_Backend_Interface|Zend_Cache_Backend $_backend
      */
     protected $_backend = null;
 
@@ -191,7 +191,7 @@ class Zend_Cache_Core
     /**
      * Returns the backend
      *
-     * @return Zend_Cache_Backend backend object
+     * @return Zend_Cache_Backend|Zend_Cache_Backend_Interface backend object
      */
     public function getBackend()
     {
@@ -719,9 +719,6 @@ class Zend_Cache_Core
         }
 
         // Create a default logger to the standard output stream
-        require_once 'Zend/Log.php';
-        require_once 'Zend/Log/Writer/Stream.php';
-        require_once 'Zend/Log/Filter/Priority.php';
         $logger = new Zend_Log(new Zend_Log_Writer_Stream('php://output'));
         $logger->addFilter(new Zend_Log_Filter_Priority(Zend_Log::WARN, '<='));
         $this->_options['logger'] = $logger;

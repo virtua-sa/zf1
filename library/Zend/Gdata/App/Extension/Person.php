@@ -22,26 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Extension
- */
-require_once 'Zend/Gdata/App/Extension.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Name
- */
-require_once 'Zend/Gdata/App/Extension/Name.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Email
- */
-require_once 'Zend/Gdata/App/Extension/Email.php';
-
-/**
- * @see Zend_Gdata_App_Extension_Uri
- */
-require_once 'Zend/Gdata/App/Extension/Uri.php';
-
-/**
  * Base class for people (currently used by atom:author, atom:contributor)
  *
  * @category   Zend
@@ -116,7 +96,7 @@ abstract class Zend_Gdata_App_Extension_Person extends Zend_Gdata_App_Extension
 
     /**
      * @param Zend_Gdata_App_Extension_Name $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setName($value)
     {

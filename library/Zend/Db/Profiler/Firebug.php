@@ -20,15 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Db_Profiler */
-require_once 'Zend/Db/Profiler.php';
-
-/** Zend_Wildfire_Plugin_FirePhp */
-require_once 'Zend/Wildfire/Plugin/FirePhp.php';
-
-/** Zend_Wildfire_Plugin_FirePhp_TableMessage */
-require_once 'Zend/Wildfire/Plugin/FirePhp/TableMessage.php';
-
 /**
  * Writes DB events as log messages to the Firebug Console via FirePHP.
  *
@@ -54,7 +45,7 @@ class Zend_Db_Profiler_Firebug extends Zend_Db_Profiler
 
     /**
      * The message envelope holding the profiling summary
-     * @var Zend_Wildfire_Plugin_FirePhp_TableMessage
+     * @var Zend_Wildfire_Plugin_FirePhp_TableMessage|null
      */
     protected $_message = null;
 

@@ -22,22 +22,6 @@
 
 
 /**
- * @see Zend_Auth_Adapter_Interface
- */
-require_once 'Zend/Auth/Adapter/Interface.php';
-
-/**
- * @see Zend_Db_Adapter_Abstract
- */
-require_once 'Zend/Db/Adapter/Abstract.php';
-
-/**
- * @see Zend_Auth_Result
- */
-require_once 'Zend/Auth/Result.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Auth
  * @subpackage Adapter
@@ -158,7 +142,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
     /**
      * _setDbAdapter() - set the database adapter to be used for quering
      *
-     * @param Zend_Db_Adapter_Abstract
+     * @param Zend_Db_Adapter_Abstract $zendDb
      * @throws Zend_Auth_Adapter_Exception
      * @return Zend_Auth_Adapter_DbTable
      */
@@ -170,10 +154,8 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
          * If no adapter is specified, fetch default database adapter.
          */
         if(null === $this->_zendDb) {
-            require_once 'Zend/Db/Table/Abstract.php';
             $this->_zendDb = Zend_Db_Table_Abstract::getDefaultAdapter();
             if (null === $this->_zendDb) {
-                require_once 'Zend/Auth/Adapter/Exception.php';
                 throw new Zend_Auth_Adapter_Exception('No database adapter present');
             }
         }
@@ -359,7 +341,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * table and attempt to find a record matching the provided identity.
      *
      * @throws Zend_Auth_Adapter_Exception if answering the authentication query is impossible
-     * @return Zend_Auth_Result
+     * @return Zend_Auth_Result|true
      */
     public function authenticate()
     {
@@ -411,10 +393,6 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
         }
 
         if (null !== $exception) {
-            /**
-             * @see Zend_Auth_Adapter_Exception
-             */
-            require_once 'Zend/Auth/Adapter/Exception.php';
             throw new Zend_Auth_Adapter_Exception($exception);
         }
 
@@ -472,9 +450,9 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
     protected function _authenticateQuerySelect(Zend_Db_Select $dbSelect)
     {
         try {
-            if ($this->_zendDb->getFetchMode() != Zend_DB::FETCH_ASSOC) {
+            if ($this->_zendDb->getFetchMode() != Zend_Db::FETCH_ASSOC) {
                 $origDbFetchMode = $this->_zendDb->getFetchMode();
-                $this->_zendDb->setFetchMode(Zend_DB::FETCH_ASSOC);
+                $this->_zendDb->setFetchMode(Zend_Db::FETCH_ASSOC);
             }
             $resultIdentities = $this->_zendDb->fetchAll($dbSelect);
             if (isset($origDbFetchMode)) {
@@ -482,10 +460,6 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
                 unset($origDbFetchMode);
             }
         } catch (Exception $e) {
-            /**
-             * @see Zend_Auth_Adapter_Exception
-             */
-            require_once 'Zend/Auth/Adapter/Exception.php';
             throw new Zend_Auth_Adapter_Exception('The supplied parameters to Zend_Auth_Adapter_DbTable failed to '
                                                 . 'produce a valid sql statement, please check table and column names '
                                                 . 'for validity.', 0, $e);

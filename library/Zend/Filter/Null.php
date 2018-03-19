@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -83,7 +78,7 @@ class Zend_Filter_Null implements Zend_Filter_Interface
     /**
      * Returns the set null types
      *
-     * @return array
+     * @return int
      */
     public function getType()
     {
@@ -93,7 +88,7 @@ class Zend_Filter_Null implements Zend_Filter_Interface
     /**
      * Set the null types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Filter_Exception
      * @return Zend_Filter_Null
      */
@@ -117,7 +112,6 @@ class Zend_Filter_Null implements Zend_Filter_Interface
         }
 
         if (!is_int($type) || ($type < 0) || ($type > self::ALL)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('Unknown type');
         }
 
@@ -131,8 +125,8 @@ class Zend_Filter_Null implements Zend_Filter_Interface
      * Returns null representation of $value, if value is empty and matches
      * types that should be considered null.
      *
-     * @param  string $value
-     * @return string
+     * @param  string|array|int|bool $value
+     * @return string|array|int|bool|null
      */
     public function filter($value)
     {

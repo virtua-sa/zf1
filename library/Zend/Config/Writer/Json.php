@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Config_Writer
- */
-require_once 'Zend/Config/Writer/FileAbstract.php';
-
-/**
- * @see Zend_Config_Json
- */
-require_once 'Zend/Config/Json.php';
-
-/**
  * @category   Zend
  * @package    Zend_Config
  * @copyright  Copyright (c) 2005-2009 Zend Technologies USA Inc. (http://www.zend.com)
@@ -47,7 +37,7 @@ class Zend_Config_Writer_Json extends Zend_Config_Writer_FileAbstract
     /**
      * Get prettyPrint flag
      *
-     * @return the prettyPrint flag
+     * @return bool the prettyPrint flag
      */
     public function prettyPrint()
     {
@@ -57,7 +47,7 @@ class Zend_Config_Writer_Json extends Zend_Config_Writer_FileAbstract
     /**
      * Set prettyPrint flag
      *
-     * @param  bool $prettyPrint PrettyPrint flag
+     * @param  bool $flag PrettyPrint flag
      * @return Zend_Config_Writer_Json
      */
     public function setPrettyPrint($flag)

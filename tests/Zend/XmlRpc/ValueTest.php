@@ -596,7 +596,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit\Framework\TestCase
 
         $this->assertXmlRpcType('dateTime', $val);
 
-        $expected = new Datetime($native);
+        $expected = new DateTime($native);
         $this->assertSame($expected->format($this->xmlRpcDateFormat), $val->getValue());
     }
 
@@ -843,7 +843,7 @@ class Zend_XmlRpc_ValueTest extends PHPUnit\Framework\TestCase
             Zend_XmlRpc_Value::getXmlRpcValue('', 'bad type here');
             $this->fail();
         } catch (Exception $e) {
-            $this->assertRegexp('/given type is not/i', $e->getMessage());
+            $this->assertRegExp('/given type is not/i', $e->getMessage());
         }
     }
 

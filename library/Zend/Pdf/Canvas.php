@@ -19,7 +19,6 @@
  * @version    $Id: Style.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
 
-require_once 'Zend/Pdf/Canvas/Abstract.php';
 
 /**
  * Canvas is an abstract rectangle drawing area which can be dropped into
@@ -77,7 +76,7 @@ class Zend_Pdf_Canvas extends Zend_Pdf_Canvas_Abstract
      */
     protected function _addProcSet($procSetName)
     {
-        $this->_procset[$procSetName] = 1;
+        $this->_procSet[$procSetName] = 1;
     }
 
     /**

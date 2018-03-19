@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Markup_Token
- */
-require_once 'Zend/Markup/Token.php';
-
-/**
  * @category   Zend
  * @package    Zend_Markup
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -43,7 +38,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Get the current token
      *
-     * @return Zend_Markup_Token
+     * @return Zend_Markup_Token|false
      */
     public function current()
     {
@@ -85,7 +80,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Get the key of the current token
      *
-     * @return int
+     * @return int|null
      */
     public function key()
     {
@@ -95,7 +90,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Go to the next token
      *
-     * @return Zend_Markup_Token
+     * @return Zend_Markup_Token|false
      */
     public function next()
     {
@@ -115,7 +110,7 @@ class Zend_Markup_TokenList implements RecursiveIterator
     /**
      * Check if the element is valid
      *
-     * @return void
+     * @return bool
      */
     public function valid()
     {

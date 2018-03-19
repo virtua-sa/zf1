@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Http_Client_Adapter_Socket
- */
-require_once 'Zend/Http/Client/Adapter/Socket.php';
-
-/**
  * Overrides the traditional socket-based adapter class for Zend_Http_Client to
  * enable logging of requests.  All requests are logged to a location specified
  * in the config as $config['logfile'].  Requests and responses are logged after
@@ -69,7 +64,6 @@ class Zend_Gdata_App_LoggingHttpClientAdapterSocket extends Zend_Http_Client_Ada
      * @param string  $host
      * @param int     $port
      * @param boolean $secure
-     * @param int     $timeout
      */
     public function connect($host, $port = 80, $secure = false)
     {

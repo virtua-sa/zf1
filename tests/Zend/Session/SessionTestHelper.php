@@ -21,6 +21,26 @@
  */
 
 /**
+ * @see Zend_Exception
+ */
+require_once 'Zend/Exception.php';
+
+/**
+ * @see Zend_Session_Exception
+ */
+require_once 'Zend/Session/Exception.php';
+
+/**
+ * @see Zend_Session_Abstract
+ */
+require_once 'Zend/Session/Abstract.php';
+
+/**
+ * @see Zend_Session_Namespace
+ */
+require_once 'Zend/Session/Namespace.php';
+
+/**
  * @see Zend_Session
  */
 require_once 'Zend/Session.php';
@@ -154,4 +174,3 @@ class Zend_Session_TestHelper
 $testHelper = new Zend_Session_TestHelper();
 
 exit($testHelper->run($argv));
-

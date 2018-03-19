@@ -19,32 +19,12 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth */
-require_once 'Zend/Oauth.php';
-
-/** Zend_Uri */
-require_once 'Zend/Uri.php';
-
-/** Zend_Oauth_Http_RequestToken */
-require_once 'Zend/Oauth/Http/RequestToken.php';
-
-/** Zend_Oauth_Http_UserAuthorization */
-require_once 'Zend/Oauth/Http/UserAuthorization.php';
-
-/** Zend_Oauth_Http_AccessToken */
-require_once 'Zend/Oauth/Http/AccessToken.php';
-
-/** Zend_Oauth_Token_AuthorizedRequest */
-require_once 'Zend/Oauth/Token/AuthorizedRequest.php';
-
-/** Zend_Oauth_Config */
-require_once 'Zend/Oauth/Config.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method string getRequestMethod()
  */
 class Zend_Oauth_Consumer extends Zend_Oauth
 {
@@ -126,7 +106,7 @@ class Zend_Oauth_Consumer extends Zend_Oauth
      *
      * @param  null|array $customServiceParameters
      * @param  null|Zend_Oauth_Token_Request $token
-     * @param  null|Zend_OAuth_Http_UserAuthorization $redirect
+     * @param  null|Zend_Oauth_Http_UserAuthorization $redirect
      * @return string
      */
     public function getRedirectUrl(
@@ -161,10 +141,11 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         Zend_Oauth_Token_Request $token = null,
         Zend_Oauth_Http_UserAuthorization $request = null
     ) {
-        if ($token instanceof Zend_Oauth_Http_UserAuthorization) {
-            $request = $token;
-            $token = null;
-        }
+        // This is not possible with the type-hints set
+        //if ($token instanceof Zend_Oauth_Http_UserAuthorization) {
+        //    $request = $token;
+        //    $token = null;
+        //}
         $redirectUrl = $this->getRedirectUrl($customServiceParameters, $token, $request);
         header('Location: ' . $redirectUrl);
         exit(1);
@@ -175,7 +156,7 @@ class Zend_Oauth_Consumer extends Zend_Oauth
      * Request Token.
      *
      * @param  array $queryData GET data returned in user's redirect from Provider
-     * @param  Zend_Oauth_Token_Request Request Token information
+     * @param  Zend_Oauth_Token_Request $token Request Token information
      * @param  string $httpMethod
      * @param  Zend_Oauth_Http_AccessToken $request
      * @return Zend_Oauth_Token_Access
@@ -189,7 +170,6 @@ class Zend_Oauth_Consumer extends Zend_Oauth
     ) {
         $authorizedToken = new Zend_Oauth_Token_AuthorizedRequest($queryData);
         if (!$authorizedToken->isValid()) {
-            require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception(
                 'Response from Service Provider is not a valid authorized request token');
         }
@@ -211,14 +191,12 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         }
         if (isset($token)) {
             if ($authorizedToken->getToken() !== $token->getToken()) {
-                require_once 'Zend/Oauth/Exception.php';
                 throw new Zend_Oauth_Exception(
                     'Authorized token from Service Provider does not match'
                     . ' supplied Request Token details'
                 );
             }
         } else {
-            require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Request token must be passed to method');
         }
         $this->_requestToken = $token;
@@ -271,7 +249,6 @@ class Zend_Oauth_Consumer extends Zend_Oauth
     public function __call($method, array $args)
     {
         if (!method_exists($this->_config, $method)) {
-            require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Method does not exist: '.$method);
         }
         return call_user_func_array(array($this->_config,$method), $args);

@@ -76,7 +76,7 @@ class Zend_Crypt
      * @param string $algorithm
      * @param string $data
      * @param bool $binaryOutput
-     * @return unknown
+     * @return string
      */
     public static function hash($algorithm, $data, $binaryOutput = false)
     {
@@ -117,10 +117,6 @@ class Zend_Crypt
                return;
             }
         }
-        /**
-         * @see Zend_Crypt_Exception
-         */
-        require_once 'Zend/Crypt/Exception.php';
         throw new Zend_Crypt_Exception('\'' . $algorithm . '\' is not supported by any available extension or native function');
     }
 

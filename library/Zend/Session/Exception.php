@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Exception
- */
-require_once 'Zend/Exception.php';
-
-
-/**
  * Zend_Session_Exception
  *
  * @category   Zend
@@ -71,4 +65,3 @@ class Zend_Session_Exception extends Zend_Exception
         self::$sessionStartError .= PHP_EOL . $errfile . '(Line:' . $errline . '): Error #' . $errno . ' ' . $errstr;
     }
 }
-

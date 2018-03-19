@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Cache_Backend_Interface
- */
-require_once 'Zend/Cache/Backend/ExtendedInterface.php';
-
-/**
- * @see Zend_Cache_Backend
- */
-require_once 'Zend/Cache/Backend.php';
-
-/**
  * @package    Zend_Cache
  * @subpackage Zend_Cache_Backend
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -105,7 +95,7 @@ class Zend_Cache_Backend_BlackHole
      *                     ($tags can be an array of strings or a single string)
      *
      * @param  string $mode clean mode
-     * @param  tags array $tags array of tags
+     * @param  array $tags array of tags
      * @return boolean true if no problem
      */
     public function clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())
@@ -192,7 +182,7 @@ class Zend_Cache_Backend_BlackHole
      * - mtime : timestamp of last modification time
      *
      * @param  string $id cache id
-     * @return array array of metadatas (false if the cache id is not found)
+     * @return false
      */
     public function getMetadatas($id)
     {

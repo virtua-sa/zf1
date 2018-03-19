@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Extension
- */
-require_once 'Zend/Gdata/Extension.php';
-
-/**
  * Point or period of time associated with an event in the lifecycle of the
  * resource
  *
@@ -47,8 +42,7 @@ class Zend_Gdata_DublinCore_Extension_Date extends Zend_Gdata_Extension
      * Point or period of time associated with an event in the lifecycle of the
      * resource
      *
-     * @param DOMElement $element (optional) DOMElement from which this
-     *          object should be constructed.
+     * @param string $value
      */
     public function __construct($value = null)
     {

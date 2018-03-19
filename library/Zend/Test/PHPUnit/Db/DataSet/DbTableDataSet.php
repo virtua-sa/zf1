@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Test_PHPUnit_Db_DataSet_DbTable
- */
-require_once "Zend/Test/PHPUnit/Db/DataSet/DbTable.php";
-
-/**
  * Aggregate several Zend_Db_Table instances into a dataset.
  *
  * @uses       Zend_Db_Table
@@ -64,7 +59,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTableDataSet extends PHPUnit\DbUnit\DataSet
      * true a reverse iterator will be returned.
      *
      * @param bool $reverse
-     * @return PHPUnit\DbUnit\Database\TableIterator
+     * @return PHPUnit\DbUnit\DataSet\DefaultTableIterator
      */
     protected function createIterator($reverse = FALSE)
     {

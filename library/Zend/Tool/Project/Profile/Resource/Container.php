@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Project_Profile_Resource_SearchConstraints
- */
-require_once 'Zend/Tool/Project/Profile/Resource/SearchConstraints.php';
-
-/**
  * This class is an iterator that will iterate only over enabled resources
  *
  * @category   Zend
@@ -64,8 +59,8 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      *
      * </code>
      *
-     * @param Zend_Tool_Project_Profile_Resource_SearchConstraints|string|array $searchParameters
-     * @return Zend_Tool_Project_Profile_Resource
+     * @param Zend_Tool_Project_Profile_Resource_SearchConstraints|string|array $matchSearchConstraints
+     * @return Zend_Tool_Project_Profile_Resource|false
      */
     public function search($matchSearchConstraints, $nonMatchSearchConstraints = null)
     {
@@ -105,7 +100,6 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
                 if (count($currentConstraint->params) > 0) {
                     $currentResourceAttributes = $currentResource->getAttributes();
                     if (!is_array($currentConstraint->params)) {
-                        require_once 'Zend/Tool/Project/Profile/Exception.php';
                         throw new Zend_Tool_Project_Profile_Exception('Search parameter specifics must be in the form of an array for key "'
                             . $currentConstraint->name .'"');
                     }
@@ -136,7 +130,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
     /**
      * createResourceAt()
      *
-     * @param array|Zend_Tool_Project_Profile_Resource_SearchConstraints $appendResourceOrSearchConstraints
+     * @param array|Zend_Tool_Project_Profile_Resource_Container $appendResourceOrSearchConstraints
      * @param string $context
      * @param array $attributes
      * @return Zend_Tool_Project_Profile_Resource
@@ -145,7 +139,6 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
     {
         if (!$appendResourceOrSearchConstraints instanceof Zend_Tool_Project_Profile_Resource_Container) {
             if (($parentResource = $this->search($appendResourceOrSearchConstraints)) == false) {
-                require_once 'Zend/Tool/Project/Profile/Exception.php';
                 throw new Zend_Tool_Project_Profile_Exception('No node was found to append to.');
             }
         } else {
@@ -171,11 +164,9 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
             if ($contextRegistry->hasContext($context)) {
                 $context = $contextRegistry->getContext($context);
             } else {
-                require_once 'Zend/Tool/Project/Profile/Exception.php';
                 throw new Zend_Tool_Project_Profile_Exception('Context by name ' . $context . ' was not found in the context registry.');
             }
         } elseif (!$context instanceof Zend_Tool_Project_Context_Interface) {
-            require_once 'Zend/Tool/Project/Profile/Exception.php';
             throw new Zend_Tool_Project_Profile_Exception('Context must be of type string or Zend_Tool_Project_Context_Interface.');
         }
 
@@ -247,7 +238,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      * getAttribute()
      *
      * @param string $name
-     * @return Zend_Tool_Project_Profile_Resource_Container
+     * @return mixed
      */
     public function getAttribute($name)
     {
@@ -291,7 +282,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
      * setParentResource()
      *
      * @param Zend_Tool_Project_Profile_Resource_Container $parentResource
-     * @return Zend_Tool_Project_Profile_Resource_Container
+     * @return $this
      */
     public function setParentResource(Zend_Tool_Project_Profile_Resource_Container $parentResource)
     {
@@ -389,7 +380,7 @@ class Zend_Tool_Project_Profile_Resource_Container implements RecursiveIterator,
     /**
      * getChildren()
      *
-     * @return array
+     * @return Zend_Tool_Project_Profile_Resource
      */
     public function getChildren()
     {

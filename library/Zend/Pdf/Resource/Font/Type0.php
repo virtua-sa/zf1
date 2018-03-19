@@ -21,13 +21,7 @@
  */
 
 
-/** Internally used classes */
-require_once 'Zend/Pdf/Element/Array.php';
-require_once 'Zend/Pdf/Element/Name.php';
 
-
-/** Zend_Pdf_Resource_Font */
-require_once 'Zend/Pdf/Resource/Font.php';
 
 /**
  * Adobe PDF composite fonts implementation
@@ -204,7 +198,7 @@ class Zend_Pdf_Resource_Font_Type0 extends Zend_Pdf_Resource_Font
      *
      * See also {@link widthForGlyph()}.
      *
-     * @param array &$glyphNumbers Array of glyph numbers.
+     * @param array $glyphNumbers Array of glyph numbers.
      * @return array Array of glyph widths (integers).
      * @throws Zend_Pdf_Exception
      */

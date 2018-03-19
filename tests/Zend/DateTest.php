@@ -288,7 +288,7 @@ class Zend_DateTest extends PHPUnit\Framework\TestCase
             $locale = new Zend_Locale('de_AT');
             $date = new Zend_Date(0,null,$locale);
             $result = $date->setTimestamp('notimestamp');
-            $this->Fail("exception expected");
+            $this->fail("exception expected");
         } catch (Zend_Date_Exception $e) {
             // success
         }

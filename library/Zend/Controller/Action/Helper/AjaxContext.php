@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Controller_Action_Helper_ContextSwitch
- */
-require_once 'Zend/Controller/Action/Helper/ContextSwitch.php';
-
-/**
  * Simplify AJAX context switching based on requested format
  *
  * @uses       Zend_Controller_Action_Helper_Abstract
@@ -62,7 +57,7 @@ class Zend_Controller_Action_Helper_AjaxContext extends Zend_Controller_Action_H
      * Checks for XHR requests; if detected, attempts to perform context switch.
      *
      * @param  string $format
-     * @return void
+     * @return null
      */
     public function initContext($format = null)
     {
@@ -72,7 +67,7 @@ class Zend_Controller_Action_Helper_AjaxContext extends Zend_Controller_Action_H
         if (!method_exists($request, 'isXmlHttpRequest') ||
             !$this->getRequest()->isXmlHttpRequest())
         {
-            return;
+            return null;
         }
 
         return parent::initContext($format);

@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -56,7 +51,7 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
     /**
      * Sets validator options
      *
-     * @param array $options OPTIONAL Options to set, see the manual for all available options
+     * @param array|Zend_Config $options OPTIONAL Options to set, see the manual for all available options
      */
     public function __construct($options = array())
     {
@@ -104,7 +99,6 @@ class Zend_Validate_Ip extends Zend_Validate_Abstract
         }
 
         if (!$this->_options['allowipv4'] && !$this->_options['allowipv6']) {
-            require_once 'Zend/Validate/Exception.php';
             throw new Zend_Validate_Exception('Nothing to validate. Check your options');
         }
 

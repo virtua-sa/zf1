@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_Extension
- */
-require_once 'Zend/Gdata/App/Extension.php';
-
-/**
  * Represents the atom:generator element
  *
  * @category   Zend
@@ -86,7 +81,7 @@ class Zend_Gdata_App_Extension_Generator extends Zend_Gdata_App_Extension
 
     /**
      * @param Zend_Gdata_App_Extension_Uri $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setUri($value)
     {
@@ -95,7 +90,7 @@ class Zend_Gdata_App_Extension_Generator extends Zend_Gdata_App_Extension
     }
 
     /**
-     * @return Zend_Gdata_App_Extension_Version
+     * @return string
      */
     public function getVersion()
     {
@@ -103,8 +98,8 @@ class Zend_Gdata_App_Extension_Generator extends Zend_Gdata_App_Extension
     }
 
     /**
-     * @param Zend_Gdata_App_Extension_Version $value
-     * @return Zend_Gdata_App_Entry Provides a fluent interface
+     * @param string $value
+     * @return $this Provides a fluent interface
      */
     public function setVersion($value)
     {

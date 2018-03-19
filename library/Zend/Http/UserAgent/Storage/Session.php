@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Http_UserAgent_Storage
- */
-require_once 'Zend/Http/UserAgent/Storage.php';
-
-/**
- * @see Zend_Session_Namespace
- */
-require_once 'Zend/Session/Namespace.php';
-
-/**
  * @package    Zend_Http
  * @subpackage UserAgent
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -87,7 +77,6 @@ class Zend_Http_UserAgent_Storage_Session implements Zend_Http_UserAgent_Storage
             $options = (array) $options;
         }
         if (null !== $options && !is_array($options)) {
-            require_once 'Zend/Http/UserAgent/Storage/Exception.php';
             throw new Zend_Http_UserAgent_Storage_Exception(sprintf(
                 'Expected array or object options; "%s" provided',
                 gettype($options)
@@ -146,7 +135,7 @@ class Zend_Http_UserAgent_Storage_Session implements Zend_Http_UserAgent_Storage
     /**
      * Defined by Zend_Http_UserAgent_Storage
      *
-     * @param  mixed $contents
+     * @param  mixed $content
      * @return void
      */
     public function write($content)

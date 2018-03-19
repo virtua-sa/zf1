@@ -55,23 +55,23 @@ class Zend_Amf_Adobe_IntrospectorTest extends PHPUnit\Framework\TestCase
     public function testIntrospectionContainsPublicPropertiesOfReturnClassTypes()
     {
         $xml = $this->introspector->introspect('com.zend.framework.IntrospectorTest');
-        $this->assertRegexp('/<type[^>]*(name="com_zend_framework_IntrospectorTestCustomType")/', $xml, $xml);
-        $this->assertRegexp('/<property[^>]*(name="foo")/', $xml, $xml);
-        $this->assertRegexp('/<property[^>]*(type="string")/', $xml, $xml);
+        $this->assertRegExp('/<type[^>]*(name="com_zend_framework_IntrospectorTestCustomType")/', $xml, $xml);
+        $this->assertRegExp('/<property[^>]*(name="foo")/', $xml, $xml);
+        $this->assertRegExp('/<property[^>]*(type="string")/', $xml, $xml);
     }
 
     public function testIntrospectionDoesNotContainNonPublicPropertiesOfReturnClassTypes()
     {
         $xml = $this->introspector->introspect('com.zend.framework.IntrospectorTest');
-        $this->assertNotRegexp('/<property[^>]*(name="_bar")/', $xml, $xml);
+        $this->assertNotRegExp('/<property[^>]*(name="_bar")/', $xml, $xml);
     }
 
     public function testIntrospectionContainsPublicMethods()
     {
         $xml = $this->introspector->introspect('com.zend.framework.IntrospectorTest');
-        $this->assertRegexp('/<operation[^>]*(name="foobar")/', $xml, $xml);
-        $this->assertRegexp('/<operation[^>]*(name="barbaz")/', $xml, $xml);
-        $this->assertRegexp('/<operation[^>]*(name="bazbat")/', $xml, $xml);
+        $this->assertRegExp('/<operation[^>]*(name="foobar")/', $xml, $xml);
+        $this->assertRegExp('/<operation[^>]*(name="barbaz")/', $xml, $xml);
+        $this->assertRegExp('/<operation[^>]*(name="bazbat")/', $xml, $xml);
     }
 
     public function testIntrospectionContainsOperationForEachPrototypeOfAPublicMethod()
@@ -88,9 +88,9 @@ class Zend_Amf_Adobe_IntrospectorTest extends PHPUnit\Framework\TestCase
         $xml = $this->introspector->introspect('ZendAmfAdobeIntrospectorTest', array(
             'directories' => array(dirname(__FILE__) . '/_files'),
         ));
-        $this->assertRegexp('/<operation[^>]*(name="foo")/', $xml, $xml);
-        $this->assertRegexp('/<type[^>]*(name="ZendAmfAdobeIntrospectorTestType")/', $xml, $xml);
-        $this->assertRegexp('/<property[^>]*(name="bar")/', $xml, $xml);
+        $this->assertRegExp('/<operation[^>]*(name="foo")/', $xml, $xml);
+        $this->assertRegExp('/<type[^>]*(name="ZendAmfAdobeIntrospectorTestType")/', $xml, $xml);
+        $this->assertRegExp('/<property[^>]*(name="bar")/', $xml, $xml);
     }
 
     public function testMissingPropertyDocblockInTypedClassShouldReportTypeAsUnknown()
@@ -116,7 +116,7 @@ class Zend_Amf_Adobe_IntrospectorTest extends PHPUnit\Framework\TestCase
     public function testTypedClassWithExplicitTypeShouldReportAsThatType()
     {
         $xml = $this->introspector->introspect('com.zend.framework.IntrospectorTest');
-        $this->assertRegexp('/<type[^>]*(name="explicit")/', $xml, $xml);
+        $this->assertRegExp('/<type[^>]*(name="explicit")/', $xml, $xml);
     }
 
     /**
@@ -126,8 +126,8 @@ class Zend_Amf_Adobe_IntrospectorTest extends PHPUnit\Framework\TestCase
     {
         require_once dirname(__FILE__) . '/TestAsset/ParameterHints.php';
         $xml = $this->introspector->introspect('Zend.Amf.Adobe.TestAsset.ParameterHints');
-        $this->assertRegexp('/<argument[^>]*(name="arg1")[^>]*(type="Unknown\[\]")/', $xml, $xml);
-        $this->assertRegexp('/<argument[^>]*(name="arg2")[^>]*(type="Unknown\[\]")/', $xml, $xml);
+        $this->assertRegExp('/<argument[^>]*(name="arg1")[^>]*(type="Unknown\[\]")/', $xml, $xml);
+        $this->assertRegExp('/<argument[^>]*(name="arg2")[^>]*(type="Unknown\[\]")/', $xml, $xml);
     }
 }
 

@@ -20,19 +20,6 @@
  */
 
 /**
- * @see Zend_Soap_Wsdl_Strategy_Interface
- */
-require_once "Zend/Soap/Wsdl/Strategy/Interface.php";
-
-/**
- * @see Zend_Soap_Wsdl_Strategy_Abstract
- */
-require_once "Zend/Soap/Wsdl/Strategy/Abstract.php";
-
-/** @see Zend_Xml_Security */
-require_once "Zend/Xml/Security.php";
-
-/**
  * Zend_Soap_Wsdl
  *
  * @category   Zend
@@ -41,7 +28,7 @@ require_once "Zend/Xml/Security.php";
 class Zend_Soap_Wsdl
 {
     /**
-     * @var object DomDocument Instance
+     * @var DOMDocument DomDocument Instance
      */
     private $_dom;
 
@@ -77,7 +64,7 @@ class Zend_Soap_Wsdl
      * Constructor
      *
      * @param string  $name Name of the Web Service being Described
-     * @param string  $uri URI where the WSDL will be available
+     * @param string|Zend_Uri_Http  $uri URI where the WSDL will be available
      * @param boolean|string|Zend_Soap_Wsdl_Strategy_Interface $strategy
      */
     public function __construct($name, $uri, $strategy = true)
@@ -101,9 +88,8 @@ class Zend_Soap_Wsdl
                     xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/'></definitions>";
         $this->_dom = new DOMDocument();
         if (!$this->_dom = Zend_Xml_Security::scan($wsdl, $this->_dom)) {
-            require_once 'Zend/Server/Exception.php';
             throw new Zend_Server_Exception('Unable to create DomDocument');
-        } 
+        }
         $this->_wsdl = $this->_dom->documentElement;
 
         $this->setComplexTypeStrategy($strategy);
@@ -113,7 +99,7 @@ class Zend_Soap_Wsdl
      * Set a new uri for this WSDL
      *
      * @param  string|Zend_Uri_Http $uri
-     * @return Zend_Server_Wsdl
+     * @return $this
      */
     public function setUri($uri)
     {
@@ -144,16 +130,13 @@ class Zend_Soap_Wsdl
     public function setComplexTypeStrategy($strategy)
     {
         if($strategy === true) {
-            require_once "Zend/Soap/Wsdl/Strategy/DefaultComplexType.php";
             $strategy = new Zend_Soap_Wsdl_Strategy_DefaultComplexType();
         } else if($strategy === false) {
-            require_once "Zend/Soap/Wsdl/Strategy/AnyType.php";
             $strategy = new Zend_Soap_Wsdl_Strategy_AnyType();
         } else if(is_string($strategy)) {
             if(class_exists($strategy)) {
                 $strategy = new $strategy();
             } else {
-                require_once "Zend/Soap/Wsdl/Exception.php";
                 throw new Zend_Soap_Wsdl_Exception(
                     sprintf("Strategy with name '%s does not exist.", $strategy
                 ));
@@ -161,7 +144,6 @@ class Zend_Soap_Wsdl
         }
 
         if(!($strategy instanceof Zend_Soap_Wsdl_Strategy_Interface)) {
-            require_once "Zend/Soap/Wsdl/Exception.php";
             throw new Zend_Soap_Wsdl_Exception("Set a strategy that is not of type 'Zend_Soap_Wsdl_Strategy_Interface'");
         }
         $this->_strategy = $strategy;
@@ -269,7 +251,7 @@ class Zend_Soap_Wsdl
      * Add a {@link http://www.w3.org/TR/wsdl#_bindings binding} element to WSDL
      *
      * @param string $name Name of the Binding
-     * @param string $type name of the portType to bind
+     * @param string $portType name of the portType to bind
      * @return object The new binding's XML_Tree_Node for use with {@link function addBindingOperation} and {@link function addDocumentation}
      */
     public function addBinding($name, $portType)
@@ -363,8 +345,8 @@ class Zend_Soap_Wsdl
     /**
      * Add a {@link http://www.w3.org/TR/wsdl#_soap:operation SOAP operation} to an operation element
      *
-     * @param object $operation An operation XML_Tree_Node returned by {@link function addBindingOperation}
-     * @param string $soap_action SOAP Action
+     * @param object $binding An operation XML_Tree_Node returned by {@link function addBindingOperation}
+     * @param string|Zend_Uri_Http $soap_action SOAP Action
      * @return boolean
      */
     public function addSoapOperation($binding, $soap_action)
@@ -386,7 +368,7 @@ class Zend_Soap_Wsdl
      * @param string $name Service Name
      * @param string $port_name Name of the port for the service
      * @param string $binding Binding for the port
-     * @param string $location SOAP Address for the service
+     * @param string|Zend_Uri_Http $location SOAP Address for the service
      * @return object The new service's XML_Tree_Node for use with {@link function addDocumentation}
      */
     public function addService($name, $port_name, $binding, $location)
@@ -451,10 +433,10 @@ class Zend_Soap_Wsdl
      */
     public function addTypes($types)
     {
-        if ($types instanceof DomDocument) {
+        if ($types instanceof DOMDocument) {
             $dom = $this->_dom->importNode($types->documentElement);
             $this->_wsdl->appendChild($types->documentElement);
-        } elseif ($types instanceof DomNode || $types instanceof DomElement || $types instanceof DomDocumentFragment ) {
+        } elseif ($types instanceof DOMNode || $types instanceof DOMElement || $types instanceof DOMDocumentFragment ) {
             $dom = $this->_dom->importNode($types);
             $this->_wsdl->appendChild($dom);
         }
@@ -616,7 +598,6 @@ class Zend_Soap_Wsdl
     private function _parseElement($element)
     {
         if (!is_array($element)) {
-            require_once "Zend/Soap/Wsdl/Exception.php";
             throw new Zend_Soap_Wsdl_Exception("The 'element' parameter needs to be an associative array.");
         }
 

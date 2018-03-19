@@ -78,15 +78,15 @@ abstract class Zend_Cache
     /**
      * Factory
      *
-     * @param mixed  $frontend        frontend name (string) or Zend_Cache_Frontend_ object
-     * @param mixed  $backend         backend name (string) or Zend_Cache_Backend_ object
+     * @param string|Zend_Cache_Core  $frontend        frontend name (string) or Zend_Cache_Frontend_ object
+     * @param string|Zend_Cache_Backend  $backend         backend name (string) or Zend_Cache_Backend_ object
      * @param array  $frontendOptions associative array of options for the corresponding frontend constructor
      * @param array  $backendOptions  associative array of options for the corresponding backend constructor
      * @param boolean $customFrontendNaming if true, the frontend argument is used as a complete class name ; if false, the frontend argument is used as the end of "Zend_Cache_Frontend_[...]" class name
      * @param boolean $customBackendNaming if true, the backend argument is used as a complete class name ; if false, the backend argument is used as the end of "Zend_Cache_Backend_[...]" class name
      * @param boolean $autoload if true, there will no require_once for backend and frontend (useful only for custom backends/frontends)
      * @throws Zend_Cache_Exception
-     * @return Zend_Cache_Core|Zend_Cache_Frontend
+     * @return Zend_Cache_Core
      */
     public static function factory($frontend, $backend, $frontendOptions = array(), $backendOptions = array(), $customFrontendNaming = false, $customBackendNaming = false, $autoload = false)
     {
@@ -130,7 +130,6 @@ abstract class Zend_Cache
             // we use a standard backend
             $backendClass = 'Zend_Cache_Backend_' . $backend;
             // security controls are explicit
-            require_once str_replace('_', DIRECTORY_SEPARATOR, $backendClass) . '.php';
         } else {
             // we use a custom backend
             if (!preg_match('~^[\w\\\\]+$~D', $backend)) {
@@ -160,7 +159,7 @@ abstract class Zend_Cache
      * @param array   $frontendOptions
      * @param boolean $customFrontendNaming
      * @param boolean $autoload
-     * @return Zend_Cache_Core|Zend_Cache_Frontend
+     * @return Zend_Cache_Core
      */
     public static function _makeFrontend($frontend, $frontendOptions = array(), $customFrontendNaming = false, $autoload = false)
     {
@@ -172,7 +171,6 @@ abstract class Zend_Cache
             // For perfs reasons, with frontend == 'Core', we can interact with the Core itself
             $frontendClass = 'Zend_Cache_' . ($frontend != 'Core' ? 'Frontend_' : '') . $frontend;
             // security controls are explicit
-            require_once str_replace('_', DIRECTORY_SEPARATOR, $frontendClass) . '.php';
         } else {
             // we use a custom frontend
             if (!preg_match('~^[\w\\\\]+$~D', $frontend)) {
@@ -205,7 +203,6 @@ abstract class Zend_Cache
     public static function throwException($msg, Exception $e = null)
     {
         // For perfs reasons, we use this dynamic inclusion
-        require_once 'Zend/Cache/Exception.php';
         throw new Zend_Cache_Exception($msg, 0, $e);
     }
 

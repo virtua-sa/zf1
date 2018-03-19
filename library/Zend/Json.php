@@ -20,16 +20,6 @@
  */
 
 /**
- * Zend_Json_Expr.
- *
- * @see Zend_Json_Expr
- */
-require_once 'Zend/Json/Expr.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/**
  * Class for encoding to and decoding from JSON.
  *
  * @category   Zend
@@ -82,12 +72,10 @@ class Zend_Json
                 if (strtolower($encodedValue) === 'null') {
                     return null;
                 } elseif ($decode === null) {
-                    require_once 'Zend/Json/Exception.php';
                     throw new Zend_Json_Exception('Decoding failed');
                 }
             // php >= 5.3
             } elseif (($jsonLastErr = json_last_error()) != JSON_ERROR_NONE) {
-                require_once 'Zend/Json/Exception.php';
                 switch ($jsonLastErr) {
                     case JSON_ERROR_DEPTH:
                         throw new Zend_Json_Exception('Decoding failed: Maximum stack depth exceeded');
@@ -103,7 +91,6 @@ class Zend_Json
             return $decode;
         }
 
-        require_once 'Zend/Json/Decoder.php';
         return Zend_Json_Decoder::decode($encodedValue, $objectDecodeType);
     }
 
@@ -142,10 +129,6 @@ class Zend_Json
         if(isset($options['enableJsonExprFinder'])
            && ($options['enableJsonExprFinder'] == true)
         ) {
-            /**
-             * @see Zend_Json_Encoder
-             */
-            require_once "Zend/Json/Encoder.php";
             $valueToEncode = self::_recursiveJsonExprFinder($valueToEncode, $javascriptExpressions);
         }
 
@@ -153,7 +136,6 @@ class Zend_Json
         if (function_exists('json_encode') && self::$useBuiltinEncoderDecoder !== true) {
             $encodedResult = json_encode($valueToEncode);
         } else {
-            require_once 'Zend/Json/Encoder.php';
             $encodedResult = Zend_Json_Encoder::encode($valueToEncode, $cycleCheck, $options);
         }
 
@@ -187,12 +169,12 @@ class Zend_Json
      * NOTE: This method is used internally by the encode method.
      *
      * @see encode
-     * @param array|object|Zend_Json_Expr $value a string - object property to be encoded
+     * @param array|Iterable|Zend_Json_Expr $value a string - object property to be encoded
      * @param array $javascriptExpressions
-     * @param null $currentKey
+     * @param null|int $currentKey
      *
      * @internal param mixed $valueToCheck
-     * @return void
+     * @return string|array|object
      */
     protected static function _recursiveJsonExprFinder(&$value, array &$javascriptExpressions, $currentKey = null)
     {
@@ -265,7 +247,6 @@ class Zend_Json
         // Keep an eye on how deeply we are involved in recursion.
         if ($recursionDepth > self::$maxRecursionDepthAllowed) {
             // XML tree is too deep. Exit now by throwing an exception.
-            require_once 'Zend/Json/Exception.php';
             throw new Zend_Json_Exception(
                 "Function _processXml exceeded the allowed recursion depth of " .
                 self::$maxRecursionDepthAllowed);
@@ -283,7 +264,7 @@ class Zend_Json
                 }
                 if (!empty($value)) {
                     $attributes['@text'] = $value;
-                } 
+                }
                 return array($name => $attributes);
             } else {
                return array($name => $value);
@@ -349,7 +330,6 @@ class Zend_Json
 
         // If it is not a valid XML content, throw an exception.
         if ($simpleXmlElementObject == null) {
-            require_once 'Zend/Json/Exception.php';
             throw new Zend_Json_Exception('Function fromXml was called with an invalid XML formatted string.');
         } // End of if ($simpleXmlElementObject == null)
 
@@ -364,7 +344,7 @@ class Zend_Json
         return($jsonStringOutput);
     }
 
-    
+
 
     /**
      * Pretty-print JSON string
@@ -428,9 +408,9 @@ class Zend_Json
                 $result .= $token . $lineBreak;
             } else {
                 $result .= ( $inLiteral ? '' : $prefix ) . $token;
-                
+
                 // Count # of unescaped double-quotes in token, subtract # of
-                // escaped double-quotes and if the result is odd then we are 
+                // escaped double-quotes and if the result is odd then we are
                 // inside a string literal
                 if ((substr_count($token, "\"")-substr_count($token, "\\\"")) % 2 != 0) {
                     $inLiteral = !$inLiteral;

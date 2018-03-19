@@ -22,16 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Feed
- */
-require_once 'Zend/Gdata/Feed.php';
-
-/**
- * @see Zend_Gdata_Extension_Timezone
- */
-require_once 'Zend/Gdata/Calendar/Extension/Timezone.php';
-
-/**
  * Represents the meta-feed list of calendars
  *
  * @category   Zend
@@ -95,7 +85,7 @@ class Zend_Gdata_Calendar_ListFeed extends Zend_Gdata_Feed
 
     /**
      * @param Zend_Gdata_Calendar_Extension_Timezone $value
-     * @return Zend_Gdata_Extension_ListEntry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setTimezone($value)
     {

@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Validate_Abstract
- */
-require_once 'Zend/Validate/Abstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Validate
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -73,7 +68,6 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         } else if (!is_array($options)) {
-            require_once 'Zend/Validate/Exception.php';
             throw new Zend_Validate_Exception('Array expected as parameter');
         } else {
             $count = func_num_args();
@@ -116,7 +110,7 @@ class Zend_Validate_InArray extends Zend_Validate_Abstract
     /**
      * Sets the haystack option
      *
-     * @param  mixed $haystack
+     * @param  array $haystack
      * @return Zend_Validate_InArray Provides a fluent interface
      */
     public function setHaystack(array $haystack)

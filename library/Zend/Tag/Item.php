@@ -21,11 +21,6 @@
  */
 
 /**
- * @see Zend_Tag_Taggable
- */
-require_once 'Zend/Tag/Taggable.php';
-
-/**
  * @category   Zend
  * @package    Zend_Tag
  * @uses       Zend_Tag_Taggable
@@ -51,7 +46,7 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
     /**
      * Custom parameters
      *
-     * @var string
+     * @var array
      */
     protected $_params = array();
 
@@ -81,19 +76,16 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
         }
 
         if (!is_array($options)) {
-            require_once 'Zend/Tag/Exception.php';
             throw new Zend_Tag_Exception('Invalid options provided to constructor');
         }
 
         $this->setOptions($options);
 
         if ($this->_title === null) {
-            require_once 'Zend/Tag/Exception.php';
             throw new Zend_Tag_Exception('Title was not set');
         }
 
         if ($this->_weight === null) {
-            require_once 'Zend/Tag/Exception.php';
             throw new Zend_Tag_Exception('Weight was not set');
         }
     }
@@ -140,7 +132,6 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
     public function setTitle($title)
     {
         if (!is_string($title)) {
-            require_once 'Zend/Tag/Exception.php';
             throw new Zend_Tag_Exception('Title must be a string');
         }
 
@@ -168,7 +159,6 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
     public function setWeight($weight)
     {
         if (!is_numeric($weight)) {
-            require_once 'Zend/Tag/Exception.php';
             throw new Zend_Tag_Exception('Weight must be numeric');
         }
 

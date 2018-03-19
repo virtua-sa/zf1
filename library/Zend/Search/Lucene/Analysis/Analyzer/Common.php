@@ -28,16 +28,6 @@ if (!defined('ZEND_SEARCH_LUCENE_COMMON_ANALYZER_PROCESSED')) {
 }
 
 
-/** Zend_Search_Lucene_Analysis_Analyzer */
-require_once 'Zend/Search/Lucene/Analysis/Analyzer.php';
-
-/** Zend_Search_Lucene_Analysis_Token */
-require_once 'Zend/Search/Lucene/Analysis/Token.php';
-
-/** Zend_Search_Lucene_Analysis_TokenFilter */
-require_once 'Zend/Search/Lucene/Analysis/TokenFilter.php';
-
-
 /**
  * Common implementation of the Zend_Search_Lucene_Analysis_Analyzer interface.
  * There are several standard standard subclasses provided by Zend_Search_Lucene/Analysis
@@ -75,7 +65,7 @@ abstract class Zend_Search_Lucene_Analysis_Analyzer_Common extends Zend_Search_L
      * Apply filters to the token. Can return null when the token was removed.
      *
      * @param Zend_Search_Lucene_Analysis_Token $token
-     * @return Zend_Search_Lucene_Analysis_Token
+     * @return Zend_Search_Lucene_Analysis_Token|null
      */
     public function normalize(Zend_Search_Lucene_Analysis_Token $token)
     {

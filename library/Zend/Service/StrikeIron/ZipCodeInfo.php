@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Service_StrikeIron_Base */
-require_once 'Zend/Service/StrikeIron/Base.php';
-
 /**
  * @category   Zend
  * @package    Zend_Service
@@ -34,7 +31,7 @@ class Zend_Service_StrikeIron_ZipCodeInfo extends Zend_Service_StrikeIron_Base
 {
     /**
      * Configuration options
-     * @param array
+     * @var array
      */
     protected $_options = array('username' => null,
                                 'password' => null,

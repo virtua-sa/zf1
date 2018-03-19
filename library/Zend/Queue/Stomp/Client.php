@@ -34,16 +34,16 @@ class Zend_Queue_Stomp_Client
     /**
      * Array of $client Zend_Queue_Stomp_Client_Interface
      *
-     * @var array
+     * @var Zend_Queue_Stomp_Client_ConnectionInterface
      */
     protected $_connection;
 
     /**
      * Add a server to connections
      *
-     * @param string scheme
-     * @param string host
-     * @param integer port
+     * @param string $scheme
+     * @param string $host
+     * @param integer $port
      */
     public function __construct(
         $scheme = null, $host = null, $port = null,
@@ -80,15 +80,14 @@ class Zend_Queue_Stomp_Client
      * You cannot add more than 1 connection to the client at this time.
      *
      * @param string  $scheme ['tcp', 'udp']
-     * @param string  host
-     * @param integer port
-     * @param string  class - create a connection with this class; class must support Zend_Queue_Stomp_Client_ConnectionInterface
+     * @param string  $host
+     * @param integer $port
+     * @param string  $class - create a connection with this class; class must support Zend_Queue_Stomp_Client_ConnectionInterface
      * @return boolean
      */
     public function addConnection($scheme, $host, $port, $class = 'Zend_Queue_Stomp_Client_Connection')
     {
         if (!class_exists($class)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($class);
         }
 
@@ -107,7 +106,7 @@ class Zend_Queue_Stomp_Client
      * Set client connection
      *
      * @param Zend_Queue_Stomp_Client_ConnectionInterface $connection
-     * @return void
+     * @return $this
      */
     public function setConnection(Zend_Queue_Stomp_Client_ConnectionInterface $connection)
     {
@@ -131,7 +130,7 @@ class Zend_Queue_Stomp_Client
      * Returns true if the frame was successfully sent.
      *
      * @param Zend_Queue_Stomp_FrameInterface $frame
-     * @return boolean
+     * @return $this
      */
     public function send(Zend_Queue_Stomp_FrameInterface $frame)
     {

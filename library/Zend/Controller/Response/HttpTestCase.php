@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Controller_Response_Http
- */
-require_once 'Zend/Controller/Response/Http.php';
-
-/**
  * Zend_Controller_Response_HttpTestCase
  *
  * @uses Zend_Controller_Response_Http
@@ -62,7 +57,7 @@ class Zend_Controller_Response_HttpTestCase extends Zend_Controller_Response_Htt
      * Can we send headers?
      *
      * @param  bool $throw
-     * @return void
+     * @return true
      */
     public function canSendHeaders($throw = false)
     {

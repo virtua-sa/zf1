@@ -19,22 +19,6 @@
  */
 
 /**
- * Zend_XmlRpc_Value
- */
-require_once 'Zend/XmlRpc/Value.php';
-
-/**
- * Zend_XmlRpc_Fault
- */
-require_once 'Zend/XmlRpc/Fault.php';
-
-/** @see Zend_Xml_Security */
-require_once 'Zend/Xml/Security.php';
-
-/** @see Zend_Xml_Exception */
-require_once 'Zend/Xml/Exception.php';
-
-/**
  * XmlRpc Response
  *
  * Container for accessing an XMLRPC return value and creating the XML response.
@@ -184,7 +168,7 @@ class Zend_XmlRpc_Response
 
         try {
             $xml = Zend_Xml_Security::scan($response);
-        } catch (Zend_Xml_Exception $e) {    
+        } catch (Zend_Xml_Exception $e) {
             // Not valid XML
             $this->_fault = new Zend_XmlRpc_Fault(651);
             $this->_fault->setEncoding($this->getEncoding());
@@ -208,7 +192,6 @@ class Zend_XmlRpc_Response
 
         try {
             if (!isset($xml->params) || !isset($xml->params->param) || !isset($xml->params->param->value)) {
-                require_once 'Zend/XmlRpc/Value/Exception.php';
                 throw new Zend_XmlRpc_Value_Exception('Missing XML-RPC value in XML');
             }
             $valueXml = $xml->params->param->value->asXML();
@@ -250,6 +233,6 @@ class Zend_XmlRpc_Response
      */
     public function __toString()
     {
-        return $this->saveXML();
+        return $this->saveXml();
     }
 }

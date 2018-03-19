@@ -43,7 +43,6 @@ class Zend_Reflection_Parameter extends ReflectionParameter
         $phpReflection  = parent::getDeclaringClass();
         $zendReflection = new $reflectionClass($phpReflection->getName());
         if (!$zendReflection instanceof Zend_Reflection_Class) {
-            require_once 'Zend/Reflection/Exception.php';
             throw new Zend_Reflection_Exception('Invalid reflection class provided; must extend Zend_Reflection_Class');
         }
         unset($phpReflection);
@@ -54,7 +53,7 @@ class Zend_Reflection_Parameter extends ReflectionParameter
      * Get class reflection object
      *
      * @param  string $reflectionClass Reflection class to use
-     * @return Zend_Reflection_Class
+     * @return Zend_Reflection_Class|null
      */
     public function getClass($reflectionClass = 'Zend_Reflection_Class')
     {
@@ -65,7 +64,6 @@ class Zend_Reflection_Parameter extends ReflectionParameter
 
         $zendReflection = new $reflectionClass($phpReflection->getName());
         if (!$zendReflection instanceof Zend_Reflection_Class) {
-            require_once 'Zend/Reflection/Exception.php';
             throw new Zend_Reflection_Exception('Invalid reflection class provided; must extend Zend_Reflection_Class');
         }
         unset($phpReflection);
@@ -95,7 +93,6 @@ class Zend_Reflection_Parameter extends ReflectionParameter
             $zendReflection = new $reflectionClass($phpReflection->getName());
         }
         if (!$zendReflection instanceof $baseClass) {
-            require_once 'Zend/Reflection/Exception.php';
             throw new Zend_Reflection_Exception('Invalid reflection class provided; must extend ' . $baseClass);
         }
         unset($phpReflection);
@@ -105,7 +102,7 @@ class Zend_Reflection_Parameter extends ReflectionParameter
     /**
      * Get parameter type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {

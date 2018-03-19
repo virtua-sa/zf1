@@ -23,12 +23,6 @@
 
 
 /**
- * @see Zend_Service_Flickr_Result
- */
-require_once 'Zend/Service/Flickr/Result.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Flickr

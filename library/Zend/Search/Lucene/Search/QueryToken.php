@@ -103,7 +103,7 @@ class Zend_Search_Lucene_Search_QueryToken
     /**
      * Token text.
      *
-     * @var integer
+     * @var string
      */
     public $text;
 
@@ -119,7 +119,7 @@ class Zend_Search_Lucene_Search_QueryToken
      * IndexReader constructor needs token type and token text as a parameters.
      *
      * @param integer $tokenCategory
-     * @param string  $tokText
+     * @param string  $tokenText
      * @param integer $position
      */
     public function __construct($tokenCategory, $tokenText, $position)
@@ -209,7 +209,6 @@ class Zend_Search_Lucene_Search_QueryToken
                         break;
 
                     default:
-                        require_once 'Zend/Search/Lucene/Exception.php';
                         throw new Zend_Search_Lucene_Exception('Unrecognized query syntax lexeme: \'' . $tokenText . '\'');
                 }
                 break;
@@ -218,7 +217,6 @@ class Zend_Search_Lucene_Search_QueryToken
                 $this->type = self::TT_NUMBER;
 
             default:
-                require_once 'Zend/Search/Lucene/Exception.php';
                 throw new Zend_Search_Lucene_Exception('Unrecognized lexeme type: \'' . $tokenCategory . '\'');
         }
     }

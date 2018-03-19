@@ -23,12 +23,6 @@
 
 
 /**
- * @see Zend_Service_Yahoo_Result
- */
-require_once 'Zend/Service/Yahoo/Result.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Yahoo
@@ -103,7 +97,7 @@ class Zend_Service_Yahoo_VideoResult extends Zend_Service_Yahoo_Result
     /**
      * The thubmnail video for the article, if it exists
      *
-     * @var Zend_Service_Yahoo_Video
+     * @var Zend_Service_Yahoo_Image
      */
     public $Thumbnail;
 

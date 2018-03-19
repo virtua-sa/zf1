@@ -18,8 +18,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-// Grab SplAutoloader interface
-require_once dirname(__FILE__) . '/SplAutoloader.php';
 
 /**
  * PSR-0 compliant autoloader
@@ -98,7 +96,6 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
     public function setOptions($options)
     {
         if (!is_array($options) && !($options instanceof Traversable)) {
-            require_once dirname(__FILE__) . '/Exception/InvalidArgumentException.php';
             throw new Zend_Loader_Exception_InvalidArgumentException('Options must be either an array or Traversable');
         }
 
@@ -174,7 +171,6 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
     public function registerNamespaces($namespaces)
     {
         if (!is_array($namespaces) && !$namespaces instanceof Traversable) {
-            require_once dirname(__FILE__) . '/Exception/InvalidArgumentException.php';
             throw new Zend_Loader_Exception_InvalidArgumentException('Namespace pairs must be either an array or Traversable');
         }
 
@@ -207,7 +203,6 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
     public function registerPrefixes($prefixes)
     {
         if (!is_array($prefixes) && !$prefixes instanceof Traversable) {
-            require_once dirname(__FILE__) . '/Exception/InvalidArgumentException.php';
             throw new Zend_Loader_Exception_InvalidArgumentException('Prefix pairs must be either an array or Traversable');
         }
 
@@ -263,9 +258,9 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      *
      * Used by {@link loadClass} during fallback autoloading in PHP versions
      * prior to 5.3.0.
-     * 
-     * @param mixed $errno 
-     * @param mixed $errstr 
+     *
+     * @param mixed $errno
+     * @param mixed $errstr
      * @return void
      */
     public function handleError($errno, $errstr)
@@ -301,12 +296,11 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      *
      * @param  string $class
      * @param  string $type
-     * @return void
+     * @return mixed|bool
      */
     protected function loadClass($class, $type)
     {
         if (!in_array($type, array(self::LOAD_NS, self::LOAD_PREFIX, self::ACT_AS_FALLBACK))) {
-            require_once dirname(__FILE__) . '/Exception/InvalidArgumentException.php';
             throw new Zend_Loader_Exception_InvalidArgumentException();
         }
 

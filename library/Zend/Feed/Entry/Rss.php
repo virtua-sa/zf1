@@ -22,18 +22,13 @@
 
 
 /**
- * @see Zend_Feed_Entry_Abstract
- */
-require_once 'Zend/Feed/Entry/Abstract.php';
-
-
-/**
  * Concrete class for working with RSS items.
  *
  * @category   Zend
  * @package    Zend_Feed
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ * @method mixed content()
  */
 class Zend_Feed_Entry_Rss extends Zend_Feed_Entry_Abstract
 {
@@ -67,7 +62,7 @@ class Zend_Feed_Entry_Rss extends Zend_Feed_Entry_Abstract
      * to content:encoded element.
      *
      * @param  string $var The property to change.
-     * @param  string $val The property's new value.
+     * @param  string $value The property's new value.
      * @return void
      */
     public function __set($var, $value)

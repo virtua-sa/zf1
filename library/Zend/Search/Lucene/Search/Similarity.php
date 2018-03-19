@@ -322,7 +322,6 @@ abstract class Zend_Search_Lucene_Search_Similarity
     public static function getDefault()
     {
         if (!self::$_defaultImpl instanceof Zend_Search_Lucene_Search_Similarity) {
-            require_once 'Zend/Search/Lucene/Search/Similarity/Default.php';
             self::$_defaultImpl = new Zend_Search_Lucene_Search_Similarity_Default();
         }
 
@@ -407,8 +406,8 @@ abstract class Zend_Search_Lucene_Search_Similarity
     /**
      * Float to byte conversion
      *
-     * @param integer $b
-     * @return float
+     * @param float $f
+     * @return int
      */
     private static function _floatToByte($f)
     {
@@ -494,7 +493,7 @@ abstract class Zend_Search_Lucene_Search_Similarity
      *
      * @param mixed $input
      * @param Zend_Search_Lucene_Interface $reader
-     * @return a score factor for the term
+     * @return float a score factor for the term
      */
     public function idf($input, Zend_Search_Lucene_Interface $reader)
     {

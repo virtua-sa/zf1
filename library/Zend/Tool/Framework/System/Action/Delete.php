@@ -21,12 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Framework_Action_Base
- */
-require_once 'Zend/Tool/Framework/Action/Base.php';
-
-
-/**
  * This is a convenience class.
  *
  * At current it will return the request and response from the client registry

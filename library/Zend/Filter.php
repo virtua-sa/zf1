@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -130,7 +125,7 @@ class Zend_Filter implements Zend_Filter_Interface
      * Sets new default namespaces
      *
      * @param array|string $namespace
-     * @return null
+     * @return void
      */
     public static function setDefaultNamespaces($namespace)
     {
@@ -145,7 +140,7 @@ class Zend_Filter implements Zend_Filter_Interface
      * Adds a new default namespace
      *
      * @param array|string $namespace
-     * @return null
+     * @return void
      */
     public static function addDefaultNamespaces($namespace)
     {
@@ -206,7 +201,6 @@ class Zend_Filter implements Zend_Filter_Interface
      */
     public static function filterStatic($value, $classBaseName, array $args = array(), $namespaces = array())
     {
-        require_once 'Zend/Loader.php';
         $namespaces = array_merge((array) $namespaces, self::$_defaultNamespaces, array('Zend_Filter'));
         foreach ($namespaces as $namespace) {
             $className = $namespace . '_' . ucfirst($classBaseName);
@@ -233,7 +227,6 @@ class Zend_Filter implements Zend_Filter_Interface
                 return $object->filter($value);
             }
         }
-        require_once 'Zend/Filter/Exception.php';
         throw new Zend_Filter_Exception("Filter class not found from basename '$classBaseName'");
     }
 }

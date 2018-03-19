@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth_Http_Utility */
-require_once 'Zend/Oauth/Http/Utility.php';
-
-/** Zend_Uri_Http */
-require_once 'Zend/Uri/Http.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
@@ -44,7 +38,7 @@ class Zend_Oauth_Http
     /**
      * Reference to the Zend_Oauth_Consumer instance in use.
      *
-     * @var string
+     * @var Zend_Oauth_Consumer
      */
     protected $_consumer = null;
 
@@ -105,7 +99,6 @@ class Zend_Oauth_Http
     public function setMethod($method)
     {
         if (!in_array($method, array(Zend_Oauth::POST, Zend_Oauth::GET))) {
-            require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('invalid HTTP method: ' . $method);
         }
         $this->_preferredRequestMethod = $method;
@@ -174,7 +167,6 @@ class Zend_Oauth_Http
         try {
             $response = $this->_attemptRequest($params);
         } catch (Zend_Http_Client_Exception $e) {
-            require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Error in HTTP request', null, $e);
         }
         if ($response !== null) {
@@ -216,7 +208,7 @@ class Zend_Oauth_Http
      * Manages the switch from OAuth request scheme to another lower preference
      * scheme during a request cycle.
      *
-     * @param  Zend_Http_Response
+     * @param  Zend_Http_Response $response
      * @return void
      * @throws Zend_Oauth_Exception if unable to retrieve valid token response
      */
@@ -230,7 +222,6 @@ class Zend_Oauth_Http
                 $this->_preferredRequestScheme = Zend_Oauth::REQUEST_SCHEME_QUERYSTRING;
                 break;
             default:
-                require_once 'Zend/Oauth/Exception.php';
                 throw new Zend_Oauth_Exception(
                     'Could not retrieve a valid Token response from Token URL:'
                     . ($response !== null

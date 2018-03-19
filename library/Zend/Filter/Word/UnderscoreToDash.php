@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_PregReplace
- */
-require_once 'Zend/Filter/Word/SeparatorToSeparator.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -35,7 +30,6 @@ class Zend_Filter_Word_UnderscoreToDash extends Zend_Filter_Word_SeparatorToSepa
     /**
      * Constructor
      *
-     * @param  string $separator Space by default
      * @return void
      */
     public function __construct()

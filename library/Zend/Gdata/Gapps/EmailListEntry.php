@@ -22,21 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_Entry
- */
-require_once 'Zend/Gdata/Entry.php';
-
-/**
- * @see Zend_Gdata_Extension_FeedLink
- */
-require_once 'Zend/Gdata/Extension/FeedLink.php';
-
-/**
- * @see Zend_Gdata_Gapps_Extension_EmailList
- */
-require_once 'Zend/Gdata/Gapps/Extension/EmailList.php';
-
-/**
  * Data model class for a Google Apps Email List Entry.
  *
  * Each email list entry describes a single email list within a Google Apps
@@ -73,7 +58,7 @@ class Zend_Gdata_Gapps_EmailListEntry extends Zend_Gdata_Entry
      * <gd:feedLink> element containing information about other feeds
      * relevant to this entry.
      *
-     * @var Zend_Gdata_Extension_FeedLink
+     * @var Zend_Gdata_Extension_FeedLink|array
      */
     protected $_feedLink = array();
 
@@ -158,7 +143,7 @@ class Zend_Gdata_Gapps_EmailListEntry extends Zend_Gdata_Entry
      *
      * @param Zend_Gdata_Gapps_Extension_EmailList $value The desired value
      *              this element, or null to unset.
-     * @return Zend_Gdata_Gapps_EventEntry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setEmailList($value)
     {
@@ -203,7 +188,7 @@ class Zend_Gdata_Gapps_EmailListEntry extends Zend_Gdata_Entry
      * @param array $value A collection of Zend_Gdata_Gapps_Extension_FeedLink
      *          instances representing all feed links for this entry, or
      *          null to unset.
-     * @return Zend_Gdata_Gapps_EventEntry Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setFeedLink($value)
     {

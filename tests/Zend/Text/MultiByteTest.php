@@ -100,7 +100,7 @@ class Zend_Text_MultiByteTest extends PHPUnit\Framework\TestCase
 
     public function testWordWrapNoCutEndingSingleSpace()
     {
-        $line = Zend_Text_Multibyte::wordWrap('12345 ', 5, '-', false);
+        $line = Zend_Text_MultiByte::wordWrap('12345 ', 5, '-', false);
         $this->assertEquals('12345-', $line);
     }
 

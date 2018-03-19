@@ -21,19 +21,6 @@
  */
 
 /**
- * @see Zend_config
- */
-require_once 'Zend/Config.php';
-/**
- * @see Zend_Filter
- */
-require_once 'Zend/Filter.php';
-/**
- * @see Zend_Markup_Renderer_TokenConverterInterface
- */
-require_once 'Zend/Markup/Renderer/TokenConverterInterface.php';
-
-/**
  * Defines the basic rendering functionality
  *
  * @category   Zend
@@ -65,14 +52,14 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * What filter to use
      *
-     * @var bool
+     * @var Zend_Filter_Interface|false
      */
     protected $_filter;
 
     /**
      * Filter chain
      *
-     * @var Zend_Filter
+     * @var Zend_Filter_Interface
      */
     protected $_defaultFilter;
 
@@ -205,7 +192,6 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     public function addMarkup($name, $type, array $options)
     {
         if (!isset($options['group']) && ($type ^ self::TYPE_ALIAS)) {
-            require_once 'Zend/Markup/Renderer/Exception.php';
             throw new Zend_Markup_Renderer_Exception("There is no render group defined.");
         }
 
@@ -227,7 +213,6 @@ abstract class Zend_Markup_Renderer_RendererAbstract
             // add a callback tag
             if (isset($options['callback'])) {
                 if (!($options['callback'] instanceof Zend_Markup_Renderer_TokenConverterInterface)) {
-                    require_once 'Zend/Markup/Renderer/Exception.php';
                     throw new Zend_Markup_Renderer_Exception("Not a valid tag callback.");
                 }
                 if (method_exists($options['callback'], 'setRenderer')) {
@@ -244,7 +229,6 @@ abstract class Zend_Markup_Renderer_RendererAbstract
         } elseif ($type & self::TYPE_ALIAS) {
             // add an alias
             if (empty($options['name'])) {
-                require_once 'Zend/Markup/Renderer/Exception.php';
                 throw new Zend_Markup_Renderer_Exception(
                         'No alias was provided but tag was defined as such');
             }
@@ -296,7 +280,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Render function
      *
-     * @param  Zend_Markup_TokenList|string $tokenList
+     * @param  Zend_Markup_TokenList|string $value
      * @return string
      */
     public function render($value)
@@ -424,7 +408,6 @@ abstract class Zend_Markup_Renderer_RendererAbstract
                 $markup['callback'] = new $class;
 
                 if (!($markup['callback'] instanceof Zend_Markup_Renderer_TokenConverterInterface)) {
-                    require_once 'Zend/Markup/Renderer/Exception.php';
                     throw new Zend_Markup_Renderer_Exception("Callback for tag '$name' found, but it isn't valid.");
                 }
 
@@ -471,9 +454,9 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Get the markup name
      *
-     * @param Zend_Markup_Token
+     * @param Zend_Markup_Token $token
      *
-     * @return string
+     * @return string|false
      */
     protected function _getMarkupName(Zend_Markup_Token $token)
     {
@@ -547,7 +530,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Get the default filter
      *
-     * @return void
+     * @return Zend_Filter_Interface
      */
     public function getDefaultFilter()
     {
@@ -561,7 +544,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
     /**
      * Add a default filter
      *
-     * @param string $filter
+     * @param Zend_Filter_Interface $filter
      *
      * @return void
      */
@@ -593,7 +576,7 @@ abstract class Zend_Markup_Renderer_RendererAbstract
      *
      * @param string $markup
      *
-     * @return Zend_Filter_Interface
+     * @return Zend_Filter_Interface|false
      */
     public function getFilter($markup)
     {

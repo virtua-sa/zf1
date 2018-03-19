@@ -22,12 +22,6 @@
 
 
 /**
- * @see Zend_Db_Adapter_Pdo_Abstract
- */
-require_once 'Zend/Db/Adapter/Pdo/Abstract.php';
-
-
-/**
  * Class for connecting to Microsoft SQL Server databases and performing common operations.
  *
  * @category   Zend
@@ -318,15 +312,11 @@ class Zend_Db_Adapter_Pdo_Mssql extends Zend_Db_Adapter_Pdo_Abstract
      {
         $count = intval($count);
         if ($count <= 0) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             throw new Zend_Db_Adapter_Exception("LIMIT argument count=$count is not valid");
         }
 
         $offset = intval($offset);
         if ($offset < 0) {
-            /** @see Zend_Db_Adapter_Exception */
-            require_once 'Zend/Db/Adapter/Exception.php';
             throw new Zend_Db_Adapter_Exception("LIMIT argument offset=$offset is not valid");
         }
 
@@ -393,7 +383,7 @@ class Zend_Db_Adapter_Pdo_Mssql extends Zend_Db_Adapter_Pdo_Abstract
      *
      * @param string $tableName   OPTIONAL Name of table.
      * @param string $primaryKey  OPTIONAL Name of primary key column.
-     * @return string
+     * @return int
      * @throws Zend_Db_Adapter_Exception
      */
     public function lastInsertId($tableName = null, $primaryKey = null)
@@ -405,7 +395,7 @@ class Zend_Db_Adapter_Pdo_Mssql extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * Retrieve server version in PHP style
      * Pdo_Mssql doesn't support getAttribute(PDO::ATTR_SERVER_VERSION)
-     * @return string
+     * @return string|null
      */
     public function getServerVersion()
     {
@@ -424,7 +414,7 @@ class Zend_Db_Adapter_Pdo_Mssql extends Zend_Db_Adapter_Pdo_Abstract
     /**
      * Quote a raw string.
      *
-     * @param string $value     Raw string
+     * @param string|int|float $value     Raw string
      * @return string           Quoted string
      */
     protected function _quote($value)

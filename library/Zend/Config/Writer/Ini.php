@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Config_Writer
- */
-require_once 'Zend/Config/Writer/FileAbstract.php';
-
-/**
  * @category   Zend
  * @package    Zend_Config
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -49,7 +44,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
     /**
      * Set the nest separator
      *
-     * @param  string $filename
+     * @param  string $separator
      * @return Zend_Config_Writer_Ini
      */
     public function setNestSeparator($separator)
@@ -119,7 +114,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
      * Add a branch to an INI string recursively
      *
      * @param  Zend_Config $config
-     * @return void
+     * @return string
      */
     protected function _addBranch(Zend_Config $config, $parents = array())
     {
@@ -145,7 +140,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
      * Prepare a value for INI
      *
      * @param  mixed $value
-     * @return string
+     * @return int|float|string
      */
     protected function _prepareValue($value)
     {
@@ -156,8 +151,6 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
         } elseif (strpos($value, '"') === false) {
             return '"' . $value .  '"';
         } else {
-            /** @see Zend_Config_Exception */
-            require_once 'Zend/Config/Exception.php';
             throw new Zend_Config_Exception('Value can not contain double quotes "');
         }
     }
@@ -167,7 +160,7 @@ class Zend_Config_Writer_Ini extends Zend_Config_Writer_FileAbstract
      * on the top of config.
      *
      * @see    http://framework.zend.com/issues/browse/ZF-6289
-     * @param  Zend_Config
+     * @param  Zend_Config $config
      * @return Zend_Config
      */
     protected function _sortRootElements(Zend_Config $config)

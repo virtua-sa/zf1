@@ -19,9 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** Zend_Dojo_Form_Element_Dijit */
-require_once 'Zend/Dojo/Form/Element/Dijit.php';
-
 /**
  * CheckBox dijit
  *
@@ -82,7 +79,7 @@ class Zend_Dojo_Form_Element_CheckBox extends Zend_Dojo_Form_Element_Dijit
      * value against checked and unchecked values after configuration.
      *
      * @param  array $options
-     * @return Zend_Form_Element_Checkbox
+     * @return $this
      */
     public function setOptions(array $options)
     {
@@ -116,7 +113,7 @@ class Zend_Dojo_Form_Element_CheckBox extends Zend_Dojo_Form_Element_Dijit
      *
      *
      * @param  mixed $value
-     * @return Zend_Form_Element_Checkbox
+     * @return $this
      */
     public function setValue($value)
     {
@@ -134,7 +131,7 @@ class Zend_Dojo_Form_Element_CheckBox extends Zend_Dojo_Form_Element_Dijit
      * Set checked value
      *
      * @param  string $value
-     * @return Zend_Form_Element_Checkbox
+     * @return $this
      */
     public function setCheckedValue($value)
     {
@@ -157,7 +154,7 @@ class Zend_Dojo_Form_Element_CheckBox extends Zend_Dojo_Form_Element_Dijit
      * Set unchecked value
      *
      * @param  string $value
-     * @return Zend_Form_Element_Checkbox
+     * @return $this
      */
     public function setUncheckedValue($value)
     {
@@ -180,7 +177,7 @@ class Zend_Dojo_Form_Element_CheckBox extends Zend_Dojo_Form_Element_Dijit
      * Set checked flag
      *
      * @param  bool $flag
-     * @return Zend_Form_Element_Checkbox
+     * @return $this
      */
     public function setChecked($flag)
     {

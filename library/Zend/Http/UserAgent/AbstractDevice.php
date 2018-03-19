@@ -19,7 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Http/UserAgent/Device.php';
 
 /**
  * Abstract Class to define a browser device.
@@ -167,7 +166,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Look for features
      *
-     * @return array|null
+     * @return array
      */
     protected function _defineFeatures()
     {
@@ -202,7 +201,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
      * Gets the value of the current browser/device feature
      *
      * @param  string $feature Feature to search
-     * @return string|null
+     * @return mixed
      */
     public function getFeature($feature)
     {
@@ -215,7 +214,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
      * Set a feature for the current browser/device.
      *
      * @param  string $feature The feature to set.
-     * @param  string $value (option) feature value.
+     * @param  mixed $value (option) feature value.
      * @param  string $group (option) Group to associate with the feature
      * @return Zend_Http_UserAgent_AbstractDevice
      */
@@ -758,7 +757,6 @@ abstract class Zend_Http_UserAgent_AbstractDevice
      * Loads the Features Adapter if it's defined in the $config array
      * Otherwise, nothing is done
      *
-     * @param  string $browserType Browser type
      * @return array
      */
     protected function _loadFeaturesAdapter()
@@ -771,7 +769,6 @@ abstract class Zend_Http_UserAgent_AbstractDevice
         $config = $config[$browserType]['features'];
 
         if (empty($config['classname'])) {
-            require_once 'Zend/Http/UserAgent/Exception.php';
             throw new Zend_Http_UserAgent_Exception('The ' . $this->getType() . ' features adapter must have a "classname" config parameter defined');
         }
 
@@ -780,12 +777,10 @@ abstract class Zend_Http_UserAgent_AbstractDevice
             if (isset($config['path'])) {
                 $path = $config['path'];
             } else {
-                require_once 'Zend/Http/UserAgent/Exception.php';
                 throw new Zend_Http_UserAgent_Exception('The ' . $this->getType() . ' features adapter must have a "path" config parameter defined');
             }
 
             if (false === include_once ($path)) {
-                require_once 'Zend/Http/UserAgent/Exception.php';
                 throw new Zend_Http_UserAgent_Exception('The ' . $this->getType() . ' features adapter path that does not exist');
             }
         }
@@ -806,7 +801,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Get maximum image height supported by this device
      *
-     * @return int
+     * @return null
      */
     public function getMaxImageHeight()
     {
@@ -816,7 +811,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Get maximum image width supported by this device
      *
-     * @return int
+     * @return null
      */
     public function getMaxImageWidth()
     {
@@ -826,7 +821,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Get physical screen height of this device
      *
-     * @return int
+     * @return null
      */
     public function getPhysicalScreenHeight()
     {
@@ -836,7 +831,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Get physical screen width of this device
      *
-     * @return int
+     * @return null
      */
     public function getPhysicalScreenWidth()
     {
@@ -866,7 +861,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device support Flash?
      *
-     * @return bool
+     * @return true
      */
     public function hasFlashSupport()
     {
@@ -876,7 +871,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device support PDF?
      *
-     * @return bool
+     * @return true
      */
     public function hasPdfSupport()
     {
@@ -886,7 +881,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device have a phone number associated with it?
      *
-     * @return bool
+     * @return false
      */
     public function hasPhoneNumber()
     {
@@ -896,7 +891,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     /**
      * Does the device support HTTPS?
      *
-     * @return bool
+     * @return true
      */
     public function httpsSupport()
     {
@@ -934,7 +929,7 @@ abstract class Zend_Http_UserAgent_AbstractDevice
     }
 
     /**
-     * @return the $_images
+     * @return array the $_images
      */
     public function getImages()
     {

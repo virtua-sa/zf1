@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_File_Transfer_Adapter_Abstract
- */
-require_once 'Zend/File/Transfer/Adapter/Abstract.php';
-
-/**
  * File transfer adapter class for the HTTP protocol
  *
  * @category  Zend
@@ -45,7 +40,6 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     public function __construct($options = array())
     {
         if (ini_get('file_uploads') == false) {
-            require_once 'Zend/File/Transfer/Exception.php';
             throw new Zend_File_Transfer_Exception('File uploads are not allowed in your php config!');
         }
 
@@ -57,9 +51,9 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Sets a validator for the class, erasing all previous set
      *
-     * @param  string|array $validator Validator to set
+     * @param  array $validators Validator to set
      * @param  string|array $files     Files to limit this validator to
-     * @return Zend_File_Transfer_Adapter
+     * @return Zend_File_Transfer_Adapter_Abstract
      */
     public function setValidators(array $validators, $files = null)
     {
@@ -85,7 +79,6 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Remove an individual validator
      *
-     * @param  string $name
      * @return Zend_File_Transfer_Adapter_Abstract
      */
     public function clearValidators()
@@ -105,7 +98,6 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
      */
     public function send($options = null)
     {
-        require_once 'Zend/File/Transfer/Exception.php';
         throw new Zend_File_Transfer_Exception('Method not implemented');
     }
 
@@ -222,13 +214,12 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Checks if the file was already sent
      *
-     * @param  string|array $file Files to check
+     * @param  string|array $files Files to check
      * @return bool
      * @throws Zend_File_Transfer_Exception Not implemented
      */
     public function isSent($files = null)
     {
-        require_once 'Zend/File/Transfer/Exception.php';
         throw new Zend_File_Transfer_Exception('Method not implemented');
     }
 
@@ -279,7 +270,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Has a file been uploaded ?
      *
-     * @param  array|string|null $file
+     * @param  array|string|null $files
      * @return bool
      */
     public function isUploaded($files = null)
@@ -301,13 +292,12 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Returns the actual progress of file up-/downloads
      *
-     * @param  string $id The upload to get the progress for
+     * @param  string|array $id The upload to get the progress for
      * @return array|null
      */
     public static function getProgress($id = null)
     {
         if (!function_exists('apc_fetch') and !function_exists('uploadprogress_get_info')) {
-            require_once 'Zend/File/Transfer/Exception.php';
             throw new Zend_File_Transfer_Exception('Neither APC nor uploadprogress extension installed');
         }
 
@@ -385,12 +375,10 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
 
         if (isset($adapter) && isset($status['id'])) {
             if ($adapter instanceof Zend_ProgressBar_Adapter) {
-                require_once 'Zend/ProgressBar.php';
                 $adapter = new Zend_ProgressBar($adapter, 0, $status['total'], $session);
             }
 
             if (!($adapter instanceof Zend_ProgressBar)) {
-                require_once 'Zend/File/Transfer/Exception.php';
                 throw new Zend_File_Transfer_Exception('Unknown Adapter given');
             }
 
@@ -429,8 +417,7 @@ class Zend_File_Transfer_Adapter_Http extends Zend_File_Transfer_Adapter_Abstrac
     /**
      * Prepare the $_FILES array to match the internal syntax of one file per entry
      *
-     * @param  array $files
-     * @return array
+     * @return $this
      */
     protected function _prepareFiles()
     {

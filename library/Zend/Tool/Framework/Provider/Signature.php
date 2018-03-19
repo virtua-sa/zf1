@@ -21,21 +21,6 @@
  */
 
 /**
- * @see Zend_Reflection_Class
- */
-require_once 'Zend/Reflection/Class.php';
-
-/**
- * @see Zend_Tool_Framework_Registry
- */
-require_once 'Zend/Tool/Framework/Registry/EnabledInterface.php';
-
-/**
- * @see Zend_Tool_Framework_Action_Base
- */
-require_once 'Zend/Tool/Framework/Action/Base.php';
-
-/**
  * The purpose of Zend_Tool_Framework_Provider_Signature is to derive
  * callable signatures from the provided provider.
  *
@@ -48,17 +33,17 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
 {
 
     /**
-     * @var Zend_Tool_Framework_Registry
+     * @var Zend_Tool_Framework_Registry_Interface|null
      */
     protected $_registry = null;
 
     /**
-     * @var Zend_Tool_Framework_Provider_Interface
+     * @var Zend_Tool_Framework_Provider_Interface|null
      */
     protected $_provider = null;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $_name = null;
 
@@ -73,7 +58,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
     protected $_actionableMethods = array();
 
     /**
-     * @var unknown_type
+     * @var array
      */
     protected $_actions = array();
 
@@ -122,7 +107,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
     /**
      * getName() of the provider
      *
-     * @return unknown
+     * @return string
      */
     public function getName()
     {
@@ -184,7 +169,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
      * useful information about what can be exectued on this provider
      *
      * @param string $methodName
-     * @return array
+     * @return array|false
      */
     public function getActionableMethod($methodName)
     {
@@ -200,7 +185,7 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
      * will return an array of useful information about what can be exectued on this provider
      *
      * @param string $actionName
-     * @return array
+     * @return array|false
      */
     public function getActionableMethodByActionName($actionName, $specialtyName = '_Global')
     {
@@ -259,7 +244,6 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
         if ($this->_providerReflection->hasMethod('getSpecialties')) {
             $specialties = $this->_provider->getSpecialties();
             if (!is_array($specialties)) {
-                require_once 'Zend/Tool/Framework/Provider/Exception.php';
                 throw new Zend_Tool_Framework_Provider_Exception(
                     'Provider ' . get_class($this->_provider) . ' must return an array for method getSpecialties().'
                     );
@@ -268,7 +252,6 @@ class Zend_Tool_Framework_Provider_Signature implements Zend_Tool_Framework_Regi
             $defaultProperties = $this->_providerReflection->getDefaultProperties();
             $specialties = (isset($defaultProperties['_specialties'])) ? $defaultProperties['_specialties'] : array();
             if (!is_array($specialties)) {
-                require_once 'Zend/Tool/Framework/Provider/Exception.php';
                 throw new Zend_Tool_Framework_Provider_Exception(
                     'Provider ' . get_class($this->_provider) . '\'s property $_specialties must be an array.'
                     );

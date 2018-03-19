@@ -22,11 +22,6 @@
  */
 
 /**
- * @see Zend_Gdata_App_MediaSource
- */
-require_once 'Zend/Gdata/App/MediaSource.php';
-
-/**
  * Concrete class to use a file handle as an attachment within a MediaEntry.
  *
  * @category   Zend
@@ -68,7 +63,7 @@ abstract class Zend_Gdata_App_BaseMediaSource implements Zend_Gdata_App_MediaSou
      * Set the content type for the file attached (example image/png)
      *
      * @param string $value The content type
-     * @return Zend_Gdata_App_MediaFileSource Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setContentType($value)
     {
@@ -116,7 +111,6 @@ abstract class Zend_Gdata_App_BaseMediaSource implements Zend_Gdata_App_MediaSou
         } else if (property_exists($this, "_${name}")) {
             return $this->{'_' . $name};
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         }
@@ -130,7 +124,7 @@ abstract class Zend_Gdata_App_BaseMediaSource implements Zend_Gdata_App_MediaSou
      * is defined, this is returned.
      *
      * @param string $name
-     * @param string $value
+     * @param string $val
      */
     public function __set($name, $val)
     {
@@ -140,7 +134,6 @@ abstract class Zend_Gdata_App_BaseMediaSource implements Zend_Gdata_App_MediaSou
         } else if (isset($this->{'_' . $name}) || ($this->{'_' . $name} === null)) {
             $this->{'_' . $name} = $val;
         } else {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . '  does not exist');
         }
@@ -156,7 +149,6 @@ abstract class Zend_Gdata_App_BaseMediaSource implements Zend_Gdata_App_MediaSou
         $rc = new ReflectionClass(get_class($this));
         $privName = '_' . $name;
         if (!($rc->hasProperty($privName))) {
-            require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
                     'Property ' . $name . ' does not exist');
         } else {

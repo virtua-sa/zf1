@@ -19,12 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Memory_Container */
-require_once 'Zend/Memory/Container.php';
-
-/** Zend_Memory_Value */
-require_once 'Zend/Memory/Value.php';
-
 /**
  * Memory value container
  *
@@ -53,7 +47,7 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
     /**
      * Value object
      *
-     * @var Zend_Memory_Value
+     * @var Zend_Memory_Value|null
      */
     private $_value;
 
@@ -129,13 +123,12 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
      * Swaps objects from the bottom of loaded objects list, if necessary.
      *
      * @param string $property
-     * @return string
+     * @return Zend_Memory_Value|null
      * @throws Zend_Memory_Exception
      */
     public function __get($property)
     {
         if ($property != 'value') {
-            require_once 'Zend/Memory/Exception.php';
             throw new Zend_Memory_Exception('Unknown property: Zend_Memory_container::$' . $property);
         }
 
@@ -157,7 +150,6 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
     public function __set($property, $value)
     {
         if ($property != 'value') {
-            require_once 'Zend/Memory/Exception.php';
             throw new Zend_Memory_Exception('Unknown property: Zend_Memory_container::$' . $property);
         }
 
@@ -174,7 +166,7 @@ class Zend_Memory_Container_Movable extends Zend_Memory_Container {
      * _Must_ be used for value access before PHP v 5.2
      * or _may_ be used for performance considerations
      *
-     * @return &string
+     * @return string
      */
     public function &getRef()
     {

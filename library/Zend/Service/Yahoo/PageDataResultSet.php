@@ -22,18 +22,6 @@
 
 
 /**
- * @see Zend_Service_Yahoo_ResultSet
- */
-require_once 'Zend/Service/Yahoo/ResultSet.php';
-
-
-/**
- * @see Zend_Service_Yahoo_WebResult
- */
-require_once 'Zend/Service/Yahoo/PageDataResult.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Service
  * @subpackage Yahoo
@@ -53,7 +41,7 @@ class Zend_Service_Yahoo_PageDataResultSet extends Zend_Service_Yahoo_ResultSet
     /**
      * Overrides Zend_Service_Yahoo_ResultSet::current()
      *
-     * @return Zend_Service_Yahoo_WebResult
+     * @return Zend_Service_Yahoo_PageDataResult
      */
     public function current()
     {

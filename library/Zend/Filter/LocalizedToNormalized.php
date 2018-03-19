@@ -20,16 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-
-/**
- * @see Zend_Loader
- */
-require_once 'Zend/Locale/Format.php';
-
-/**
  * Normalizes given localized input
  *
  * @category   Zend
@@ -52,7 +42,7 @@ class Zend_Filter_LocalizedToNormalized implements Zend_Filter_Interface
     /**
      * Class constructor
      *
-     * @param string|Zend_Locale $locale (Optional) Locale to set
+     * @param array|Zend_Config $options (Optional) Locale to set
      */
     public function __construct($options = null)
     {

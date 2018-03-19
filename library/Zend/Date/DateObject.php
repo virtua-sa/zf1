@@ -30,6 +30,7 @@ abstract class Zend_Date_DateObject {
 
     /**
      * UNIX Timestamp
+     * @var string|int
      */
     private   $_unixTimestamp;
     protected static $_cache         = null;
@@ -38,6 +39,7 @@ abstract class Zend_Date_DateObject {
 
     /**
      * active timezone
+     * @var string
      */
     private   $_timezone    = 'UTC';
     private   $_offset      = 0;
@@ -72,7 +74,7 @@ abstract class Zend_Date_DateObject {
     /**
      * Set this object to have a new UNIX timestamp.
      *
-     * @param  string|integer  $timestamp  OPTIONAL timestamp; defaults to local time using time()
+     * @param  string|integer|null  $timestamp  OPTIONAL timestamp; defaults to local time using time()
      * @return string|integer  old timestamp
      * @throws Zend_Date_Exception
      */
@@ -85,7 +87,6 @@ abstract class Zend_Date_DateObject {
         } else if ($timestamp === null) {
             $this->_unixTimestamp = time();
         } else {
-            require_once 'Zend/Date/Exception.php';
             throw new Zend_Date_Exception('\'' . $timestamp . '\' is not a valid UNIX timestamp', 0, null, $timestamp);
         }
 
@@ -1021,7 +1022,6 @@ abstract class Zend_Date_DateObject {
         // throw an error on false input, but only if the new date extension is available
         if (function_exists('timezone_open')) {
             if (!@timezone_open($zone)) {
-                require_once 'Zend/Date/Exception.php';
                 throw new Zend_Date_Exception("timezone ($zone) is not a known timezone", 0, null, $zone);
             }
         }
@@ -1078,8 +1078,6 @@ abstract class Zend_Date_DateObject {
 
     /**
      * Internal method to check if the given cache supports tags
-     *
-     * @param Zend_Cache $cache
      */
     protected static function _getTagSupportForCache()
     {

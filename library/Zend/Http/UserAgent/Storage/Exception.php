@@ -21,12 +21,6 @@
 
 
 /**
- * @see Zend_Http_UserAgent_Exception
- */
-require_once 'Zend/Http/UserAgent/Exception.php';
-
-
-/**
  * @package    Zend_Http
  * @subpackage UserAgent
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)

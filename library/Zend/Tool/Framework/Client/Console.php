@@ -21,21 +21,6 @@
  */
 
 /**
- * @see Zend_Tool_Framework_Client_Abstract
- */
-require_once 'Zend/Tool/Framework/Client/Abstract.php';
-
-/**
- * @see Zend_Tool_Framework_Client_Interactive_InputInterface
- */
-require_once 'Zend/Tool/Framework/Client/Interactive/InputInterface.php';
-
-/**
- * @see Zend_Tool_Framework_Client_Interactive_OutputInterface
- */
-require_once 'Zend/Tool/Framework/Client/Interactive/OutputInterface.php';
-
-/**
  * Zend_Tool_Framework_Client_Console - the CLI Client implementation for Zend_Tool_Framework
  *
  * @category   Zend
@@ -62,7 +47,7 @@ class Zend_Tool_Framework_Client_Console
     protected $_storageOptions = null;
 
     /**
-     * @var Zend_Filter_Word_CamelCaseToDash
+     * @var Zend_Filter
      */
     protected $_filterToClientNaming = null;
 
@@ -72,7 +57,7 @@ class Zend_Tool_Framework_Client_Console
     protected $_filterFromClientNaming = null;
 
     /**
-     * @var array
+     * @var array|string
      */
     protected $_classesToLoad = array();
 
@@ -120,8 +105,8 @@ class Zend_Tool_Framework_Client_Console
     }
 
     /**
-		 * @param array $classesToLoad
-		 */
+     * @param array|string $classesToLoad
+	 */
     public function setClassesToLoad($classesToLoad)
     {
         $this->_classesToLoad = $classesToLoad;

@@ -20,9 +20,6 @@
  * @version    $Id$
  */
 
-/** Zend_Mobile_Push_Exception */
-require_once 'Zend/Mobile/Push/Exception.php';
-
 /**
  * @category   Zend
  * @package    Zend_Mobile

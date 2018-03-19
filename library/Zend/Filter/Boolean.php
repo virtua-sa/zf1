@@ -20,11 +20,6 @@
  */
 
 /**
- * @see Zend_Filter_Interface
- */
-require_once 'Zend/Filter/Interface.php';
-
-/**
  * @category   Zend
  * @package    Zend_Filter
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
@@ -132,7 +127,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     /**
      * Set the null types
      *
-     * @param  integer|array $type
+     * @param  integer|array|string $type
      * @throws Zend_Filter_Exception
      * @return Zend_Filter_Boolean
      */
@@ -154,7 +149,6 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
         }
 
         if (!is_int($type) || ($type < 0) || ($type > self::ALL)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('Unknown type');
         }
 
@@ -186,14 +180,11 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
         } elseif ($locale instanceof Zend_Locale) {
             $locale = array($locale->toString());
         } elseif (!is_array($locale)) {
-            require_once 'Zend/Filter/Exception.php';
             throw new Zend_Filter_Exception('Locale has to be string, array or an instance of Zend_Locale');
         }
 
-        require_once 'Zend/Locale.php';
         foreach ($locale as $single) {
             if (!Zend_Locale::isLocale($single)) {
-                require_once 'Zend/Filter/Exception.php';
                 throw new Zend_Filter_Exception("Unknown locale '$single'");
             }
         }
@@ -215,9 +206,9 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     /**
      * Set the working mode
      *
-     * @param  boolean $locale When true this filter works like cast
-     *                         When false it recognises only true and false
-     *                         and all other values are returned as is
+     * @param  boolean $casting When true this filter works like cast
+     *                          When false it recognises only true and false
+     *                          and all other values are returned as is
      * @throws Zend_Filter_Exception
      * @return Zend_Filter_Boolean
      */
@@ -232,8 +223,8 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      *
      * Returns a boolean representation of $value
      *
-     * @param  string $value
-     * @return string
+     * @param  string|array|null|float|int|bool $value
+     * @return string|bool|array|float|int
      */
     public function filter($value)
     {
@@ -244,7 +235,6 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
         if ($type >= self::YES) {
             $type -= self::YES;
             if (is_string($value)) {
-                require_once 'Zend/Locale.php';
                 $locales = $this->getLocale();
                 foreach ($locales as $locale) {
                     if ($this->_getLocalizedQuestion($value, false, $locale) === false) {

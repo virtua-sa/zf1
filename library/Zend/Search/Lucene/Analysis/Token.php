@@ -82,7 +82,6 @@ class Zend_Search_Lucene_Analysis_Token
      * @param string  $text
      * @param integer $start
      * @param integer $end
-     * @param string  $type
      */
     public function __construct($text, $start, $end)
     {
@@ -123,12 +122,12 @@ class Zend_Search_Lucene_Analysis_Token
     {
         return $this->_termText;
     }
-    
+
     /**
      * Sets the Token's term text.
-     * 
+     *
      * @param string $text
-     * @return this
+     * @return $this
      */
     public function setTermText($text)
     {

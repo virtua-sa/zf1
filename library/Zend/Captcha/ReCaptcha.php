@@ -19,12 +19,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-/** @see Zend_Captcha_Base */
-require_once 'Zend/Captcha/Base.php';
-
-/** @see Zend_Service_ReCaptcha */
-require_once 'Zend/Service/ReCaptcha.php';
-
 /**
  * ReCaptcha adapter
  *
@@ -52,7 +46,7 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
     /**
      * Recaptcha service object
      *
-     * @var Zend_Service_Recaptcha
+     * @var Zend_Service_ReCaptcha
      */
     protected $_service;
 
@@ -265,7 +259,7 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
         if ($element instanceof Zend_Form_Element) {
             $name = $element->getBelongsTo();
         }
-        return $this->getService()->getHTML($name);
+        return $this->getService()->getHtml($name);
     }
 
     /**

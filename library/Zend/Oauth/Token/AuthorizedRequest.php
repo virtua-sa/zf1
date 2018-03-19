@@ -19,9 +19,6 @@
  * @version    $Id$
  */
 
-/** Zend_Oauth_Token */
-require_once 'Zend/Oauth/Token.php';
-
 /**
  * @category   Zend
  * @package    Zend_Oauth
@@ -86,13 +83,13 @@ class Zend_Oauth_Token_AuthorizedRequest extends Zend_Oauth_Token
     /**
      * Parse string data into array
      *
-     * @return array
+     * @return array|null
      */
     protected function _parseData()
     {
         $params = array();
         if (empty($this->_data)) {
-            return;
+            return null;
         }
         foreach ($this->_data as $key => $value) {
             $params[rawurldecode($key)] = rawurldecode($value);

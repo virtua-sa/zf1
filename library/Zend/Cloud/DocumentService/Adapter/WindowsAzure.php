@@ -17,11 +17,6 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
 
-require_once 'Zend/Cloud/DocumentService/Adapter/AbstractAdapter.php';
-require_once 'Zend/Cloud/DocumentService/Adapter/WindowsAzure/Query.php';
-require_once 'Zend/Cloud/DocumentService/Exception.php';
-require_once 'Zend/Service/WindowsAzure/Storage/DynamicTableEntity.php';
-require_once 'Zend/Service/WindowsAzure/Storage/Table.php';
 
 /**
  * SimpleDB adapter for document service.
@@ -77,7 +72,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
     /**
      * Constructor
      *
-     * @param array $options
+     * @param array|Zend_Config $options
      * @return void
      */
     public function __construct($options = array())
@@ -308,7 +303,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      *
      * The new document replaces the existing document.
      *
-     * @param  Zend_Cloud_DocumentService_Document $document
+     * @param  Zend_Cloud_DocumentService_Document|array $document
      * @param  array                         $options
      * @return boolean
      */
@@ -344,7 +339,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      *
      * @param  string $collectionName
      * @param  mixed|Zend_Cloud_DocumentService_Document $documentId Document identifier or document contaiing updates
-     * @param  null|array|Zend_Cloud_DocumentService_Document Fields to update (or new fields))
+     * @param  null|array|Zend_Cloud_DocumentService_Document $fieldset Fields to update (or new fields))
      * @param  array $options
      * @return boolean
      */
@@ -385,7 +380,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
     /**
      * Delete document.
      *
-     * @param  mixed  $document Document ID or Document object.
+     * @param  mixed  $documentId Document ID or Document object.
      * @param  array  $options
      * @return void
      */
@@ -416,7 +411,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      * @param  string $collectionName Collection name
      * @param  mixed $documentId Document ID, adapter-dependent
      * @param  array $options
-     * @return Zend_Cloud_DocumentService_Document
+     * @return Zend_Cloud_DocumentService_Document|false
      */
     public function fetchDocument($collectionName, $documentId, $options = null)
     {
@@ -440,7 +435,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      * @param  string $collectionName Collection name
      * @param  string|Zend_Cloud_DocumentService_Adapter_WindowsAzure_Query $query
      * @param  array $options
-     * @return array Zend_Cloud_DocumentService_DocumentSet
+     * @return Zend_Cloud_DocumentService_DocumentSet
      */
     public function query($collectionName, $query, $options = null)
     {
@@ -476,7 +471,6 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
     {
         $queryClass = $this->getQueryClass();
         if (!class_exists($queryClass)) {
-            require_once 'Zend/Loader.php';
             Zend_Loader::loadClass($queryClass);
         }
 
@@ -534,7 +528,8 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure
      * Validate a composite key
      *
      * @param  array $key
-     * @return throws Zend_Cloud_DocumentService_Exception
+     * @throws Zend_Cloud_DocumentService_Exception
+     * @return void
      */
     protected function _validateCompositeKey(array $key)
     {

@@ -22,22 +22,6 @@
 
 
 /**
- * @see Zend_Mail_Storage_Folder
- */
-require_once 'Zend/Mail/Storage/Folder.php';
-
-/**
- * @see Zend_Mail_Storage_Folder_Interface
- */
-require_once 'Zend/Mail/Storage/Folder/Interface.php';
-
-/**
- * @see Zend_Mail_Storage_Mbox
- */
-require_once 'Zend/Mail/Storage/Mbox.php';
-
-
-/**
  * @category   Zend
  * @package    Zend_Mail
  * @subpackage Storage
@@ -83,18 +67,10 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
         }
 
         if (isset($params->filename)) {
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('use Zend_Mail_Storage_Mbox for a single file');
         }
 
         if (!isset($params->dirname) || !is_dir($params->dirname)) {
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('no valid dirname given in params');
         }
 
@@ -115,7 +91,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      * @param string $currentDir call with root dir, also used for recursion.
      * @param Zend_Mail_Storage_Folder|null $parentFolder used for recursion
      * @param string $parentGlobalName used for rescursion
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     protected function _buildFolderTree($currentDir, $parentFolder = null, $parentGlobalName = '')
@@ -127,10 +103,6 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
 
         $dh = @opendir($currentDir);
         if (!$dh) {
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception("can't read dir $currentDir");
         }
         while (($entry = readdir($dh)) !== false) {
@@ -179,10 +151,6 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
         }
 
         if ($currentFolder->getGlobalName() != DIRECTORY_SEPARATOR . trim($rootFolder, DIRECTORY_SEPARATOR)) {
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception("folder $rootFolder not found");
         }
         return $currentFolder;
@@ -194,7 +162,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      * folder must be selectable!
      *
      * @param Zend_Mail_Storage_Folder|string $globalName global name of folder or instance for subfolder
-     * @return null
+     * @return void
      * @throws Zend_Mail_Storage_Exception
      */
     public function selectFolder($globalName)
@@ -209,18 +177,10 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
         } catch(Zend_Mail_Storage_Exception $e) {
             // check what went wrong
             if (!$folder->isSelectable()) {
-                /**
-                 * @see Zend_Mail_Storage_Exception
-                 */
-                require_once 'Zend/Mail/Storage/Exception.php';
                 throw new Zend_Mail_Storage_Exception("{$this->_currentFolder} is not selectable", 0, $e);
             }
             // seems like file has vanished; rebuilding folder tree - but it's still an exception
             $this->_buildFolderTree($this->_rootdir);
-            /**
-             * @see Zend_Mail_Storage_Exception
-             */
-            require_once 'Zend/Mail/Storage/Exception.php';
             throw new Zend_Mail_Storage_Exception('seems like the mbox file has vanished, I\'ve rebuild the ' .
                                                          'folder tree, search for an other folder and try again', 0, $e);
         }
@@ -229,7 +189,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
     /**
      * get Zend_Mail_Storage_Folder instance for current folder
      *
-     * @return Zend_Mail_Storage_Folder instance of current folder
+     * @return string instance of current folder
      * @throws Zend_Mail_Storage_Exception
      */
     public function getCurrentFolder()
@@ -254,7 +214,7 @@ class Zend_Mail_Storage_Folder_Mbox extends Zend_Mail_Storage_Mbox implements Ze
      *
      * with this method you can cache the mbox class
      *
-     * @return null
+     * @return void
      */
     public function __wakeup()
     {

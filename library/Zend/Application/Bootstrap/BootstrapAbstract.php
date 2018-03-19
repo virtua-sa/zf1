@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Application_Bootstrap_Bootstrapper
- */
-require_once 'Zend/Application/Bootstrap/Bootstrapper.php';
-
-/**
- * @see Zend_Application_Bootstrap_ResourceBootstrapper
- */
-require_once 'Zend/Application/Bootstrap/ResourceBootstrapper.php';
-
-/**
  * Abstract base class for bootstrap classes
  *
  * @uses       Zend_Application_Bootstrap_Bootstrapper
@@ -327,7 +317,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      * Get a registered plugin resource
      *
      * @param string $resource
-     * @return Zend_Application_Resource_Resource
+     * @return Zend_Application_Resource_Resource|null
      * @throws Zend_Application_Bootstrap_Exception
      */
     public function getPluginResource($resource)

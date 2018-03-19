@@ -19,21 +19,7 @@
  * @version    $Id: Style.php 20096 2010-01-06 02:05:09Z bkarwin $
  */
 
-require_once 'Zend/Pdf/Canvas/Interface.php';
 
-/** Internally used classes */
-require_once 'Zend/Pdf/Element.php';
-require_once 'Zend/Pdf/Element/Array.php';
-require_once 'Zend/Pdf/Element/String/Binary.php';
-require_once 'Zend/Pdf/Element/Boolean.php';
-require_once 'Zend/Pdf/Element/Dictionary.php';
-require_once 'Zend/Pdf/Element/Name.php';
-require_once 'Zend/Pdf/Element/Null.php';
-require_once 'Zend/Pdf/Element/Numeric.php';
-require_once 'Zend/Pdf/Element/String.php';
-require_once 'Zend/Pdf/Resource/GraphicsState.php';
-require_once 'Zend/Pdf/Resource/Font.php';
-require_once 'Zend/Pdf/Resource/Image.php';
 
 
 /**
@@ -56,7 +42,7 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     /**
      * Current font
      *
-     * @var Zend_Pdf_Resource_Font
+     * @var Zend_Pdf_Resource_Font|null
      */
     protected $_font = null;
 
@@ -70,7 +56,7 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     /**
      * Current style
      *
-     * @var Zend_Pdf_Style
+     * @var Zend_Pdf_Style|null
      */
     protected $_style = null;
 
@@ -219,7 +205,6 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     {
         $this->_addProcSet('PDF');
 
-        require_once 'Zend/Pdf/Page.php';
         if ($pattern === Zend_Pdf_Page::LINE_DASHING_SOLID) {
             $pattern = array();
             $phase   = 0;
@@ -339,7 +324,6 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     public function restoreGS()
     {
         if ($this->_saveCount-- <= 0) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Restoring graphics state which is not saved');
         }
         $this->_contents .= " Q\n";
@@ -716,7 +700,7 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     /**
      * Draw an image at the specified position on the page.
      *
-     * @param Zend_Pdf_Image $image
+     * @param Zend_Pdf_Resource_Image $image
      * @param float $x1
      * @param float $y1
      * @param float $x2
@@ -1039,7 +1023,6 @@ abstract class Zend_Pdf_Canvas_Abstract implements Zend_Pdf_Canvas_Interface
     public function drawText($text, $x, $y, $charEncoding = '')
     {
         if ($this->_font === null) {
-            require_once 'Zend/Pdf/Exception.php';
             throw new Zend_Pdf_Exception('Font has not been set');
         }
 

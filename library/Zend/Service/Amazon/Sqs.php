@@ -21,16 +21,6 @@
  */
 
 /**
- * @see Zend_Service_Amazon_Abstract
- */
-require_once 'Zend/Service/Amazon/Abstract.php';
-
-/**
- * @see Zend_Crypt_Hmac
- */
-require_once 'Zend/Crypt/Hmac.php';
-
-/**
  * Class for connecting to the Amazon Simple Queue Service (SQS)
  *
  * @category   Zend
@@ -85,7 +75,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     public function __construct($accessKey = null, $secretKey = null, $region = null)
     {
         parent::__construct($accessKey, $secretKey, $region);
-        
+
         if (null !== $region) {
             $this->_setEndpoint($region);
         }
@@ -108,7 +98,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
             throw new Zend_Service_Amazon_Sqs_Exception('Invalid SQS region specified.');
         }
     }
-    
+
     /**
      * Set SQS endpoint
      *
@@ -133,8 +123,8 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
 
     /**
      * Get the SQS endpoint
-     * 
-     * @return string 
+     *
+     * @return string
      */
     public function getEndpoint()
     {
@@ -148,14 +138,13 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      * For the actual region list please check:
      * http://docs.amazonwebservices.com/AWSSimpleQueueService/2009-02-01/APIReference/index.html?QueueServiceWsdlArticle.html
      *
-     * @param  string  $region region
      * @return array
      */
     public function getEndpoints()
     {
         return $this->_sqsEndpoints;
     }
-    
+
     /**
      * Create a new queue
      *
@@ -166,7 +155,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *
      * @param  string  $queue_name queue name
      * @param  integer $timeout    default visibility timeout
-     * @return string|boolean
+     * @return string|false
      * @throws Zend_Service_Amazon_Sqs_Exception
      */
     public function create($queue_name, $timeout = null)
@@ -193,7 +182,6 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
                     $retry = true;
                     $retry_count++;
                 } else {
-                    require_once 'Zend/Service/Amazon/Sqs/Exception.php';
                     throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
                 }
             } else {
@@ -219,7 +207,6 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
         $result = $this->_makeRequest($queue_url, 'DeleteQueue');
 
         if ($result->Error->Code !== null) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
         }
 
@@ -237,7 +224,6 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
         $result = $this->_makeRequest(null, 'ListQueues');
 
         if (isset($result->Error)) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
         }
 
@@ -287,10 +273,8 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
         if (!isset($result->SendMessageResult->MessageId)
             || empty($result->SendMessageResult->MessageId)
         ) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
         } else if ((string) $result->SendMessageResult->MD5OfMessageBody != $checksum) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception('MD5 of body does not match message sent');
         }
 
@@ -323,7 +307,6 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
         $result = $this->_makeRequest($queue_url, 'ReceiveMessage', $params);
 
         if (isset($result->Error)) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
         }
 
@@ -380,7 +363,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *
      * @param  string $queue_url  Queue URL
      * @param  string $attribute
-     * @return string
+     * @return string|array
      * @throws Zend_Service_Amazon_Sqs_Exception
      */
     public function getAttribute($queue_url, $attribute = 'All')
@@ -393,7 +376,6 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
         if (!isset($result->GetQueueAttributesResult->Attribute)
             || empty($result->GetQueueAttributesResult->Attribute)
         ) {
-            require_once 'Zend/Service/Amazon/Sqs/Exception.php';
             throw new Zend_Service_Amazon_Sqs_Exception($result->Error->Code);
         }
 
@@ -411,7 +393,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
     /**
      * Make a request to Amazon SQS
      *
-     * @param  string           $queue  Queue Name
+     * @param  string           $queue_url  Queue Name
      * @param  string           $action SQS action
      * @param  array            $params
      * @return SimpleXMLElement
@@ -509,7 +491,7 @@ class Zend_Service_Amazon_Sqs extends Zend_Service_Amazon_Abstract
      *    characters when appending strings.
      *
      * @param  string $queue_url  Queue URL
-     * @param  array  $parameters the parameters for which to get the signature.
+     * @param  array  $paramaters the parameters for which to get the signature.
      *
      * @return string the signed data.
      */
