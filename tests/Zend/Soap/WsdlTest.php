@@ -692,12 +692,12 @@ class Zend_Soap_WsdlTest extends PHPUnit_Framework_TestCase
  */
 class Zend_Soap_Wsdl_Test {
     /**
-     * @var integer
+     * @var integer|null
      */
     public $var1;
 
     /**
-     * @var string
+     * @var string|null
      */
     public $var2;
 }
