@@ -27,7 +27,7 @@ before_script:
   - cp ./tests/TestConfiguration.travis.php ./tests/TestConfiguration.php
 
 script:
- - find library/ -type f -name '*.php' -exec php -l {} \; | (! grep -v "No syntax errors detected" )
+ - if [[ "$TRAVIS_PHP_VERSION" != "5.2" ]]; then find library/ -type f -name '*.php' -path library/Zend/Test -exec php -l {} \; | (! grep -v "No syntax errors detected" ); fi
  - cd tests/
  - php runalltests.php
 
