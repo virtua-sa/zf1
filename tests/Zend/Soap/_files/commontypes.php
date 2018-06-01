@@ -330,7 +330,7 @@ class Zend_Soap_Wsdl_ComplexObjectStructure
 class Zend_Soap_Wsdl_ComplexObjectWithObjectStructure
 {
     /**
-     * @var Zend_Soap_Wsdl_ComplexTest
+     * @var Zend_Soap_Wsdl_ComplexTest|null
      */
     public $object;
 }
