@@ -240,10 +240,13 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
         }
 
         // FIXE GLOBALY Validator injection XSS VIFRAME-500
-        $view = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer')->view;
+        $view = null;
         $valueEscape = $value;
-        if ($view) {
-            $valueEscape = $view->escape($value);
+        if (defined('CALLEO')) {
+            $view = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer')->view;
+            if ($view) {
+                $valueEscape = $view->escape($value);
+            }
         }
         $message = str_replace('%value%', $valueEscape, $message);
         foreach ($this->_messageVariables as $ident => $property) {
