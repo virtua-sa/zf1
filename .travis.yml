@@ -42,6 +42,7 @@ before_script:
   - cp ./tests/TestConfiguration.travis.php ./tests/TestConfiguration.php
 
 script:
+  - find library/ -type f -name '*.php' -exec php -l {} \; | (! grep -v "No syntax errors detected" )
   - cd tests/
   - php runalltests.php
 
