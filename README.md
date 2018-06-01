@@ -1,10 +1,7 @@
 Zend Framework 1
 ================
-[![Build Status](https://travis-ci.org/diablomedia/zf1.svg?branch=version-test-fix)](https://travis-ci.org/diablomedia/zf1)
-[![codecov](https://codecov.io/gh/diablomedia/zf1/branch/master/graph/badge.svg)](https://codecov.io/gh/diablomedia/zf1)
-[![Latest Stable Version](https://poser.pugx.org/diablomedia/zendframework1/v/stable)](https://packagist.org/packages/diablomedia/zendframework1)
-[![Total Downloads](https://poser.pugx.org/diablomedia/zendframework1/downloads)](https://packagist.org/packages/diablomedia/zendframework1)
-[![License](https://poser.pugx.org/diablomedia/zendframework1/license)](https://packagist.org/packages/diablomedia/zendframework1)
+[![Build Status](https://travis-ci.org/virtua-sa/zf1.svg?branch=master)](https://travis-ci.org/virtua-sa/zf1)
+[![codecov](https://codecov.io/gh/virtua-sa/zf1/branch/master/graph/badge.svg)](https://codecov.io/gh/virtua-sa/zf1)
 
 This is a fork of Zend Framework 1 that we'll maintain as long as we're using it, mainly just to keep it working on new versions of PHP as they're released.
 

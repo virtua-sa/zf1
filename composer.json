@@ -1,5 +1,5 @@
 {
-    "name": "diablomedia/zendframework1",
+    "name": "virtua-sa/zendframework1",
     "description": "Zend Framework 1",
     "type": "library",
     "keywords": [
@@ -53,6 +53,7 @@
         "exclude": ["/demos", "/documentation", "/tests"]
     },
     "replace": {
-        "zendframework/zendframework1": ">=1.12.20"
+        "zendframework/zendframework1": ">=1.12.20",
+        "diablomedia/zendframework1": ">=1.12.20"
     }
 }
