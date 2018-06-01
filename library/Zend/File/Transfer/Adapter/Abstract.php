@@ -618,9 +618,10 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     public function isValid($files = null)
     {
         $check = $this->_getFiles($files, false, true);
-        if (empty($check)) {
-            return false;
-        }
+        // Workaround IE
+        //if (empty($check)) {
+        //    return false;
+        //}
 
         $translator      = $this->getTranslator();
         $this->_messages = array();

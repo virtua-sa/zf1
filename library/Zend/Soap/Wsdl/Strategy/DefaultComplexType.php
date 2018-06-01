@@ -63,19 +63,26 @@ class Zend_Soap_Wsdl_Strategy_DefaultComplexType extends Zend_Soap_Wsdl_Strategy
         $all = $dom->createElement('xsd:all');
 
         foreach ($class->getProperties() as $property) {
-            if ($property->isPublic() && preg_match_all('/@var\s+([^\s]+)/m', $property->getDocComment(), $matches)) {
+            if ($property->isPublic() && preg_match('/@var\s+([^\s]+)/m', $property->getDocComment(), $matches)) {
 
                 /**
                  * @todo check if 'xsd:element' must be used here (it may not be compatible with using 'complexType'
                  * node for describing other classes used as attribute types for current class
                  */
                 $element = $dom->createElement('xsd:element');
-                $element->setAttribute('name', $propertyName = $property->getName());
-                $element->setAttribute('type', $this->getContext()->getType(trim($matches[1][0])));
+                $element->setAttribute('name', $property->getName());
 
-                // If the default value is null, then this property is nillable.
-                if ($defaultProperties[$propertyName] === null) {
-                    $element->setAttribute('nillable', 'true');
+                $propTypes = explode('|', $matches[1]);
+                $propType = null;
+                foreach ($propTypes as $tmpType) {
+                    if ($tmpType === 'null') {
+                        $element->setAttribute('nillable', 'true');
+                    } else if ($propType === null) {
+                        $propType = $tmpType;
+                    }
+                }
+                if ($propType !== null) {
+                    $element->setAttribute('type', $this->getContext()->getType($propType));
                 }
 
                 $all->appendChild($element);

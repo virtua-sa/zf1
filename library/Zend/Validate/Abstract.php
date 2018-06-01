@@ -239,11 +239,21 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
             $value = str_repeat('*', strlen($value));
         }
 
-        $message = str_replace('%value%', $value, $message);
+        // FIXE GLOBALY Validator injection XSS VIFRAME-500
+        $view = Zend_Controller_Action_HelperBroker::getStaticHelper('viewRenderer')->view;
+        $valueEscape = $value;
+        if ($view) {
+            $valueEscape = $view->escape($value);
+        }
+        $message = str_replace('%value%', $valueEscape, $message);
         foreach ($this->_messageVariables as $ident => $property) {
+            $propertyValue = implode(' ', (array) $this->$property);
+            if ($view) {
+                $propertyValue = $view->escape($propertyValue);
+            }
             $message = str_replace(
                 "%$ident%",
-                implode(' ', (array) $this->$property),
+                $propertyValue,
                 $message
             );
         }
