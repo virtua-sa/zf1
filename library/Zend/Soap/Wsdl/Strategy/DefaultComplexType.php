@@ -68,15 +68,19 @@ class Zend_Soap_Wsdl_Strategy_DefaultComplexType extends Zend_Soap_Wsdl_Strategy
 
                 $propTypes = explode('|', $matches[1]);
                 $propType = null;
+                $isNillable = false;
                 foreach ($propTypes as $tmpType) {
                     if ($tmpType === 'null') {
-                        $element->setAttribute('nillable', 'true');
+                        $isNillable = true;
                     } else if ($propType === null) {
                         $propType = $tmpType;
                     }
                 }
                 if ($propType !== null) {
                     $element->setAttribute('type', $this->getContext()->getType($propType));
+                }
+                if ($isNillable) {
+                    $element->setAttribute('nillable', 'true');
                 }
 
                 $all->appendChild($element);
