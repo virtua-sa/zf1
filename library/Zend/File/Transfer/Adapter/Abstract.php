@@ -611,9 +611,9 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     {
         $check = $this->_getFiles($files, false, true);
         // Workaround IE
-        //if (empty($check)) {
-        //    return false;
-        //}
+        if (!defined('CALLEO') && empty($check)) {
+            return false;
+        }
 
         $translator      = $this->getTranslator();
         $this->_messages = array();
