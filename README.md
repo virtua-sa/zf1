@@ -13,7 +13,7 @@
 
 Welcome to the Zend Framework 1.12 Release! 
 
-Master: [![Build Status](https://api.travis-ci.org/virtua-sa/zf1.png?branch=master)](https://travis-ci.org/virtua-sa/zf1)
+Branch PHP5: [![Build Status](https://api.travis-ci.org/virtua-sa/zf1.png?branch=php5)](https://travis-ci.org/virtua-sa/zf1)
 
 RELEASE INFORMATION
 ===================
