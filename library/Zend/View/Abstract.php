@@ -27,7 +27,7 @@
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-abstract class Zend_View_Abstract implements Zend_View_Interface
+abstract class Zend_View_Abstract extends stdClass implements Zend_View_Interface
 {
     /**
      * Path stack for script, helper, and filter directories.
@@ -129,6 +129,18 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      * @var boolean
      */
     private $_strictVars = false;
+
+    /**
+     * List of the rendered views
+     * @var array
+     */
+    private static $_files = array();
+
+    /**
+     * Used to log or not the rendered files
+     * @var bool
+     */
+    private $_logUsedFiles = false;
 
     /**
      * Constructor.
@@ -863,6 +875,14 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      */
     public function render($name)
     {
+        // log every script used by the application
+        $start = 0;
+        $previewFiles = array();
+        if ($this->_logUsedFiles) {
+            $previewFiles = self::$_files;
+            $start = microtime(true);
+        }
+
         // find the script file name using the parent private method
         $this->_file = $this->_script($name);
         unset($name); // remove $name from local scope
@@ -870,7 +890,15 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
         ob_start();
         $this->_run($this->_file);
 
-        return $this->_filter(ob_get_clean()); // filter output
+        $result = $this->_filter(ob_get_clean()); // filter output
+
+        // log every script used by the application
+        if ($this->_logUsedFiles) {
+            $end = microtime(true);
+            self::addUsedFile($this->_file, $end-$start, $previewFiles);
+        }
+
+        return $result;
     }
 
     /**
@@ -1179,4 +1207,68 @@ abstract class Zend_View_Abstract implements Zend_View_Interface
      * @return mixed
      */
     abstract protected function _run();
+
+    /**
+     * Pushes a .phtml file
+     * @param string $file .phtml file to add
+     * @param float $executionTime
+     * @param string[] $previewFiles
+     */
+    protected static function addUsedFile($file, $executionTime, array $previewFiles)
+    {
+        if (null != $file) {
+            $netExecutionTime = $executionTime;
+            $subLayouts = array();
+            foreach (self::$_files as $filename => $data) {
+                $sub = false;
+                if (!isset($previewFiles[$filename])) {
+                    $netExecutionTime -= $data['render_time'];
+                    $sub = true;
+                } else if (isset($previewFiles[$filename]) && $data['nb_use'] !== $previewFiles[$filename]['nb_use']) {
+                    $netExecutionTime -= ($data['render_time'] - $previewFiles[$filename]['render_time']);
+                    $subLayouts[$filename] = $filename;
+                    $sub = true;
+                }
+                if ($sub) {
+                    if (isset($subLayouts[$filename])) {
+                        $subLayouts[$filename] ++;
+                    } else {
+                        $subLayouts[$filename] = 1;
+                    }
+                }
+            }
+            if (array_key_exists($file, self::$_files)) {
+                self::$_files[$file]['nb_use']++;
+                self::$_files[$file]['render_time'] += $netExecutionTime;
+                self::$_files[$file]['render_time_total'] += $executionTime;
+                self::$_files[$file]['sub_layouts'] = array_unique(array_merge(self::$_files[$file]['sub_layouts'], $subLayouts));
+            } else {
+                self::$_files[$file] = array(
+                    'nb_use' => 1,
+                    'render_time' => $netExecutionTime,
+                    'render_time_total' => $executionTime,
+                    'sub_layouts' => $subLayouts,
+                );
+            }
+        }
+    }
+
+    /**
+     * Returns the rendered files
+     * @return array
+     */
+    public static function getUsedFiles()
+    {
+        return self::$_files;
+    }
+
+    /**
+     * Defines if the View has to log the rendered files
+     *
+     * @param bool $flag
+     */
+    public function logUsedFiles($flag)
+    {
+        $this->_logUsedFiles = (bool) $flag;
+    }
 }

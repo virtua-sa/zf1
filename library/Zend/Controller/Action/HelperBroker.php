@@ -26,6 +26,19 @@
  * @subpackage Zend_Controller_Action
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @property   Virtua_Controller_Action_Helper_Crud $crud
+ * @property   Virtua_Controller_Action_Helper_Send $send
+ * @property   Virtua_Controller_Action_Helper_Ajax $ajax
+ * @property   Virtua_Controller_Action_Helper_Filter $filter
+ * @property   Virtua_Controller_Action_Helper_Rest $rest
+ * @property   Zend_Controller_Action_Helper_Redirector $redirector
+ * @property   Zend_Controller_Action_Helper_Json $json
+ * @property   Zend_Controller_Action_Helper_FlashMessenger $flashMessenger
+ * @property   Virtua_Controller_Action_Helper_Javascript $javascript
+ * @property   Virtua_Controller_Action_Helper_History $history
+ * @property   Virtua_Controller_Action_Helper_Pagination $pagination
+ * @property   Zend_Controller_Action_Helper_ViewRenderer $viewRenderer
  */
 class Zend_Controller_Action_HelperBroker
 {

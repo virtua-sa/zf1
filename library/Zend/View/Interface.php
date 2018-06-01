@@ -27,6 +27,56 @@
  * @package    Zend_View
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
+ *
+ * @method string|mixed format() format(string $formaterMethod, $value, array $options = null) this call a format method <br />
+ *  - see {@link Virtua_View_Helper_Format} <br />
+ *  - Default : {@link Virtua_View_Helper_Format_Default}::METHOD, $formaterMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $formaterMethod = "GROUP.METHOD"
+ *
+ * @method void adorn() adorn(string $adornMethod, $param1 = null, $paramX = null) this call a adorn method <br />
+ *  - see {@link Virtua_View_Helper_Adorn} <br />
+ *  - Default {@link Virtua_View_Helper_Adorn_Default}::METHOD, $adornMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $adornMethod = "GROUP.METHOD"
+ *
+ * @method Virtua_View_Helper_Config config() config() this get the config Helper instance <br />
+ *  - see {@link Virtua_View_Helper_Config} <br />
+ *  - Default {@link Virtua_View_Helper_Config}::METHOD, $configMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $configMethod = "GROUP.METHOD"
+ *
+ * @method string currency() currency(string|integer|float $value, $currency) this formats the value with the correct currency <br />
+ *  - see {@link Virtua_View_Helper_Currency} <br />
+ *  - Default {@link Virtua_View_Helper_Config}::METHOD, $currencyMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $currencyMethod = "GROUP.METHOD"
+ *
+ * @method string dir() dir(string $lang) this adds the dir attribute html code if necessary <br />
+ *  - see {@link Virtua_View_Helper_Dir} <br />
+ *  - Default {@link Virtua_View_Helper_Dir}::METHOD, $dirMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $dirMethod = "GROUP.METHOD"
+ *
+ * @method Virtua_View_Helper_History history() history() this returns the instance of the history helper <br />
+ *  - see {@link Virtua_View_Helper_History} <br />
+ *  - Default {@link Virtua_View_Helper_History}::METHOD, $historyMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $historyMethod = "GROUP.METHOD"
+ *
+ * @method Virtua_View_Helper_HeadScript headScript() headScript() this returns the instance of the Head Script helper <br />
+ *  - see {@link Virtua_View_Helper_HeadScript} <br />
+ *  - Default {@link Virtua_View_Helper_HeadScript}::METHOD, $headScriptMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $headScriptMethod = "GROUP.METHOD"
+ *
+ * @method Virtua_View_Helper_HeadLink headLink() headLink() this returns the instance of the Head Link helper <br />
+ *  - see {@link Virtua_View_Helper_HeadLink} <br />
+ *  - Default {@link Virtua_View_Helper_HeadLink}::METHOD, $headLinkMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $headLinkMethod = "GROUP.METHOD"
+ *
+ * @method string url() url($urlOptions = array(), $routeName = null, $reset = true, $paramsOnly = true, $encode = true, $absolute = false) this returns the url <br />
+ *  - see {@link Virtua_View_Helper_Url} <br />
+ *  - Default {@link Virtua_View_Helper_Url}::METHOD, $urlMethod = "METHOD"<br />
+ *  - Others : [App|Virtua|Calleo|Shop|Cms]_View_Helper_Format_[GROUP]::METHOD, $urlMethod = "GROUP.METHOD"
+ *
+ * @method string partial() partial($name = null, $module = null, $model = null) render partial <br />
+ *  - see {@link Zend_View_Helper_Partial}
+ *
+ * @method string escape() escape($value)
  */
 interface Zend_View_Interface
 {
