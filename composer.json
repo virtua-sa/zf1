@@ -1,5 +1,5 @@
 {
-    "name": "zendframework/zendframework1",
+    "name": "virtua-sa/zendframework1",
     "description": "Zend Framework 1",
     "type": "library",
     "keywords": [
@@ -33,5 +33,8 @@
     },
     "archive": {
         "exclude": ["/demos", "/documentation", "/tests"]
+    },
+    "replace": {
+        "zendframework/zendframework1": ">=1.12.20"
     }
 }
