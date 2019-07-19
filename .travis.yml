@@ -6,13 +6,15 @@ php:
   - 7
   - 7.1
   - 7.2
+  - 7.3
   - nightly
 
 env: TMPDIR=/tmp USE_XDEBUG=false
 
 branches:
   only:
-    master
+    - master
+    - tmp
 
 before_install:
   - travis_retry composer self-update
@@ -51,12 +53,12 @@ jobs:
     - php: nightly
   include:
     - stage: phpstan analysis
-      php: 7.1
+      php: 7.2
       env: TMPDIR=/tmp USE_XDEBUG=false
       script:
         - ./bin/phpstan analyse -l 4 --autoload-file=vendor/autoload.php --memory-limit=1024M -c phpstan.neon ./library
     - stage: test with coverage
-      php: 7.1
+      php: 7.2
       env: TMPDIR=/tmp USE_XDEBUG=true
       script:
         - cd tests/
