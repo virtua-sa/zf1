@@ -1414,6 +1414,10 @@ abstract class Zend_File_Transfer_Adapter_Abstract
     protected function _isPathWriteable($path)
     {
         $tempFile = rtrim($path, "/\\");
+        if (is_writable($tempFile)) {
+            // use this method to avoid concurency bug
+            return true;
+        }
         $tempFile .= '/' . 'test.1';
 
         $result = @file_put_contents($tempFile, 'TEST');
